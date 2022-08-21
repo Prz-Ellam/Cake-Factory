@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Suprema</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: #F0D5CC;
+        }
+
+        .navbar {
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            background-color: blueviolet;
+        }
+
+        .bg-brown {
+            color: #391113;
+        }
+
+        .outline {
+            border: 1px solid gray;
+        }
+
+        .outline:focus {
+            border: 1px solid blue;
+            
+        }
+    </style>
+
+</head>
+<body>
+
+    <!--navclass="navbar navbar-expand d-flex flex-column align-items-start">
+        <a class="navbar-brand text-light mt-5">Hola</a>
+        <ul class="navbar-nav d-flex flex-column mt-5 w-100">
+            <li class="nav-item w-100 text-light">A</li>
+            <li class="nav-item w-100 text-light">B</li>
+            <li class="nav-item w-100 text-light">C</li>
+        </ul>
+    </nav-->
+
+    
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <label>Foto de perfil</label>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label" role="button">Correo electrónico</label>
+                            <input class="form-control shadow-none" type="email" name="email" id="email">    
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="username" class="form-label" role="button">Nombre de usuario</label>
+                            <input class="form-control shadow-none" type="text" name="username" id="username">
+                            
+                        </div>
+
+                        <label for="birthdate" class="form-label" role="button">Fecha de nacimiento</label>
+                        <input class="form-control shadow-none" type="date" name="birthdate" id="birthdate">
+
+                        <label for="first-name" class="form-label" role="button">Nombre</label>
+                        <input class="form-control shadow-none" type="text" name="first-name" id="first-name">
+
+                        <label for="last-name" class="form-label" role="button">Apellido(s)</label>
+                        <input class="form-control shadow-none" type="text" name="last-name" id="last-name">
+
+                    <p>Please select your favorite Web language:</p>
+                      <input type="radio" id="html" name="fav_language" value="HTML">
+                      <label for="html">Masculino</label><br>
+                      <input type="radio" id="css" name="fav_language" value="CSS">
+                      <label for="css">Femenino</label><br>
+                      <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+                      <label for="javascript">Otro</label>
+                    
+
+                        <label for="password" class="form-label" role="button">Contraseña</label>
+                        <input class="form-control shadow-none" type="password" name="password" id="password">
+
+                        <label for="confirm-password" class="form-label" role="button">Confirmar contraseña</label>
+                        <input class="form-control shadow-none"f type="password" name="confirm-password" id="confirm-password">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="container card p-4 rounded-1 bg-light my-4">
+
+        <div class="text-center bg-brown">
+            <h1><i class="fa fa-user"></i> Usuarios</h1>
+        </div>
+
+        <hr>
+
+        <div class="table-responsive bg-light p-1">
+            <div class="d-flex justify-content-between">
+                <form>
+                    <input type="text" class="form-control shadow-none rounded-1 bg-light outline" placeholder="Filtrar">
+                </form>
+                <button class="btn btn-success shadow-none mb-2 rounded-1" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-user-plus"></i> Agregar usuario</button>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Correo electrónico</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr role="button">
+                        <td scope="row">1</td>
+                        <td><img class="img-fluid rounded-circle" width="40" height="40" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg"> Eliam</td>
+                        <td>eliam@correo.com</td>
+                        <td>
+                            <button class="btn btn-primary shadow-none rounded-1"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr role="button">
+                        <td scope="row">2</td>
+                        <td><img class="img-fluid rounded-circle" width="40" height="40" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg"> Elisa</td>
+                        <td>elisa@correo.com</td>
+                        <td>
+                            <button class="btn btn-primary shadow-none rounded-1"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr role="button">
+                        <td scope="row">3</td>
+                        <td><img class="img-fluid rounded-circle" width="40" height="40" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg"> Eligio</td>
+                        <td>eligio@correo.com</td>
+                        <td>
+                            <button class="btn btn-primary shadow-none rounded-1"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr role="button">
+                        <td scope="row">4</td>
+                        <td><img class="img-fluid rounded-circle" width="40" height="40" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg"> Eliot</td>
+                        <td>eliot@correo.com</td>
+                        <td>
+                            <button class="btn btn-primary shadow-none rounded-1"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr role="button">
+                        <td scope="row">5</td>
+                        <td><img class="img-fluid rounded-circle" width="40" height="40" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg"> Elias</td>
+                        <td>elias@correo.com</td>
+                        <td>
+                            <button class="btn btn-primary shadow-none rounded-1"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-between">
+                <p>Showing 5 out of 500 entries</p>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link shadow-none bg-brown" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link shadow-none bg-brown" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link shadow-none bg-brown" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link shadow-none bg-brown" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link shadow-none bg-brown" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/48ce36e499.js" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

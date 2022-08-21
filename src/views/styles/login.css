@@ -1,0 +1,158 @@
+body {
+    background-color: #F0D5CC;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 30%;
+    z-index: -10;
+}
+
+.success-icon {
+    color:rgb(121, 177, 143);
+    position: absolute;
+    visibility: hidden;
+    font-size: 18px;
+    top: 10px;
+    right: 10px;
+    z-index: 200;
+}
+
+.error-icon {
+    color:rgb(222, 79, 84);
+    position: absolute;
+    visibility: hidden;
+    font-size: 18px;
+    top: 10px;
+    right: 10px;
+    z-index: 200;
+}
+
+#show-password, #show-confirmpassword {
+    cursor: pointer;
+    position: absolute;
+    visibility: visible;
+    font-size: 18px;
+    z-index: 200;
+    top: 10px;
+    right: 30px;
+}
+
+#hide-password, #hide-confirmpassword {
+    cursor: pointer;
+    position: absolute;
+    visibility: hidden;
+    font-size: 18px;
+    z-index: 200;
+    top: 10px;
+    right: 29px;
+}
+
+#btn-login {
+    background-color: #FF5E1F;
+    border-color: #FF5E1F;
+}
+
+#btn-login:hover {
+    background-color: #CA4C1B;
+    border-color: #CA4C1B;
+}
+
+#btn-login:active {
+    background-color: #bd491b;
+    border-color: #bd491b;
+}
+
+
+.input-group {
+    position: relative;
+    width: auto;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-control {
+    border: none;
+    outline: 1px solid grey;
+    transition: outline 100ms linear;
+    z-index: 100;
+}
+
+.form-control:focus {
+    outline: 1px solid #FF5E1F;
+    transition: outline 100ms linear;
+}
+
+.form {
+    filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.25));
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #FF5E1F!important;
+    border: none;
+    outline: none;
+  }
+  
+.custom-checkbox .custom-control-input:checked:focus ~ .custom-control-label::before {
+    box-shadow: none;
+}
+
+.custom-checkbox .custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: none;
+}
+
+.custom-checkbox .custom-control-input:active ~ .custom-control-label::before {
+    background-color: #fdb092; 
+}
+
+
+
+
+.is-valid {
+    outline: 1px solid #79b18f;
+}
+
+.is-invalid {
+    outline: 1px solid #de4f54;
+}
+
+#caps-lock {
+    visibility: hidden;
+}
+
+.form-control.is-valid {
+    background-image: url("../assets/icons/check-circle-solid.svg");
+}
+
+.form-control.is-invalid {
+    background-image: url("../assets/icons/exclamation-circle-solid.svg");
+}
+
+
+.tooltip-inner {
+    background-color: #DC3545 !important;
+    color: #FFFFFF ;
+}
+
+.bs-tooltip-top .arrow::before, .bs-tooltip-auto[x-placement^="top"] .arrow::before {
+    border-top-color: #DC3545 !important;
+}
+  
+.bs-tooltip-right .arrow::before, .bs-tooltip-auto[x-placement^="right"] .arrow::before {
+    border-right-color: #DC3545 !important;
+}
+  
+  
+.bs-tooltip-bottom .arrow::before, .bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
+    border-bottom-color: #DC3545 !important;
+}
+  
+  
+.bs-tooltip-left .arrow::before, .bs-tooltip-auto[x-placement^="left"] .arrow::before {
+    border-left-color: #DC3545 !important;
+}

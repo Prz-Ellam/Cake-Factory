@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^((?!assets|js|layouts|styles).*)$ index.php?path=$1 [L,QSA]
+RewriteRule ^((assets|js|layouts|styles).*)$ src/views/$1 [L,QSA]

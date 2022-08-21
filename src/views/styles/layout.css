@@ -1,0 +1,31 @@
+body {
+    background-color: #F0D5CC;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bg-brown {
+    background-color: #391113;
+}
+
+.text-brown {
+    color: #391113;
+}
+
+.orange {
+    background-color: #FF5E1F;
+    border: 1px solid #FF5E1F;
+    font-size: 22px;
+}
+
+.bg-orange {
+    background-color: #FF5E1F;
+    border: 1px solid #FF5E1F;
+}
+
+.orange:hover, .bg-orange:hover {
+    background-color: #c44817;
+    border: 1px solid #c44817;
+}
+
+
+

@@ -1,0 +1,24 @@
+footer {
+    background-color: #391113;
+}
+
+.text-cream {
+    color:  #F0D5CC;
+}
+
+a.text-cream {
+    cursor: pointer;
+}
+
+a.text-cream:hover {
+    color:  #ebb09d;
+}
+
+#logo-banner {
+    width: 250px;
+}
+
+.icons {
+    width: 1em;
+    height: 1em;
+}
