@@ -20,60 +20,180 @@
     
     <!-- CSS -->
     <link href="./styles/navbar.css" rel="stylesheet">
+    <link href="./styles/layout.css" rel="stylesheet">
     <link href="./styles/footer.css" rel="stylesheet">
-
 </head>
 <body>
 
-          <!-- Main container -->
-          <div class="container my-4">
-
-            <div class="row d-flex justify-content-center">
-
-                <div class="col-xl-5 col-lg-5 col-md-8">
-
-                    <form class="form bg-white rounded p-5" id="login-form" method="get" action="#" novalidate>
-
-                        <div class="mb-3">
-                            <h1 class="form-title text-center h2">Perfil</h1>
-                        </div>
-
-                        <hr class="mb-4">
-
-                        <div class="form-group mb-4">
-                            <label class="form-label" for="email">Correo electrónico</label>
-                            <div class="input-group">
-                            <input type="email" class="form-control shadow-none rounded" name="email" id="email" 
-                                placeholder="correo@ejemplo.com">
-                            </div>
-                        </div>
+    <header class="fixed-top sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar">
         
-                        <div class="form-group mb-4">
-                            <div class="row">
-                                <label class="form-label col-6" for="password">Contraseña</label>
-                                <small class="text-right col-6 font-weight-bold text-danger" id="caps-lock">Bloq. Mayús Activado</small>
-                            </div>
-                            <div class="input-group">
-                                <input type="password" class="form-control shadow-none rounded" name="password" id="password">
-                                <i class="fas fa-solid fa-eye" id="show-password"></i>
-                                <i class="fas fa-solid fa-eye-slash" id="hide-password"></i>
-                            </div>
-                        </div>
+            <a class="navbar-brand" href="/"><img src="assets/img/Brand-Logo.svg" id="brand-logo"></a>
 
-                        <label class="d-none" id="forgot"><a href="#" class="mt-3">¿Olvidaste tu contraseña?</a></label>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+                <i class="fa fa-bars"></i>
+            </button>
 
-                        <div class="mt-3 custom-control custom-checkbox mb-4">
-                            <input type="checkbox" class="custom-control-input" name="remember" id="remember">
-                            <label class="custom-control-label" for="remember">Recuérdame</label>
+            <div class="collapse navbar-collapse me-auto" id="navbar-collapse">
+
+                <form class="form-inline ms-xl-5 me-lg-auto w-50" id="search-box">
+                    <div class="input-group w-100">
+                        <input type="search" class="form-control search shadow-none" name="search" id="search" placeholder="Buscar productos">
+                        <div class="input-group-append">
+                            <button class="btn bg-white search-btn shadow-none" type="submit" id="search-btn"><i class="fas fa-search text-secondary"></i></button>
                         </div>
+                    </div>
+                </form>
+
+                <ul class="navbar-nav" id="orange-navbar"></ul>
+
+            </div>
+        </nav>
+
+        <nav class="navbar navbar-expand-md bg-white navbar-dark shadow-sm">
         
-                        <div class="form-group mb-4">
-                            <input type="submit" value="Iniciar sesión" class="btn btn-primary w-100 shadow-none mt-3" id="btn-login">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#subnavbar-collapse">
+                <i class="fa fa-bars text-brown"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="subnavbar-collapse">
+
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link ms-1 me-4 p-1 text-brown" href="index.html">
+                            Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-4 p-1 text-brown" href="Contact.html">
+                            Contacto
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-4 p-1 text-brown" href="AboutUs.html">
+                            Nosotros
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-4 p-1 text-brown" href="BranchOffices.html">
+                            Sucursales
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+
+
+
+
+
+
+
+    <!-- Main container -->
+    <div class="container my-5">
+        <!-- Flexbox -->
+        <div class="row d-flex justify-content-center">
+            <!-- Grid System -->
+            <div class="col-xl-6 col-lg-6 col-md-7">
+                <!-- Form Card -->
+                <form class="form bg-white rounded p-5" id="login-form" method="get" action="#" novalidate>
+                    <!-- Inputs -->
+                    <div class="mb-4">
+                        <h1 class="form-title text-center h2">Perfil</h1>
+                    </div>
+
+                    <hr class="mb-4">
+
+                    <div class="mb-4">
+                        <label class="form-label">Foto de perfil</label>
+                        <input type="file" class=" shadow-none rounded-1" name="profile-picture" id="profile-picture" >
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label" for="name">Nombre de usuario</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control shadow-none rounded-1" name="username" id="username"
+                            autocomplete="off">
                         </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-linputabel" for="email">Correo electrónico</label>
+                        <div class="input-group">
+                            <input type="email" class="form-control shadow-none rounded-1" name="email" id="email" 
+                            placeholder="ejemplo@correo.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label class="form-label" for="first-name">Nombre</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control shadow-none rounded-1" name="first-name" id="first-name" 
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label class="form-label" for="last-name">Apellido(s)</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control shadow-none rounded-1" name="last-name" id="last-name" 
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label class="form-label" for="user-role">Rol de usuario</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control shadow-none rounded-1" name="user-role" id="user-role" 
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label class="form-label" for="gender">Sexo</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control shadow-none rounded-1" name="gender" id="gender" 
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label class="form-label" for="birth-date">Fecha de nacimiento</label>
+                        <div class="input-group">
+                            <input type="date" class="form-control shadow-none rounded-1" name="birth-date" id="birth-date" 
+                            >
+                        </div>
+                    </div>
+    
+                    <div class="form-group mb-4">
+                        <div class="row">
+                            <label class="form-label col-6" for="password">Contraseña</label>
+                            <small class="text-right col-6 fw-bold text-danger" id="caps-lock">Bloq. Mayús Activado</small>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" class="form-control shadow-none rounded-1" name="password" id="password" placeholder="Debe contener 6 caracteres">
+                            <i class="fas fa-solid fa-eye" id="show-password"></i>
+                            <i class="fas fa-solid fa-eye-slash" id="hide-password"></i>
+                        </div>
+                    </div>
+    
+                    <div class="form-group mb-4">
+                        <label class="form-label" for="confirm-password">Confirmar contraseña</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control shadow-none rounded-1" id="confirm-password" name="confirm-password" 
+                            id="confirmpassword">
+                            <i class="fas fa-solid fa-eye" id="show-confirmpassword"></i>
+                            <i class="fas fa-solid fa-eye-slash" id="hide-confirmpassword"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label style="visibility:hidden">A</label>
+                        <input type="submit" value="Editar" class="btn btn-primary w-100 shadow-none" id="btn-login">
+                    </div>
         
-                        <p class="text-center">¿Aún no tienes cuenta? <br><a href="Registration.html" class="text-decoration-none" style="color: #FF5E1F">Registrate ahora</a></p>
-                        
-                        <hr>
 
                         <p class="text-center mt-4"><a href="" style="color: #FF5E1F" class="text-decoration-none" data-toggle="modal" data-target="#exampleModal">¿Olvidaste tu contraseña?</a></p>
 
@@ -83,7 +203,7 @@
                         <div class="modal-dialog" role="document">
                           <div class="modal-content bg-white">
                             <div class="modal-header">
-                              <h5 class="modal-title font-weight-bold" id="exampleModalLabel">¿Olvidaste tu contraseña?</h5>
+                              <h5 class="modal-title fw-bold" id="exampleModalLabel">¿Olvidaste tu contraseña?</h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
@@ -116,22 +236,69 @@
 
         </div>
 
-            <!-- Footer -->
-    <footer class="page-footer p-5">
-      <!-- Container -->
-      <div class="container-fluid text-center text-md-left">
-          <!-- Grid Row -->
-          <div class="row text-center text-md-left">
-              <!-- Grid Column -->
+    <!-- Main container -->
+    <div class="container my-5">
+        <!-- Flexbox -->
+        <div class="row d-flex justify-content-center">
+            <!-- Grid System -->
+            <div class="col-xl-6 col-lg-6 col-md-7">
+                <!-- Form Card -->
+                <form class="form bg-white rounded p-5" id="login-form" method="get" action="#" novalidate>                        <!-- Inputs -->
+                    <div class="mb-4">
+                        <h1 class="form-title text-center h2">Cambiar contraseña</h1>
+                    </div>
 
-              <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
-                  <ul class="list-unstyled">
-                      <li class="my-2"><img src="assets/img/Footer-Logo.svg" class="img-fluid" id="logo-banner"></li>
-                  </ul>
-              </div>
+                    <hr class="mb-4">
+
+                    <div class="mb-4">
+                        <label class="form-label" for="name">Antigua contraseña</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control shadow-none rounded-1" name="username" id="username"
+                            autocomplete="off">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label" for="name">Nueva contraseña</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control shadow-none rounded-1" name="username" id="username"
+                            autocomplete="off">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label" for="name">Confirmar nueva contraseña</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control shadow-none rounded-1" name="username" id="username"
+                            autocomplete="off">
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label style="visibility:hidden">A</label>
+                        <input type="submit" value="Editar" class="btn btn-primary bg-orange w-100 shadow-none" id="btn-login">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer p-5">
+        <!-- Container -->
+        <div class="container-fluid text-center text-md-left">
+            <!-- Grid Row -->
+                <div class="row text-center text-md-left">
+                <!-- Grid Column -->
+
+                <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
+                    <ul class="list-unstyled">
+                        <li class="my-2"><img src="assets/img/Footer-Logo.svg" class="img-fluid" id="logo-banner"></li>
+                    </ul>
+                </div>
               
               <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
-                  <h5 class="text-uppercase mb-4 text-cream font-weight-bold">Recursos</h5>
+                  <h5 class="text-uppercase mb-4 text-cream fw-bold">Recursos</h5>
                   <ul class="list-unstyled">
                       <li class="my-2"><a href="AboutUs.html" class="text-cream text-decoration-none">Acerca de nosotros</a><br></li>
                       <li class="my-2"><a href="Contact.html" class="text-cream text-decoration-none">Contáctanos</a><br></li>
@@ -141,7 +308,7 @@
               </div>
 
               <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
-                  <h5 class="text-uppercase mb-4 text-cream font-weight-bold">Políticas</h5>
+                  <h5 class="text-uppercase mb-4 text-cream fw-bold">Políticas</h5>
                   <ul class="list-unstyled">
                       <li class="my-2"><a href="RefundPolicy.html" class="text-cream text-decoration-none">Política de reembolsos</a><br></li>
                       <li class="my-2"><a href="PrivacyPolicy.html" class="text-cream text-decoration-none">Política de privacidad</a><br></li>
@@ -149,26 +316,26 @@
               </div>
 
               <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
-                  <h5 class="text-uppercase mb-4 text-cream font-weight-bold">Contacto</h5>
+                  <h5 class="text-uppercase mb-4 text-cream fw-bold">Contacto</h5>
                   <ul class="list-unstyled">
                       <li class="my-2">
                           <a href="https://www.facebook.com/PasteleriaLaSuprema" target="_blank" class="text-cream text-decoration-none">
-                              <i class="fab fa-facebook-f text-cream mr-3 h4"></i>Facebook
+                              <i class="fab fa-facebook-f text-cream me-3 h4"></i>Facebook
                           </a>
                       </li>
                       <li class="my-2">
                           <a href="https://www.instagram.com/pastelerialasuprema" target="_blank" class="text-cream text-decoration-none">
-                              <i class="fa fa-instagram text-cream mr-3 h4" aria-hidden="true"></i>Instagram
+                              <i class="fa fa-instagram text-cream me-3 h4" aria-hidden="true"></i>Instagram
                           </a>
                       </li>
                       <li class="my-2">
                           <a href="tel:(81)81341434" class="text-cream text-decoration-none">
-                              <i class="fa fa-phone text-cream mr-3 h4"></i>(81)-8134-1434
+                              <i class="fa fa-phone text-cream me-3 h4"></i>(81)-8134-1434
                           </a>
                       </li>
                       <li class="my-2">
                           <a href="mailto:ventas@pastelerialasuprema.com.mx" class="text-cream text-decoration-none">
-                              <i class="fa fa-envelope text-cream mr-3 h4"></i>Correo electrónico
+                              <i class="fa fa-envelope text-cream me-3 h4"></i>Correo electrónico
                           </a>
                       </li>
                   </ul>

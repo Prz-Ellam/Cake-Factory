@@ -15,22 +15,13 @@ class Application
 
     public function __construct(/*string $root*/)
     {
-        // self::$instance = $this;
-        // $this->root = $root;
-
         $this->router = new Router();
-        // $this->router->setPath('/Router');
-
-        // Get Users
-        // $this->router->get('/api/v1/users', [ new UserController, 'get' ]);
-        // $this->router->post('/api/v1/users', [ new UserController, 'post' ]);
 
         // Get User
         // $this->router->get('/api/v1/users/{id}', [ new UserController, 'get' ], array('id' => '[0-9]+'));
 
         // Begin session
         // $this->router->post('/api/v1/login', [ new UserController, 'get' ]);
-
 
     }
 
@@ -72,7 +63,6 @@ class Application
     public static function getInstance() : Application
     {
         return null;
-        // return self::$instance;
     }
 }
 

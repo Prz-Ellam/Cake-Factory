@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="Assets/Icons/Icon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/icons/Icon.svg" type="image/x-icon">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,10 +34,11 @@
     <!-- CSS -->
     <link href="./styles/navbar.css" rel="stylesheet">
     <link href="./styles/layout.css" rel="stylesheet">
+    <link href="./styles/index.css" rel="stylesheet">
     <link href="./styles/footer.css" rel="stylesheet">
 </head>
 <body>
-    <header class="fixed-top">
+    <header class="fixed-top sticky-top">
         <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar">
             <a class="navbar-brand" href="/"><img src="assets/img/Brand-Logo.svg" id="brand-logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">
@@ -102,7 +103,7 @@
                         <h1 class="text-center text-white text-uppercase font-weight-bold mb-4" id="hero-title">¡Conquistando el sabor supremo!</h1>
                         <hr class="bg-white">
                         <p class="text-white h4 mb-4">Pasteles únicos y variados todos los días</p>
-                        <button class="btn btn-md btn-secondary shadow-none p-3 orange h5 start-shop" id="start-shop">Empezar a comprar <i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                        <button class="btn btn-md btn-secondary shadow-none p-3 bg-orange h5 start-shop rounded-1" id="start-shop">Empezar a comprar <i class="fa fa-angle-right" aria-hidden="true"></i></button>
                     </div>
                 </div>
                 <!-- </div>
@@ -128,53 +129,178 @@
     </section>
 
     <section class="my-5">
-        <div class="container-fluid bg-white d-none carousel-card" style="width: 90%" id="container-recomendations">
-                <div class="pt-4">
-                    <h2 class="text-center h1 font-weight-bold text-brown">Basado en tus gustos</h2>
-                </div>
-                <hr>
-                <div class="owl-carousel owl-theme sellers" id="recomendations"></div>
-        </div>
-    </section>
-
-    <section class="my-5">
-        <div class="container-fluid bg-white carousel-card" style="width: 90%">
-                <div class="pt-4">
-                    <h2 class="text-center h1 font-weight-bold text-brown">Categorías</h2>
-                </div>
-                <hr>
-                <div class="owl-carousel owl-theme sellers" id="categories-carousel"></div>
+        <div class="container-fluid bg-white carousel-card" style="width: 90%" id="container-recomendations">
+            <div class="pt-4">
+                <h2 class="text-center h1 font-weight-bold text-brown">Basado en tus gustos</h2>
             </div>
-    </section>
-
-
-    <section class="my-5">
-        <div class="container-fluid bg-white carousel-card" style="width: 90%" id="">
-                <div class="pt-4">
-                    <h2 class="text-center h1 font-weight-bold text-brown">Los favoritos de nuestros clientes</h2>
+            <hr>
+            <div class="owl-carousel owl-theme sellers" id="recomendations">
+                <div class="item">
+                    <div class="text-center car-prueba p-4 m-4 rounded">
+                        <a href="/Cake-Factory/product"><img src="assets/img/IMG001.jpg" class="p-3"></a>
+                        <p class="fw-bold price mb-0">$297.00</p>
+                        <p>Fresas con crema</p>
+                        <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                    </div>
                 </div>
-                <hr>
-                <div class="owl-carousel owl-theme sellers" id="sellers"></div>
+                <div class="item">
+                    <div class="bg-white text-center car-prueba p-4 m-4 rounded">
+                        <a href="/Cake-Factory/product"><img src="assets/img/E001S000032.jpg" class="p-3"></a>
+                        <p class="fw-bold price mb-0">$297.00</p>
+                        <p>Tres leches combinado</p>
+                        <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="bg-white text-center car-prueba m-4 p-3">
+                        <a href="/Cake-Factory/product"><img src="assets/img/E001S007866.jpg" class="p-3"></a>
+                        <p class="fw-bold price h6 mb-0">$297.00</p>
+                        <p>Bambino tentación de fresa</p>
+                        <button class="btn btn-primary shadow-none bg-orange p-2 rounded-1">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="my-5">
         <div class="container-fluid bg-white carousel-card" style="width: 90%">
             <div class="pt-4">
-                <h2 class="text-center h1 font-weight-bold text-brown">Ofertas</h2>
+                <h2 class="text-center h2 font-weight-bold text-brown">Categorías</h2>
             </div>
             <hr>
-            <div class="owl-carousel owl-theme sellers" id="offers">  </div>
+            <div class="owl-carousel owl-theme sellers" id="categories-carousel">
+                <div class="item">
+                    <div class="text-center car-prueba p-4 m-4 rounded">
+                        <a href="/Cake-Factory/product"><img src="assets/img/IMG001.jpg" class="p-3"></a>
+                        <p class="fw-bold price mb-0">$297.00</p>
+                        <p>Fresas con crema</p>
+                        <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="bg-white text-center car-prueba p-4 m-4 rounded">
+                        <a href="/Cake-Factory/product"><img src="assets/img/E001S000032.jpg" class="p-3"></a>
+                        <p class="fw-bold price mb-0">$297.00</p>
+                        <p>Tres leches combinado</p>
+                        <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="bg-white text-center car-prueba m-4 p-3">
+                        <a href="/Cake-Factory/product"><img src="assets/img/E001S007866.jpg" class="p-3"></a>
+                        <p class="fw-bold price h6 mb-0">$297.00</p>
+                        <p>Bambino tentación de fresa</p>
+                        <button class="btn btn-primary shadow-none bg-orange p-2 rounded-1">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="my-5">
+        <div class="container-fluid bg-white carousel-card" style="width: 90%" id="">
+            <div class="pt-4">
+                <h2 class="text-center h2 font-weight-bold text-brown">Los favoritos de nuestros clientes</h2>
+            </div>
+            <hr>
+            <div class="owl-carousel owl-theme sellers" id="sellers">
+                <div class="item">
+                    <div class="text-center car-prueba p-4 m-4 rounded">
+                        <a href="/Cake-Factory/product"><img src="assets/img/IMG001.jpg" class="p-3"></a>
+                        <p class="fw-bold price mb-0">$297.00</p>
+                        <p>Fresas con crema</p>
+                        <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="bg-white text-center car-prueba p-4 m-4 rounded">
+                        <a href="/Cake-Factory/product"><img src="assets/img/E001S000032.jpg" class="p-3"></a>
+                        <p class="fw-bold price mb-0">$297.00</p>
+                        <p>Tres leches combinado</p>
+                        <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="bg-white text-center car-prueba m-4 p-3">
+                        <a href="/Cake-Factory/product"><img src="assets/img/E001S007866.jpg" class="p-3"></a>
+                        <p class="fw-bold price h6 mb-0">$297.00</p>
+                        <p>Bambino tentación de fresa</p>
+                        <button class="btn btn-primary shadow-none bg-orange p-2 rounded-1">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="my-5">
+        <div class="container-fluid bg-white carousel-card" style="width: 90%">
+            <div class="pt-4">
+                <h2 class="text-center h2 font-weight-bold text-brown">Ofertas</h2>
+            </div>
+            <hr>
+            <div class="owl-carousel owl-theme sellers" id="offers">
+                <div class="item">
+                    <div class="text-center car-prueba p-4 m-4 rounded">
+                        <a href="/Cake-Factory/product"><img src="assets/img/IMG001.jpg" class="p-3"></a>
+                        <p class="fw-bold price mb-0">$297.00</p>
+                        <p>Fresas con crema</p>
+                        <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="bg-white text-center car-prueba p-4 m-4 rounded">
+                        <a href="/Cake-Factory/product"><img src="assets/img/E001S000032.jpg" class="p-3"></a>
+                        <p class="fw-bold price mb-0">$297.00</p>
+                        <p>Tres leches combinado</p>
+                        <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="bg-white text-center car-prueba m-4 p-3">
+                        <a href="/Cake-Factory/product"><img src="assets/img/E001S007866.jpg" class="p-3"></a>
+                        <p class="fw-bold price h6 mb-0">$297.00</p>
+                        <p>Bambino tentación de fresa</p>
+                        <button class="btn btn-primary shadow-none bg-orange p-2 rounded-1">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="my-5">
         <div class="container-fluid bg-white carousel-card" style="width: 90%" id="">
             <div class="pt-4">
-                <h2 class="text-center h1 font-weight-bold text-brown">Nuevos lanzamientos</h2>
+                <h2 class="text-center h2 font-weight-bold text-brown">Nuevos lanzamientos</h2>
             </div>
             <hr>
-            <div class="owl-carousel owl-theme sellers" id="recents"></div>
+            <div class="owl-carousel owl-theme sellers" id="recents">
+                <div class="item">
+                    <div class="text-center car-prueba p-4 m-4 rounded">
+                        <a href="/Cake-Factory/product"><img src="assets/img/IMG001.jpg" class="p-3"></a>
+                        <p class="fw-bold price mb-0">$297.00</p>
+                        <p>Fresas con crema</p>
+                        <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="bg-white text-center car-prueba p-4 m-4 rounded">
+                        <a href="/Cake-Factory/product"><img src="assets/img/E001S000032.jpg" class="p-3"></a>
+                        <p class="fw-bold price mb-0">$297.00</p>
+                        <p>Tres leches combinado</p>
+                        <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="bg-white text-center car-prueba m-4 p-3">
+                        <a href="/Cake-Factory/product"><img src="assets/img/E001S007866.jpg" class="p-3"></a>
+                        <p class="fw-bold price h6 mb-0">$297.00</p>
+                        <p>Bambino tentación de fresa</p>
+                        <button class="btn btn-primary shadow-none bg-orange p-2 rounded-1">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -182,9 +308,9 @@
     <!-- Footer -->
     <footer class="page-footer p-5">
         <!-- Container -->
-        <div class="container-fluid text-center text-md-left">
+        <div class="container-fluid">
             <!-- Grid Row -->
-            <div class="row text-center text-md-left">
+            <div class="row text-md-start">
                 <!-- Grid Column -->
 
                 <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
@@ -194,7 +320,7 @@
                 </div>
                 
                 <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
-                    <h5 class="text-uppercase mb-4 text-cream font-weight-bold">Recursos</h5>
+                    <h5 class="text-uppercase mb-4 text-cream fw-bold">Recursos</h5>
                     <ul class="list-unstyled">
                         <li class="my-2"><a href="AboutUs.html" class="text-cream text-decoration-none">Acerca de nosotros</a><br></li>
                         <li class="my-2"><a href="Contact.html" class="text-cream text-decoration-none">Contáctanos</a><br></li>
@@ -204,7 +330,7 @@
                 </div>
 
                 <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
-                    <h5 class="text-uppercase mb-4 text-cream font-weight-bold">Políticas</h5>
+                    <h5 class="text-uppercase mb-4 text-cream fw-bold">Políticas</h5>
                     <ul class="list-unstyled">
                         <li class="my-2"><a href="RefundPolicy.html" class="text-cream text-decoration-none">Política de reembolsos</a><br></li>
                         <li class="my-2"><a href="PrivacyPolicy.html" class="text-cream text-decoration-none">Política de privacidad</a><br></li>
@@ -212,7 +338,7 @@
                 </div>
 
                 <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
-                    <h5 class="text-uppercase mb-4 text-cream font-weight-bold">Contacto</h5>
+                    <h5 class="text-uppercase mb-4 text-cream fw-bold">Contacto</h5>
                     <ul class="list-unstyled">
                         <li class="my-2">
                             <a href="https://www.facebook.com/PasteleriaLaSuprema" target="_blank" class="text-cream text-decoration-none">
@@ -287,6 +413,6 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- JavaScript -->
-    <script src="JS/index.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./js/dashboard.js"></script>
 </body>
 </html>

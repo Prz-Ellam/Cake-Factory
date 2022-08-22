@@ -1,9 +1,22 @@
 <?php
 
-namespace controllers;
+namespace cf\controllers;
 
-class UserController
+require_once 'core/Controller.php';
+require_once 'src/models/connections/MainConnection.php';
+
+use core\Controller;
+use models\connections\MainConnection;
+
+class UserController extends Controller
 {
+    private MainConnection $connection;
+
+    public function __construct()
+    {
+        $this->connection = new MainConnection();
+    }
+
     public function getUsers($request, $response)
     {
 
@@ -16,8 +29,22 @@ class UserController
 
     public function registerUser($request, $response)
     {
-        $body = $request->getBody();
-        $response->send($body);
+        $body = json_decode($request->getBody(), true);
+
+        $email = $body["email"];
+        $username = $body["username"];
+        $firstName = $body["first-name"];
+        $lastName = $body["last-name"];
+        $password = $body["password"];
+
+        $query = "INSERT INTO users(email, username, user_role, birth_date, first_name, last_name, password, 
+        gender, profile_picture)
+        VALUES ('$email', '$username', 1, CURDATE(), '$firstName', '$lastName', '$password', 1, 1);";
+        
+        $this->connection->executeNonQuery($query);
+
+
+        $response->send("$email $username $firstName $lastName");
     }
 
     public function changePassword($request, $response)

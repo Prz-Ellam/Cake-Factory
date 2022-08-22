@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="shortcut icon" href="Assets/Icons/Icon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/icons/Icon.svg" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,16 +18,17 @@
         rel="stylesheet" 
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" 
         crossorigin="anonymous">
+    
     <link rel="stylesheet" href="./styles/navbar.css">
     <link rel="stylesheet" href="./styles/layout.css">
     <link rel="stylesheet" href="./styles/footer.css">
 </head>
 <body>
 
-    <header class="fixed-top">
+    <header class="fixed-top sticky-top">
         <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar">
         
-            <a class="navbar-brand" href="index.html"><img src="Assets/Images/Brand-Logo.svg" id="brand-logo"></a>
+            <a class="navbar-brand" href="/"><img src="assets/img/Brand-Logo.svg" id="brand-logo"></a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">
                 <i class="fa fa-bars"></i>
@@ -35,7 +36,7 @@
 
             <div class="collapse navbar-collapse" id="navbar-collapse">
 
-                <form class="form-inline ml-xl-5 mr-lg-auto w-50" id="search-box">
+                <form class="form-inline ms-xl-5 me-lg-auto w-50" id="search-box">
                     <div class="input-group w-100">
                         <input type="search" class="form-control search shadow-none" name="search" id="search" placeholder="Buscar productos">
                         <div class="input-group-append">
@@ -57,24 +58,24 @@
 
             <div class="collapse navbar-collapse" id="subnavbar-collapse">
 
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link ml-1 mr-4 p-1 text-brown" href="index.html">
+                        <a class="nav-link ms-1 me-4 p-1 text-brown" href="index.html">
                             Inicio
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mr-4 p-1 text-brown" href="Contact.html">
+                        <a class="nav-link me-4 p-1 text-brown" href="Contact.html">
                             Contacto
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mr-4 p-1 text-brown" href="AboutUs.html">
+                        <a class="nav-link me-4 p-1 text-brown" href="AboutUs.html">
                             Nosotros
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mr-4 p-1 text-brown" href="BranchOffices.html">
+                        <a class="nav-link me-4 p-1 text-brown" href="BranchOffices.html">
                             Sucursales
                         </a>
                     </li>
@@ -88,72 +89,66 @@
 
 
     <div class="container-fluid">
-    <div class="table-responsive mt-5">
-        <table class="table table-hover shadow-sm">
-            <thead>
-                <tr>
-                    <th style="width: 100%;" scope="col" colspan="5" class="border-0 bg-white font-weight-bold text-center h2">Carrito de compras</th>
-                </tr>
-                <tr>
-                    <th style="width: 30%;" scope="col" class="border-0 bg-white font-weight-bold h5">Producto</th>
-                    <th style="width: 10%;" scope="col" class="border-0 bg-white font-weight-bold h5">Precio</th>
-                    <th style="width: 15%;" scope="col" class="border-0 bg-white font-weight-bold h5">Cantidad</th>
-                    <th style="width: 25%;" scope="col" class="border-0 bg-white font-weight-bold h5">Total</th>
-                    <th style="width: 10%;" scope="col" class="border-0 bg-white font-weight-bold h5">Eliminar</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!--tr>
-                    <td style="width: 30%;" class="bg-white"><img src="Assets/Images/IMG001.jpg" class="mr-3" height="100">Fresas con crema</td>
-                    <td class="bg-white align-middle">$<span class="price">297.00</span></td>
-                    <td class="bg-white align-middle"><input type="number" value="1" min="1" max="100" class="form-control shadow-none w-50 quantity"></td>
-                    <td class="bg-white align-middle">$<span class="total">297.00</span> M.N</td>
-                    <td class="bg-white align-middle"><a href="#"><i class="fas fa-trash text-danger h3"></i></a></td>
-                </tr>
-                <tr>
-                    <td class="bg-white"><img src="Assets/Images/IMG001.jpg" class="mr-3" height="100">Fresas con crema</td>
-                    <td class="bg-white align-middle">$<span class="price">297.00</span></td>
-                    <td class="bg-white align-middle"><input type="number" value="1" min="1" max="100" class="form-control shadow-none w-50 quantity"></td>
-                    <td class="bg-white align-middle">$<span class="total">297.00</span> M.N</td>
-                    <td class="bg-white align-middle"><a href="#"><i class="fas fa-trash text-danger h3"></i></a></td>
-                </tr>
-                <tr>
-                    <td class="bg-white"></td>
-                    <td class="bg-white"></td>
-                    <td class="bg-white align-middle"><span>2</span></td>
-                    <td class="bg-white align-middle">$<span id="final-price">597.00</span> M.N</td>
-                    <td class="bg-white align-middle"></td>
-                </tr-->
-            </tbody>
-        </table>
-
-        <div class="d-flex px-5">
-            <button class="mr-auto btn btn-md btn-secondary shadow-none p-3 orange h5 " id=""><i class="fa fa-angle-left"></i> Seguir comprando</button>
-            <button class="ml-auto btn btn-md btn-secondary shadow-none p-3 orange h5 start-shop" id="finish-order">Finalizar pedido</button>
+        <div class="table-responsive mt-5">
+            <table class="table table-hover shadow-sm">
+                <thead>
+                    <tr>
+                        <th style="width: 100%;" scope="col" colspan="5" class="border-0 bg-white fw-bold text-center h2">Carrito de compras</th>
+                    </tr>
+                    <tr>
+                        <th style="width: 30%;" scope="col" class="border-0 bg-white fw-bold h5">Producto</th>
+                        <th style="width: 10%;" scope="col" class="border-0 bg-white fw-bold h5">Precio</th>
+                        <th style="width: 15%;" scope="col" class="border-0 bg-white fw-bold h5">Cantidad</th>
+                        <th style="width: 25%;" scope="col" class="border-0 bg-white fw-bold h5">Total</th>
+                        <th style="width: 10%;" scope="col" class="border-0 bg-white fw-bold h5">Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width: 30%;" class="bg-white"><img src="assets/img/IMG001.jpg" class="me-3" height="100">Fresas con crema</td>
+                        <td class="bg-white align-middle">$<span class="price">297.00</span></td>
+                        <td class="bg-white align-middle"><input type="number" value="1" min="1" max="100" class="form-control shadow-none w-50 quantity"></td>
+                        <td class="bg-white align-middle">$<span class="total">297.00</span> M.N</td>
+                        <td class="bg-white align-middle"><a href="#"><i class="fas fa-trash text-danger h3"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td class="bg-white"><img src="assets/img/IMG001.jpg" class="me-3" height="100">Fresas con crema</td>
+                        <td class="bg-white align-middle">$<span class="price">297.00</span></td>
+                        <td class="bg-white align-middle"><input type="number" value="1" min="1" max="100" class="form-control shadow-none w-50 quantity"></td>
+                        <td class="bg-white align-middle">$<span class="total">297.00</span> M.N</td>
+                        <td class="bg-white align-middle"><a href="#"><i class="fas fa-trash text-danger h3"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td class="bg-white"></td>
+                        <td class="bg-white"></td>
+                        <td class="bg-white align-middle"><span>2</span></td>
+                        <td class="bg-white align-middle">$<span id="final-price">597.00</span> M.N</td>
+                        <td class="bg-white align-middle"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex px-5">
+                <button class="me-auto btn btn-md btn-secondary shadow-none p-3 bg-orange h5 rounded-1" id=""><i class="fa fa-angle-left"></i> Seguir comprando</button>
+                <button class="ms-auto btn btn-md btn-secondary shadow-none p-3 bg-orange h5 start-shop rounded-1" id="finish-order">Finalizar pedido</button>
+            </div>
         </div>
     </div>
-</div>
-
-
-
-
 
     <!-- Footer -->
     <footer class="page-footer p-5 mt-5">
         <!-- Container -->
-        <div class="container-fluid text-center text-md-left">
+        <div class="container-fluid text-center text-md-start">
             <!-- Grid Row -->
-            <div class="row text-center text-md-left">
+            <div class="row text-center text-md-start">
                 <!-- Grid Column -->
-
                 <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
                     <ul class="list-unstyled">
-                        <li class="my-2"><img src="Assets/Images/Footer-Logo.svg" class="img-fluid" id="logo-banner"></li>
+                        <li class="my-2"><img src="assets/img/Footer-Logo.svg" class="img-fluid" id="logo-banner"></li>
                     </ul>
                 </div>
                 
                 <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
-                    <h5 class="text-uppercase mb-4 text-cream font-weight-bold">Recursos</h5>
+                    <h5 class="text-uppercase mb-4 text-cream fw-bold">Recursos</h5>
                     <ul class="list-unstyled">
                         <li class="my-2"><a class="text-cream text-decoration-none">Acerca de nosotros</a><br></li>
                         <li class="my-2"><a class="text-cream text-decoration-none">Contáctanos</a><br></li>
@@ -163,7 +158,7 @@
                 </div>
 
                 <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
-                    <h5 class="text-uppercase mb-4 text-cream font-weight-bold">Políticas</h5>
+                    <h5 class="text-uppercase mb-4 text-cream fw-bold">Políticas</h5>
                     <ul class="list-unstyled">
                         <li class="my-2"><a class="text-cream text-decoration-none">Política de reembolsos</a><br></li>
                         <li class="my-2"><a class="text-cream text-decoration-none">Política de privacidad</a><br></li>
@@ -171,31 +166,30 @@
                 </div>
 
                 <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
-                    <h5 class="text-uppercase mb-4 text-cream font-weight-bold">Contacto</h5>
+                    <h5 class="text-uppercase mb-4 text-cream fw-bold">Contacto</h5>
                     <ul class="list-unstyled">
                         <li class="my-2">
                             <a href="https://www.facebook.com/PasteleriaLaSuprema" target="_blank" class="text-cream text-decoration-none">
-                                <i class="fab fa-facebook-f text-cream mr-3 h4"></i>Facebook
+                                <i class="fab fa-facebook-f text-cream me-3 h4"></i>Facebook
                             </a>
                         </li>
                         <li class="my-2">
                             <a href="https://www.instagram.com/pastelerialasuprema" target="_blank" class="text-cream text-decoration-none">
-                                <i class="fab fa-instagram text-cream mr-3 h4" aria-hidden="true"></i>Instagram
+                                <i class="fab fa-instagram text-cream me-3 h4" aria-hidden="true"></i>Instagram
                             </a>
                         </li>
                         <li class="my-2">
                             <a href="tel:(81)81341434" class="text-cream text-decoration-none">
-                                <i class="fa fa-phone text-cream mr-3 h4"></i>(81)-8134-1434
+                                <i class="fa fa-phone text-cream me-3 h4"></i>(81)-8134-1434
                             </a>
                         </li>
                         <li class="my-2">
                             <a href="mailto:ventas@pastelerialasuprema.com.mx" class="text-cream text-decoration-none">
-                                <i class="fa fa-envelope text-cream mr-3 h4"></i>Correo electrónico
+                                <i class="fa fa-envelope text-cream me-3 h4"></i>Correo electrónico
                             </a>
                         </li>
                     </ul>
                 </div>
-
             <!-- Grid Row -->
             </div>
 
@@ -213,14 +207,10 @@
             <div class="container text-center img-responsive">
                 <p class="text-cream mb-0">© 2022 Pastelería La Suprema. Todos los derechos reservados.</p>
             </div>
-
         <!-- Container -->
         </div>
-
     </footer>
 
-
-    
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
@@ -236,8 +226,7 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/48ce36e499.js" crossorigin="anonymous"></script>
 
-
-    <!-- Js -->
-    <script src="JS/ShoppingCart.js"></script>
+    <!-- JavaScript -->
+    <script type="text/javascript" src="./js/shopping-cart.js"></script>
 </body>
 </html>

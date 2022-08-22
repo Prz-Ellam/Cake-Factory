@@ -1,6 +1,6 @@
 <?php
 
-namespace controllers;
+namespace cf\controllers;
 
 class ChatController
 {

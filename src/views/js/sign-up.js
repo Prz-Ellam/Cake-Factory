@@ -4,20 +4,43 @@ document.addEventListener('DOMContentLoaded', function()
     {
         e.preventDefault();
 
-        fetch('Cake-Factory/api/v1/users', {
-            method : 'POST',
-            headers : {
-                'Accept' : 'application/json',
-                'Content-Type' : 'application/json'
-            },
-            body : JSON.stringify({
-                'data' : '2'
-            })
-        }).then(response => {
-            return response.json();
-        }).then(data => {
-            console.log(data);
-        });
+        const file = document.getElementById('profile-picture');
+        var reader = new FileReader();
+        let image;
+        reader.onload = async (e) =>
+        {
+            image = reader.result;
+
+            const requestBody = {
+                'username' : document.getElementById('username').value,
+                'email' : document.getElementById('email').value,
+                'first-name' : document.getElementById('first-name').value,
+                'last-name' : document.getElementById('last-name').value,
+                'user-role' : document.getElementById('user-role').value,
+                'gender' : document.getElementById('gender').value,
+                'birth-date' : document.getElementById('birth-date').value,
+                'password' : document.getElementById('password').value,
+                'confirm-password' : document.getElementById('confirm-password').value,
+                'profile-picture' : image
+            };
     
+    
+            fetch('Cake-Factory/api/v1/users', {
+                method : 'POST',
+                headers : {
+                    'Accept' : 'application/json',
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify(requestBody)
+            }).then(response => {
+                return response.text();
+            }).then(data => {
+                console.log(data);
+            });
+        
+        };
+        reader.readAsDataURL(file.files[0]);
+
+
     })
 });
