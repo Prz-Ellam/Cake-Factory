@@ -53,3 +53,11 @@ body {
 .nav-link i {
     font-size: 1.2em;
 }
+
+.navbar-badge {
+    background-color: yellow;
+    font-size: .8rem;
+    font-weight: 300;
+    padding: 2px 4px;
+    position: absolute;
+}

@@ -173,8 +173,9 @@ class Router
             
         }
 
-        echo "404 Not found";
-        http_response_code(404);
+        // TODO: No hardcodearlo
+        $this->renderer->renderView("/layouts/not-found-layout.html");
+
 
         // is_callable
         // is_array

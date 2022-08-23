@@ -22,13 +22,13 @@ body {
 }
 
 .bg-orange {
-    background-color: #FF5E1F;
-    border: 1px solid #FF5E1F;
+    background-color: #FF5E1F !important;
+    border: 1px solid #FF5E1F !important;
 }
 
-.orange:hover, .bg-orange:hover, .bg-orange:checked, .bg-orange:active {
-    background-color: #c44817;
-    border: 1px solid #c44817;
+.orange:hover, .bg-orange:hover, .bg-orange:checked, .bg-orange:active, .bg-orange:visited {
+    background-color: #c44817 !important;
+    border: 1px solid #c44817 !important;
 }
 
 /* Este es para que las imagenes de las cards tengan el mismo tamaño */
@@ -36,4 +36,17 @@ body {
     width: 100%;
     height: 15vw;
     object-fit: cover;
+}
+
+
+
+@media (max-width: 575px) {
+    #login-form, #sign-up-form {
+        border-radius: 0 !important;
+    }
+
+    .form-card {
+        /* p-4 */
+        padding: 24px !important;
+    }
 }

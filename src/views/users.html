@@ -13,8 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
     
-
-    <!-- CSS only -->
+    <!-- Bootstrap 5.2.0 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
     <link href="./styles/navbar.css" rel="stylesheet">
@@ -37,7 +36,7 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form>
+                <form id="user-form">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Agregar usuario</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -91,12 +90,12 @@
 
 
                         <p>Género</p>
-                          <input type="radio" id="html" name="fav_language" value="HTML">
-                          <label for="html">Masculino</label><br>
-                          <input type="radio" id="css" name="fav_language" value="CSS">
-                          <label for="css">Femenino</label><br>
-                          <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-                          <label for="javascript">Otro</label>
+                        <input type="radio" id="html" name="fav_language" value="HTML">
+                        <label for="html">Masculino</label><br>
+                        <input type="radio" id="css" name="fav_language" value="CSS">
+                        <label for="css">Femenino</label><br>
+                        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+                        <label for="javascript">Otro</label>
 
                         <div class="form-group mb-4">
                             <div class="row">
@@ -125,7 +124,7 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
+                      <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
                 </form>
             </div>
@@ -210,11 +209,11 @@
                 <p>Showing 5 out of 500 entries</p>
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
-                        <li class="page-item"><a class="page-link shadow-none bg-brown" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link shadow-none bg-brown" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link shadow-none bg-brown" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link shadow-none bg-brown" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link shadow-none bg-brown" href="#">Next</a></li>
+                        <li class="page-item"><a class="page-link shadow-none text-brown" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link shadow-none text-brown" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link shadow-none text-brown" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link shadow-none text-brown" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link shadow-none text-brown" href="#">Next</a></li>
                     </ul>
                 </nav>
             </div>
@@ -302,12 +301,20 @@
 
     </footer>
 
+    
+    <!-- jQuery 3.6.0 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- jQuery Validation 1.19.5 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js" integrity="sha256-JwUksNJ6/R07ZiLRoXbGeNrtlFZMFDKX4hemPiHOmCA=" crossorigin="anonymous"></script>
+
+
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/48ce36e499.js" crossorigin="anonymous"></script>
 
-
+    <script type="text/javascript" src="./js/users.js"></script>
 </body>
 </html>

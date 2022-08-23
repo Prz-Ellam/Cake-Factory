@@ -18,6 +18,13 @@ CREATE TABLE users(
     modified_at         TIMESTAMP
 );
 
+CREATE TABLE user_roles(
+    user_role_id        INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name                VARCHAR(30) NOT NULL,
+    created_at          TIMESTAMP,
+    modified_at         TIMESTAMP
+);
+
 -- Products
 CREATE TABLE products(
     product_id          INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -44,13 +51,51 @@ CREATE TABLE categories(
 );
 
 -- Wishlists
+CREATE TABLE wishlists(
+    wishlist_id         INT
+);
+
+CREATE TABLE wishlist_objects(
+    wishlist_object_id  INT
+);
 
 -- Shopping Cart
+CREATE TABLE shopping_carts(
+    shopping_cart_id    INT
+);
 
--- Sells
+CREATE TABLE shopping_cart_items(
+    shopping_cart_item_id   INT
+);
+
+-- Shoppings
+CREATE TABLE shoppings(
+    shopping_id         INT
+);
+
+-- Orders
+CREATE TABLE orders(
+    order_id            INT
+);
 
 -- Chats
+CREATE TABLE chats(
+    chat_id             INT
+);
 
 -- Messages
+CREATE TABLE messages(
+    message_id          INT,
+    message             VARCHAR(255),
+    chat_id             INT
+);
 
 -- Comments
+CREATE TABLE comments(
+    comment_id          INT,
+    message             VARCHAR(255),
+    product_id          INT,
+    user_id             INT,
+    created_at          TIMESTAMP,
+    modified_at         TIMESTAMP
+);

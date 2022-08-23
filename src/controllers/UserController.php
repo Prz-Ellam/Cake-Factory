@@ -27,6 +27,25 @@ class UserController extends Controller
         
     }
 
+    public function loginUser($request, $response)
+    {
+        $body = json_decode($request->getBody(), true);
+
+        $email = $body["email"];
+        $password = $body["password"];
+
+        $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+        
+        $execute = $this->connection->executeReader($query);
+
+        if ($row = $execute->fetch()) {
+            $response->send($row["username"]);
+        }
+        else {
+            $response->send("Nada");
+        }
+    }
+
     public function registerUser($request, $response)
     {
         $body = json_decode($request->getBody(), true);
@@ -43,13 +62,22 @@ class UserController extends Controller
         
         $this->connection->executeNonQuery($query);
 
-
         $response->send("$email $username $firstName $lastName");
+    }
+
+    public function updateUserInfo($request, $response)
+    {
+        
     }
 
     public function changePassword($request, $response)
     {
-        
+        $body = json_decode($request->getBody(), true);
+
+        $oldPassword = $body["old-password"];
+        $newPassword = $body["new-password"];
+
+        $response->send("Actualizar contraseña");
     }
 }
 
