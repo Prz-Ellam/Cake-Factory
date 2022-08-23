@@ -5,8 +5,8 @@ USE cake_factory;
 -- Users
 CREATE TABLE users(
     user_id             INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    email               VARCHAR(255) NOT NULL,
-    username            VARCHAR(60) NOT NULL,
+    email               VARCHAR(255) UNIQUE NOT NULL,
+    username            VARCHAR(60) UNIQUE NOT NULL,
     user_role           INT NOT NULL,
     birth_date          DATETIME NOT NULL,
     first_name          VARCHAR(60) NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE products(
 
 -- Categories
 CREATE TABLE categories(
-    category_id         INT NOT NULL AUTOINCREMENT PRIMARY KEY,
+    category_id         INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name                VARCHAR(60) NOT NULL,
     description         VARCHAR(200),
     created_at          TIMESTAMP NOT NULL,
@@ -52,7 +52,9 @@ CREATE TABLE categories(
 
 -- Wishlists
 CREATE TABLE wishlists(
-    wishlist_id         INT
+    wishlist_id         INT,
+    name                VARCHAR(60),
+    description         VARCHAR(200)
 );
 
 CREATE TABLE wishlist_objects(
@@ -99,3 +101,10 @@ CREATE TABLE comments(
     created_at          TIMESTAMP,
     modified_at         TIMESTAMP
 );
+
+CREATE TABLE rates(
+    rate_id             INT NOT NULL,
+    rate                INT NOT NULL
+    product_id          INT NOT NULL,
+    user_id             INT NOT NULL
+)

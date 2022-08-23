@@ -1,9 +1,14 @@
 $(document).ready(function() {
 
+    var date = new Date();
+    var dateFormat = date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0')
+    document.getElementById('birth-date').value = dateFormat;
+
     $('#sign-up-form').validate({
         rules: {
             'email': {
-                required: true
+                required: true,
+                email: true
             },
             'username': {
                 required: true
@@ -26,7 +31,8 @@ $(document).ready(function() {
         },
         messages: {
             'email': {
-                required: 'El correo electrónico no puede estar vacío.'
+                required: 'El correo electrónico no puede estar vacío.',
+                email: 'El correo electrónico que ingresó no es válido.'
             },
             'username': {
                 required: 'El nombre de usuario no puede estar vacío.'
@@ -53,21 +59,19 @@ $(document).ready(function() {
 
         e.preventDefault();
 
-        let validations = $('#sign-up-form').valid();
-
-        if(validations === false) {
+        if($('#sign-up-form').valid() === false) {
             return;
         }
 
         const requestBody = {
-            'username' : document.getElementById('username').value,
-            'email' : document.getElementById('email').value,
-            'first-name' : document.getElementById('first-name').value,
-            'last-name' : document.getElementById('last-name').value,
+            'username' : $('#username').val(),
+            'email' : $('#email').val(),
+            'first-name' : $('#first-name').val(),
+            'last-name' : $('#last-name').val(),
             //'user-role' : document.getElementById('user-role').value,
             //'gender' : document.getElementById('gender').value,
             //'birth-date' : document.getElementById('birth-date').value,
-            'password' : document.getElementById('password').value,
+            'password' : $('#password').val(),
             //'confirm-password' : document.getElementById('confirm-password').value,
             //'profile-picture' : ''
         };
@@ -83,6 +87,8 @@ $(document).ready(function() {
             data: JSON.stringify(requestBody)
         }).done(function(response) {
             console.log(response);
+        }).fail(function(jqXHR, response) {
+            console.log('Hubo un error');
         });
 
     });

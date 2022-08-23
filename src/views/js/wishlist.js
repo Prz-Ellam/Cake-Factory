@@ -1,4 +1,7 @@
-document.addEventListener('DOMContentLoaded', function()
-{
+$(document).ready(function() {
+
+    $('#wishlist-table').DataTable({
+        responsive: true
+    });
 
 });

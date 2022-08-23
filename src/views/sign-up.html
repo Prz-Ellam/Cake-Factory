@@ -7,6 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Icon -->
     <link rel="shortcut icon" href="assets/icons/Icon.svg" type="image/x-icon">
     
     <!-- Google Fonts -->
@@ -90,26 +91,25 @@
                     </div>
 
                     <label role="button">Género</label><br>
-                    <input type="radio" id="html" name="fav_language" value="HTML">
-                    <label for="html" role="button">Masculino</label><br>
-                    <input type="radio" id="css" name="fav_language" value="CSS">
-                    <label for="css" role="button">Femenino</label><br>
-                    <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-                    <label for="javascript" role="button">Otro</label>
-
-                    <div class="form-group mb-4">
-                        <label class="form-label" for="birth-date" role="button">Fecha de nacimiento</label>
-                        <div class="input-group">
-                            <input type="date" class="form-control shadow-none rounded-1" name="birth-date" id="birth-date" >
-                        </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="type-of-sell" id="sell" checked>
+                        <label class="form-check-label" for="type-of-sell">Masculino</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="type-of-sell" id="cotizar">
+                        <label class="form-check-label" for="type-of-sell">Femenino</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="type-of-sell" id="cotizar">
+                        <label class="form-check-label" for="type-of-sell">Otro</label>
                     </div>
     
                     <div class="form-group mb-4">
                         <label class="form-label" for="gender" role="button">Contraseña</label>
                         <div class="input-group mb-3">
-                            <input type="password" name="password" id="password" class="form-control shadow-none" aria-describedby="basic-addon2">
+                            <input type="password" name="password" id="password" class="form-control shadow-none">
                             <div class="input-group-append">
-                              <button class="btn btn-secondary input-group-text shadow-none rounded-0 rounded-end shadow-none" id="basic-addon2"><i class="fas fa-solid fa-eye"></i></button>
+                              <button type="button" class="btn btn-secondary bg-orange input-group-text shadow-none rounded-0 rounded-end shadow-none" id="btn-password"><i class="fas fa-solid fa-eye"></i></button>
                             </div>
                         </div>
                     </div>
@@ -117,9 +117,9 @@
                     <div class="form-group mb-4">
                         <label class="form-label" for="gender" role="button">Confirmar Contraseña</label>
                         <div class="input-group mb-3">
-                            <input type="password" name="confirm-password" id="confirm-password" class="form-control shadow-none" aria-describedby="basic-addon2">
+                            <input type="password" name="confirm-password" id="confirm-password" class="form-control shadow-none">
                             <div class="input-group-append">
-                              <button class="btn btn-secondary input-group-text shadow-none rounded-0 rounded-end shadow-none" id="basic-addon2"><i class="fas fa-solid fa-eye"></i></button>
+                              <button type="button" class="btn btn-secondary bg-orange input-group-text shadow-none rounded-0 rounded-end shadow-none" id="btn-confirm-password"><i class="fas fa-solid fa-eye"></i></button>
                             </div>
                         </div>
                     </div>

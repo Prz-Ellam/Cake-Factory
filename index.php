@@ -2,15 +2,32 @@
 
 require_once 'core/Application.php';
 require_once 'src/controllers/UserController.php';
+require_once 'src/controllers/ProductController.php';
+require_once 'src/controllers/CategoryController.php';
 
 use core\Application;
 use cf\controllers\UserController;
+use cf\controllers\ProductController;
+use cf\controllers\CategoryController;
 
-$application = new Application(); 
+$application = new Application();
+
+// Usuarios
 $application->get('/api/v1/users', [new UserController(), 'registerUser']);
 $application->post('/api/v1/users', [new UserController(), 'registerUser']);
 $application->post('/api/v1/login', [new UserController(), 'loginUser']);
 
+// Productos
+$application->post('/api/v1/products', [ new ProductController(), 'createProduct' ]);
+/*
+$application->get('/api/v1/products', [ new ProductController(), 'getProducts' ]);
+$application->get('/api/v1/products/{id}', [ new ProductController(), 'getUserProducts' ]);
+*/
+
+// Categorias
+$application->post('/api/v1/categories', [ new CategoryController(), 'createCategory' ]);
+
+// Vistas
 $application->setViewPath('src/views');
 $application->view('/home', '/dashboard.html');
 $application->view('/', '/landing-page.html');

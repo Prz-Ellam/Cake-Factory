@@ -19,7 +19,7 @@ $(document).ready(function() {
         }
     });
 
-    $('#basic-addon2').click(function() {
+    $('#btn-password').click(function() {
         let mode = $('#password').attr('type');
 
         if (mode === 'password') {
@@ -33,18 +33,21 @@ $(document).ready(function() {
     });
 
     $('#login-form').submit(function(e) {
+
         e.preventDefault();
 
         let validations = $('#login-form').valid();
-
-        if(validations === false) {
+        if (validations === false) {
             return;
         }
 
         const requestBody = {
             'email' : $('#email').val(),
-            'password' : $('#password').val()
+            'password' : $('#password').val(),
+            'remember' : $('#remember').val()   // Check if is on or off
         };
+
+        console.log(requestBody);
 
         $.ajax({
             method: 'POST',
@@ -53,6 +56,7 @@ $(document).ready(function() {
                 'Accept' : 'application/json',
                 'Content-Type' : 'application/json'
             },
+            dataType: 'json',
             data: JSON.stringify(requestBody)
         }).done(function(response) {
             console.log(response);

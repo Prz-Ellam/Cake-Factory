@@ -14,6 +14,11 @@ class Response
         echo $responseBody;
     }
 
+    public function json($responseBody)
+    {
+        echo json_encode($responseBody);
+    }
+
     public function setStatusCode(int $code)
     {
         http_response_code($code);

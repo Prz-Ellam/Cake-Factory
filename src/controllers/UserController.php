@@ -17,14 +17,12 @@ class UserController extends Controller
         $this->connection = new MainConnection();
     }
 
-    public function getUsers($request, $response)
-    {
-
-    }
-
     public function getUser($request, $response)
     {
-        
+        $body = json_decode($request->getBody(), true);
+
+        $query = "SELECT * FROM users";
+
     }
 
     public function loginUser($request, $response)
@@ -34,15 +32,25 @@ class UserController extends Controller
         $email = $body["email"];
         $password = $body["password"];
 
-        $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+        $query = "SELECT * FROM users WHERE email = '$email'";
         
         $execute = $this->connection->executeReader($query);
 
         if ($row = $execute->fetch()) {
-            $response->send($row["username"]);
+
+            $passwordHashed = $row["password"];
+            $passwordCheck = password_verify($password, $passwordHashed);
+
+            if ($passwordCheck == false) {
+                $response->json(array("respuesta" => "Nada"));
+                return;
+            }
+
+            $response->json(array("respuesta" => "Todo salio al 100"));
+            
         }
         else {
-            $response->send("Nada");
+            $response->json(array("respuesta" => "Todo salio al 100"));
         }
     }
 
@@ -54,7 +62,7 @@ class UserController extends Controller
         $username = $body["username"];
         $firstName = $body["first-name"];
         $lastName = $body["last-name"];
-        $password = $body["password"];
+        $password = password_hash($body["password"], PASSWORD_DEFAULT);
 
         $query = "INSERT INTO users(email, username, user_role, birth_date, first_name, last_name, password, 
         gender, profile_picture)
@@ -62,7 +70,7 @@ class UserController extends Controller
         
         $this->connection->executeNonQuery($query);
 
-        $response->send("$email $username $firstName $lastName");
+        $response->json(array("respuesta" => "Usuario se registro correctamente"));
     }
 
     public function updateUserInfo($request, $response)
