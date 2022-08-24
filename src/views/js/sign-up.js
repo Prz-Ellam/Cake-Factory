@@ -65,6 +65,10 @@ $(document).ready(function() {
                 required: 'Confirmar contraseña no puede estar vacío.',
                 equalTo: 'Confirmar contraseña no coincide con contraseña'
             }
+        },
+        errorElement: 'small',
+        errorPlacement: function(error, element) {
+            error.insertAfter(element.parent()).addClass('text-danger').addClass('form-text').attr('id', element[0].id + '-error-label');
         }
     });
 

@@ -28,6 +28,11 @@ class Session
     {
         session_reset();
     }
+
+    public function endSession2()
+    {
+        session_destroy();
+    }
 }
 
 ?>

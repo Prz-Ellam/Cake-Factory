@@ -1,9 +1,11 @@
 $(document).ready(function() {
 
+    // Reglas del formulario de login
     $('#login-form').validate({
         rules: {
             'email' : {
-                required: true
+                required: true,
+                email: false
             },
             'password' : {
                 required: true
@@ -16,6 +18,10 @@ $(document).ready(function() {
             'password': {
                 required: 'La contraseña no puede estar vacía.'
             }
+        },
+        errorElement: 'small',
+        errorPlacement: function(error, element) {
+            error.insertAfter(element.parent()).addClass('text-danger').addClass('form-text').attr('id', element[0].id + '-error-label');
         }
     });
 
@@ -53,8 +59,6 @@ $(document).ready(function() {
     }
 
     $('#login-form').submit(function(e) {
-
-        console.log(getCookie('token'));
 
         e.preventDefault();
 

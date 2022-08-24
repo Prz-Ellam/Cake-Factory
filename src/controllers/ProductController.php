@@ -14,7 +14,7 @@ class ProductController extends Controller
 
     public function editProduct($request, $response)
     {
-
+        $response->send('{ "response" : "El producto fue editado exitosamente" }');
     }
 
     public function deleteProduct($request, $response)

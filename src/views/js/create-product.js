@@ -26,6 +26,10 @@ $(document).ready(function() {
             },
             'description': {
                 required: true
+            },
+            'stock': {
+                required: true,
+                number: true
             }
         },
         messages: {
@@ -34,6 +38,10 @@ $(document).ready(function() {
             },
             'description': {
                 required: 'La descripción del producto no puede estar vacía.'
+            },
+            'stock': {
+                required: 'La cantidad de producto no puede estar vacía',
+                number: 'La cantidad debe ser un número'
             }
         }
     });

@@ -42,11 +42,11 @@ class UserController extends Controller
             $passwordCheck = password_verify($password, $passwordHashed);
 
             if ($passwordCheck == false) {
-                $response->json(array("respuesta" => "La cagaste pendejo"));
+                $response->json(array("respuesta" => "Sus credenciales son incorrectas"));
                 return;
             }
 
-            $token = bin2hex(random_bytes(16));
+            $token = bin2hex(random_bytes(32)); // Dummy way of create a token
             session_start();
             $_SESSION['token'] = $token;
             setcookie('token', $token, time() + (60 * 60), '/');
@@ -107,10 +107,25 @@ class UserController extends Controller
 
     public function isEmailAvailable($request, $response)
     {
-        $body = json_decode($request->getBody(), true);
-
         $email = $_POST["email"];
         $query = "SELECT COUNT(*) as count FROM users WHERE email = '$email'";
+
+        $execute = $this->connection->executeReader($query);
+
+        if ($row = $execute->fetch()) {
+            $num = $row["count"];
+            $response->json(($num !== 0) ? false : true);
+        }
+        else
+        {
+            $response->send(json_encode(false));
+        }
+    }
+
+    public function isUsernameAvailable($request, $response)
+    {
+        $username = $_POST["username"];
+        $query = "SELECT COUNT(*) as count FROM users WHERE username = '$username'";
 
         $execute = $this->connection->executeReader($query);
 
