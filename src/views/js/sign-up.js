@@ -8,7 +8,15 @@ $(document).ready(function() {
         rules: {
             'email': {
                 required: true,
-                email: true
+                email: true,
+                remote: {
+                    type: 'POST',
+                    url: 'Cake-Factory/isEmailAvailable',
+                    data: {
+                        'email' : function() { return $('#email').val() }
+                    },
+                    dataType: 'json'
+                }
             },
             'username': {
                 required: true
@@ -20,19 +28,22 @@ $(document).ready(function() {
                 required: true
             },
             'birth-date': {
-                required: true
+                required: true,
+                date: true
             },
             'password': {
                 required: true
             },
             'confirm-password': {
-                required: true
+                required: true,
+                equalTo: '#password' // Igual que la contraseña
             }
         },
         messages: {
             'email': {
                 required: 'El correo electrónico no puede estar vacío.',
-                email: 'El correo electrónico que ingresó no es válido.'
+                email: 'El correo electrónico que ingresó no es válido.',
+                remote: 'El correo electrónico está siendo usado por alguien más.'
             },
             'username': {
                 required: 'El nombre de usuario no puede estar vacío.'
@@ -44,16 +55,31 @@ $(document).ready(function() {
                 required: 'El apellido no puede estar vacío.'
             },
             'birth-date': {
-                required: 'La fecha de nacimiento no puede estar vacía.'
+                required: 'La fecha de nacimiento no puede estar vacía.',
+                date: 'La fecha de nacimiento debe tener formato de fecha.'
             },
             'password': {
                 required: 'La contraseña no puede estar vacía.'
             },
             'confirm-password': {
-                required: 'Confirmar contraseña no puede estar vacío.'
+                required: 'Confirmar contraseña no puede estar vacío.',
+                equalTo: 'Confirmar contraseña no coincide con contraseña'
             }
         }
     });
+
+    function jsonEncode(formData, multiFields = null) {
+        let object = Object.fromEntries(formData.entries());
+
+        // If the data has multi-select values
+        if (multiFields && Array.isArray(multiFields)) {
+            multiFields.forEach((field) => {
+            object[field] = formData.getAll(field);
+            });
+        }
+
+        return JSON.stringify(object);
+    }
 
     $('#sign-up-form').submit(function(e) {
 
@@ -63,20 +89,7 @@ $(document).ready(function() {
             return;
         }
 
-        const requestBody = {
-            'username' : $('#username').val(),
-            'email' : $('#email').val(),
-            'first-name' : $('#first-name').val(),
-            'last-name' : $('#last-name').val(),
-            //'user-role' : document.getElementById('user-role').value,
-            //'gender' : document.getElementById('gender').value,
-            //'birth-date' : document.getElementById('birth-date').value,
-            'password' : $('#password').val(),
-            //'confirm-password' : document.getElementById('confirm-password').value,
-            //'profile-picture' : ''
-        };
-
-
+        const requestBody = jsonEncode(new FormData(this));
         $.ajax({
             method: 'POST',
             url: 'Cake-Factory/api/v1/users',
@@ -84,11 +97,13 @@ $(document).ready(function() {
                 'Accept' : 'application/json',
                 'Content-Type' : 'application/json'
             },
-            data: JSON.stringify(requestBody)
-        }).done(function(response) {
-            console.log(response);
-        }).fail(function(jqXHR, response) {
-            console.log('Hubo un error');
+            data: requestBody,
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(request, status, error) {
+                console.log(status);
+            }
         });
 
     });

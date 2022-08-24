@@ -26,13 +26,13 @@
 </head>
 <body>
 
-    <header class="text-center pt-3">
+    <header class="text-center pt-4">
         <a class="navbar-brand" href="/"><img src="assets/img/Brand-Logo.svg" id="brand-logo" style="height: 48px"></a>
         <nav class="navbar fixed-top"></nav>
     </header>
 
     <!-- Main container -->
-    <div class="container my-5">
+    <div class="container my-4">
         <!-- Flexbox -->
         <div class="row d-flex justify-content-center">
             <!-- Form Card and Grid System -->
@@ -49,6 +49,13 @@
                     <label class="form-label" role="button">Foto de perfil</label>
                     <input type="file" class="form-control shadow-none rounded-1" name="profile-picture" id="profile-picture" >
                 </div>
+                
+                <div class="mb-4">
+                    <label class="form-label" for="email" role="button">Correo electrónico</label>
+                    <div class="input-group">
+                        <input type="email" class="form-control shadow-none rounded-1" name="email" id="email" placeholder="ejemplo@correo.com">
+                    </div>
+                </div>
 
                 <div class="mb-4">
                     <label class="form-label" for="username" role="button">Nombre de usuario</label>
@@ -57,10 +64,12 @@
                     </div>
                 </div>
 
-                <div class="mb-4">
-                    <label class="form-label" for="email" role="button">Correo electrónico</label>
+
+                <div class="form-group mb-4">
+                    <label class="form-label" for="last-name" role="button">Fecha de nacimiento</label>
                     <div class="input-group">
-                        <input type="email" class="form-control shadow-none rounded-1" name="email" id="email" placeholder="ejemplo@correo.com">
+                        <input type="date" class="form-control shadow-none rounded-1" name="birth-date" id="birth-date" 
+                        >
                     </div>
                 </div>
 

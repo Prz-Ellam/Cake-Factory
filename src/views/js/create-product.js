@@ -6,7 +6,7 @@ $(document).ready(function() {
                 required: true
             },
             'description': {
-                required: true
+               
             }
         },
         messages: {
@@ -14,7 +14,7 @@ $(document).ready(function() {
                 required: 'El nombre no puede estar vacío.'
             },
             'description': {
-                required: 'La descripción no puede estar vacía.'
+                
             }
         }
     });
@@ -38,6 +38,21 @@ $(document).ready(function() {
         }
     });
 
+        
+    function jsonEncode(formData, multiFields = null) {
+        let object = Object.fromEntries(formData.entries());
+
+        // If the data has multi-select values
+        if (multiFields && Array.isArray(multiFields)) {
+            multiFields.forEach((field) => {
+            object[field] = formData.getAll(field);
+            });
+        }
+
+        return object;
+    }
+
+
     $('#create-category-form').submit(function(e) {
 
         e.preventDefault();
@@ -46,12 +61,9 @@ $(document).ready(function() {
         if (validations === false) {
             return;
         }
-        
-        const requestBody = {
-            'name': $('#category-name').val(),
-            'description': $('#category-description').val()
-        }
 
+        console.log(jsonEncode(new FormData(this)));
+        
         $.ajax({
             method: 'POST',
             url: 'Cake-Factory/api/v1/categories',

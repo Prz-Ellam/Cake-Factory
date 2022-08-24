@@ -32,23 +32,38 @@ $(document).ready(function() {
         }
     });
 
+    
+    function jsonEncode(formData, multiFields = null) {
+        let object = Object.fromEntries(formData.entries());
+
+        // If the data has multi-select values
+        if (multiFields && Array.isArray(multiFields)) {
+            multiFields.forEach((field) => {
+            object[field] = formData.getAll(field);
+            });
+        }
+
+        return object;
+    }
+
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
     $('#login-form').submit(function(e) {
+
+        console.log(getCookie('token'));
 
         e.preventDefault();
 
-        let validations = $('#login-form').valid();
+        let validations = $(this).valid();
         if (validations === false) {
             return;
         }
 
-        const requestBody = {
-            'email' : $('#email').val(),
-            'password' : $('#password').val(),
-            'remember' : $('#remember').val()   // Check if is on or off
-        };
-
-        console.log(requestBody);
-
+        const requestBody = jsonEncode(new FormData(this));
         $.ajax({
             method: 'POST',
             url: 'Cake-Factory/api/v1/login',
@@ -57,10 +72,15 @@ $(document).ready(function() {
                 'Content-Type' : 'application/json'
             },
             dataType: 'json',
-            data: JSON.stringify(requestBody)
-        }).done(function(response) {
-            console.log(response);
+            data: JSON.stringify(requestBody),
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(request, status, error) {
+                console.log(status);
+            }
         });
+
     });
 
 })

@@ -42,15 +42,19 @@ class UserController extends Controller
             $passwordCheck = password_verify($password, $passwordHashed);
 
             if ($passwordCheck == false) {
-                $response->json(array("respuesta" => "Nada"));
+                $response->json(array("respuesta" => "La cagaste pendejo"));
                 return;
             }
 
-            $response->json(array("respuesta" => "Todo salio al 100"));
+            $token = bin2hex(random_bytes(16));
+            session_start();
+            $_SESSION['token'] = $token;
+            setcookie('token', $token, time() + (60 * 60), '/');
+            $response->json(array("respuesta" => $_SESSION['token']));
             
         }
         else {
-            $response->json(array("respuesta" => "Todo salio al 100"));
+            $response->json(array("respuesta" => "Nada"));
         }
     }
 
@@ -86,6 +90,38 @@ class UserController extends Controller
         $newPassword = $body["new-password"];
 
         $response->send("Actualizar contraseña");
+    }
+
+    public function token($request, $response)
+    {
+        session_start();
+        $response->send($_SESSION["token"] . "and" . $_COOKIE["token"]);
+    }
+
+    public function expireSession($request, $response)
+    {
+        session_start();
+        setcookie('s', 'hola', time() + (60 * 60));
+        $response->send(var_dump($_SESSION));
+    }
+
+    public function isEmailAvailable($request, $response)
+    {
+        $body = json_decode($request->getBody(), true);
+
+        $email = $_POST["email"];
+        $query = "SELECT COUNT(*) as count FROM users WHERE email = '$email'";
+
+        $execute = $this->connection->executeReader($query);
+
+        if ($row = $execute->fetch()) {
+            $num = $row["count"];
+            $response->json(($num !== 0) ? false : true);
+        }
+        else
+        {
+            $response->send(json_encode(false));
+        }
     }
 }
 
