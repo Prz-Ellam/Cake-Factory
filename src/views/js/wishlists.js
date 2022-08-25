@@ -1,5 +1,28 @@
 $(document).ready(function() {
 
+    $('#wishlist-form').validate({
+        rules: {
+            'wishlist-name': {
+                required: true
+            },
+            'wishlist-description': {
+                required: true
+            }
+        },
+        messages: {
+            'wishlist-name': {
+                required: 'El nombre de la lista de deseos no puede estar vacío.'
+            },
+            'wishlist-description': {
+                required: 'La descripción de la lista de deseos no puede estar vacía.'
+            }
+        },
+        errorElement: 'small',
+        errorPlacement: function(error, element) {
+            error.insertAfter(element.parent()).addClass('text-danger').addClass('form-text').attr('id', element[0].id + '-error-label');
+        }
+    });
+
     $('#wishlist-table').DataTable({
         responsive: true
     });
@@ -7,6 +30,11 @@ $(document).ready(function() {
     $('#wishlist-form').submit(function(e) {
 
         e.preventDefault();
+
+        let validations = $(this).valid();
+        if (validations === false) {
+            return;
+        }
 
         const submitBtn = document.getElementById('submit-wishlist');
         modal = document.getElementById('exampleModal');

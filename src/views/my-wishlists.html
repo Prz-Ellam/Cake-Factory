@@ -135,7 +135,7 @@
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content rounded-1 bg-white border-0">
                 <form id="wishlist-form">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Agregar lista de deseos</h5>
@@ -143,16 +143,19 @@
                     </div>
                     <div class="modal-body">
 
-                        <input type="file">
+                        <div class="mb-3">
+                            <label class="form-label" role="button">Foto</label>
+                            <input type="file" class="form-control shadow-none rounded-1" name="profile-picture" id="profile-picture" >
+                        </div>
                          
                         <div class="mb-3">
                             <label class="form-label" for="wishlist-name" role="button">Nombre</label>
-                            <input class="form-control shadow-none rounded-1" type="text" name="name" id="wishlist-name">
+                            <input class="form-control shadow-none rounded-1" type="text" name="wishlist-name" id="wishlist-name">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="wishlist-description" role="button">Descripción</label>
-                            <textarea class="form-control shadow-none rounded-1" type="text" name="description" id="wishlist-description" rows="5"></textarea>    
+                            <textarea class="form-control shadow-none rounded-1" type="text" name="wishlist-description" id="wishlist-description" rows="5"></textarea>    
                         </div>
 
                         <label class="form-label" for="wishlist-visibility" role="button">Visibilidad</label>
@@ -164,7 +167,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary shadow-none rounded-1" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary shadow-none rounded-1" id="submit-wishlist">Guardar</button>
+                        <button type="submit" class="btn bg-orange text-light shadow-none rounded-1" id="submit-wishlist">Guardar</button>
                     </div>
                 </form>
             </div>

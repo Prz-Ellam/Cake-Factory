@@ -4,6 +4,11 @@ $(document).ready(function() {
     var dateFormat = date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0')
     document.getElementById('birth-date').value = dateFormat;
 
+    // RFC
+    $.validator.addMethod('email', function(value, element) {
+        return this.optional(element) || /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value);
+    }, 'Please enter a valid email');
+
     $('#sign-up-form').validate({
         rules: {
             'email': {
@@ -13,13 +18,21 @@ $(document).ready(function() {
                     type: 'POST',
                     url: 'Cake-Factory/isEmailAvailable',
                     data: {
-                        'email' : function() { return $('#email').val() }
+                        'email': function() { return $('#email').val() }
                     },
                     dataType: 'json'
                 }
             },
             'username': {
-                required: true
+                required: true,
+                remote: {
+                    type: 'POST',
+                    url: 'Cake-Factory/isUsernameAvailable',
+                    data: {
+                        'username': function() { return $('#username').val() }
+                    },
+                    dataType: 'json'
+                }
             },
             'first-name': {
                 required: true
@@ -46,7 +59,8 @@ $(document).ready(function() {
                 remote: 'El correo electrónico está siendo usado por alguien más.'
             },
             'username': {
-                required: 'El nombre de usuario no puede estar vacío.'
+                required: 'El nombre de usuario no puede estar vacío.',
+                remote: 'El nombre de usuario está siendo usado por alguien más.'
             },
             'first-name': {
                 required: 'El nombre no puede estar vacío.'
@@ -82,8 +96,34 @@ $(document).ready(function() {
             });
         }
 
-        return JSON.stringify(object);
+        return object;
     }
+
+    $('#btn-password').click(function() {
+        let mode = $('#password').attr('type');
+
+        if (mode === 'password') {
+            $('#password').attr('type', 'text');
+            $('#password-icon').removeClass('fa-eye').addClass('fa-eye-slash');
+        }
+        else {
+            $('#password').attr('type', 'password');
+            $('#password-icon').removeClass('fa-eye-slash').addClass('fa-eye');
+        }
+    });
+
+    $('#btn-confirm-password').click(function() {
+        let mode = $('#confirm-password').attr('type');
+
+        if (mode === 'password') {
+            $('#confirm-password').attr('type', 'text');
+            $('#confirm-password-icon').removeClass('fa-eye').addClass('fa-eye-slash');
+        }
+        else {
+            $('#confirm-password').attr('type', 'password');
+            $('#confirm-password-icon').removeClass('fa-eye-slash').addClass('fa-eye');
+        }
+    });
 
     $('#sign-up-form').submit(function(e) {
 
@@ -102,10 +142,11 @@ $(document).ready(function() {
                 'Content-Type' : 'application/json'
             },
             data: requestBody,
+            dataType: 'json',
             success: function(response) {
                 console.log(response);
             },
-            error: function(request, status, error) {
+            error: function(jqXHR, status, error) {
                 console.log(status);
             }
         });

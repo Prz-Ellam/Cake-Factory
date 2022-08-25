@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cake Factory</title>
 
+    <!-- Icon -->
     <link rel="shortcut icon" href="assets/icons/Icon.svg" type="image/x-icon">
 
     <!-- Google Fonts -->
@@ -14,31 +15,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
 
     <!-- Bootstrap 5.2.0 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" 
-        rel="stylesheet" 
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" 
-        crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <!-- Data Tables Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     
-    <link href="./styles/navbar.css" rel="stylesheet">
-    <link href="./styles/layout.css" rel="stylesheet">
-    <link href="./styles/footer.css" rel="stylesheet">
+    <link type="text/css" href="./styles/navbar.css" rel="stylesheet">
+    <link type="text/css" href="./styles/layout.css" rel="stylesheet">
+    <link type="text/css" href="./styles/footer.css" rel="stylesheet">
 </head>
 <body>
 
     <header class="fixed-top sticky-top">
         <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar">
-        
-            <a class="navbar-brand" href="./"><img src="assets/img/Brand-Logo.svg" id="brand-logo"></a>
+            <a class="navbar-brand" href="/"><img src="assets/img/Brand-Logo.svg" id="brand-logo"></a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">
                 <i class="fa fa-bars"></i>
             </button>
 
             <div class="collapse navbar-collapse" id="navbar-collapse">
-
                 <form class="form-inline ms-xl-5 me-lg-auto w-50" id="search-box">
                     <div class="input-group w-100">
                         <input type="search" class="form-control search shadow-none" name="search" id="search" placeholder="Buscar productos">
@@ -48,19 +47,15 @@
                     </div>
                 </form>
 
-                <ul class="navbar-nav " id="orange-navbar"></ul>
-
+                <ul class="navbar-nav" id="orange-navbar"></ul>
             </div>
         </nav>
-
         <nav class="navbar navbar-expand-md bg-white navbar-dark shadow-sm">
-        
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#subnavbar-collapse">
                 <i class="fa fa-bars text-brown"></i>
             </button>
 
             <div class="collapse navbar-collapse" id="subnavbar-collapse">
-
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link ms-1 me-4 p-1 text-brown" href="index.html">
@@ -83,63 +78,105 @@
                         </a>
                     </li>
                 </ul>
-
             </div>
         </nav>
-
     </header>
 
-    <select>
-        <option>Categoria</option>
-    </select>
-    <input type="date">
-    <input type="date">
+    <div class="container-fluid my-4 bg-white p-4">
 
-    <table>
-        <thead>
-            <tr>
-                <th>Fecha y hora de la venta</th>
-                <th>Categoría</th>
-                <th>Producto</th>
-                <th>Calificación</th>
-                <th>Precio</th>
-                <th>Existencia actual</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="row gy-2 gx-3 align-items-center">
+            <div class="col-auto">
+                <label for="from" class="">Categorías:</label>
+                <select class="form-control">
+                    <option>Categoria</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <label for="from" class="">Desde:</label>
+                <input type="date" class="form-control" name="from" id="from">
+            </div>
+            <div class="col-auto">
+                <label for="to">Hasta:</label>
+                <input type="date" class="form-control" name="to" id="to">
+            </div>
+        </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Mes y año de la venta</th>
-                <th>Categoría</th>
-                <th>Ventas</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-            </tr>
-        </tbody>
-    </table>
+        <br>
+
+        <table class="table table-responsive table-hover" id="detailed-sales-report">
+            <thead class="bg-orange text-light">
+                <tr>
+                    <th>Fecha y hora de la venta</th>
+                    <th>Categoría</th>
+                    <th>Producto</th>
+                    <th>Calificación</th>
+                    <th>Precio</th>
+                    <th>Existencia actual</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br>
+        <br>
+
+        <table class="table table-responsive table-hover" id="group-sales-report">
+            <thead class="bg-orange text-light">
+                <tr>
+                    <th>Mes y año de la venta</th>
+                    <th>Categoría</th>
+                    <th>Ventas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br>
+        <br>
+
+        
 
     <button class="btn btn-primary shadow-none rounded-1"><i class="fa fa-file-csv"></i>CSV</button>
     <button class="btn btn-primary shadow-none rounded-1"><i class="fa fa-file-pdf"></i>PDF</button>
 
     <canvas id="myChart"></canvas>
 
+
+    </div>
+
+
+    
         <!-- Footer -->
         <footer class="page-footer p-5">
             <!-- Container -->
@@ -221,10 +258,28 @@
     
         </footer>
 
+    <!-- jQuery 3.6.0 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- jQuery Validation 1.19.5 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js" integrity="sha256-JwUksNJ6/R07ZiLRoXbGeNrtlFZMFDKX4hemPiHOmCA=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap 5.2.0 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha256-DOneOY3n5+xj6Da3AJBkPHxaPynqSlGaZ9790gbBOsE=" crossorigin="anonymous"></script>
+    
+    <!-- Data Tables -->
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    
+    <!-- Data Tables Bootstrap -->
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/48ce36e499.js" crossorigin="anonymous"></script>
+
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- JavaScript -->
-    <script src="./js/buys-report.js"></script>
+    <script src="./js/sales-report.js"></script>
 </body>
 </html>

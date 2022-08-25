@@ -92,33 +92,35 @@
                     <div class="form-group mb-4">
                         <label class="form-label" for="user-role" role="button">Rol de usuario</label>
                         <div class="input-group">
-                            <select class="form-control shadow-none rounded-1">
+                            <select class="form-select shadow-none rounded-1">
                                 <option>Comprador</option>
                                 <option>Vendedor</option>
                             </select>
                         </div>
                     </div>
 
-                    <label role="button">Género</label><br>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="type-of-sell" id="sell" checked>
-                        <label class="form-check-label" for="type-of-sell">Masculino</label>
+                    <div class="form-group mb-4">
+                        <label class="form-label" role="button">Género</label>
+                        <div class="form-check">
+                            <input class="form-check-input shadow-none" type="radio" name="gender" id="male">
+                            <label class="form-check-label" for="male" role="button">Masculino</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input shadow-none" type="radio" name="gender" id="female">
+                            <label class="form-check-label" for="female" role="button">Femenino</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input shadow-none" type="radio" name="gender" id="other">
+                            <label class="form-check-label" for="other" role="button">Otro</label>
+                        </div>                
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="type-of-sell" id="cotizar">
-                        <label class="form-check-label" for="type-of-sell">Femenino</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="type-of-sell" id="cotizar">
-                        <label class="form-check-label" for="type-of-sell">Otro</label>
-                    </div>
-    
+
                     <div class="form-group mb-4">
                         <label class="form-label" for="gender" role="button">Contraseña</label>
                         <div class="input-group">
                             <input type="password" name="password" id="password" class="form-control shadow-none">
                             <div class="input-group-append">
-                              <button type="button" class="btn btn-secondary bg-orange input-group-text shadow-none rounded-0 rounded-end shadow-none" id="btn-password"><i class="fas fa-solid fa-eye"></i></button>
+                              <button type="button" class="btn bg-orange text-white input-group-text shadow-none rounded-0 rounded-end shadow-none" id="btn-password"><i id="password-icon" class="fas fa-solid fa-eye"></i></button>
                             </div>
                         </div>
                     </div>
@@ -128,7 +130,7 @@
                         <div class="input-group">
                             <input type="password" name="confirm-password" id="confirm-password" class="form-control shadow-none">
                             <div class="input-group-append">
-                              <button type="button" class="btn btn-secondary bg-orange input-group-text shadow-none rounded-0 rounded-end shadow-none" id="btn-confirm-password"><i class="fas fa-solid fa-eye"></i></button>
+                              <button type="button" class="btn bg-orange text-white input-group-text shadow-none rounded-0 rounded-end shadow-none" id="btn-confirm-password"><i id="confirm-password-icon" class="fas fa-solid fa-eye"></i></button>
                             </div>
                         </div>
                     </div>

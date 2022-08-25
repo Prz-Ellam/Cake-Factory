@@ -1,21 +1,31 @@
 $(document).ready(function() {
 
+    $("#categories").multipleSelect({
+        selectAll: false,
+        width: '100%',
+        filter: true
+    });
+
     $('#create-category-form').validate({
         rules: {
-            'name': {
+            'category-name': {
                 required: true
             },
-            'description': {
+            'category-description': {
                
             }
         },
         messages: {
-            'name': {
+            'category-name': {
                 required: 'El nombre no puede estar vacío.'
             },
-            'description': {
+            'category-description': {
                 
             }
+        },
+        errorElement: 'small',
+        errorPlacement: function(error, element) {
+            error.insertAfter(element.parent()).addClass('text-danger').addClass('form-text').attr('id', element[0].id + '-error-label');
         }
     });
 
@@ -43,6 +53,10 @@ $(document).ready(function() {
                 required: 'La cantidad de producto no puede estar vacía',
                 number: 'La cantidad debe ser un número'
             }
+        },
+        errorElement: 'small',
+        errorPlacement: function(error, element) {
+            error.insertAfter(element.parent()).addClass('text-danger').addClass('form-text').attr('id', element[0].id + '-error-label');
         }
     });
 
@@ -70,8 +84,7 @@ $(document).ready(function() {
             return;
         }
 
-        console.log(jsonEncode(new FormData(this)));
-        
+        requestBody = jsonEncode(new FormData(this));
         $.ajax({
             method: 'POST',
             url: 'Cake-Factory/api/v1/categories',
@@ -79,9 +92,14 @@ $(document).ready(function() {
                 'Accept' : 'application/json',
                 'Content-Type' : 'application/json'
             },
-            data: JSON.stringify(requestBody)
-        }).done(function(response) {
-            console.log(response);
+            data: JSON.stringify(requestBody),
+            dataType: 'json',
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(response, status, error) {
+                console.log(status);
+            }
         });
 
     });

@@ -1,3 +1,15 @@
+$(document).ready(function() {
+
+    var detailedSalesReport = $('#detailed-sales-report').DataTable();
+    var groupSalesReport = $('#group-sales-report').DataTable();
+
+    for (let i = 0; i < 100; i++)
+    {
+        detailedSalesReport.row.add(['7', '7', '7', '7', '7', '7']).draw();
+    }
+
+});
+
 const labels = [
     'January',
     'February',

@@ -52,12 +52,6 @@ $(document).ready(function() {
         return object;
     }
 
-    function getCookie(name) {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-    }
-
     $('#login-form').submit(function(e) {
 
         e.preventDefault();
@@ -78,9 +72,10 @@ $(document).ready(function() {
             dataType: 'json',
             data: JSON.stringify(requestBody),
             success: function(response) {
+                // Debe devolver el token
                 console.log(response);
             },
-            error: function(request, status, error) {
+            error: function(response, status, error) {
                 console.log(status);
             }
         });

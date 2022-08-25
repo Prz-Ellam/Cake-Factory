@@ -3,10 +3,29 @@
 namespace cf\controllers;
 
 require_once 'core/Controller.php';
+require_once 'src/models/entities/User.php';
 require_once 'src/models/connections/MainConnection.php';
+require_once 'src/models/repositories/UserRepository.php';
 
 use core\Controller;
 use models\connections\MainConnection;
+use models\entities\User;
+use models\repositories\UserRepository;
+
+// TODO: Mover esto a un lugar mas apropiado
+function uuid($data = null) {
+    // Generate 16 bytes (128 bits) of random data or use the data passed into the function.
+    $data = $data ?? random_bytes(16);
+    assert(strlen($data) == 16);
+
+    // Set version to 0100
+    $data[6] = chr(ord($data[6]) & 0x0f | 0x40);
+    // Set bits 6-7 to 10
+    $data[8] = chr(ord($data[8]) & 0x3f | 0x80);
+
+    // Output the 36 character UUID.
+    return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
+}
 
 class UserController extends Controller
 {
@@ -46,6 +65,7 @@ class UserController extends Controller
                 return;
             }
 
+           
             $token = bin2hex(random_bytes(32)); // Dummy way of create a token
             session_start();
             $_SESSION['token'] = $token;
@@ -60,13 +80,26 @@ class UserController extends Controller
 
     public function registerUser($request, $response)
     {
+        // Obtencion de datos
+        // TODO: try catch
         $body = json_decode($request->getBody(), true);
 
-        $email = $body["email"];
-        $username = $body["username"];
-        $firstName = $body["first-name"];
-        $lastName = $body["last-name"];
-        $password = password_hash($body["password"], PASSWORD_DEFAULT);
+        $hashedPwd = password_hash($body['password'], PASSWORD_DEFAULT);
+        $user = new User();
+        $user->setUserId(uuid());
+        $user->setEmail($body['email']);
+        $user->setUsername($body['username']);
+        $user->setFirstName($body['first-name']);
+        $user->setLastName($body['last-name']);
+        $user->setBirthDate($body['birth-date']);
+        $user->setGender($body['gender']);
+        $user->setPassword($hashedPwd);
+
+        // Validator aqui
+
+
+        // Capa de persistencia
+        $repository = new UserRepository();
 
         $query = "INSERT INTO users(email, username, user_role, birth_date, first_name, last_name, password, 
         gender, profile_picture)
@@ -74,7 +107,9 @@ class UserController extends Controller
         
         $this->connection->executeNonQuery($query);
 
-        $response->json(array("respuesta" => "Usuario se registro correctamente"));
+        $response->json(array(
+            "respuesta" => "Usuario se registro correctamente"
+        ));
     }
 
     public function updateUserInfo($request, $response)
@@ -100,9 +135,9 @@ class UserController extends Controller
 
     public function expireSession($request, $response)
     {
-        session_start();
-        setcookie('s', 'hola', time() + (60 * 60));
-        $response->send(var_dump($_SESSION));
+        //session_start();
+        //setcookie('s', 'hola', time() + (60 * 60));
+        $response->send(uuid());
     }
 
     public function isEmailAvailable($request, $response)

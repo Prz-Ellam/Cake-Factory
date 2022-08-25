@@ -47,8 +47,8 @@ $application->view('/chat', '/chat.html');
 $application->view('/create-product', '/create-product.html');
 $application->view('/profile', '/user-profile.html');
 $application->view('/search', '/search.html');
-$application->view('/buys-report', '/buys-report.html');
-$application->view('/sells-report', '/sells-report.html');
+$application->view('/sales-report', '/sales-report.html');
+$application->view('/orders-report', '/orders-report.html');
 $application->view('/products', '/my-products.html');
 
 $application->view('/sandbox', '/user-profile-2.html');

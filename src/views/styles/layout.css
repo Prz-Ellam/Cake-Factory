@@ -57,6 +57,7 @@ body {
 @media (max-width: 575px) {
     #login-form, #sign-up-form {
         border-radius: 0 !important;
+        padding: 24px !important;
     }
 
     .form-card {
