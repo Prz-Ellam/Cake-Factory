@@ -1,4 +1,69 @@
-$(".next").click(function(){
+$('#msform').validate({
+    rules: {
+        'names': {
+            required: true
+        },
+        'last-name': {
+            required: true
+        },
+        'street-address': {
+            required: true
+        },
+        'city': {
+            required: true
+        },
+        'state': {
+            required: true
+        },
+        'postal-code': {
+            required: true
+        },
+        'email': {
+            required: true
+        },
+        'phone': {
+            required: true
+        }
+    },
+    messages: {
+        'names': {
+            required: 'El nombre no puede estar vacío.'
+        },
+        'last-name': {
+            required: 'El apellido no puede estar vacío.'
+        },
+        'street-address': {
+            required: 'La calle y el número no puede estar vacío'
+        },
+        'city': {
+            required: 'La ciudad no puede estar vacío'
+        },
+        'state': {
+            required: 'El estado no puede estar vacío'
+        },
+        'postal-code': {
+            required: 'El código postal no puede estar vacío'
+        },
+        'email': {
+            required: 'El correo electrónico no puede estar vacío'
+        },
+        'phone': {
+            required: 'El teléfono no puede estar vacío'
+        }
+    },
+    errorElement: 'small',
+    errorPlacement: function(error, element) {
+        error.insertAfter(element.parent()).addClass('text-danger').addClass('form-text').attr('id', element[0].id + '-error-label');
+    }
+});
+
+$(".next").click(function() {
+
+    let validations = $('#msform').valid();
+
+    if (validations === false) {
+        return;
+    }
         
     current_fs = $(this).parent();
     next_fs = $(this).parent().next();

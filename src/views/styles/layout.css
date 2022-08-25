@@ -52,6 +52,23 @@ body {
 	box-shadow: none;
 }
 
+/*
+.form-control {
+    border: none;
+    outline: 1px solid grey;
+    transition: outline 100ms linear;
+    z-index: 100;
+}
+
+.form-control:focus {
+    outline: 1px solid #FF5E1F;
+    transition: outline 100ms linear;
+}
+*/
+
+.form-control:focus, .form-select:focus {
+    border-color: #FF5E1F;
+}
 
 
 @media (max-width: 575px) {

@@ -76,18 +76,6 @@ body {
     justify-content: center;
 }
 
-.form-control {
-    border: none;
-    outline: 1px solid grey;
-    transition: outline 100ms linear;
-    z-index: 100;
-}
-
-.form-control:focus {
-    outline: 1px solid #FF5E1F;
-    transition: outline 100ms linear;
-}
-
 .form {
     filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.25));
 }

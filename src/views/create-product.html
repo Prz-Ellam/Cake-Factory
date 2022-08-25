@@ -92,27 +92,29 @@
     <section class="container my-4">
         <div class="row justify-content-center">
             <form class="p-5 bg-white rounded shadow-sm col-lg-8 col-md-8 form-card" id="create-product-form">
+                <!-- Inputs -->
+                <h1 class="h2 text-center mb-4">Agregar producto</h1>
 
-                    <div class="text-center mb-4">
-                        <h1>Agregar producto</h1>
-                    </div>
+                <hr class="mb-4">
 
-                    <hr>
-
-                    <div class="mb-4">
-                        <label class="form-label" for="name" role="button">Nombre</label>
+                <div class="mb-4">
+                    <label class="form-label" for="name" role="button">Nombre</label>
+                    <div class="input-group">
                         <input type="text" class="form-control shadow-none rounded-1" name="name" id="name">
                     </div>
+                </div>
 
-                    <div class="mb-4">
-                        <label class="form-label" for="description" role="button">Descripción</label>
+                <div class="mb-4">
+                    <label class="form-label" for="description" role="button">Descripción</label>
+                    <div class="input-group">
                         <textarea class="form-control shadow-none rounded-1" name="description" id="description" rows="5"></textarea>
                     </div>
+                </div>
 
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="type-of-sell" id="sell" checked>
-                        <label class="form-check-label" for="type-of-sell">Es para vender</label>
-                    </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="type-of-sell" id="sell" checked>
+                    <label class="form-check-label" for="type-of-sell">Es para vender</label>
+                </div>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="type-of-sell" id="cotizar">
                         <label class="form-check-label" for="type-of-sell">Es para cotizar</label>
@@ -120,20 +122,24 @@
 
                     <div class="mb-4">
                         <label class="form-label" for="price" role="button">Precio</label>
-                        <input disabled type="text" class="form-control shadow-none rounded-1" name="price" id="price">
+                        <div class="input-group">
+                            <input disabled type="text" class="form-control shadow-none rounded-1" name="price" id="price">
+                        </div>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label class="form-label" for="stock" role="button">Cantidad</label>
-                        <input type="text" class="form-control shadow-none rounded-1" name="stock" id="stock">
+                        <div class="input-group">
+                            <input type="number" class="form-control shadow-none rounded-1" name="stock" id="stock">
+                        </div>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label label="form-label" for="images">Imágenes</label>
                         <input type="file" class="form-control shadow-none" name="images" id="images" multiple accept="image/*">
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label class="form-label" for="videos">Videos</label>
                         <input type="file" class="form-control shadow-none" name="videos" id="videos" multiple accept="video/*">
                     </div>

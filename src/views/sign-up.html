@@ -32,21 +32,19 @@
     </header>
 
     <!-- Main container -->
-    <div class="container my-4">
+    <section class="container my-4">
         <!-- Flexbox -->
         <div class="row d-flex justify-content-center">
             <!-- Form Card and Grid System -->
             <form class="form bg-white rounded p-5 col-lg-6 col-md-8 form-card" id="sign-up-form" novalidate>
                 <!-- Inputs -->
-                <div class="mb-4">
-                    <h1 class="form-title text-center h2">Regístrate</h1>
-                    <p class="text-center">para encontrar tu pastel favorito</p>
-                </div>
-
+                <h1 class="text-center h2">Regístrate</h1>
+                <p class="text-center mb-4">para encontrar tu pastel favorito</p>
+                
                 <hr class="mb-4">
 
                 <div class="mb-4">
-                    <label class="form-label" role="button">Foto de perfil</label>
+                    <label class="form-label" for="profile-picture" role="button">Foto de perfil</label>
                     <input type="file" class="form-control shadow-none rounded-1" name="profile-picture" id="profile-picture" >
                 </div>
                 
@@ -66,10 +64,9 @@
 
 
                 <div class="form-group mb-4">
-                    <label class="form-label" for="last-name" role="button">Fecha de nacimiento</label>
+                    <label class="form-label" for="birth-date" role="button">Fecha de nacimiento</label>
                     <div class="input-group">
-                        <input type="date" class="form-control shadow-none rounded-1" name="birth-date" id="birth-date" 
-                        >
+                        <input type="date" class="form-control shadow-none rounded-1" name="birth-date" id="birth-date" >
                     </div>
                 </div>
 
@@ -92,7 +89,7 @@
                     <div class="form-group mb-4">
                         <label class="form-label" for="user-role" role="button">Rol de usuario</label>
                         <div class="input-group">
-                            <select class="form-select shadow-none rounded-1">
+                            <select class="form-select shadow-none rounded-1" name="user-role" id="user-role" role="button">
                                 <option>Comprador</option>
                                 <option>Vendedor</option>
                             </select>
@@ -116,17 +113,17 @@
                     </div>
 
                     <div class="form-group mb-4">
-                        <label class="form-label" for="gender" role="button">Contraseña</label>
+                        <label class="form-label" for="password" role="button">Contraseña</label>
                         <div class="input-group">
-                            <input type="password" name="password" id="password" class="form-control shadow-none">
+                            <input type="password" class="form-control shadow-none" name="password" id="password">
                             <div class="input-group-append">
-                              <button type="button" class="btn bg-orange text-white input-group-text shadow-none rounded-0 rounded-end shadow-none" id="btn-password"><i id="password-icon" class="fas fa-solid fa-eye"></i></button>
+                                <button type="button" class="btn bg-orange text-white input-group-text shadow-none rounded-0 rounded-end shadow-none" id="btn-password"><i id="password-icon" class="fas fa-solid fa-eye"></i></button>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group mb-4">
-                        <label class="form-label" for="gender" role="button">Confirmar Contraseña</label>
+                        <label class="form-label" for="confirm-password" role="button">Confirmar Contraseña</label>
                         <div class="input-group">
                             <input type="password" name="confirm-password" id="confirm-password" class="form-control shadow-none">
                             <div class="input-group-append">
@@ -143,7 +140,7 @@
                     <p class="text-center mb-0">¿Ya tienes cuenta? <br><a href="/Cake-Factory/login" style="color: #FF5E1F" class="text-decoration-none">Inicia sesión ahora</a></p>
                 </form>
         </div>
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer class="page-footer p-5">

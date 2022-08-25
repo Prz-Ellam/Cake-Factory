@@ -9,6 +9,11 @@ $(document).ready(function() {
         return this.optional(element) || /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value);
     }, 'Please enter a valid email');
 
+    $.validator.addMethod("dateRange", function(value, element, parameter) {
+        return this.optional(element) ||
+        !(Date.parse(value) > Date.parse(parameter[1]) || Date.parse(value) < Date.parse(parameter[0]));
+    }, 'Please enter a valid date');
+
     $('#sign-up-form').validate({
         rules: {
             'email': {
@@ -40,9 +45,13 @@ $(document).ready(function() {
             'last-name': {
                 required: true
             },
+            'gender': {
+                required: true
+            },
             'birth-date': {
                 required: true,
-                date: true
+                date: true,
+                dateRange: ['1900-01-01', dateFormat]
             },
             'password': {
                 required: true
@@ -70,7 +79,11 @@ $(document).ready(function() {
             },
             'birth-date': {
                 required: 'La fecha de nacimiento no puede estar vacía.',
-                date: 'La fecha de nacimiento debe tener formato de fecha.'
+                date: 'La fecha de nacimiento debe tener formato de fecha.',
+                dateRange: 'La fecha de nacimiento no puede ser antes de la fecha actual'
+            },
+            'gender': {
+                required: 'El género no puede estar vacío.'
             },
             'password': {
                 required: 'La contraseña no puede estar vacía.'
@@ -154,56 +167,3 @@ $(document).ready(function() {
     });
 
 });
-
-/*
-document.addEventListener('DOMContentLoaded', function()
-{
-    var date = new Date();
-    var dateFormat = date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0')
-    document.getElementById('birth-date').value = dateFormat;
-
-    document.getElementById('signup-form').addEventListener('submit', function(e)
-    {
-        e.preventDefault();
-
-        const file = document.getElementById('profile-picture');
-        var reader = new FileReader();
-        let image;
-        reader.onload = async (e) =>
-        {
-            image = reader.result;
-
-            const requestBody = {
-                'username' : document.getElementById('username').value,
-                'email' : document.getElementById('email').value,
-                'first-name' : document.getElementById('first-name').value,
-                'last-name' : document.getElementById('last-name').value,
-                'user-role' : document.getElementById('user-role').value,
-                'gender' : document.getElementById('gender').value,
-                'birth-date' : document.getElementById('birth-date').value,
-                'password' : document.getElementById('password').value,
-                'confirm-password' : document.getElementById('confirm-password').value,
-                'profile-picture' : image
-            };
-    
-    
-            fetch('Cake-Factory/api/v1/users', {
-                method : 'POST',
-                headers : {
-                    'Accept' : 'application/json',
-                    'Content-Type' : 'application/json'
-                },
-                body : JSON.stringify(requestBody)
-            }).then(response => {
-                return response.text();
-            }).then(data => {
-                console.log(data);
-            });
-        
-        };
-        reader.readAsDataURL(file.files[0]);
-
-
-    })
-});
-*/

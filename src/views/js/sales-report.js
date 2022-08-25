@@ -3,9 +3,14 @@ $(document).ready(function() {
     var detailedSalesReport = $('#detailed-sales-report').DataTable();
     var groupSalesReport = $('#group-sales-report').DataTable();
 
-    for (let i = 0; i < 100; i++)
+    for (let i = 0; i < 10; i++)
     {
         detailedSalesReport.row.add(['7', '7', '7', '7', '7', '7']).draw();
+    }
+
+    for (let i = 0; i < 10; i++)
+    {
+        groupSalesReport.row.add(['7', '7', '7', '7', '7', '7']).draw();
     }
 
 });
@@ -25,7 +30,7 @@ const data = {
         label: 'My First dataset',
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgb(255, 99, 132)',
-        data: [0, 10, 5, 2, 20, 30, 45],
+        data: [ 0, 10, 5, 2, 20, 30, 45 ],
     }]
 };
 

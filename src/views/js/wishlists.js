@@ -2,18 +2,18 @@ $(document).ready(function() {
 
     $('#wishlist-form').validate({
         rules: {
-            'wishlist-name': {
+            'name': {
                 required: true
             },
-            'wishlist-description': {
+            'description': {
                 required: true
             }
         },
         messages: {
-            'wishlist-name': {
+            'name': {
                 required: 'El nombre de la lista de deseos no puede estar vacío.'
             },
-            'wishlist-description': {
+            'description': {
                 required: 'La descripción de la lista de deseos no puede estar vacía.'
             }
         },
@@ -27,6 +27,19 @@ $(document).ready(function() {
         responsive: true
     });
 
+    function jsonEncode(formData, multiFields = null) {
+        let object = Object.fromEntries(formData.entries());
+
+        // If the data has multi-select values
+        if (multiFields && Array.isArray(multiFields)) {
+            multiFields.forEach((field) => {
+            object[field] = formData.getAll(field);
+            });
+        }
+
+        return object;
+    }
+
     $('#wishlist-form').submit(function(e) {
 
         e.preventDefault();
@@ -36,138 +49,57 @@ $(document).ready(function() {
             return;
         }
 
-        const submitBtn = document.getElementById('submit-wishlist');
+        const requestBody = jsonEncode(new FormData(this));
+        const table = $('#wishlist-table').DataTable();
+        table.row.add([
+            1,                          // ID
+            requestBody.name,           // Name
+            requestBody.description,    // Description
+            requestBody.visibility,     // Visibility
+            ''
+        ]).draw(false);
+
         modal = document.getElementById('exampleModal');
         modalInstance = bootstrap.Modal.getInstance(modal);
         modalInstance.hide();
 
-        const name = document.getElementById('wishlist-name');
-        const description = document.getElementById('wishlist-description');
-        const visibility = document.getElementById('wishlist-visibility');
-        const requestBody = {
-            'name'          : name.value,
-            'description'   : description.value,
-            'visibility'    : visibility.value
-        }
-
-        name.value = "";
-        description.value = "";
-        visibility.value = "";
-
-        console.log(requestBody);
-
-        const tableBody = document.getElementById('wishlist-table-body');
-
-        const id = String(new Date().getTime());
-        const template = document.createElement('template');
-        var html = `
-            <tr role="button" id="${id}">
-                <td scope="row">1</td>
-                <td><img class="img-fluid rounded-circle" width="40" height="40" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg"> ${requestBody.name}</td>
-                <td>${requestBody.description}</td>
-                <td>Publica</td>
-                <td>
-                    <button class="btn btn-primary shadow-none rounded-1 btn-edit" row="${id}"><i class="fa fa-pencil"></i></button>
-                    <button class="btn btn-danger shadow-none rounded-1 btn-delete" row="${id}"><i class="fa fa-trash"></i></button>
-                </td>
-            </tr>
-        `;
-        html = html.trim();
-        template.innerHTML = html;
-
-        const btnEdit = template.content.querySelector('.btn-edit');
-        //btnEdit.addEventListener('click', edit);
-
-        const btnDelete = template.content.querySelector('.btn-delete');
-        //btnDelete.addEventListener('click', deleteRow);
-
-        tableBody.appendChild(template.content.firstChild);
-
-        $('#wishlist-table').DataTable();
-
-        Swal.fire({
-            title: 'Do you want to save the changes?'
+        const session = 1;
+        $.ajax({
+            method: 'POST',
+            url: `Cake-Factory/api/v1/users/${session}/wishlists`,
+            headers: {
+                'Accept' : 'application/json',
+                'Content-Type' : 'application/json'
+            },
+            data: JSON.stringify(requestBody),
+            dataType: 'json',
+            success: function(response) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: '¡La categoría se ha guardado!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            },
+            error: function(jqXHR, status, error) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: '¡Hubo un error!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            },
+            complete: function() {
+                $('#wishlist-name').val("");
+                $('#wishlist-description').val("");
+            }
         });
 
         /*
         http://kp.bkd.sidoarjokab.go.id/website/lib/DataTables-1.10.7/examples/api/add_row.html#:~:text=New%20rows%20can%20be%20added,be%20added%20using%20the%20rows.
         */
     })
-
     
 });
-
-/*
-document.addEventListener('DOMContentLoaded', function()
-{
-    const submitBtn = document.getElementById('submit-wishlist');
-    submitBtn.addEventListener('click', function()
-    {      
-        Swal.fire({
-            title: 'Do you want to save the changes?'
-        });
-
-        modal = document.getElementById('exampleModal');
-        modalInstance = bootstrap.Modal.getInstance(modal);
-        modalInstance.hide();
-
-        const name = document.getElementById('wishlist-name');
-        const description = document.getElementById('wishlist-description');
-        const visibility = document.getElementById('wishlist-visibility');
-        const requestBody = {
-            'name'          : name.value,
-            'description'   : description.value,
-            'visibility'    : visibility.value
-        }
-
-        name.value = "";
-        description.value = "";
-        visibility.value = "";
-
-        console.log(requestBody);
-
-        const tableBody = document.getElementById('wishlist-table-body');
-
-        const id = String(new Date().getTime());
-        const template = document.createElement('template');
-        var html = `
-            <tr role="button" id="${id}">
-                <td scope="row">1</td>
-                <td><img class="img-fluid rounded-circle" width="40" height="40" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg"> ${requestBody.name}</td>
-                <td>${requestBody.description}</td>
-                <td>Publica</td>
-                <td>
-                    <button class="btn btn-primary shadow-none rounded-1 btn-edit" row="${id}"><i class="fa fa-pencil"></i></button>
-                    <button class="btn btn-danger shadow-none rounded-1 btn-delete" row="${id}"><i class="fa fa-trash"></i></button>
-                </td>
-            </tr>
-        `;
-        html = html.trim();
-        template.innerHTML = html;
-
-        const btnEdit = template.content.querySelector('.btn-edit');
-        btnEdit.addEventListener('click', edit);
-
-        const btnDelete = template.content.querySelector('.btn-delete');
-        btnDelete.addEventListener('click', deleteRow);
-
-        tableBody.appendChild(template.content.firstChild);
-    
-    });
-
-    function edit()
-    {
-        
-    }
-
-    function deleteRow()
-    {
-        Swal.fire({
-            title: 'Do you want to save the changes?'
-        }).then((result) => {
-            const rowId = this.getAttribute("row");
-            document.getElementById(rowId).remove();
-        });
-    }
-});
-*/

@@ -121,10 +121,14 @@ $(document).ready(function() {
                 'Accept' : 'application/json',
                 'Content-Type' : 'application/json'
             },
-            dataType: 'json'//,
-            //data: JSON.stringify(requestBody)
-        }).done(function(response) {
-            console.log(response);
+            data: JSON.stringify(requestBody),
+            dataType: 'json',
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(response, status, error) {
+                console.log(status);
+            }
         });
 
     });
