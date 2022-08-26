@@ -1,7 +1,24 @@
 $(document).ready(function() {
 
+    // Data size (no puede pesar mas de 8MB)
+    $.validator.addMethod('filesize', function(value, element, parameter) {
+
+        let result;
+        if (element.files[0] === undefined) {
+            return this.optional(element) || result; 
+        }
+
+        const size = (element.files[0].size / 1024 / 1024).toFixed(2);
+        result = (parseFloat(size) > parameter) ? false : true;
+
+        return this.optional(element) || result;
+    }, 'Please enter a valid file');
+
     $('#wishlist-form').validate({
         rules: {
+            'image': {
+                required: true
+            },
             'name': {
                 required: true
             },
@@ -10,6 +27,9 @@ $(document).ready(function() {
             }
         },
         messages: {
+            'image': {
+                required: 'Hola'
+            },
             'name': {
                 required: 'El nombre de la lista de deseos no puede estar vacío.'
             },
@@ -47,6 +67,12 @@ $(document).ready(function() {
         return object;
     }
 
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
     $('#wishlist-form').submit(function(e) {
 
         e.preventDefault();
@@ -70,8 +96,9 @@ $(document).ready(function() {
                 method: 'POST',
                 url: `Cake-Factory/api/v1/users/${session}/wishlists`,
                 headers: {
-                    'Accept' : 'application/json',
-                    'Content-Type' : 'application/json'
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': getCookie('token')
                 },
                 data: JSON.stringify(requestBody),
                 dataType: 'json',

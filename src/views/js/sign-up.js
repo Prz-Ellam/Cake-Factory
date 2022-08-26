@@ -50,6 +50,7 @@ $(document).ready(function() {
             },
             'username': {
                 required: true,
+                minlength: 3,
                 remote: {
                     type: 'POST',
                     url: 'Cake-Factory/isUsernameAvailable',
@@ -74,7 +75,8 @@ $(document).ready(function() {
                 dateRange: ['1900-01-01', dateFormat]
             },
             'password': {
-                required: true
+                required: true,
+                minlength: 8
             },
             'confirm-password': {
                 required: true,
@@ -93,6 +95,7 @@ $(document).ready(function() {
             },
             'username': {
                 required: 'El nombre de usuario no puede estar vacío.',
+                minlength: 'El nombre de usuario debe contener más de 3 caracteres',
                 remote: 'El nombre de usuario está siendo usado por alguien más.'
             },
             'first-name': {
@@ -110,7 +113,8 @@ $(document).ready(function() {
                 required: 'El género no puede estar vacío.'
             },
             'password': {
-                required: 'La contraseña no puede estar vacía.'
+                required: 'La contraseña no puede estar vacía.',
+                minlength: 'La contraseña debe contener mínimo 8 caracteres'
             },
             'confirm-password': {
                 required: 'Confirmar contraseña no puede estar vacío.',

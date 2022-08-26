@@ -143,11 +143,12 @@
                     </div>
                     <div class="modal-body">
                         <!-- TODO: Table overflow in columns -->
-                        <div class="mb-3">
-                            <label class="form-label" role="button">Foto</label>
-                            <div class="input-group">
-                                <input type="file" class="form-control shadow-none rounded-1" name="profile-picture" id="profile-picture" >
+                        <div class="form-group text-center mb-4">
+                            <div class="position-relative">
+                                <label for="profile-picture" role="button" class="profile-picture-label text-white position-absolute rounded-circle"></label>
+                                <img style="width: 156px; height: 156px; object-fit:cover;" class="img-fluid rounded-circle" id="picture-box" src="https://solowrestling.mundodeportivo.com/uploads/RESEM109921aj-styles.jpg">
                             </div>
+                            <input type="file" class="form-control shadow-none rounded-1 d-none" name="image" id="wishlist-image">
                         </div>
                          
                         <div class="mb-3">

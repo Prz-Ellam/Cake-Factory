@@ -55,7 +55,14 @@ CREATE TABLE wishlists(
     wishlist_id         INT,
     name                VARCHAR(60),
     description         VARCHAR(200),
+    image               INT,
     user_id             INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS images(
+    image_id            INT NOT NULL,
+    content             LONGBLOB NOT NULL,
+    created_by          TIMESTAMP NOT NULL
 );
 
 CREATE TABLE wishlist_objects(

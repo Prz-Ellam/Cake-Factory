@@ -48,7 +48,7 @@
                         <label for="profile-picture" role="button" class="profile-picture-label text-white position-absolute rounded-circle"></label>
                         <img style="width: 156px; height: 156px; object-fit:cover;" class="img-fluid rounded-circle" id="picture-box" src="https://solowrestling.mundodeportivo.com/uploads/RESEM109921aj-styles.jpg">
                     </div>
-                    <input type="file" class="form-control shadow-none rounded-1 d-none" name="profile-picture" id="profile-picture" >
+                    <input type="file" class="form-control shadow-none rounded-1 position-absolute" style="scale: 0.01" name="profile-picture" id="profile-picture" >
                 </div>
                 
                 <div class="mb-4">
@@ -93,8 +93,20 @@
                         <label class="form-label" for="user-role" role="button">Rol de usuario</label>
                         <div class="input-group">
                             <select class="form-select shadow-none rounded-1" name="user-role" id="user-role" role="button">
+                                <option>Seleccionar</option>
                                 <option>Comprador</option>
                                 <option>Vendedor</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label class="form-label" for="user-role" role="button">Visibilidad</label>
+                        <div class="input-group">
+                            <select class="form-select shadow-none rounded-1" name="user-role" id="user-role" role="button">
+                                <option>Seleccionar</option>
+                                <option>Público</option>
+                                <option>Privado</option>
                             </select>
                         </div>
                     </div>
