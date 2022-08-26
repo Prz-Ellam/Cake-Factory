@@ -3,11 +3,11 @@ $(document).ready(function() {
     // Reglas del formulario de login
     $('#login-form').validate({
         rules: {
-            'email' : {
+            'email': {
                 required: true,
                 email: false
             },
-            'password' : {
+            'password': {
                 required: true
             }
         },
@@ -22,6 +22,20 @@ $(document).ready(function() {
         errorElement: 'small',
         errorPlacement: function(error, element) {
             error.insertAfter(element.parent()).addClass('text-danger').addClass('form-text').attr('id', element[0].id + '-error-label');
+        }
+    });
+
+    $('#send-mail').validate({
+        rules: {
+            'email': {
+                required: true,
+                email: false
+            }
+        },
+        messages: {
+            'email': {
+                required: 'El correo electrónico no puede estar vacío.'
+            }
         }
     });
 
@@ -79,6 +93,17 @@ $(document).ready(function() {
                 console.log(status);
             }
         });
+
+    });
+
+    $('#send-mail').submit(function(e) {
+
+        e.preventDefault();
+
+        let validations = $(this).valid();
+        if (validations === false) {
+            return;
+        }
 
     });
 

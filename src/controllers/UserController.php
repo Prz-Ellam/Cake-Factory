@@ -137,7 +137,7 @@ class UserController extends Controller
     {
         //session_start();
         //setcookie('s', 'hola', time() + (60 * 60));
-        $response->send(uuid());
+        $response->send(var_dump(json_decode($request->getBody(), true)['profile-picture']));
     }
 
     public function isEmailAvailable($request, $response)

@@ -18,7 +18,7 @@ $application->post('/api/v1/users', [new UserController(), 'registerUser']);
 $application->post('/api/v1/login', [new UserController(), 'loginUser']);
 
 $application->get('/token', [ new UserController(), 'token' ]);
-$application->get('/session', [ new UserController(), 'expireSession' ]);
+$application->post('/session', [ new UserController(), 'expireSession' ]);
 $application->post('/isEmailAvailable', [ new UserController(), 'isEmailAvailable' ]);
 
 // Productos

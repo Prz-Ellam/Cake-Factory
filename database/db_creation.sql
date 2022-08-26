@@ -1,4 +1,4 @@
-CREATE DATABASE cake_factory;
+CREATE DATABASE IF NOT EXISTS cake_factory;
 
 USE cake_factory;
 
@@ -32,7 +32,7 @@ CREATE TABLE products(
     description         VARCHAR(200) NOT NULL,
     price               FLOAT,
     stock               INT,
-    rate                INT,
+    rate                SMALLINT,
     created_at          TIMESTAMP NOT NULL,
     modified_at         TIMESTAMP,
     created_by          INT NOT NULL,
@@ -54,30 +54,38 @@ CREATE TABLE categories(
 CREATE TABLE wishlists(
     wishlist_id         INT,
     name                VARCHAR(60),
-    description         VARCHAR(200)
+    description         VARCHAR(200),
+    user_id             INT NOT NULL
 );
 
 CREATE TABLE wishlist_objects(
-    wishlist_object_id  INT
+    wishlist_object_id  INT,
+    product_id          INT,
+    wishlist_id         INT
 );
 
 -- Shopping Cart
 CREATE TABLE shopping_carts(
-    shopping_cart_id    INT
+    shopping_cart_id    INT,
+    user_id             INT
 );
 
 CREATE TABLE shopping_cart_items(
-    shopping_cart_item_id   INT
+    shopping_cart_item_id   INT,
+    shopping_cart_id        INT
 );
 
 -- Shoppings
 CREATE TABLE shoppings(
-    shopping_id         INT
+    shopping_id         INT,
+    order_id            INT,
+    product_id          INT
 );
 
 -- Orders
 CREATE TABLE orders(
-    order_id            INT
+    order_id            INT,
+    user_id             INT
 );
 
 -- Chats

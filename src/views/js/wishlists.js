@@ -24,7 +24,14 @@ $(document).ready(function() {
     });
 
     $('#wishlist-table').DataTable({
-        responsive: true
+        responsive: true,
+        language: {
+            lengthMenu: "Mostrar _MENU_ registros por página",
+            zeroRecords: "No se encontró información",
+            info: "Mostrando página _PAGE_ de _PAGES_",
+            infoEmpty: "No hay registros disponibles",
+            infoFiltered: "(Filtrados _MAX_ registros en total)"
+        }
     });
 
     function jsonEncode(formData, multiFields = null) {
@@ -50,52 +57,66 @@ $(document).ready(function() {
         }
 
         const requestBody = jsonEncode(new FormData(this));
-        const table = $('#wishlist-table').DataTable();
-        table.row.add([
-            1,                          // ID
-            requestBody.name,           // Name
-            requestBody.description,    // Description
-            requestBody.visibility,     // Visibility
-            ''
-        ]).draw(false);
 
         modal = document.getElementById('exampleModal');
         modalInstance = bootstrap.Modal.getInstance(modal);
         modalInstance.hide();
 
-        const session = 1;
-        $.ajax({
-            method: 'POST',
-            url: `Cake-Factory/api/v1/users/${session}/wishlists`,
-            headers: {
-                'Accept' : 'application/json',
-                'Content-Type' : 'application/json'
-            },
-            data: JSON.stringify(requestBody),
-            dataType: 'json',
-            success: function(response) {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: '¡La categoría se ha guardado!',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-            },
-            error: function(jqXHR, status, error) {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'error',
-                    title: '¡Hubo un error!',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-            },
-            complete: function() {
-                $('#wishlist-name').val("");
-                $('#wishlist-description').val("");
-            }
-        });
+        const reader = new FileReader();        
+        reader.onload = function() {
+
+            const session = 1;
+            $.ajax({
+                method: 'POST',
+                url: `Cake-Factory/api/v1/users/${session}/wishlists`,
+                headers: {
+                    'Accept' : 'application/json',
+                    'Content-Type' : 'application/json'
+                },
+                data: JSON.stringify(requestBody),
+                dataType: 'json',
+                success: function(response) {
+                    // TODO: Esconde la scroll bar
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: '¡La categoría se ha guardado!',
+                        showConfirmButton: false,
+                        showCloseButton: true,
+                        timer: 1500
+                    });
+                },
+                error: function(jqXHR, status, error) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: '¡Hubo un error!',
+                        showConfirmButton: false,
+                        showCloseButton: true,
+                        timer: 1500
+                    });
+                },
+                complete: function() {
+
+                    const table = $('#wishlist-table').DataTable();
+                    table.row.add([
+                        1,                          // ID
+                        `<img class="img-fluid rounded-circle" width="40" height="40" src="${reader.result}"> ${requestBody.name}</td>`,           // Name
+                        requestBody.description,    // Description
+                        requestBody.visibility,     // Visibility
+                        ''
+                    ]).draw(false);
+
+
+
+                    $('#wishlist-name').val("");
+                    $('#wishlist-description').val("");
+                }
+            });
+
+        }
+
+        reader.readAsDataURL($('#profile-picture')[0].files[0]);
 
         /*
         http://kp.bkd.sidoarjokab.go.id/website/lib/DataTables-1.10.7/examples/api/add_row.html#:~:text=New%20rows%20can%20be%20added,be%20added%20using%20the%20rows.
