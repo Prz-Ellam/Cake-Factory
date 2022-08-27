@@ -314,23 +314,23 @@ $(document).ready(function() {
         const reader = new FileReader();        
         reader.onload = function() {
 
-            var requestBody = jsonEncode(new FormData(this));
+            var requestBody = new FormData(this);
             requestBody['profile-picture'] = reader.result;
             // Send Sign Up Request
             $.ajax({
                 method: 'POST',
                 url: 'Cake-Factory/api/v1/users',
                 headers: {
-                    'Accept' : 'application/json',
-                    'Content-Type' : 'application/json'
+                    'Accept' : 'multipart/form-data',
+                    'Content-Type' : 'multipart/form-data'
                 },
-                data: JSON.stringify(requestBody),
-                //dataType: 'json',
+                data: requestBody,
+                dataType: 'json',
                 success: function(response) {
                     // Debe devolver un token con el inicio de sesion
                     console.log(response);
 
-                    window.location.href = "Cake-Factory/home";
+                    window.location.href = "http://localhost:8080/Cake-Factory/home";
                 },
                 error: function(jqXHR, status, error) {
                     console.log(status);

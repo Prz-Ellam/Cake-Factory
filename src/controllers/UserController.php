@@ -80,8 +80,11 @@ class UserController extends Controller
 
     public function registerUser($request, $response)
     {
+        $response->send(var_dump($_POST));
         // Obtencion de datos
         // TODO: try catch
+
+        /*
         $body = json_decode($request->getBody(), true);
 
         $hashedPwd = password_hash($body['password'], PASSWORD_DEFAULT);
@@ -110,6 +113,7 @@ class UserController extends Controller
         $response->json(array(
             "respuesta" => "Usuario se registro correctamente"
         ));
+        */
     }
 
     public function updateUserInfo($request, $response)
