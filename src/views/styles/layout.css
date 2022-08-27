@@ -83,3 +83,8 @@ body {
         padding: 24px !important;
     }
 }
+
+/* Este es para el blur */
+.modal.fade.show {
+    backdrop-filter: blur(3px);
+}

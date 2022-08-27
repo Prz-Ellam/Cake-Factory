@@ -29,6 +29,27 @@ $(document).ready(function() {
         return this.optional(element) || result;
     }, 'Please enter a valid file');
 
+    // Regex
+    $.validator.addMethod('lower', function(value, element) {
+          var regexp = new RegExp(/[a-z]/g);
+          return this.optional(element) || regexp.test(value);
+    }, 'Please enter a valid input');
+
+    $.validator.addMethod('upper', function(value, element) {
+        var regexp = new RegExp(/[A-Z]/g);
+        return this.optional(element) || regexp.test(value);
+    }, 'Please enter a valid input');
+
+    $.validator.addMethod('numbers', function(value, element) {
+        var regexp = new RegExp(/[0-9]/g);
+        return this.optional(element) || regexp.test(value);
+    }, 'Please enter a valid input');
+
+    $.validator.addMethod('regex', function(value, element, parameter) {
+        var regexp = new RegExp(parameter);
+        return this.optional(element) || regexp.test(value);
+    }, 'Please enter a valid input');
+
     $('#sign-up-form').validate({
         rules: {
             'profile-picture': {
@@ -66,17 +87,27 @@ $(document).ready(function() {
             'last-name': {
                 required: true
             },
+            'user-role': {
+                required: true
+            },
+            'visibility': {
+                required: true
+            },
             'gender': {
                 required: true
             },
             'birth-date': {
                 required: true,
                 date: true,
-                dateRange: ['1900-01-01', dateFormat]
+                dateRange: [ '1900-01-01', dateFormat ]
             },
             'password': {
                 required: true,
-                minlength: 8
+                minlength: 8,
+                lower: true,
+                upper: true,
+                numbers: true,
+                regex: /[¡”"#$%&;/=’?!¿:;,.\-_+*{}\[\]]/g
             },
             'confirm-password': {
                 required: true,
@@ -104,6 +135,12 @@ $(document).ready(function() {
             'last-name': {
                 required: 'El apellido no puede estar vacío.'
             },
+            'user-role': {
+                required: 'El rol de usuario es requerido'
+            },
+            'visibility': {
+                required: 'La visibilidad de usuario es requerida'
+            },
             'birth-date': {
                 required: 'La fecha de nacimiento no puede estar vacía.',
                 date: 'La fecha de nacimiento debe tener formato de fecha.',
@@ -114,7 +151,11 @@ $(document).ready(function() {
             },
             'password': {
                 required: 'La contraseña no puede estar vacía.',
-                minlength: 'La contraseña debe contener mínimo 8 caracteres'
+                minlength: 'Faltan requerimentos de la contraseña',
+                lower: 'Faltan requerimentos de la contraseña',
+                upper: 'Faltan requerimentos de la contraseña',
+                numbers: 'Faltan requerimentos de la contraseña',
+                regex: 'Faltan requerimentos de la contraseña'
             },
             'confirm-password': {
                 required: 'Confirmar contraseña no puede estar vacío.',
@@ -123,6 +164,19 @@ $(document).ready(function() {
         },
         errorElement: 'small',
         errorPlacement: function(error, element) {
+
+            if ($(element)[0].name === 'gender')
+            {
+                error.insertAfter(element.parent().parent()).addClass('text-danger').addClass('form-text').attr('id', element[0].id + '-error-label');
+                return;
+            }
+
+            if ($(element)[0].name === 'profile-picture')
+            {
+                error.insertAfter(element).addClass('text-danger').addClass('form-text').attr('id', element[0].id + '-error-label');
+                return;
+            }
+
             error.insertAfter(element.parent()).addClass('text-danger').addClass('form-text').attr('id', element[0].id + '-error-label');
         }
     });
@@ -173,7 +227,81 @@ $(document).ready(function() {
           reader.onload = () => resolve(reader.result);
           reader.onerror = error => reject(error);
         });
-      }
+    }
+
+    // TODO: Generalizar esto
+    $.fn.password = function(options) {
+
+        $(this).on('input', () => {
+
+            var value = $(this).val();
+
+            if (value === '') 
+            {
+                $('.pwd-lowercase').removeClass('text-danger text-success');
+                $('.pwd-uppercase').removeClass('text-danger text-success');
+                $('.pwd-number').removeClass('text-danger text-success');
+                $('.pwd-specialchars').removeClass('text-danger text-success');
+                $('.pwd-length').removeClass('text-danger text-success');
+                return;
+            }
+    
+            var lowercase = new RegExp(/[a-z]/g);
+            var uppercase = new RegExp(/[A-Z]/g);
+            var number = new RegExp(/[0-9]/g);
+            var specialchars = new RegExp(/[¡”"#$%&;/=’¿?!:;,.\-_+*{}\[\]]/g);
+
+            if (lowercase.test(value))
+            {
+                $('.pwd-lowercase').addClass('text-success').removeClass('text-danger');
+            }
+            else
+            {
+                $('.pwd-lowercase').addClass('text-danger').removeClass('text-success')
+            }
+
+            if (uppercase.test(value))
+            {
+                $('.pwd-uppercase').addClass('text-success').removeClass('text-danger');
+            }
+            else
+            {
+                $('.pwd-uppercase').addClass('text-danger').removeClass('text-success')
+            }
+
+            if (number.test(value))
+            {
+                $('.pwd-number').addClass('text-success').removeClass('text-danger');
+            }
+            else
+            {
+                $('.pwd-number').addClass('text-danger').removeClass('text-success')
+            }
+
+            if (specialchars.test(value))
+            {
+                $('.pwd-specialchars').addClass('text-success').removeClass('text-danger');
+            }
+            else
+            {
+                $('.pwd-specialchars').addClass('text-danger').removeClass('text-success')
+            }
+
+            if (value.length >= 8)
+            {
+                $('.pwd-length').addClass('text-success').removeClass('text-danger');
+            }
+            else
+            {
+                $('.pwd-length').addClass('text-danger').removeClass('text-success')
+            }
+
+        });
+        
+    }
+
+
+    $('#password').password();
 
     $('#sign-up-form').submit(function(e) {
 

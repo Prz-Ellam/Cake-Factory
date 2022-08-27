@@ -110,18 +110,3 @@ body {
     background-image: url("../assets/icons/exclamation-circle-solid.svg");
 }
 
-
-/* Esto es del registro */
-.profile-picture-label {
-    width: 156px; 
-    height: 156px;
-    line-height: 156px;
-}
-
-.profile-picture-label:hover::after {
-    content: 'Foto de perfil'
-}
-
-.profile-picture-label:hover {
-    background-color: rgba(0, 0, 255, 0.25);
-}

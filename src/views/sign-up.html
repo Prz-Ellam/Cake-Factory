@@ -22,6 +22,7 @@
     <link href="./styles/navbar.css" rel="stylesheet">
     <link href="./styles/layout.css" rel="stylesheet">
     <link href="./styles/login.css" rel="stylesheet">
+    <link type="text/css" href="./styles/profile-picture.css" rel="stylesheet">
     <link href="./styles/footer.css" rel="stylesheet">
 </head>
 <body>
@@ -46,7 +47,7 @@
                 <div class="form-group text-center mb-4">
                     <div class="position-relative">
                         <label for="profile-picture" role="button" class="profile-picture-label text-white position-absolute rounded-circle"></label>
-                        <img style="width: 156px; height: 156px; object-fit:cover;" class="img-fluid rounded-circle" id="picture-box" src="https://solowrestling.mundodeportivo.com/uploads/RESEM109921aj-styles.jpg">
+                        <img style="width: 156px; height: 156px; object-fit:cover;" class="img-fluid rounded-circle" id="picture-box" src="assets/img/blank-profile-picture.svg">
                     </div>
                     <input type="file" class="form-control shadow-none rounded-1 position-absolute" style="scale: 0.01" name="profile-picture" id="profile-picture" >
                 </div>
@@ -69,62 +70,62 @@
                 <div class="form-group mb-4">
                     <label class="form-label" for="birth-date" role="button">Fecha de nacimiento</label>
                     <div class="input-group">
-                        <input type="date" class="form-control shadow-none rounded-1" name="birth-date" id="birth-date" >
+                        <input type="date" class="form-control shadow-none rounded-1" name="birth-date" id="birth-date">
+                    </div>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="form-label" for="first-name" role="button">Nombre</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control shadow-none rounded-1" name="first-name" id="first-name">
+                    </div>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="form-label" for="last-name" role="button">Apellido(s)</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control shadow-none rounded-1" name="last-name" id="last-name">
+                    </div>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="form-label" for="user-role" role="button">Rol de usuario</label>
+                    <div class="input-group">
+                        <select class="form-select shadow-none rounded-1" name="user-role" id="user-role" role="button">
+                            <option value="">Seleccionar</option>
+                            <option value="1">Comprador</option>
+                            <option value="2">Vendedor</option>
+                        </select>
                     </div>
                 </div>
 
                     <div class="form-group mb-4">
-                        <label class="form-label" for="first-name" role="button">Nombre</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control shadow-none rounded-1" name="first-name" id="first-name" 
-                            >
-                        </div>
-                    </div>
-
-                    <div class="form-group mb-4">
-                        <label class="form-label" for="last-name" role="button">Apellido(s)</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control shadow-none rounded-1" name="last-name" id="last-name" 
-                            >
-                        </div>
-                    </div>
-
-                    <div class="form-group mb-4">
-                        <label class="form-label" for="user-role" role="button">Rol de usuario</label>
-                        <div class="input-group">
-                            <select class="form-select shadow-none rounded-1" name="user-role" id="user-role" role="button">
-                                <option>Seleccionar</option>
-                                <option>Comprador</option>
-                                <option>Vendedor</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group mb-4">
                         <label class="form-label" for="user-role" role="button">Visibilidad</label>
                         <div class="input-group">
-                            <select class="form-select shadow-none rounded-1" name="user-role" id="user-role" role="button">
-                                <option>Seleccionar</option>
-                                <option>Público</option>
-                                <option>Privado</option>
+                            <select class="form-select shadow-none rounded-1" name="visibility" id="visibility" role="button">
+                                <option value="">Seleccionar</option>
+                                <option value="1">Público</option>
+                                <option value="2">Privado</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="form-group mb-4">
                         <label class="form-label" role="button">Género</label>
-                        <div class="form-check">
-                            <input class="form-check-input shadow-none" type="radio" name="gender" id="male">
-                            <label class="form-check-label" for="male" role="button">Masculino</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input shadow-none" type="radio" name="gender" id="female">
-                            <label class="form-check-label" for="female" role="button">Femenino</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input shadow-none" type="radio" name="gender" id="other">
-                            <label class="form-check-label" for="other" role="button">Otro</label>
-                        </div>                
+                        <div>
+                            <div class="form-check">
+                                <input class="form-check-input shadow-none" type="radio" name="gender" id="male">
+                                <label class="form-check-label" for="male" role="button">Masculino</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input shadow-none" type="radio" name="gender" id="female">
+                                <label class="form-check-label" for="female" role="button">Femenino</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input shadow-none" type="radio" name="gender" id="other">
+                                <label class="form-check-label" for="other" role="button">Otro</label>
+                            </div>  
+                        </div>  
                     </div>
 
                     <div class="form-group mb-4">
@@ -134,6 +135,16 @@
                             <div class="input-group-append">
                                 <button type="button" style="width: 48px !important" class="btn bg-orange text-white input-group-text shadow-none rounded-0 rounded-end shadow-none" id="btn-password"><i id="password-icon" class="fas fa-solid fa-eye"></i></button>
                             </div>
+                        </div>
+                        <div>
+                            <small>La contraseña debe contener al menos:</small>
+                            <ul>
+                                <li class="pwd-length"><small>Al menos 8 caracteres</small></li>
+                                <li class="pwd-uppercase"><small>Al menos una mayúscula</small></li>
+                                <li class="pwd-lowercase"><small>Al menos una minuscula</small></li>
+                                <li class="pwd-number"><small>Al menos un número</small></li>
+                                <li class="pwd-specialchars"><small>Al menos un carácter especial</small></li>
+                            </ul>
                         </div>
                     </div>
 
