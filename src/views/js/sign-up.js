@@ -220,15 +220,6 @@ $(document).ready(function() {
         }
     });
 
-    function getBase64(file) {
-        return new Promise((resolve, reject) => {
-          const reader = new FileReader();
-          reader.readAsDataURL(file);
-          reader.onload = () => resolve(reader.result);
-          reader.onerror = error => reject(error);
-        });
-    }
-
     // TODO: Generalizar esto
     $.fn.password = function(options) {
 
@@ -311,35 +302,30 @@ $(document).ready(function() {
             return;
         }
 
-        const reader = new FileReader();        
-        reader.onload = function() {
-
-            var requestBody = new FormData(this);
-            requestBody['profile-picture'] = reader.result;
+        const requestBody = new FormData(this);
             // Send Sign Up Request
             $.ajax({
                 method: 'POST',
-                url: 'Cake-Factory/api/v1/users',
-                headers: {
-                    'Accept' : 'multipart/form-data',
-                    'Content-Type' : 'multipart/form-data'
-                },
+                url: 'api/v1/users',
                 data: requestBody,
-                dataType: 'json',
+                //dataType: 'json',
+                cache: false,
+                contentType: false,
+                processData: false,
                 success: function(response) {
                     // Debe devolver un token con el inicio de sesion
                     console.log(response);
+                    $('#ejemplo').attr('src', response);
 
-                    window.location.href = "http://localhost:8080/Cake-Factory/home";
+                    //window.location.href = "http://localhost:8080/Cake-Factory/home";
                 },
                 error: function(jqXHR, status, error) {
                     console.log(status);
                 }
             });
 
-        }
+        
 
-        reader.readAsDataURL($('#profile-picture')[0].files[0]);
 
     });
 

@@ -17,10 +17,10 @@
     | Nombre de usuario             | <ul><li>Mínimo: 3 caracteres</li><li>Único</li></ul>|
     | Contraseña                    | <ul><li>Mínimo: 8 caracteres</li><li>Incluye: Una mayúscula, una minúscula, un número y un carácter especial</li></ul>|
     | Rol de usuario                | <ul><li>Roles: Superadministrador, administrador, vendedor, comprador (publico o privado)</li></ul>|
-    | Foto de perfil                | |
+    | Foto de perfil                | <ul><li>No puede pesar más de 8MB</li><li>Debe ser de tipo imágen</li></ul> |
     | Nombre completo               | |
     | Fecha de nacimiento           | <ul><li>Fecha: que no sea posterior a la fecha actual</li></ul> |
-    | Sexo                          | |
+    | Sexo                          | <ul><li>RFC 5218</li></ul> |
     | Fecha de ingreso al portal    | <ul><li>Fecha: que no sea posterior a la fecha actual</li></ul> |
   - Los usuarios pueden ser públicos o privados
   - El superadministrador crea a los administradores, los compradores y vendedores se pueden dar de alta en la página

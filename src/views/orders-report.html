@@ -82,36 +82,64 @@
     </header>
 
 
-    <select>
-        <option>Categoria</option>
-    </select>
-    <input type="date">
-    <input type="date">
+    <div class="container-fluid my-4 bg-white p-4">
 
-    <table id="orders-report">
-        <thead>
-            <tr>
-                <th>Fecha y hora de la compra</th>
-                <th>Categoría</th>
-                <th>Producto</th>
-                <th>Calificación</th>
-                <th>Precio</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="row gy-2 gx-3 align-items-center">
+            <div class="col-auto">
+                <label for="from" class="">Categorías:</label>
+                <select class="form-select shadow-none rounded-1">
+                    <option>Categoria</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <label for="from" class="">Desde:</label>
+                <input type="date" class="form-control shadow-none rounded-1" name="from" id="from">
+            </div>
+            <div class="col-auto">
+                <label for="to">Hasta:</label>
+                <input type="date" class="form-control shadow-none rounded-1" name="to" id="to">
+            </div>
+        </div>
 
-    <button class="btn btn-primary shadow-none rounded-1"><i class="fa fa-file-csv"></i>CSV</button>
+        <br>
+
+        <div class="table-responsive">
+            <table class="table table-hover" id="orders-report">
+                <thead class="bg-orange text-white">
+                    <tr>
+                        <th>Fecha y hora de la compra</th>
+                        <th>Categoría</th>
+                        <th>Producto</th>
+                        <th>Calificación</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr role="button">
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </tr>
+                    <tr role="button">
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <button class="btn btn-primary shadow-none rounded-1"><i class="fa fa-file-csv"></i>CSV</button>
     <button class="btn btn-primary shadow-none rounded-1"><i class="fa fa-file-pdf"></i>PDF</button>
 
+
+    </div>
+
+    
         <!-- Footer -->
         <footer class="page-footer p-5">
             <!-- Container -->

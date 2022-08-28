@@ -4,11 +4,13 @@ require_once 'core/Application.php';
 require_once 'src/controllers/UserController.php';
 require_once 'src/controllers/ProductController.php';
 require_once 'src/controllers/CategoryController.php';
+require_once 'src/controllers/ImageController.php';
 
 use core\Application;
 use cf\controllers\UserController;
 use cf\controllers\ProductController;
 use cf\controllers\CategoryController;
+use cf\controllers\ImageController;
 
 $application = new Application();
 
@@ -27,6 +29,8 @@ $application->post('/api/v1/products', [ new ProductController(), 'createProduct
 $application->get('/api/v1/products', [ new ProductController(), 'getProducts' ]);
 $application->get('/api/v1/products/{id}', [ new ProductController(), 'getUserProducts' ]);
 */
+
+$application->get('/api/v1/images', [ new ImageController(), 'getImage' ]);
 
 // Categorias
 $application->post('/api/v1/categories', [ new CategoryController(), 'createCategory' ]);

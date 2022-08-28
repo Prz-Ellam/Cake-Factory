@@ -9,7 +9,7 @@ class ProductController extends Controller
 {
     public function createProduct($request, $response)
     {
-        $response->send('{ "response" : "El producto fue creado exitosamente" }');
+        $response->send(var_dump($_FILES));
     }
 
     public function editProduct($request, $response)

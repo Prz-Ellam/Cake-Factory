@@ -32,12 +32,10 @@
     <header class="fixed-top sticky-top">
         <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar">
             <a class="navbar-brand" href="/"><img src="assets/img/Brand-Logo.svg" id="brand-logo"></a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse">
                 <i class="fa fa-bars"></i>
             </button>
-
-            <div class="collapse navbar-collapse" id="navbar-collapse">
+            <div class="collapse navbar-collapse me-auto" id="navbar-collapse">
                 <form class="form-inline ms-xl-5 me-lg-auto w-50" id="search-box">
                     <div class="input-group w-100">
                         <input type="search" class="form-control search shadow-none" name="search" id="search" placeholder="Buscar productos">
@@ -46,36 +44,51 @@
                         </div>
                     </div>
                 </form>
-
-                <ul class="navbar-nav" id="orange-navbar"></ul>
+                <ul class="navbar-nav" id="orange-navbar">
+                    <li class="nav-item">
+                        <a href="/Cake-Factory/chat" class="me-3 position-relative primary-nav-item nav-link text-white fw-bold rounded-3">
+                            <i class="fa fa-bell"></i>
+                            <span class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger">1</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Cake-Factory/wishlists" class="me-3 position-relative primary-nav-item nav-link text-white fw-bold rounded-3">
+                            <i class="fa fa-heart"></i>
+                            <span class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger">1</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Cake-Factory/shopping-cart" class="me-3 position-relative primary-nav-item nav-link text-white fw-bold rounded-3">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger">3</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Cake-Factory/login" class="primary-nav-item me-3 nav-link text-white fw-bold rounded-3">
+                            <i class="fas fa-solid fa-user me-1"></i>Iniciar sesión
+                            <!--span class="badge bg-danger text-white">3</span-->
+                        </a>
+                    </li>
+                </ul>
             </div>
         </nav>
         <nav class="navbar navbar-expand-md bg-white navbar-dark shadow-sm">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#subnavbar-collapse">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#subnavbar-collapse">
                 <i class="fa fa-bars text-brown"></i>
             </button>
-
             <div class="collapse navbar-collapse" id="subnavbar-collapse">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link ms-1 me-4 p-1 text-brown" href="index.html">
-                            Inicio
-                        </a>
+                        <a class="nav-link ms-1 me-4 p-1 text-brown" href="/">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-4 p-1 text-brown" href="Contact.html">
-                            Contacto
-                        </a>
+                        <a class="nav-link me-4 p-1 text-brown" href="/">Contacto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-4 p-1 text-brown" href="AboutUs.html">
-                            Nosotros
-                        </a>
+                        <a class="nav-link me-4 p-1 text-brown" href="/">Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-4 p-1 text-brown" href="BranchOffices.html">
-                            Sucursales
-                        </a>
+                        <a class="nav-link me-4 p-1 text-brown" href="/">Sucursales</a>
                     </li>
                 </ul>
             </div>
@@ -87,65 +100,68 @@
         <div class="row gy-2 gx-3 align-items-center">
             <div class="col-auto">
                 <label for="from" class="">Categorías:</label>
-                <select class="form-control">
+                <select class="form-select shadow-none rounded-1">
                     <option>Categoria</option>
                 </select>
             </div>
             <div class="col-auto">
                 <label for="from" class="">Desde:</label>
-                <input type="date" class="form-control" name="from" id="from">
+                <input type="date" class="form-control shadow-none rounded-1" name="from" id="from">
             </div>
             <div class="col-auto">
                 <label for="to">Hasta:</label>
-                <input type="date" class="form-control" name="to" id="to">
+                <input type="date" class="form-control shadow-none rounded-1" name="to" id="to">
             </div>
         </div>
 
         <br>
 
-        <table class="table table-responsive table-hover" id="detailed-sales-report">
-            <thead class="bg-orange text-light">
-                <tr>
-                    <th>Fecha y hora de la venta</th>
-                    <th>Categoría</th>
-                    <th>Producto</th>
-                    <th>Calificación</th>
-                    <th>Precio</th>
-                    <th>Existencia actual</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-hover" id="detailed-sales-report">
+                <thead class="bg-orange text-light">
+                    <tr>
+                        <th>Fecha y hora de la venta</th>
+                        <th>Categoría</th>
+                        <th>Producto</th>
+                        <th>Calificación</th>
+                        <th>Precio</th>
+                        <th>Existencia actual</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <br>
         <br>
 
-        <table class="table table-responsive table-hover" id="group-sales-report">
+        <div class="table-responsive">
+        <table class="table table-hover" id="group-sales-report">
             <thead class="bg-orange text-light">
                 <tr>
                     <th>Mes y año de la venta</th>
@@ -161,6 +177,7 @@
                 </tr>
             </tbody>
         </table>
+    </div>
 
         <br>
         <br>

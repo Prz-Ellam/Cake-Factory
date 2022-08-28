@@ -1,5 +1,47 @@
 $(document).ready(function() {
 
+    $('#images').on('change', function(e) {
+
+        const fileList = $(this)[0].files;
+        $.each(fileList, function(i, element) {
+
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                $('#image-list').append(`
+                    <span class="position-relative">
+                        <button type="button" class="btn btn-outline-info close border-0 rounded-0 shadow-sm text-light position-absolute">&times;</button>
+                        <img class="" style="width: 256px; height: 256px; object-fit: cover" src="${e.target.result}">
+                    </span>
+                `);
+            };
+            reader.readAsDataURL(element);
+
+        });
+
+    });
+
+    $('#videos').on('change', function(e) {
+
+        const fileList = $(this)[0].files;
+        $.each(fileList, function(i, element) {
+
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                $('#video-list').append(`
+                <span class="position-relative">
+                <button type="button" class="btn btn-outline-info close border-0 rounded-0 shadow-sm text-light position-absolute">&times;</button>
+                <video class="" style="width: 320px; height: 240px; object-fit: cover" controls>
+                    <source src="${e.target.result}">
+                </video>
+            </span>
+                `);
+            };
+            reader.readAsDataURL(element);
+
+        });
+
+    });
+
     $("#categories").multipleSelect({
         selectAll: false,
         width: '100%',
@@ -87,13 +129,13 @@ $(document).ready(function() {
         requestBody = jsonEncode(new FormData(this));
         $.ajax({
             method: 'POST',
-            url: 'Cake-Factory/api/v1/categories',
+            url: 'api/v1/categories',
             headers: {
                 'Accept' : 'application/json',
                 'Content-Type' : 'application/json'
             },
             data: JSON.stringify(requestBody),
-            dataType: 'json',
+            //dataType: 'json',
             success: function(response) {
                 console.log(response);
             },
@@ -114,15 +156,15 @@ $(document).ready(function() {
             return;
         }
 
+        const requestBody = new FormData(this);
         $.ajax({
             method: 'POST',
-            url: 'Cake-Factory/api/v1/products',
-            headers: {
-                'Accept' : 'application/json',
-                'Content-Type' : 'application/json'
-            },
-            data: JSON.stringify(requestBody),
-            dataType: 'json',
+            url: 'api/v1/products',
+            data: requestBody,
+            //dataType: 'json',
+            cache: false,
+            contentType: false,
+            processData: false,
             success: function(response) {
                 console.log(response);
             },

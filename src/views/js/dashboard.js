@@ -1,5 +1,11 @@
 document.addEventListener('DOMContentLoaded', function()
 {
+
+    $('#start-shop').click(function() {
+
+        window.location.href = '/search';
+
+    });
     
     $('.sellers').owlCarousel({
         loop: true,

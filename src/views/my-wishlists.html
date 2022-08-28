@@ -26,19 +26,17 @@
     <!-- CSS -->
     <link href="./styles/navbar.css" rel="stylesheet">
     <link href="./styles/layout.css" rel="stylesheet">
+    <link type="text/css" href="./styles/profile-picture.css" rel="stylesheet">
     <link href="./styles/footer.css" rel="stylesheet">
 </head>
 <body>
     <header class="fixed-top sticky-top">
         <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar">
-            <a class="navbar-brand" href="./"><img src="assets/img/Brand-Logo.svg" id="brand-logo"></a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+            <a class="navbar-brand" href="/"><img src="assets/img/Brand-Logo.svg" id="brand-logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse">
                 <i class="fa fa-bars"></i>
             </button>
-
-            <div class="collapse navbar-collapse" id="navbar-collapse">
-
+            <div class="collapse navbar-collapse me-auto" id="navbar-collapse">
                 <form class="form-inline ms-xl-5 me-lg-auto w-50" id="search-box">
                     <div class="input-group w-100">
                         <input type="search" class="form-control search shadow-none" name="search" id="search" placeholder="Buscar productos">
@@ -47,36 +45,51 @@
                         </div>
                     </div>
                 </form>
-
-                <ul class="navbar-nav" id="orange-navbar"></ul>
+                <ul class="navbar-nav" id="orange-navbar">
+                    <li class="nav-item">
+                        <a href="/chat" class="me-3 position-relative primary-nav-item nav-link text-white fw-bold rounded-3">
+                            <i class="fa fa-bell"></i>
+                            <span class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger">1</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/wishlists" class="me-3 position-relative primary-nav-item nav-link text-white fw-bold rounded-3">
+                            <i class="fa fa-heart"></i>
+                            <span class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger">1</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/shopping-cart" class="me-3 position-relative primary-nav-item nav-link text-white fw-bold rounded-3">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger">3</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/login" class="primary-nav-item me-3 nav-link text-white fw-bold rounded-3">
+                            <i class="fas fa-solid fa-user me-1"></i>Iniciar sesión
+                            <!--span class="badge bg-danger text-white">3</span-->
+                        </a>
+                    </li>
+                </ul>
             </div>
         </nav>
         <nav class="navbar navbar-expand-md bg-white navbar-dark shadow-sm">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#subnavbar-collapse">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#subnavbar-collapse">
                 <i class="fa fa-bars text-brown"></i>
             </button>
-
             <div class="collapse navbar-collapse" id="subnavbar-collapse">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link ms-1 me-4 p-1 text-brown" href="index.html">
-                            Inicio
-                        </a>
+                        <a class="nav-link ms-1 me-4 p-1 text-brown" href="/">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-4 p-1 text-brown" href="Contact.html">
-                            Contacto
-                        </a>
+                        <a class="nav-link me-4 p-1 text-brown" href="/">Contacto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-4 p-1 text-brown" href="AboutUs.html">
-                            Nosotros
-                        </a>
+                        <a class="nav-link me-4 p-1 text-brown" href="/">Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-4 p-1 text-brown" href="BranchOffices.html">
-                            Sucursales
-                        </a>
+                        <a class="nav-link me-4 p-1 text-brown" href="/">Sucursales</a>
                     </li>
                 </ul>
             </div>
@@ -112,16 +125,18 @@
                         <td>Esta lista contiene muchas cosas</td>
                         <td>Publica</td>
                         <td>
+                            <button class="btn btn-success shadow-none rounded-1 btn-search"><i class="fa fa-search"></i></button>
                             <button class="btn btn-primary shadow-none rounded-1"><i class="fa fa-pencil"></i></button>
                             <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-trash"></i></button>
                         </td>
                     </tr>
                     <tr role="button">
-                        <td scope="row">1</td>
+                        <td scope="row">2</td>
                         <td><img class="img-fluid rounded-circle" width="40" height="40" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg"> Navideña</td>
                         <td>Esta lista contiene muchas cosas</td>
                         <td>Publica</td>
                         <td>
+                            <button class="btn btn-success shadow-none rounded-1 btn-search"><i class="fa fa-search"></i></button>
                             <button class="btn btn-primary shadow-none rounded-1"><i class="fa fa-pencil"></i></button>
                             <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-trash"></i></button>
                         </td>
@@ -137,7 +152,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content rounded-1 bg-white border-0">
                 <form id="wishlist-form">
-                    <div class="modal-header">
+                    <div class="modal-header border-0">
                         <h5 class="modal-title" id="exampleModalLabel">Agregar lista de deseos</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
@@ -145,8 +160,8 @@
                         <!-- TODO: Table overflow in columns -->
                         <div class="form-group text-center mb-4">
                             <div class="position-relative">
-                                <label for="profile-picture" role="button" class="profile-picture-label text-white position-absolute rounded-circle"></label>
-                                <img style="width: 156px; height: 156px; object-fit:cover;" class="img-fluid rounded-circle" id="picture-box" src="https://solowrestling.mundodeportivo.com/uploads/RESEM109921aj-styles.jpg">
+                                <label for="wishlist-image" role="button" class="profile-picture-label text-white position-absolute rounded-1"></label>
+                                <img style="width: 156px; height: 156px; object-fit:cover;" class="img-fluid rounded-1" id="picture-box" src="assets/img/default.jpg">
                             </div>
                             <input type="file" class="form-control shadow-none rounded-1 d-none" name="image" id="wishlist-image">
                         </div>
@@ -167,15 +182,17 @@
 
                         <div class="mb-3">
                             <label class="form-label" for="wishlist-visibility" role="button">Visibilidad</label>
-                            <select class="form-select shadow-none rounded-1" name="visibility" id="wishlist-visibility">
-                                <option hidden>Seleccionar</option>
-                                <option>Pública</option>
-                                <option>Privada</option>
-                            </select>
+                            <div class="input-group">
+                                <select class="form-select shadow-none rounded-1" name="visibility" id="wishlist-visibility">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Pública</option>
+                                    <option value="2">Privada</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary shadow-none rounded-1" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn bg-gray shadow-none rounded-1" data-bs-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn bg-orange text-light shadow-none rounded-1" id="submit-wishlist">Guardar</button>
                     </div>
                 </form>

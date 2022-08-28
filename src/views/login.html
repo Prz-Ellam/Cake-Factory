@@ -34,7 +34,7 @@
     </header>
 
     <!-- Main Container -->
-    <section class="container my-4">
+    <section class="container my-4" id="main-container">
         <!-- Flexbox -->
         <div class="row justify-content-center">
             <!-- Form Card and Grid System -->
@@ -68,7 +68,7 @@
     
                 <input type="submit" value="Iniciar sesión" class="btn btn-primary mb-4 w-100 shadow-none rounded-1 bg-orange" id="btn-login">
 
-                <p class="text-center mb-4">¿Aún no tienes cuenta? <br><a href="/Cake-Factory/signup" class="text-decoration-none" style="color: #FF5E1F">Regístrate ahora</a></p>           
+                <p class="text-center mb-4">¿Aún no tienes cuenta? <br><a href="/signup" class="text-decoration-none" style="color: #FF5E1F">Regístrate ahora</a></p>           
                 <hr class="mb-4">
                 <p class="text-center mb-0 text-orange"><a href="" style="color: #FF5E1F" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal">¿Olvidaste tu contraseña?</a></p>
             </form>
@@ -76,27 +76,26 @@
     </section>
 
     <!-- Modal -->
-    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content border-0 shadow-sm">
                 <form id="send-mail">
                     <div class="modal-header border-0">
-                        <h4 class="modal-title" id="exampleModalLabel">Modal title</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h4 class="modal-title" id="exampleModalLabel">¿Olvidaste tu contraseña?</h4>
+                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <p>¡No te preocupes!</p><p>Ingresa tu correo electrónico y te mandaremos un enlace para que puedas restablecer tu contraseña</p>
-                        <div class="form-group mb-4">
-                            <label class="form-label" for="email">Correo electrónico</label>
+                        <div class="mb-4">
+                            <label class="form-label" for="email" role="button">Correo electrónico</label>
                             <div class="input-group">
-                            <input type="email" class="form-control rounded shadow-none" name="email" id="resetEmail" 
-                                placeholder="correo@ejemplo.com">
+                                <input type="email" class="form-control shadow-none rounded-1" name="email" id="reset-email" placeholder="correo@ejemplo.com">
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer border-0">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-dark bg-orange">Enviar</button>
+                        <button type="button" class="btn btn-white bg-gray shadow-none" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-dark bg-orange shadow-none">Enviar</button>
                     </div>
                 </form>
             </div>

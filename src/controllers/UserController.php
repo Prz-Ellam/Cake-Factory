@@ -46,6 +46,7 @@ class UserController extends Controller
 
     public function loginUser($request, $response)
     {
+        /*
         $body = json_decode($request->getBody(), true);
 
         $email = $body["email"];
@@ -76,11 +77,27 @@ class UserController extends Controller
         else {
             $response->json(array("respuesta" => "Nada"));
         }
+        */
     }
 
     public function registerUser($request, $response)
     {
-        $response->send(var_dump($_POST));
+        //$content = file_get_contents($_FILES['profile-picture']['tmp_name']);
+
+
+        $imageName = $_FILES['profile-picture']['name'];
+        $contentType = $_FILES['profile-picture']['type'];
+        $imageSize = $_FILES['profile-picture']['size'];
+        $content = file_get_contents($_FILES['profile-picture']['tmp_name']);
+
+        $query = "INSERT INTO images(image_name, image_size, image_content, image_mime_type, multimedia_entity_id) VALUES(?, ?, ?, ?, ?);";
+        
+        $this->connection->executeNonQuery($query, [ $imageName, $imageSize, $content, $contentType, 1 ]);
+
+        $response->send('Hola');
+
+
+
         // Obtencion de datos
         // TODO: try catch
 

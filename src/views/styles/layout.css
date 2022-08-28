@@ -36,6 +36,23 @@ body {
     border: 1px solid #a53d13 !important;
 }
 
+/* Este estilo es para el boton gris */
+.bg-gray, .bg-gray:visited {
+    background-color: #ededed !important;
+    border: 1px solid #ededed !important;
+}
+
+.bg-gray:hover {
+    background-color: #e0e0e0 !important;
+    border: 1px solid #e0e0e0 !important;
+}
+
+.bg-gray:active {
+    background-color: rgb(192, 192, 192) !important;
+    border: 1px solid rgb(192, 192, 192) !important;
+}
+
+
 /* Este es para que las imagenes de las cards tengan el mismo tamaño */
 .card-img-top {
     width: 100%;
@@ -72,7 +89,7 @@ body {
 
 
 @media (max-width: 575px) {
-    #login-form, #sign-up-form {
+    #login-form, #sign-up-form, #search-container {
         border-radius: 0 !important;
         padding: 24px !important;
     }
@@ -81,6 +98,10 @@ body {
         /* p-4 */
         border-radius: 0 !important;
         padding: 24px !important;
+    }
+
+    section.container {
+        margin-bottom: 0 !important;
     }
 }
 

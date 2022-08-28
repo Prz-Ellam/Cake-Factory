@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-
     <title>La Suprema</title>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="assets/icons/Icon.svg" type="image/x-icon">
+    <!-- Icon -->
+    <link type="image/x-icon" rel="shortcut icon" href="assets/icons/Icon.svg">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
     
-    <!-- Bootstrap 5.2.0 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" 
-        rel="stylesheet" 
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" 
-        crossorigin="anonymous">
-
+    <!-- Bootstrap 5.0.0 -->
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" integrity="sha256-BAg/zs3Z4ZsqzR4Ac0N6oHyY0jDwGY1/H9RwqyIP72Q=" crossorigin="anonymous">
+    
+    <!-- Font Awesome -->
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+        
     <!-- CSS -->
     <link href="./styles/navbar.css" rel="stylesheet">
     <link href="./styles/layout.css" rel="stylesheet">
@@ -28,17 +28,14 @@
 </head>
 <body>
 
+    
     <header class="fixed-top sticky-top">
         <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar">
-        
             <a class="navbar-brand" href="/"><img src="assets/img/Brand-Logo.svg" id="brand-logo"></a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse">
                 <i class="fa fa-bars"></i>
             </button>
-
-            <div class="collapse navbar-collapse" id="navbar-collapse">
-
+            <div class="collapse navbar-collapse me-auto" id="navbar-collapse">
                 <form class="form-inline ms-xl-5 me-lg-auto w-50" id="search-box">
                     <div class="input-group w-100">
                         <input type="search" class="form-control search shadow-none" name="search" id="search" placeholder="Buscar productos">
@@ -47,170 +44,178 @@
                         </div>
                     </div>
                 </form>
-
-                <ul class="navbar-nav " id="orange-navbar"></ul>
-
-            </div>
-        </nav>
-
-        <nav class="navbar navbar-expand-md bg-white navbar-dark shadow-sm">
-        
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#subnavbar-collapse">
-                <i class="fa fa-bars text-brown"></i>
-            </button>
-
-            <div class="collapse navbar-collapse" id="subnavbar-collapse">
-
-                <ul class="navbar-nav me-auto">
+                <ul class="navbar-nav" id="orange-navbar">
                     <li class="nav-item">
-                        <a class="nav-link ms-1 me-4 p-1 text-brown" href="index.html">
-                            Inicio
+                        <a href="/chat" class="me-3 position-relative primary-nav-item nav-link text-white fw-bold rounded-3">
+                            <i class="fa fa-bell"></i>
+                            <span class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger">1</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-4 p-1 text-brown" href="Contact.html">
-                            Contacto
+                        <a href="/wishlists" class="me-3 position-relative primary-nav-item nav-link text-white fw-bold rounded-3">
+                            <i class="fa fa-heart"></i>
+                            <span class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger">1</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-4 p-1 text-brown" href="AboutUs.html">
-                            Nosotros
+                        <a href="/shopping-cart" class="me-3 position-relative primary-nav-item nav-link text-white fw-bold rounded-3">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger">3</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-4 p-1 text-brown" href="BranchOffices.html">
-                            Sucursales
+                        <a href="/login" class="primary-nav-item me-3 nav-link text-white fw-bold rounded-3">
+                            <i class="fas fa-solid fa-user me-1"></i>Iniciar sesión
+                            <!--span class="badge bg-danger text-white">3</span-->
                         </a>
                     </li>
                 </ul>
-
             </div>
         </nav>
-
+        <nav class="navbar navbar-expand-md bg-white navbar-dark shadow-sm">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#subnavbar-collapse">
+                <i class="fa fa-bars text-brown"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="subnavbar-collapse">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link ms-1 me-4 p-1 text-brown" href="/">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-4 p-1 text-brown" href="/">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-4 p-1 text-brown" href="/">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-4 p-1 text-brown" href="/">Sucursales</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
-    <div class="container my-4">
-
-        <div class="row d-flex justify-content-center">
-
-            <div class="col-md-12">
-
-                <div class="p-5 bg-white rounded">
+    <section class="container my-4">
+        <div class="row justify-content-center col-md-12">
+            
+                <div class="p-5 bg-white rounded" id="search-container">
                     
                     <div class="text-center mb-5">
                         <h1 class="text-brown">Productos</h2>
                     </div>
 
-                    <div class="row px-5 d-flex justify-content-between">
-                        <div class="">
-                            <form class="form-inline" id="search-box">
-                                <div class="input-group">
-                                    <select class="form-control shadow-none" id="dd-categories">
-                                        <option>Categorías</option>
-                                    </select>
-                                    <input type="search" class="form-control shadow-none" name="search" placeholder="Buscar productos">
-                                    <div class="input-group-append">
-                                        <button class="btn bg-white shadow-none" style="border: solid 1px rgb(206, 212, 218)" type="submit"><i class="fas fa-search text-secondary"></i></button>
-                                    </div>
-                                </div>
-                            </form>
+                    <div class="row d-flex justify-content-between">
+                        <div class="col-12 col-md-6">
+                            <div class="input-group mb-3">
+                                <select class="form-select shadow-none" name="categories" id="basic-addon1">
+                                    <option value="1">Categorías</option>
+                                </select>
+                                <input type="text" class="form-control shadow-none" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                <button class="btn btn-primary bg-orange shadow-none"><i class="fas fa-search text-white"></i></button>
+                            </div>
                         </div>
-
-                        <div class=" form-inline">
-                            <select class="form-control shadow-none">
-                                <option>Filtros</option>
-                            </select>
-                            <a><i class="fa fa-list me-auto mx-3"></i></a>
-                            <a><i class="fa fa-reorder me-auto mx-3"></i></a>
+                        <div class="col-12 col-md-3">
+                            <div class="input-group mb-3">
+                                <select class="form-select shadow-none">
+                                    <option>Filtros</option>
+                                    <option value="">Los más vendidos</option>
+                                    <option value="">Los menos vendidos</option>
+                                    <option value="">Precio: de más bajo a más alto</option>
+                                    <option value="">Precio: de más alto a más bajo</option>
+                                    <option value="">Los mejor calificados</option>
+                                    <option value="">Alfabeticamente de la A a la Z</option>
+                                    <option value="">Alfabeticamente de la Z a la A</option>
+                                </select>
+                            </div>
                         </div>
-
+                        <div class="col-12 mt-2">
+                            <p class="text-start"><strong>16</strong> productos encontrados</p>
+                        </div>
                     </div>
 
-                    <div class=" mt-4 px-5 row d-flex justify-content-start">
-                        <p class="text-center"><strong>16</strong> productos encontrados</p>
-                    </div>
+                    
 
                     <div class="row">
                         
-                        <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
-                            <a href="Products.html"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                        <div class="col-lg-4 col-md-6 col-sm-12 car-prueba bg-white text-center car-prueba p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
                             <p class="fw-bold price mb-0">$297.00</p>
                             <p>Tentación de frutas</p>
                             <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
                         </div>
 
                         <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
-                            <a href="Products.html"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
                             <p class="fw-bold price mb-0">$297.00</p>
                             <p>Tentación de frutas</p>
                             <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
                         </div>
 
                         <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
-                            <a href="Products.html"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
                             <p class="fw-bold price mb-0">$297.00</p>
                             <p>Tentación de frutas</p>
                             <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
                         </div>
 
                         <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
-                            <a href="Products.html"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
                             <p class="fw-bold price mb-0">$297.00</p>
                             <p>Tentación de frutas</p>
                             <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
                         </div>
 
                         <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
-                            <a href="Products.html"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
                             <p class="fw-bold price mb-0">$297.00</p>
                             <p>Tentación de frutas</p>
                             <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
                         </div>
 
                         <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
-                            <a href="Products.html"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
                             <p class="fw-bold price mb-0">$297.00</p>
                             <p>Tentación de frutas</p>
                             <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
                         </div>
 
                         <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
-                            <a href="Products.html"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
                             <p class="fw-bold price mb-0">$297.00</p>
                             <p>Tentación de frutas</p>
                             <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
                         </div>
 
                         <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
-                            <a href="Products.html"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
                             <p class="fw-bold price mb-0">$297.00</p>
                             <p>Tentación de frutas</p>
                             <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
                         </div>
 
                         <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
-                            <a href="Products.html"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
                             <p class="fw-bold price mb-0">$297.00</p>
                             <p>Tentación de frutas</p>
                             <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
                         </div>
 
                         <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
-                            <a href="Products.html"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
                             <p class="fw-bold price mb-0">$297.00</p>
                             <p>Tentación de frutas</p>
                             <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
                         </div>
 
                         <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
-                            <a href="Products.html"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
                             <p class="fw-bold price mb-0">$297.00</p>
                             <p>Tentación de frutas</p>
                             <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
                         </div>
 
                         <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
-                            <a href="Products.html"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
                             <p class="fw-bold price mb-0">$297.00</p>
                             <p>Tentación de frutas</p>
                             <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
@@ -233,9 +238,7 @@
 
             </div>
 
-        </div>
-
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer class="page-footer p-5">

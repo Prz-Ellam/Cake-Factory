@@ -36,6 +36,10 @@ $(document).ready(function() {
             'email': {
                 required: 'El correo electrónico no puede estar vacío.'
             }
+        },
+        errorElement: 'small',
+        errorPlacement: function(error, element) {
+            error.insertAfter(element.parent()).addClass('text-danger').addClass('form-text').attr('id', element[0].id + '-error-label');
         }
     });
 

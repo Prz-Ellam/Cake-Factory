@@ -19,6 +19,9 @@ class CategoryController extends Controller
 
     public function createCategory($request, $response)
     {
+        header('Content-Type: application/json');
+        $response->json($request->getBody());
+        /*
         $body = json_decode($request->getBody(), true);
 
         $name = $body["name"];
@@ -29,6 +32,7 @@ class CategoryController extends Controller
         $this->connection->executeNonQuery($query);
 
         $response->json(array("respuesta" => "La categoría se registro correctamente"));
+        */
     }
 
     public function updateCategory($request, $response)

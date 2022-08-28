@@ -32,6 +32,8 @@
         <nav class="navbar fixed-top"></nav>
     </header>
 
+    <img id="ejemplo">
+
     <!-- Main container -->
     <section class="container my-4">
         <!-- Flexbox -->
@@ -49,7 +51,7 @@
                         <label for="profile-picture" role="button" class="profile-picture-label text-white position-absolute rounded-circle"></label>
                         <img style="width: 156px; height: 156px; object-fit:cover;" class="img-fluid rounded-circle" id="picture-box" src="assets/img/blank-profile-picture.svg">
                     </div>
-                    <input type="file" class="form-control shadow-none rounded-1 position-absolute" style="scale: 0.01" name="profile-picture" id="profile-picture" >
+                    <input type="file" accept="image/*" class="form-control shadow-none rounded-1 position-absolute" style="scale: 0.01" name="profile-picture" id="profile-picture" >
                 </div>
                 
                 <div class="mb-4">
@@ -111,18 +113,18 @@
                     </div>
 
                     <div class="form-group mb-4">
-                        <label class="form-label" role="button">Género</label>
+                        <label class="form-label" role="button">Sexo</label>
                         <div>
                             <div class="form-check">
-                                <input class="form-check-input shadow-none" type="radio" name="gender" id="male">
+                                <input class="form-check-input shadow-none" type="radio" name="gender" id="male" value="1">
                                 <label class="form-check-label" for="male" role="button">Masculino</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input shadow-none" type="radio" name="gender" id="female">
+                                <input class="form-check-input shadow-none" type="radio" name="gender" id="female" value="2">
                                 <label class="form-check-label" for="female" role="button">Femenino</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input shadow-none" type="radio" name="gender" id="other">
+                                <input class="form-check-input shadow-none" type="radio" name="gender" id="other" value="0">
                                 <label class="form-check-label" for="other" role="button">Otro</label>
                             </div>  
                         </div>  
@@ -163,7 +165,7 @@
                         <input type="submit" value="Crear una cuenta" class="btn btn-primary w-100 shadow-none rounded-1" id="btn-login">
                     </div>
 
-                    <p class="text-center mb-0">¿Ya tienes cuenta? <br><a href="/Cake-Factory/login" style="color: #FF5E1F" class="text-decoration-none">Inicia sesión ahora</a></p>
+                    <p class="text-center mb-0">¿Ya tienes cuenta? <br><a href="/login" style="color: #FF5E1F" class="text-decoration-none">Inicia sesión ahora</a></p>
                 </form>
         </div>
     </section>

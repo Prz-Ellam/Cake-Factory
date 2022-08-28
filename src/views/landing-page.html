@@ -8,10 +8,83 @@
 
     <!-- Icon -->
     <link type="image/x-icon" rel="shortcut icon" href="assets/icons/Icon.svg">
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
+    
+
+    <!-- Bootstrap 5.0.0 -->
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" integrity="sha256-BAg/zs3Z4ZsqzR4Ac0N6oHyY0jDwGY1/H9RwqyIP72Q=" crossorigin="anonymous">
+
+     <!-- CSS -->
+     <link type="text/css" href="./styles/navbar.css" rel="stylesheet">
+     <link type="text/css" href="./styles/layout.css" rel="stylesheet">
+     <link type="text/css" href="./styles/footer.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Cake Factory</h1>
-    <p>¡Encuentra los mejores pasteles del universo aquí!</p>
-    <p>Unete a nosotros ahora mismo</p>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-orange">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#">Link</a>
+                    </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+                <button class="btn btn-outline-light me-3" type="submit">Registrate</button>
+                <button class="btn btn-outline-light me-3" type="submit">Iniciar sesión</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+
+      <div class="container-fluid bg-white vh-100">
+        <div class="row">
+            <div class="text-center p-4 col-8">
+                <h1>Cake Factory</h1>
+                <h2 class="fw-bold">¡Encuentra los mejores pasteles del universo!</h2>
+                <a class="h4" href="#">Unete a nosotros</a>
+            </div>
+            <div class="col-4">
+                <canvas id="my-canvas" class="w-100 h-100">
+
+                </canvas>
+            </div>
+        </div>
+      </div>
+
+
+
+    <!--
+    
+    -->
+    <script type="text/javascript" src="./js/landing-page.js"></script>
+    
 </body>
 </html>
