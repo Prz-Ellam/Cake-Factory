@@ -54,6 +54,7 @@ $application->view('/search', '/search.html');
 $application->view('/sales-report', '/sales-report.html');
 $application->view('/orders-report', '/orders-report.html');
 $application->view('/products', '/my-products.html');
+$application->view('/pending-products', '/approve-products.html');
 
 $application->view('/sandbox', '/user-profile-2.html');
 

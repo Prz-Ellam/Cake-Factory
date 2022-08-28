@@ -110,3 +110,6 @@ body {
     background-image: url("../assets/icons/exclamation-circle-solid.svg");
 }
 
+#btn-password {
+    width: 48px !important;
+}

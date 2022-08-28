@@ -29,11 +29,11 @@ $(document).ready(function() {
             reader.onload = function(e) {
                 $('#video-list').append(`
                 <span class="position-relative">
-                <button type="button" class="btn btn-outline-info close border-0 rounded-0 shadow-sm text-light position-absolute">&times;</button>
-                <video class="" style="width: 320px; height: 240px; object-fit: cover" controls>
-                    <source src="${e.target.result}">
-                </video>
-            </span>
+                    <button type="button" class="btn btn-outline-info close border-0 rounded-0 shadow-sm text-light position-absolute">&times;</button>
+                    <video class="" style="width: 320px; height: 240px; object-fit: cover" controls>
+                        <source src="${e.target.result}">
+                    </video>
+                </span>
                 `);
             };
             reader.readAsDataURL(element);

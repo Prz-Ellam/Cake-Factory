@@ -1,7 +1,23 @@
 $(document).ready(function() {
 
-    var detailedSalesReport = $('#detailed-sales-report').DataTable();
-    var groupSalesReport = $('#group-sales-report').DataTable();
+    var detailedSalesReport = $('#detailed-sales-report').DataTable({
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por página",
+            "zeroRecords": "No se encontró información",
+            "info": "Mostrando página _PAGE_ de _PAGES_",
+            "infoEmpty": "No hay registros disponibles",
+            "infoFiltered": "(Filtrados _MAX_ registros en total)"
+        }
+    });
+    var groupSalesReport = $('#group-sales-report').DataTable({
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por página",
+            "zeroRecords": "No se encontró información",
+            "info": "Mostrando página _PAGE_ de _PAGES_",
+            "infoEmpty": "No hay registros disponibles",
+            "infoFiltered": "(Filtrados _MAX_ registros en total)"
+        }
+    });
 
     for (let i = 0; i < 10; i++)
     {

@@ -37,7 +37,7 @@
                 <i class="fa fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse me-auto" id="navbar-collapse">
-                <form class="form-inline ms-xl-5 me-lg-auto w-50" id="search-box">
+                <form class="form-inline ms-xl-5 me-lg-auto w-50" id="search-box" action="/search">
                     <div class="input-group w-100">
                         <input type="search" class="form-control search shadow-none" name="search" id="search" placeholder="Buscar productos">
                         <div class="input-group-append">
@@ -64,11 +64,17 @@
                             <span class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger">3</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="/login" class="primary-nav-item me-3 nav-link text-white fw-bold rounded-3">
-                            <i class="fas fa-solid fa-user me-1"></i>Iniciar sesión
-                            <!--span class="badge bg-danger text-white">3</span-->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="api/v1/images" alt="logo" class=" img-fluid rounded-circle" style="width:32px; height:32px">
                         </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-white rounded-1  shadow-sm">
+                            <a href="/profile" class="dropdown-item">Mi perfil</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="/products" class="dropdown-item">Mis productos</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item" id="close-session">Cerrar sesión</a>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -80,7 +86,7 @@
             <div class="collapse navbar-collapse" id="subnavbar-collapse">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link ms-1 me-4 p-1 text-brown" href="/">Inicio</a>
+                        <a class="nav-link ms-1 me-4 p-1 text-brown" href="/home">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link me-4 p-1 text-brown" href="/">Contacto</a>
@@ -90,6 +96,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link me-4 p-1 text-brown" href="/">Sucursales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-4 p-1 text-brown" href="/create-product">Vender</a>
                     </li>
                 </ul>
             </div>

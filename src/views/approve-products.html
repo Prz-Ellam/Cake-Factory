@@ -4,34 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cake Factory</title>
+
+    <!-- Icon -->
+    <link type="image/x-icon" rel="shortcut icon" href="assets/icons/Icon.svg">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
 
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- Bootstrap 5.0.0 -->
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" integrity="sha256-BAg/zs3Z4ZsqzR4Ac0N6oHyY0jDwGY1/H9RwqyIP72Q=" crossorigin="anonymous">
 
-    <link href="./styles/navbar.css" rel="stylesheet">
-    <link href="./styles/layout.css" rel="stylesheet">
-    <link href="./styles/footer.css" rel="stylesheet">
+    <!-- Data Tables Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+
+    <!-- Font Awesome -->
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    
+    <link type="text/css" href="./styles/navbar.css" rel="stylesheet">
+    <link type="text/css" href="./styles/layout.css" rel="stylesheet">
+    <link type="text/css" href="./styles/footer.css" rel="stylesheet">
 </head>
 <body>
-
     <header class="fixed-top sticky-top">
         <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar">
-        
-            <a class="navbar-brand" href="./"><img src="assets/img/Brand-Logo.svg" id="brand-logo"></a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+            <a class="navbar-brand" href="/"><img src="assets/img/Brand-Logo.svg" id="brand-logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse">
                 <i class="fa fa-bars"></i>
             </button>
-
-            <div class="collapse navbar-collapse" id="navbar-collapse">
-
-                <form class="form-inline ms-xl-5 me-lg-auto w-50" id="search-box">
+            <div class="collapse navbar-collapse me-auto" id="navbar-collapse">
+                <form class="form-inline ms-xl-5 me-lg-auto w-50" id="search-box" action="/search">
                     <div class="input-group w-100">
                         <input type="search" class="form-control search shadow-none" name="search" id="search" placeholder="Buscar productos">
                         <div class="input-group-append">
@@ -39,101 +43,101 @@
                         </div>
                     </div>
                 </form>
-
-                <ul class="navbar-nav " id="orange-navbar"></ul>
+                <ul class="navbar-nav" id="orange-navbar">
+                    <li class="nav-item">
+                        <a href="/chat" class="me-3 position-relative primary-nav-item nav-link text-white fw-bold rounded-3">
+                            <i class="fa fa-bell"></i>
+                            <span class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger">1</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/wishlists" class="me-3 position-relative primary-nav-item nav-link text-white fw-bold rounded-3">
+                            <i class="fa fa-heart"></i>
+                            <span class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger">1</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/shopping-cart" class="me-3 position-relative primary-nav-item nav-link text-white fw-bold rounded-3">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger">3</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/login" class="primary-nav-item me-3 nav-link text-white fw-bold rounded-3">
+                            <i class="fas fa-solid fa-user me-1"></i>Iniciar sesión
+                        </a>
+                    </li>
+                </ul>
             </div>
         </nav>
         <nav class="navbar navbar-expand-md bg-white navbar-dark shadow-sm">
-        
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#subnavbar-collapse">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#subnavbar-collapse">
                 <i class="fa fa-bars text-brown"></i>
             </button>
-
             <div class="collapse navbar-collapse" id="subnavbar-collapse">
-
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link ms-1 me-4 p-1 text-brown" href="index.html">
-                            Inicio
-                        </a>
+                        <a class="nav-link ms-1 me-4 p-1 text-brown" href="/home">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-4 p-1 text-brown" href="Contact.html">
-                            Contacto
-                        </a>
+                        <a class="nav-link me-4 p-1 text-brown" href="/create-product">Vender</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-4 p-1 text-brown" href="AboutUs.html">
-                            Nosotros
-                        </a>
+                        <a class="nav-link me-4 p-1 text-brown" href="/sales-report">Reporte de ventas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-4 p-1 text-brown" href="BranchOffices.html">
-                            Sucursales
-                        </a>
+                        <a class="nav-link me-4 p-1 text-brown" href="/orders-report">Reporte de compras</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <!-- Main Container -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-3 card rounded-0 bg-light p-4">
-                ...
+    <div class="container my-4 bg-white">
+        <div class="table-responsive bg-light p-1">
+            <div class="d-flex justify-content-end">
+
+            <button class="btn btn-success shadow-none mb-2 rounded-1" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-user-plus"></i> Agregar usuario</button>
             </div>
-            <div class="col-9 card rounded-0 bg-dark p-4 h-50">
-
-                <!-- Chat Header -->
-                <div class="d-flex justify-content-between my-3">
-                    <div>
-                        <img class="img-fluid rounded-circle" width="40" height="40"  src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg">
-                        <b class="text-light">Eliam Rodríguez Pérez</b>
-                    </div>
-                    <button class="btn btn-primary">Boton</button>
-                </div>
-
-                <hr class="text-light">
-
-                <div class="overflow-auto p-2">
-                    <div class="d-flex justify-content-start my-3">
-                        <small class="bg-secondary text-light p-2 rounded-2">Este es un mensaje</small>
-                    </div>
-                    
-                    <div class="d-flex justify-content-end my-3">
-                        <small class="bg-primary text-light p-2 rounded-2">Este es un segundo mensaje</small>
-                    </div>
-    
-                    <div class="d-flex justify-content-end my-3">
-                        <small class="bg-primary text-light p-2 rounded-2">Este es un segundo mensaje</small>
-                    </div>
-    
-                    <div class="d-flex justify-content-end my-3">
-                        <small class="bg-primary text-light p-2 rounded-2">Este es un segundo mensaje</small>
-                    </div>
-    
-                    <div class="d-flex justify-content-end my-3">
-                        <small class="bg-primary text-light p-2 rounded-2">Este es un segundo mensaje</small>
-                    </div>
-                    
-                    <div class="d-flex justify-content-start my-3">
-                        <small class="bg-secondary text-light p-2 rounded-2">Este es un tercer mensaje</small>
-                    </div>
-                    
-                    <div class="d-flex justify-content-end my-3">
-                        <small class="bg-primary text-light p-2 rounded-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore assumenda sequi similique sapiente voluptates corrupti sint cum quidem maiores consequatur quia aliquam quibusdam, modi fuga neque aspernatur maxime ex? Voluptas.</small>
-                    </div>
-</div>
-                
-                <hr class="text-light">
-                
-                <div class="input-group mb-3">
-                    <input type="file" class="btn btn-primary">A</input>
-                    <input type="text" class="form-control shadow-none" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <button class="btn btn-primary shadow-none" id="basic-addon2">Enviar</button>
-                </div>  
-            </div>
+            <table class="table table-hover" id="table-users">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr role="button">
+                        <td scope="row">1</td>
+                        <td>Fresas con crema</td>
+                        <td><img class="img-fluid rounded-circle" width="40" height="40" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg"> Eliam</td>
+                        <td>
+                            <button class="btn btn-success shadow-none rounded-1"><i class="fa fa-check"></i></button>
+                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr role="button">
+                        <td scope="row">1</td>
+                        <td>Fresas con crema</td>
+                        <td><img class="img-fluid rounded-circle" width="40" height="40" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg"> Eliam</td>
+                        <td>
+                            <button class="btn btn-success shadow-none rounded-1"><i class="fa fa-check"></i></button>
+                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr role="button">
+                        <td scope="row">1</td>
+                        <td>Fresas con crema</td>
+                        <td><img class="img-fluid rounded-circle" width="40" height="40" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg"> Eliam</td>
+                        <td>
+                            <button class="btn btn-success shadow-none rounded-1"><i class="fa fa-check"></i></button>
+                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -142,7 +146,7 @@
         <!-- Container -->
         <div class="container-fluid">
             <!-- Grid Row -->
-            <div class="row text-md-start">
+            <div class="row text-md-start text-center">
                 <!-- Grid Column -->
 
                 <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
@@ -183,19 +187,17 @@
                             </a>
                         </li>
                         <li class="my-2">
-                            <a href="tel:(81)81341434" class="text-cream text-decoration-none">
-                                <i class="fa fa-phone text-cream me-3 h4"></i>(81)-8134-1434
+                            <a href="tel:(00)00000000" class="text-cream text-decoration-none">
+                                <i class="fa fa-phone text-cream me-3 h4"></i>(00)-0000-0000
                             </a>
                         </li>
                         <li class="my-2">
-                            <a href="mailto:ventas@pastelerialasuprema.com.mx" class="text-cream text-decoration-none">
+                            <a href="mailto:cakefactory@gmail.com.mx" class="text-cream text-decoration-none">
                                 <i class="fa fa-envelope text-cream me-3 h4"></i>Correo electrónico
                             </a>
                         </li>
                     </ul>
                 </div>
-
-            <!-- Grid Row -->
             </div>
 
             <div class="container">
@@ -210,15 +212,27 @@
             </div>
 
             <div class="container text-center img-responsive">
-                <p class="text-cream mb-0">© 2022 Pastelería La Suprema. Todos los derechos reservados.</p>
+                <p class="text-cream mb-0">© 2022 Pastelería Cake Factory. Todos los derechos reservados.</p>
             </div>
-
-        <!-- Container -->
         </div>
-
     </footer>
 
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <!-- jQuery 3.6.0 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- jQuery Validation 1.19.5 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js" integrity="sha256-JwUksNJ6/R07ZiLRoXbGeNrtlFZMFDKX4hemPiHOmCA=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap 5.0.0 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha256-OfO3ch+7fm8bGjUgiOC3e3ALf0qsb5Zk9lk33+pSqEM=" crossorigin="anonymous"></script>
+
+    <!-- Data Tables -->
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    
+    <!-- Data Tables Bootstrap -->
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/48ce36e499.js" crossorigin="anonymous"></script>
 </body>
 </html>
