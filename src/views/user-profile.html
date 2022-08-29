@@ -94,8 +94,7 @@
     <div class="container my-4">
         <!-- Flexbox -->
         <div class="row d-flex justify-content-center">
-            <!-- Grid System -->
-                <!-- Form Card -->
+                <!-- Grid System Form Card -->
                 <form class="form bg-white rounded p-5 col-xl-6 col-lg-6 col-md-7" id="profile-form" novalidate>
                     <!-- Inputs -->
                     <div class="mb-4">
@@ -232,7 +231,7 @@
                         <div class="input-group">
                             <input type="password" class="form-control shadow-none" name="old-password" id="old-password">
                             <div class="input-group-append">
-                                <button type="button" style="width: 48px !important" class="btn bg-orange text-white input-group-text shadow-none rounded-0 rounded-end shadow-none" id="btn-password"><i id="password-icon" class="fas fa-solid fa-eye"></i></button>
+                                <button type="button" style="width: 48px !important" class="btn bg-orange text-white input-group-text shadow-none rounded-0 rounded-end shadow-none btn-password" id="btn-old-password"><i id="password-icon" class="fas fa-solid fa-eye"></i></button>
                             </div>
                         </div>
                     </div>
@@ -242,8 +241,18 @@
                         <div class="input-group">
                             <input type="password" class="form-control shadow-none" name="new-password" id="new-password">
                             <div class="input-group-append">
-                                <button type="button" style="width: 48px !important" class="btn bg-orange text-white input-group-text shadow-none rounded-0 rounded-end shadow-none" id="btn-password"><i id="password-icon" class="fas fa-solid fa-eye"></i></button>
+                                <button type="button" style="width: 48px !important" class="btn bg-orange text-white input-group-text shadow-none rounded-0 rounded-end shadow-none btn-password" id="btn-new-password"><i id="password-icon" class="fas fa-solid fa-eye"></i></button>
                             </div>
+                        </div>
+                        <div>
+                            <small>La contraseña debe contener al menos:</small>
+                            <ul>
+                                <li class="pwd-length"><small>Al menos 8 caracteres</small></li>
+                                <li class="pwd-uppercase"><small>Al menos una mayúscula</small></li>
+                                <li class="pwd-lowercase"><small>Al menos una minuscula</small></li>
+                                <li class="pwd-number"><small>Al menos un número</small></li>
+                                <li class="pwd-specialchars"><small>Al menos un carácter especial</small></li>
+                            </ul>
                         </div>
                     </div>
 
@@ -252,14 +261,14 @@
                         <div class="input-group">
                             <input type="password" class="form-control shadow-none" name="confirm-new-password" id="confirm-new-password">
                             <div class="input-group-append">
-                                <button type="button" style="width: 48px !important" class="btn bg-orange text-white input-group-text shadow-none rounded-0 rounded-end shadow-none" id="btn-password"><i id="password-icon" class="fas fa-solid fa-eye"></i></button>
+                                <button type="button" style="width: 48px !important" class="btn bg-orange text-white input-group-text shadow-none rounded-0 rounded-end shadow-none btn-password" id="btn-confirm-new-password"><i id="password-icon" class="fas fa-solid fa-eye"></i></button>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group mb-4">
                         <label style="visibility:hidden">A</label>
-                        <input type="submit" value="Editar" class="btn btn-primary bg-orange w-100 shadow-none" id="btn-login">
+                        <input type="submit" value="Editar" class="btn btn-primary bg-orange w-100 shadow-none" id="btn-change-password">
                     </div>
                 </form>
         </div>
@@ -344,17 +353,18 @@
 
   </footer>
 
-  <!-- jQuery 3.6.0 -->
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- jQuery 3.6.0 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-  <!-- jQuery Validation 1.19.5 -->
-  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js" integrity="sha256-JwUksNJ6/R07ZiLRoXbGeNrtlFZMFDKX4hemPiHOmCA=" crossorigin="anonymous"></script>
-    
-  <!-- Bootstrap 5.0.0 -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha256-OfO3ch+7fm8bGjUgiOC3e3ALf0qsb5Zk9lk33+pSqEM=" crossorigin="anonymous"></script>
+    <!-- jQuery Validation 1.19.5 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js" integrity="sha256-JwUksNJ6/R07ZiLRoXbGeNrtlFZMFDKX4hemPiHOmCA=" crossorigin="anonymous"></script>
 
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/48ce36e499.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap 5.0.0 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha256-OfO3ch+7fm8bGjUgiOC3e3ALf0qsb5Zk9lk33+pSqEM=" crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/48ce36e499.js" crossorigin="anonymous"></script>
+
 
   <!-- JavaScript -->
   <script type="text/javascript" src="./js/profile.js"></script>

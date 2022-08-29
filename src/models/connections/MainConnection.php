@@ -18,6 +18,13 @@ class MainConnection extends DbConnection
             $rowCount = $prepareStatement->rowCount();
             $prepareStatement = null;
 
+            // $database->lastInsertId()
+            // $stmt->bindValue
+            // $db->begintransaction
+            // $db->commit
+            // $db->rollback
+            // $db->intransaction
+
             return $rowCount;
         }
         catch (\PDOException $ex)

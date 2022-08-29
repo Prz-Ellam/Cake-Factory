@@ -4,9 +4,24 @@ namespace cf\models\entities;
 
 class Wishlist
 {
-    private $name;
-    private $description;
-    private $visibility;
+    private string $name;
+    private string $description;
+    private string $visibility;
+
+    public function __construct()
+    {
+
+    }
+
+    public function getName() : string
+    {
+        return $this->name;
+    }
+
+    public function getDescription() : string
+    {
+        return $this->description;
+    }
 }
 
 ?>

@@ -1,11 +1,11 @@
-CREATE PROCEDURE sp_CreateProduct();
+CREATE PROCEDURE sp_create_product();
 
-CREATE PROCEDURE sp_UpdateProduct();
+CREATE PROCEDURE sp_update_product();
 
-CREATE PROCEDURE sp_DeleteProduct();
+CREATE PROCEDURE sp_delete_product();
 
-CREATE PROCEDURE sp_GetProducts();
+CREATE PROCEDURE sp_get_products();
 
-CREATE PROCEDURE sp_GetUserProducts();
+CREATE PROCEDURE sp_get_user_products();
 
-CREATE PROCEDURE sp_FilterUserProducts();
+CREATE PROCEDURE sp_filter_user_products();

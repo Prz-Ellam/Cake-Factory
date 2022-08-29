@@ -12,15 +12,17 @@ abstract class DbConnection
 
     public function __construct()
     {
+        // mysql:host=$host;dbname=$dbname;charset=utf8
         $connectionString = "mysql:host=" . $this->domain . ";dbname=" . $this->database . ";charset=utf8";
 
         try
         {
+            // connection string, username and the password
             $this->connection = new \PDO($connectionString, $this->username, $this->password);
             $this->connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             $this->connection->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
         }
-        catch (Exception $ex)
+        catch (\PDOException $ex)
         {
             die($ex->getMessage());
         }
