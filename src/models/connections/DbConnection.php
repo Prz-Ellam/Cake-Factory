@@ -1,6 +1,6 @@
 <?php
 
-namespace connections;
+namespace Models\Connections;
 
 abstract class DbConnection
 {

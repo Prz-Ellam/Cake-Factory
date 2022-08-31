@@ -1,5 +1,13 @@
 <?php
 
-namespace middlewares;
+namespace Middlewares;
+
+class AuthMiddleware
+{
+    public function __construct()
+    {
+        
+    }
+}
 
 ?>

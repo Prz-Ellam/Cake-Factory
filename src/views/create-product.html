@@ -25,11 +25,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     
      <!-- Multiple Select -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/wenzhixin/multiple-select/e14b36de/multiple-select.css">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/multiple-select@1.5.2/dist/multiple-select.min.css" integrity="sha256-YxMnAq0wFCBOIF/R4MKL4FKRmadnH3co4oeTjIuyvQw=" crossorigin="anonymous">
 
     <link href="./styles/navbar.css" rel="stylesheet">
     <link href="./styles/layout.css" rel="stylesheet">
     <link href="./styles/footer.css" rel="stylesheet">
+    <link type="text/css" href="./styles/create-product.css" rel="stylesheet">
 </head>
 <body>
     <header class="fixed-top sticky-top">
@@ -120,19 +121,23 @@
                     </div>
                 </div>
 
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="type-of-sell" id="sell" checked>
-                    <label class="form-check-label" for="type-of-sell">Es para vender</label>
-                </div>
+                <div class="mb-4">
+                    <label class="form-label" for="" role="button">Tipo de venta</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="type-of-sell" id="sell" checked>
+                        <label class="form-check-label" for="sell" role="button">Es para vender</label>
+                    </div>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="type-of-sell" id="cotizar">
-                        <label class="form-check-label" for="type-of-sell">Es para cotizar</label>
+                        <label class="form-check-label" for="cotizar" role="button">Es para cotizar</label>
                     </div>
+                </div>
+                
 
                     <div class="mb-4">
                         <label class="form-label" for="price" role="button">Precio</label>
                         <div class="input-group">
-                            <input disabled type="text" class="form-control shadow-none rounded-1" name="price" id="price">
+                            <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control shadow-none rounded-1" name="price" id="price">
                         </div>
                     </div>
 
@@ -163,11 +168,9 @@
                     <div class="mb-3">
                         <label class="form-label tags-label" for="categories">Categorías</label>
                         <button type="button" class="btn btn-primary badge ms-2" data-bs-toggle="modal" data-bs-target="#create-category">Crear categoría</button>
-                        <select type="text" class="shadow-none rounded-1" name="categories" id="categories"  multiple="multiple">
-                            <option>Seleccionar</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
+                        <select id="categories" name="categories" multiple>
+                            <option value="" selected hidden>Seleccionar</option>
+                            <option value="1">1</option>
                         </select>
                     </div>
 
@@ -305,7 +308,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha256-DOneOY3n5+xj6Da3AJBkPHxaPynqSlGaZ9790gbBOsE=" crossorigin="anonymous"></script>
     
     <!-- Multiple Select -->
-    <script src="https://cdn.rawgit.com/wenzhixin/multiple-select/e14b36de/multiple-select.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/multiple-select@1.5.2/dist/multiple-select.min.js" integrity="sha256-/ixPJEsGUy6zxPajUyYJzTku8pewWocmddp4W4El13A=" crossorigin="anonymous"></script>
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/48ce36e499.js" crossorigin="anonymous"></script>

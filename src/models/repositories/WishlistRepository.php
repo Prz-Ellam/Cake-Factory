@@ -1,6 +1,6 @@
 <?php
 
-namespace cf\controllers\repositories;
+namespace Models\Repositories;
 
 require_once 'src/models/connections/MainConnection.php';
 
@@ -9,9 +9,9 @@ use models\connections\MainConnection;
 class WishlistRepository 
 {
     private MainConnection $connection;
-    private string $CREATE_WISHLIST = "";
-    private string $UPDATE_WISHLIST = "";
-    private string $DELETE_WISHLIST = "";
+    private const CREATE_WISHLIST = "";
+    private const UPDATE_WISHLIST = "";
+    private const DELETE_WISHLIST = "";
 
     public function __construct()
     {

@@ -1,6 +1,16 @@
 document.addEventListener('DOMContentLoaded', function()
 {
 
+    $('.btn-shopping-cart').click(function() {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Tu producto ha sido añadido al carrito',
+            showConfirmButton: false,
+            timer: 1500
+          });
+    })
+
     $('#start-shop').click(function() {
 
         window.location.href = '/search';

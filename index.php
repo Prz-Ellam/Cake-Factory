@@ -7,10 +7,10 @@ require_once 'src/controllers/CategoryController.php';
 require_once 'src/controllers/ImageController.php';
 
 use core\Application;
-use cf\controllers\UserController;
-use cf\controllers\ProductController;
-use cf\controllers\CategoryController;
-use cf\controllers\ImageController;
+use Controllers\UserController;
+use Controllers\ProductController;
+use Controllers\CategoryController;
+use Controllers\ImageController;
 
 $application = new Application();
 

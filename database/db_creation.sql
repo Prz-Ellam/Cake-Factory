@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS users(
 -- User roles
 CREATE TABLE IF NOT EXISTS user_roles(
     user_role_id                INT NOT NULL AUTO_INCREMENT,
-    name                        VARCHAR(30) NOT NULL,
+    name                        VARCHAR(50) NOT NULL,
     created_at                  TIMESTAMP NOT NULL DEFAULT NOW(),
     modified_at                 TIMESTAMP,
     active                      BOOLEAN NOT NULL DEFAULT TRUE,
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS products(
     is_quotable                 BOOLEAN NOT NULL,
     price                       DECIMAL(15, 2),
     stock                       INT NOT NULL,
-    multimedia_type             INT NOT NULL,
+    multimedia_type             INT NOT NULL DEFAULT 2,
     user_id                     INT NOT NULL,
     approved                    BOOLEAN NOT NULL DEFAULT FALSE,
     approved_by                 INT,
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS wishlists(
     wishlist_id                 INT NOT NULL AUTO_INCREMENT,
     name                        VARCHAR(50) NOT NULL,
     description                 VARCHAR(200) NOT NULL,
-    multimedia_type             INT NOT NULL,
+    multimedia_type             INT NOT NULL DEFAULT 3,
     user_id                     INT NOT NULL,
     created_at                  TIMESTAMP NOT NULL DEFAULT NOW(),
     modified_at                 TIMESTAMP,
@@ -142,7 +142,6 @@ CREATE TABLE IF NOT EXISTS shopping_cart_items(
         PRIMARY KEY (shopping_cart_item_id)
 );
 
-
 -- Orders
 CREATE TABLE IF NOT EXISTS orders(
     order_id                    INT NOT NULL AUTO_INCREMENT,    
@@ -167,7 +166,6 @@ CREATE TABLE IF NOT EXISTS orders(
     --`month`                     INT,
     --security_code               INT,
 
-
 -- Shoppings
 CREATE TABLE IF NOT EXISTS shoppings(
     shopping_id                 INT NOT NULL AUTO_INCREMENT,
@@ -182,7 +180,6 @@ CREATE TABLE IF NOT EXISTS shoppings(
         PRIMARY KEY (shopping_id)
 );
 
-
 CREATE TABLE IF NOT EXISTS multimedia_types(
     multimedia_type_id          INT NOT NULL AUTO_INCREMENT,
     multimedia_type_name        VARCHAR(30) NOT NULL,
@@ -192,7 +189,6 @@ CREATE TABLE IF NOT EXISTS multimedia_types(
     CONSTRAINT multimedia_types_pk
         PRIMARY KEY (multimedia_type_id)
 );
-
 
 CREATE TABLE IF NOT EXISTS multimedia_entities(
     multimedia_entity_id        INT NOT NULL AUTO_INCREMENT,
@@ -285,14 +281,22 @@ CREATE TABLE IF NOT EXISTS chat_files(
 );
 
 
+CREATE TABLE IF NOT EXISTS payment_methods(
+    payment_method_id           INT NOT NULL AUTO_INCREMENT,
+    created_at                  TIMESTAMP NOT NULL DEFAULT NOW(),
+    modified_at                 TIMESTAMP,
+    active                      BOOLEAN NOT NULL DEFAULT TRUE,
+    CONSTRAINT payment_methods_pk
+        PRIMARY KEY (payment_method_id)
+);
+
+
 
 -- Foreign keys
 ALTER TABLE users
     ADD CONSTRAINT users_user_roles_fk
         FOREIGN KEY (user_role)
         REFERENCES user_roles(user_role_id);
-
-
 
 ALTER TABLE products
     ADD CONSTRAINT products_users_fk
@@ -304,15 +308,10 @@ ALTER TABLE products
         FOREIGN KEY (approved_by)
         REFERENCES users(user_id);
 
-
-
 ALTER TABLE categories
     ADD CONSTRAINT categories_users_fk
         FOREIGN KEY (user_id)
         REFERENCES users(user_id);
-
-
-
 
 ALTER TABLE products_categories
     ADD CONSTRAINT products_categories_products_fk
@@ -324,15 +323,10 @@ ALTER TABLE products_categories
         FOREIGN KEY (category_id)
         REFERENCES categories(category_id);
 
-
-
 ALTER TABLE orders
     ADD CONSTRAINT orders_users_fk
         FOREIGN KEY (user_id)
         REFERENCES users(user_id);
-
-
-
 
 ALTER TABLE shoppings
     ADD CONSTRAINT shoppings_orders_fk
@@ -344,7 +338,6 @@ ALTER TABLE shoppings
         FOREIGN KEY (product_id)
         REFERENCES products(product_id);
 
-
 ALTER TABLE reviews
     ADD CONSTRAINT reviews_products_fk
         FOREIGN KEY (product_id)
@@ -354,11 +347,6 @@ ALTER TABLE reviews
     ADD CONSTRAINT reviews_users_fk
         FOREIGN KEY (user_id)
         REFERENCES users(user_id);
-
-
-
-
-
 
 ALTER TABLE wishlists
     ADD CONSTRAINT wishlists_users_fk
@@ -375,14 +363,10 @@ ALTER TABLE wishlist_objects
         FOREIGN KEY (wishlist_id)
         REFERENCES wishlists(wishlist_id);
 
-
-
 ALTER TABLE shopping_carts
     ADD CONSTRAINT shopping_carts_users_fk
         FOREIGN KEY (user_id)
         REFERENCES users(user_id);
-
-
 
 ALTER TABLE shopping_cart_items
     ADD CONSTRAINT shopping_cart_items_shopping_carts_fk
@@ -409,7 +393,6 @@ ALTER TABLE wishlists
         FOREIGN KEY (wishlist_id, multimedia_type)
         REFERENCES multimedia_entities(entity_id, entity_type);
 
-
 ALTER TABLE images
     ADD CONSTRAINT images_multimedia_entities_fk
         FOREIGN KEY (multimedia_entity_id)
@@ -420,7 +403,6 @@ ALTER TABLE videos
         FOREIGN KEY (multimedia_entity_id)
         REFERENCES multimedia_entities(entity_id);
 
-
 ALTER TABLE chat_participants
     ADD CONSTRAINT chat_participants_chats_fk
         FOREIGN KEY (chat_id)
@@ -430,7 +412,6 @@ ALTER TABLE chat_participants
     ADD CONSTRAINT chat_participants_users_fk
         FOREIGN KEY (user_id)
         REFERENCES users(user_id);
-
 
 ALTER TABLE chat_messages
     ADD CONSTRAINT chat_messages_chat_participants_fk
@@ -443,10 +424,6 @@ ALTER TABLE chat_files
         REFERENCES chat_participants(chat_participant_id);
 
 
-
 -- https://mysql.tutorials24x7.com/blog/guide-to-design-database-for-shopping-cart-in-mysql
 -- https://fabric.inc/blog/shopping-cart-database-design/
 -- https://fabric.inc/blog/ecommerce-database-design-example/
-
-
-

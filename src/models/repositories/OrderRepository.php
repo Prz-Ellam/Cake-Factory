@@ -1,6 +1,6 @@
 <?php
 
-class Video
+class OrderRepository
 {
     public function __construct()
     {
@@ -12,5 +12,6 @@ class Video
         
     }
 }
+
 
 ?>

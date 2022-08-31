@@ -59,9 +59,21 @@ $(document).ready(function() {
     });
 
     $('#wishlist-table').DataTable({
-        responsive: true,
+        responsive: {
+            details: {
+                display: $.fn.dataTable.Responsive.display.modal( {
+                    header: function (row) {
+                        var data = row.data();
+                        return 'Registro';
+                    }
+                } ),
+                renderer: $.fn.dataTable.Responsive.renderer.tableAll( {
+                    tableClass: 'table'
+                } )
+            }
+        },
         language: {
-            lengthMenu: "Mostrar _MENU_ registros por página",
+            lengthMenu: "Mostrar _MENU_ registros",
             zeroRecords: "No se encontró información",
             info: "Mostrando página _PAGE_ de _PAGES_",
             infoEmpty: "No hay registros disponibles",
@@ -190,8 +202,6 @@ $(document).ready(function() {
                         requestBody.visibility,     // Visibility
                         ''
                     ]).draw(false);
-
-
 
                     $('#wishlist-name').val("");
                     $('#wishlist-description').val("");

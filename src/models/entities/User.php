@@ -1,10 +1,10 @@
 <?php
 
-namespace cf\models\entities;
+namespace Models\Entities;
 
 class User
 {
-    private string $userId;
+    private ?int $userId;
     private string $email;
     private string $username;
     private string $firstName;
@@ -18,12 +18,17 @@ class User
 
     }
 
-    public function getUserId() : string
+    public function __destruct()
+    {
+
+    }
+
+    public function getUserId() : ?int
     {
         return $this->userId;
     }
 
-    public function setUserId(string $userId) : void
+    public function setUserId(int $userId) : void
     {
         $this->userId = $userId;
     }
@@ -78,12 +83,12 @@ class User
         $this->birthDate = $birthDate;
     }
 
-    public function getGender(string $gender) : string
+    public function setGender(string $gender) : void
     {
         $this->gender = $gender;
     }
 
-    public function setGender() : string
+    public function getGender() : string
     {
         return $this->gender;
     }
@@ -98,7 +103,7 @@ class User
         $this->password = $password;
     }
 
-    public function toJson()
+    public function toJson() : string|false
     {
         return json_encode($this);
     }

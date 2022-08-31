@@ -1,20 +1,22 @@
 <?php
 
-namespace cf\controllers;
+namespace Controllers;
 
 require_once 'core/Controller.php';
-require_once 'src/models/connections/MainConnection.php';
+require_once 'src/models/repositories/CategoryRepository.php';
+require_once 'src/models/interfaces/CategoryRepositoryInterface.php';
 
 use core\Controller;
-use models\connections\MainConnection;
+use Models\Interfaces\CategoryRepositoryInterface;
+use Models\Repositories\CategoryRepository;
 
 class CategoryController extends Controller
 {
-    private MainConnection $connection;
+    private CategoryRepositoryInterface $categoryRepository;
 
     public function __construct()
     {
-        $this->connection = new MainConnection();
+        $this->categoryRepository = new CategoryRepository();
     }
 
     public function createCategory($request, $response)

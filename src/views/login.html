@@ -29,7 +29,9 @@
 <body>
     <!-- Title -->
     <header class="text-center pt-4">
-        <a class="navbar-brand" href="/"><img src="assets/img/brand-logo.svg" id="brand-logo" style="height: 48px"></a>
+        <a class="navbar-brand" href="/">
+            <img id="brand-logo" src="assets/img/brand-logo.svg" style="height: 48px">
+        </a>
         <nav class="navbar fixed-top"></nav>
     </header>
 
@@ -70,7 +72,7 @@
 
                 <p class="text-center mb-4">¿Aún no tienes cuenta? <br><a href="/signup" class="text-decoration-none text-orange">Regístrate ahora</a></p>           
                 <hr class="mb-4">
-                <p class="text-center mb-0"><a class="text-decoration-none text-orange" data-bs-toggle="modal" data-bs-target="#exampleModal">¿Olvidaste tu contraseña?</a></p>
+                <p class="text-center mb-0"><a class="text-decoration-none text-orange" data-bs-toggle="modal" data-bs-target="#exampleModal" role="button">¿Olvidaste tu contraseña?</a></p>
             </form>
         </div>
     </section>
@@ -81,11 +83,11 @@
             <div class="modal-content border-0 shadow-sm">
                 <form id="send-mail">
                     <div class="modal-header border-0">
-                        <h4 class="modal-title" id="exampleModalLabel">¿Olvidaste tu contraseña?</h4>
+                        <h4 class="modal-title" id="exampleModalLabel">Restablecer contraseña</h4>
                         <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>¡No te preocupes!</p><p>Ingresa tu correo electrónico y te mandaremos un enlace para que puedas restablecer tu contraseña</p>
+                        <p>Ingresa tu correo electrónico y te mandaremos un enlace para que puedas restablecer tu contraseña</p>
                         <div class="mb-4">
                             <label class="form-label" for="email" role="button">Correo electrónico</label>
                             <div class="input-group">
@@ -111,7 +113,9 @@
                 <!-- Grid Column -->
                 <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
                     <ul class="list-unstyled">
-                        <li class="my-2"><img src="assets/img/Footer-Logo.svg" class="img-fluid" id="logo-banner"></li>
+                        <li class="my-2">
+                            <img src="assets/img/Footer-Logo.svg" class="img-fluid" id="logo-banner">
+                        </li>
                     </ul>
                 </div>
             

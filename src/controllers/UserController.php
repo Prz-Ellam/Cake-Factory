@@ -1,16 +1,16 @@
 <?php
 
-namespace cf\controllers;
+namespace Controllers;
 
 require_once 'core/Controller.php';
 require_once 'src/models/entities/User.php';
-require_once 'src/models/connections/MainConnection.php';
 require_once 'src/models/repositories/UserRepository.php';
+require_once 'src/models/interfaces/UserRepositoryInterface.php';
 
 use core\Controller;
-use models\connections\MainConnection;
-use models\entities\User;
-use models\repositories\UserRepository;
+use Models\Entities\User;
+use Models\Interfaces\UserRepositoryInterface;
+use Models\Repositories\UserRepository;
 
 // TODO: Mover esto a un lugar mas apropiado
 function uuid($data = null) {
@@ -29,11 +29,11 @@ function uuid($data = null) {
 
 class UserController extends Controller
 {
-    private MainConnection $connection;
+    private UserRepositoryInterface $userRepository;
 
     public function __construct()
     {
-        $this->connection = new MainConnection();
+        $this->userRepository = new UserRepository();
     }
 
     public function getUser($request, $response)
@@ -84,7 +84,7 @@ class UserController extends Controller
     {
         //$content = file_get_contents($_FILES['profile-picture']['tmp_name']);
 
-
+/*
         $imageName = $_FILES['profile-picture']['name'];
         $contentType = $_FILES['profile-picture']['type'];
         $imageSize = $_FILES['profile-picture']['size'];
@@ -95,7 +95,7 @@ class UserController extends Controller
         $this->connection->executeNonQuery($query, [ $imageName, $imageSize, $content, $contentType, 1 ]);
 
         $response->send('Hola');
-
+*/
 
 
         // Obtencion de datos
@@ -163,6 +163,7 @@ class UserController extends Controller
 
     public function isEmailAvailable($request, $response)
     {
+        /*
         $email = $_POST["email"];
         $query = "SELECT COUNT(*) as count FROM users WHERE email = '$email'";
 
@@ -176,10 +177,12 @@ class UserController extends Controller
         {
             $response->send(json_encode(false));
         }
+        */
     }
 
     public function isUsernameAvailable($request, $response)
     {
+        /*
         $username = $_POST["username"];
         $query = "SELECT COUNT(*) as count FROM users WHERE username = '$username'";
 
@@ -193,6 +196,7 @@ class UserController extends Controller
         {
             $response->send(json_encode(false));
         }
+        */
     }
 }
 

@@ -1,5 +1,19 @@
 $(document).ready(function() {
 
+    $('#sell').click(function() {
+        $('#price').removeAttr('disabled');
+    });
+
+    $('#cotizar').click(function() {
+        $('#price').attr('disabled', 'true');
+    });
+    
+    $('#categories').multipleSelect({
+        selectAll: false,
+        width: '100%',
+        filter: true
+    });
+
     $('#images').on('change', function(e) {
 
         const fileList = $(this)[0].files;
@@ -10,7 +24,7 @@ $(document).ready(function() {
                 $('#image-list').append(`
                     <span class="position-relative">
                         <button type="button" class="btn btn-outline-info close border-0 rounded-0 shadow-sm text-light position-absolute">&times;</button>
-                        <img class="" style="width: 256px; height: 256px; object-fit: cover" src="${e.target.result}">
+                        <img class="product-mul" src="${e.target.result}">
                     </span>
                 `);
             };
@@ -30,7 +44,7 @@ $(document).ready(function() {
                 $('#video-list').append(`
                 <span class="position-relative">
                     <button type="button" class="btn btn-outline-info close border-0 rounded-0 shadow-sm text-light position-absolute">&times;</button>
-                    <video class="" style="width: 320px; height: 240px; object-fit: cover" controls>
+                    <video class="product-mul" controls>
                         <source src="${e.target.result}">
                     </video>
                 </span>
@@ -40,12 +54,6 @@ $(document).ready(function() {
 
         });
 
-    });
-
-    $("#categories").multipleSelect({
-        selectAll: false,
-        width: '100%',
-        filter: true
     });
 
     $('#create-category-form').validate({
@@ -79,6 +87,9 @@ $(document).ready(function() {
             'description': {
                 required: true
             },
+            'price': {
+                required: true
+            },
             'stock': {
                 required: true,
                 number: true
@@ -90,6 +101,9 @@ $(document).ready(function() {
             },
             'description': {
                 required: 'La descripción del producto no puede estar vacía.'
+            },
+            'price': {
+                required: 'Si el producto es para vender, el precio no puede estar vacío'
             },
             'stock': {
                 required: 'La cantidad de producto no puede estar vacía',

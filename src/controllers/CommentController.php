@@ -1,6 +1,6 @@
 <?php
 
-namespace cf\controllers;
+namespace Controllers;
 
 class CommentController extends Controller
 {

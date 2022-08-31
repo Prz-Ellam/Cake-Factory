@@ -1,12 +1,23 @@
 <?php
 
-namespace cf\controllers;
+namespace Controllers;
+
+require_once 'core/Controller.php';
 
 use core\Controller;
-use models\connections\MainConnection;
 
 class WishlistController extends Controller
 {
+    public function __construct()
+    {
+
+    }
+
+    public function __destruct()
+    {
+        
+    }
+
     public function createWishlist($request, $response)
     {
 

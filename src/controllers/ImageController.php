@@ -1,12 +1,12 @@
 <?php
 
-namespace cf\controllers;
+namespace Controllers;
 
 require_once 'core/Controller.php';
 require_once 'src/models/connections/MainConnection.php';
 
 use core\Controller;
-use models\connections\MainConnection;
+use Models\Connections\MainConnection;
 
 class ImageController extends Controller
 {
@@ -15,6 +15,11 @@ class ImageController extends Controller
     public function __construct()
     {
         $this->connection = new MainConnection();
+    }
+
+    public function __destruct()
+    {
+        
     }
 
     public function getImage($request, $response)

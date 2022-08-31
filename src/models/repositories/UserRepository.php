@@ -1,60 +1,124 @@
 <?php
 
-namespace cf\models\repositories;
+namespace Models\Repositories;
 
 require_once 'src/models/connections/MainConnection.php';
+require_once 'src/models/interfaces/UserRepositoryInterface.php';
 
 use models\connections\MainConnection;
+use Models\Interfaces\UserRepositoryInterface;
 
-class UserRepository
+class UserRepository implements UserRepositoryInterface
 {
+    private const CREATE_USER = "CALL sp_create_user(?)";
+    private const UPDATE_USER = "CALL sp_update_user(?)";
+    private const UPDATE_USER_PASSWORD = "CALL sp_update_user_password(?)";
+    private const DELETE_USER = "CALL sp_delete_user(?)";
+    private const GET_USER = "CALL sp_get_user(?)";
+    private const GET_USERS = "CALL sp_get_users(?)";
+    private const LOGIN_USER = "CALL sp_login_user(?)";
+    private const IS_EMAIL_AVAILABLE = "CALL sp_is_email_available(?)";
+    private const IS_USERNAME_AVAILABLE = "CALL sp_is_username_available(?)";
     private MainConnection $connection;
-    private string $GET_USER = "";
-    private string $LOGIN_USER = "";
-    private string $REGISTER_USER = "";
-    private string $UPDATE_USER_INFO = "";
-    private string $UPDATE_USER_PASSWORD = "";
-    private string $DELETE_USER = "";
-    private string $IS_EMAIL_AVAILABLE = "";
-    private string $IS_USERNAME_AVAILABLE = "";
-    private string $GET_USERS = "";
 
     public function __construct()
     {
         $this->connection = new MainConnection();
     }
 
-    public function createUser()
+    public function __destruct()
     {
 
     }
 
-    public function updateUser()
+    /**
+     * Persist an user in the database
+     *
+     * @return boolean
+     */
+    public function createUser() : bool
+    {
+        try
+        {
+            $result = $this->connection->executeNonQuery(self::CREATE_USER, [
+                1,
+                2,
+                3,
+                4,
+            ]);
+        }
+        catch (\PDOException $ex)
+        {
+            die($ex->getMessage());
+        }
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
+    public function updateUser() : bool
+    {
+        // UPDATE_USER
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
+    public function deleteUser() : bool
+    {
+        // DELETE_USER
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
+    public function updateUserPassword() : bool
     {
 
     }
 
-    public function deleteUser()
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
+    public function isEmailAvailable() : bool
     {
 
     }
 
-    public function updatePasswordUser()
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
+    public function isUsernameAvailable() : bool
     {
 
     }
 
-    public function isEmailAvailable()
-    {
-
-    }
-
-    public function isUsernameAvailable()
-    {
-
-    }
-
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function getUsers()
+    {
+
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    public function getUser()
     {
 
     }

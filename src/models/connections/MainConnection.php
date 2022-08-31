@@ -1,13 +1,41 @@
 <?php
 
-namespace models\connections;
+namespace Models\Connections;
 
 require_once 'DbConnection.php';
 
-use connections\DbConnection;
+use Models\Connections\DbConnection;
 
 class MainConnection extends DbConnection
 {
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    public function beginTransaction()
+    {
+        $this->getConnection()->beginTransaction();
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    public function endTransaction()
+    {
+        $this->getConnection()->commit();
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param string $query
+     * @param array|null $parameters
+     * @return void
+     */
     public function executeNonQuery(string $query, array $parameters = null) {
 
         try 
@@ -35,6 +63,13 @@ class MainConnection extends DbConnection
 
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $query
+     * @param array|null $parameters
+     * @return void
+     */
     public function executeReader(string $query, array $parameters = null)
     {
         $prepareStatement = $this->getConnection()->prepare($query);
