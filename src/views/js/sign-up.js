@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+    // Actual date
     var date = new Date();
     var dateFormat = date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0')
     document.getElementById('birth-date').value = dateFormat;
@@ -15,6 +16,11 @@ $(document).ready(function() {
         !(Date.parse(value) > Date.parse(parameter[1]) || Date.parse(value) < Date.parse(parameter[0]));
     }, 'Please enter a valid date');
 
+    // Username
+    $.validator.addMethod("username", function(value, element) {
+        return this.optional(element) || /^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$/.test(value);
+    }, 'Please enter a valid username');
+
     // Data size (no puede pesar mas de 8MB)
     $.validator.addMethod('filesize', function(value, element, parameter) {
 
@@ -23,13 +29,13 @@ $(document).ready(function() {
             return this.optional(element) || result; 
         }
 
-        const size = (element.files[0].size / 1024 / 1024).toFixed(2);
-        result = (parseFloat(size) > parameter) ? false : true;
+        const size = parseFloat((element.files[0].size / 1024.0 / 1024.0).toFixed(2));
+        result = (size > parameter) ? false : true;
 
         return this.optional(element) || result;
     }, 'Please enter a valid file');
 
-    // Regex
+    // Regex for password
     $.validator.addMethod('lower', function(value, element) {
           var regexp = new RegExp(/[a-z]/g);
           return this.optional(element) || regexp.test(value);
@@ -42,6 +48,11 @@ $(document).ready(function() {
 
     $.validator.addMethod('numbers', function(value, element) {
         var regexp = new RegExp(/[0-9]/g);
+        return this.optional(element) || regexp.test(value);
+    }, 'Please enter a valid input');
+
+    $.validator.addMethod('specialchars', function(value, element) {
+        var regexp = new RegExp(/[¡”"#$%&;/=’?!¿:;,.\-_+*{}\[\]]/g);
         return this.optional(element) || regexp.test(value);
     }, 'Please enter a valid input');
 
@@ -62,7 +73,7 @@ $(document).ready(function() {
                 email5322: true,
                 remote: {
                     type: 'POST',
-                    url: 'Cake-Factory/isEmailAvailable',
+                    url: 'api/v1/isEmailAvailable',
                     data: {
                         'email': function() { return $('#email').val() }
                     },
@@ -71,10 +82,10 @@ $(document).ready(function() {
             },
             'username': {
                 required: true,
-                minlength: 3,
+                username: true,
                 remote: {
                     type: 'POST',
-                    url: 'Cake-Factory/isUsernameAvailable',
+                    url: 'api/v1/isUsernameAvailable',
                     data: {
                         'username': function() { return $('#username').val() }
                     },
@@ -85,9 +96,6 @@ $(document).ready(function() {
                 required: true
             },
             'last-name': {
-                required: true
-            },
-            'user-role': {
                 required: true
             },
             'visibility': {
@@ -107,7 +115,7 @@ $(document).ready(function() {
                 lower: true,
                 upper: true,
                 numbers: true,
-                regex: /[¡”"#$%&;/=’?!¿:;,.\-_+*{}\[\]]/g
+                specialchars: true
             },
             'confirm-password': {
                 required: true,
@@ -126,7 +134,7 @@ $(document).ready(function() {
             },
             'username': {
                 required: 'El nombre de usuario no puede estar vacío.',
-                minlength: 'El nombre de usuario debe contener más de 3 caracteres',
+                username: 'El nombre de usuario debe contener más de 3 caracteres',
                 remote: 'El nombre de usuario está siendo usado por alguien más.'
             },
             'first-name': {
@@ -134,9 +142,6 @@ $(document).ready(function() {
             },
             'last-name': {
                 required: 'El apellido no puede estar vacío.'
-            },
-            'user-role': {
-                required: 'El rol de usuario es requerido'
             },
             'visibility': {
                 required: 'La visibilidad de usuario es requerida'
@@ -155,7 +160,7 @@ $(document).ready(function() {
                 lower: 'Faltan requerimentos de la contraseña',
                 upper: 'Faltan requerimentos de la contraseña',
                 numbers: 'Faltan requerimentos de la contraseña',
-                regex: 'Faltan requerimentos de la contraseña'
+                specialchars: 'Faltan requerimentos de la contraseña'
             },
             'confirm-password': {
                 required: 'Confirmar contraseña no puede estar vacío.',
@@ -181,19 +186,6 @@ $(document).ready(function() {
         }
     });
 
-    function jsonEncode(formData, multiFields = null) {
-        let object = Object.fromEntries(formData.entries());
-
-        // If the data has multi-select values
-        if (multiFields && Array.isArray(multiFields)) {
-            multiFields.forEach((field) => {
-            object[field] = formData.getAll(field);
-            });
-        }
-
-        return object;
-    }
-
     $('#btn-password').click(function() {
         let mode = $('#password').attr('type');
 
@@ -218,6 +210,41 @@ $(document).ready(function() {
             $('#confirm-password').attr('type', 'password');
             $('#confirm-password-icon').removeClass('fa-eye-slash').addClass('fa-eye');
         }
+    });
+
+    // TODO: Hacer jalar esto
+    $('#profile-picture').on('change', function(e) {
+        
+        // Si se le da Cancelar, se pone la imagen por defecto y el path vacio
+        if($(this)[0].files.length === 0)
+        {
+            $('#picture-box').attr('src', './assets/img/blank-profile-picture.svg');
+            $('#profile-picture').val('');
+            return;
+        }
+        
+        const reader = new FileReader();
+        reader.readAsDataURL($(this)[0].files[0]);
+        
+        // A PARTIR DE AQUI ES TEST PARA VALIDAR QUE SOLO SE INGRESEN IMAGENES
+        const file = $(this)[0].files[0];
+             
+        // Allowing file type as image/*
+        var regexpImages = /^(image\/.*)/i;
+        if (!regexpImages.exec(file.type))
+        {
+            $(this).val('');
+            reader.onloadend = function(e) {
+                $('#picture-box').attr('src', './assets/img/blank-profile-picture.svg');
+                $('#profile-picture').val('');
+            };
+            return;
+        }
+
+        // AQUI TERMINA LA VALIDACION PARA EL TIPO DE IMAGEN
+        reader.onloadend = function(e) {
+            $('#picture-box').attr('src', e.target.result);
+        };
     });
 
     // TODO: Generalizar esto
@@ -291,84 +318,37 @@ $(document).ready(function() {
         
     }
 
-
     $('#password').password();
 
     $('#sign-up-form').submit(function(e) {
 
         e.preventDefault();
 
-        if($('#sign-up-form').valid() === false) {
+        if($(this).valid() === false) {
             return;
         }
 
         const requestBody = new FormData(this);
-            // Send Sign Up Request
-            $.ajax({
-                method: 'POST',
-                url: 'api/v1/users',
-                data: requestBody,
-                //dataType: 'json',
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function(response) {
-                    // Debe devolver un token con el inicio de sesion
-                    console.log(response);
-                    $('#ejemplo').attr('src', response);
+        console.log([...requestBody]);
+        // Send Sign Up Request
+        $.ajax({
+            method: 'POST',
+            url: 'api/v1/users',
+            data: requestBody,
+            //dataType: 'json',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                // Debe devolver un token con el inicio de sesion
+                console.log(response);
+                //window.location.href = "http://localhost:8080/Cake-Factory/home";
+            },
+            error: function(response, status, error) {
+                console.log(status);
+            }
+        });
 
-                    //window.location.href = "http://localhost:8080/Cake-Factory/home";
-                },
-                error: function(jqXHR, status, error) {
-                    console.log(status);
-                }
-            });
-
-        
-
-
-    });
-
-    $('#profile-picture').on('change', function(e) {
-        
-        // Si se le da Cancelar, se pone la imagen por defecto y el path vacio
-        //if($(this)[0].files[0].size === 0){
-        //    let img = document.getElementById('picture-box');
-        //    img.setAttribute('src', 'Assets/blank-profile-picture.svg');
-            
-        //    var fileInputPhoto = document.getElementById('photo');
-        //    fileInputPhoto.value = '';
-        //    return;
-        //}
-        
-        let fReader = new FileReader();
-        fReader.readAsDataURL($(this)[0].files[0]);
-        
-        // A PARTIR DE AQUI ES TEST PARA VALIDAR QUE SOLO SE INGRESEN IMAGENES
-        var filePath = $('#profile-picture').val();
-             
-        // Allowing file type
-        var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
-                 
-        if (!allowedExtensions.exec(filePath)) {
-                //alert('Invalid file type' + fileInput.value);
-                fileInput.value = '';
-                
-                fReader.onloadend = function(e) {
-                    let img = document.getElementById('picture-box');
-                    img.setAttribute('src', 'Assets/blank-profile-picture.svg');
-                    img.style.opacity = '1';
-                    photo.style.opacity = '1';
-                };
-                
-                return;
-         }     
-          // AQUI TERMINA LA VALIDACION PARA EL TIPO DE IMAGEN
-        
-        fReader.onloadend = function(e) {
-            let img = $('#picture-box');
-            img.attr('src', e.target.result);
-        };
     });
 
 });

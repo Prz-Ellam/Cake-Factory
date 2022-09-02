@@ -6,10 +6,6 @@ footer {
     color:  #F0D5CC;
 }
 
-a.text-cream {
-    cursor: pointer;
-}
-
 a.text-cream:hover {
     color:  #ebb09d;
 }

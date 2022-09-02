@@ -5,6 +5,7 @@
 -- Users
 CREATE TABLE IF NOT EXISTS users(
     user_id                     INT NOT NULL AUTO_INCREMENT,
+    user_uid                    VARCHAR(16) NOT NULL,
     email                       VARCHAR(255) NOT NULL UNIQUE,
     username                    VARCHAR(18) NOT NULL UNIQUE,
     first_name                  VARCHAR(50) NOT NULL,
@@ -209,7 +210,7 @@ CREATE TABLE IF NOT EXISTS images(
     image_name                  VARCHAR(255) NOT NULL,
     image_size                  BIGINT NOT NULL,
     image_content               MEDIUMBLOB NOT NULL,
-    image_mime_type             VARCHAR(30) NOT NULL,
+    image_type                  VARCHAR(30) NOT NULL,
     multimedia_entity_id        INT NOT NULL,
     created_at                  TIMESTAMP NOT NULL DEFAULT NOW(),
     modified_at                 TIMESTAMP,
@@ -224,7 +225,7 @@ CREATE TABLE IF NOT EXISTS videos(
     video_name                  VARCHAR(255) NOT NULL,
     video_size                  BIGINT NOT NULL,
     video_content               LONGBLOB NOT NULL,
-    video_mime_type             VARCHAR(30) NOT NULL,
+    video_type                  VARCHAR(30) NOT NULL,
     multimedia_entity_id        INT NOT NULL,
     created_at                  TIMESTAMP NOT NULL DEFAULT NOW(),
     modified_at                 TIMESTAMP,
@@ -278,16 +279,6 @@ CREATE TABLE IF NOT EXISTS chat_files(
     active                      BOOLEAN NOT NULL DEFAULT TRUE,
     CONSTRAINT chat_files_pk
         PRIMARY KEY (chat_file_id)
-);
-
-
-CREATE TABLE IF NOT EXISTS payment_methods(
-    payment_method_id           INT NOT NULL AUTO_INCREMENT,
-    created_at                  TIMESTAMP NOT NULL DEFAULT NOW(),
-    modified_at                 TIMESTAMP,
-    active                      BOOLEAN NOT NULL DEFAULT TRUE,
-    CONSTRAINT payment_methods_pk
-        PRIMARY KEY (payment_method_id)
 );
 
 

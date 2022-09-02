@@ -123,7 +123,7 @@ $(document).ready(function() {
         // If the data has multi-select values
         if (multiFields && Array.isArray(multiFields)) {
             multiFields.forEach((field) => {
-            object[field] = formData.getAll(field);
+                object[field] = formData.getAll(field);
             });
         }
 
@@ -135,12 +135,13 @@ $(document).ready(function() {
 
         e.preventDefault();
 
-        let validations = $('#create-category-form').valid();
+        let validations = $(this).valid();
         if (validations === false) {
             return;
         }
 
-        requestBody = jsonEncode(new FormData(this));
+        const requestBody = jsonEncode(new FormData(this));
+        console.log(requestBody);
         $.ajax({
             method: 'POST',
             url: 'api/v1/categories',
@@ -164,13 +165,13 @@ $(document).ready(function() {
 
         e.preventDefault();
 
-        let validations = $('#create-product-form').valid();
-
+        let validations = $(this).valid();
         if (validations === false) {
             return;
         }
 
         const requestBody = new FormData(this);
+        console.log(requestBody);
         $.ajax({
             method: 'POST',
             url: 'api/v1/products',

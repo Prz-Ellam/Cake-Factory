@@ -83,6 +83,10 @@ body {
 }
 */
 
+.custom-control-input:checked {
+    background-color: #FF5E1F !important;
+    border-color: #FF5E1F !important;
+}
 
 .form-control:focus, .form-select:focus {
     outline: 1px solid #FF5E1F;
@@ -98,7 +102,7 @@ body {
         padding: 24px !important;
     }
 
-    .form-card {
+    .form-card, #profile-body {
         /* p-4 */
         border-radius: 0 !important;
         padding: 24px !important;

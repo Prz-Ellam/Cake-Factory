@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>La Suprema</title>
-
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake Factory</title>
 
     <link rel="shortcut icon" href="assets/icons/Icon.svg" type="image/x-icon">
 
@@ -107,7 +106,6 @@
                 <hr class="mb-4">
 
                 <div class="row">
-
                     <div class="col-lg-6 p-5 align-self-center">
                         <img class="img-fluid zoom" id="zoom" src="./assets/img/E001S000026.jpg">
                         <div class="row">
@@ -118,26 +116,25 @@
                         </div>
                     </div>
 
-                        <div class="col-lg-6 p-5">
+                    <div class="col-lg-6 p-5">
+                        <h2 class="fw-bold text-brown" id="name"></h2>
+                        <h3 class="text-brown"><strong>Categoría:</strong><span id="category"></span></h3>
+                        <p class="h4 text-brown" id="price"></p>
 
-                            <h2 class="fw-bold text-brown" id="name"></h2>
-                            <h3 class="text-brown"><strong>Categoría:</strong><span id="category"></span></h3>
-                            <p class="h4 text-brown" id="price"></p>
+                        <div class="rating">
+                            <i class="rating__star far fa-star" id="1"></i>
+                            <i class="rating__star far fa-star" id="2"></i>
+                            <i class="rating__star far fa-star" id="3"></i>
+                            <i class="rating__star far fa-star" id="4"></i>
+                            <i class="rating__star far fa-star" id="5"></i>
+                        </div>
 
-                            <div class="rating">
-                                <i class="rating__star far fa-star" id="1"></i>
-                                <i class="rating__star far fa-star" id="2"></i>
-                                <i class="rating__star far fa-star" id="3"></i>
-                                <i class="rating__star far fa-star" id="4"></i>
-                                <i class="rating__star far fa-star" id="5"></i>
-                          </div>
+                        <hr>
 
-                            <hr>
-
-                            <p class="fw-bold text-brown">Descripción:</p>
-                            <p class="text-brown text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                        <p class="fw-bold text-brown">Descripción:</p>
+                        <p class="text-brown text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                         
-                            <hr>
+                        <hr>
 
                             <!--div class="form-group">
                             <label class="text-brown">Cantidad</label>
@@ -152,16 +149,15 @@
                             </div>
                             </div-->
 
-                            <div class="form-group">
-                                <label class="text-brown">Cantidad</label>
-                                <input type="number" value="1" min="1" max="100" class="quantity form-control shadow-none w-50 mb-4" id="quantity">
-                            </div>
+                        <div class="form-group">
+                            <label class="text-brown">Cantidad</label>
+                            <input type="number" value="1" min="1" max="100" class="quantity form-control shadow-none w-50 mb-4" id="quantity">
+                        </div>
 
-                            <div class="w-100 d-md-flex" >
-                                <button class="ms-auto btn btn-md btn-secondary shadow-none p-3 bg-orange h5 me-3 w-100" id="add-cart"><i class="fas fa-shopping-cart me-1"></i> Agregar al carrito</button>
-                                <button class="ms-auto btn btn-md btn-secondary shadow-none p-3 bg-orange h5 w-100"><i class="fa fa-heart"></i> Lista de deseos</button>
-                            </div>
-                            
+                        <div class="w-100 d-md-flex" >
+                            <button class="ms-auto btn btn-md btn-secondary shadow-none p-3 bg-orange h5 me-3 w-100" id="add-cart"><i class="fas fa-shopping-cart me-1"></i> Agregar al carrito</button>
+                            <button class="ms-auto btn btn-md btn-secondary shadow-none p-3 bg-orange h5 w-100"><i class="fa fa-heart"></i> Lista de deseos</button>
+                        </div>     
                     </div>
                 </div>
             </div>
@@ -178,9 +174,7 @@
             <hr>
 
             <div class="d-flex">
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;"
-                >
+                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;">
                 <div class="row">
                     <div class="col-9">
                         <a href="/profile" class="mt-0 me-1">Eliam Rodríguez Pérez</a>
@@ -202,9 +196,7 @@
             <hr>
 
             <div class="d-flex">
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;"
-                >
+                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;">
                 <div class="row">
                     <div class="col-9">
                         <a href="/profile" class="mt-0 me-1">Eliam Rodríguez Pérez</a>
@@ -226,11 +218,7 @@
             <hr>
 
             <div class="d-flex">
-                <!-- Image -->
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;"
-                >
-                <!-- Body -->
+                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;">
                 <div class="row">
                     <div class="col-9">
                         <a href="/profile" class="mt-0 me-1">Eliam Rodríguez Pérez</a>
@@ -261,9 +249,7 @@
             <hr>
 
             <div class="d-flex">
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;"
-                >
+                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;">
                 <div class="row">
                     <div class="col-9">
                         <a href="/profile" class="mt-0 me-1">Eliam Rodríguez Pérez</a>
@@ -285,9 +271,7 @@
             <hr>
 
             <div class="d-flex">
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;"
-                >
+                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;">
                 <div class="row">
                     <div class="col-9">
                         <a href="/profile" class="mt-0 me-1">Eliam Rodríguez Pérez</a>
@@ -310,15 +294,13 @@
 
     <section class="my-5">
         <div class="container bg-white" id="section1">
-
             <div class="pt-4">
                 <h2 class="text-center h1 fw-bold text-brown">También te podrían interesar</h2>
             </div>
 
-                <hr>
+            <hr>
 
-                <div class="owl-carousel owl-theme sellers">
-
+            <div class="owl-carousel owl-theme sellers">
                 <div class="item">
                     <div class="text-center car-prueba p-4 m-4 rounded">
                         <a href="/product"><img src="assets/img/IMG001.jpg" class="p-3"></a>
@@ -353,8 +335,7 @@
                         <p>Fresas con crema</p>
                         <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
                     </div>
-                </div>
-                    
+                </div>  
             </div>
         </div>
     </section>
@@ -366,13 +347,11 @@
             <!-- Grid Row -->
             <div class="row text-md-start text-center">
                 <!-- Grid Column -->
-
                 <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
                     <ul class="list-unstyled">
                         <li class="my-2"><img src="assets/img/Footer-Logo.svg" class="img-fluid" id="logo-banner"></li>
                     </ul>
                 </div>
-                
                 <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
                     <h5 class="text-uppercase mb-4 text-cream fw-bold">Recursos</h5>
                     <ul class="list-unstyled">
@@ -382,7 +361,6 @@
                         <li class="my-2"><a href="BranchOffices.html" class="text-cream text-decoration-none">Sucursales</a><br></li>
                     </ul>
                 </div>
-
                 <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
                     <h5 class="text-uppercase mb-4 text-cream fw-bold">Políticas</h5>
                     <ul class="list-unstyled">
@@ -390,7 +368,6 @@
                         <li class="my-2"><a href="PrivacyPolicy.html" class="text-cream text-decoration-none">Política de privacidad</a><br></li>
                     </ul>
                 </div>
-
                 <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
                     <h5 class="text-uppercase mb-4 text-cream fw-bold">Contacto</h5>
                     <ul class="list-unstyled">
@@ -417,7 +394,6 @@
                     </ul>
                 </div>
             </div>
-
             <div class="container">
                 <div class="row pt-5 pb-3 d-flex align-items-center">
                     <div class="col-md-12  text-center">
@@ -428,7 +404,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="container text-center img-responsive">
                 <p class="text-cream mb-0">© 2022 Pastelería Cake Factory. Todos los derechos reservados.</p>
             </div>
@@ -454,9 +429,7 @@
     <script src="https://kit.fontawesome.com/48ce36e499.js" crossorigin="anonymous"></script>
     
     <!-- Owl Carousel -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" 
-    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- JavaScript -->
     <script type="text/javascript" src="./js/product.js"></script>

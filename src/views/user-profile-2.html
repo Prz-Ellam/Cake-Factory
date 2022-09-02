@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
         
     <link href="./styles/navbar.css" rel="stylesheet">
-    <link href="./styles/layout.css" rel="stylesheet">
+    <link type="text/css" href="./styles/layout.css" rel="stylesheet">
     <link href="./styles/footer.css" rel="stylesheet">
 </head>
 <body>
@@ -90,10 +90,9 @@
         </nav>
     </header>
 
-    <section class="container-fluid my-5">
+    <section class="container-fluid my-4">
         <div class="row d-flex justify-content-center">
-            <div class="col-12">
-                <div class="bg-white rounded-1 p-5">
+                <div class="bg-white rounded-1 p-5 shadow-sm col-lg-11 col-md-11" id="profile-body">
 
                     <!-- Media object -->
                     <section class="w-100 px-3">
@@ -116,83 +115,323 @@
                     <!-- Media object -->
                     <!-- https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-media-objects.php#:~:text=Bootstrap%20media%20object%20has%20been,flex%20and%20spacing%20utility%20classes. -->
 
-                    <hr>
+                    <hr class="mb-5">
 
-                    <h3 class="text-center mb-3">Listas de deseos</h3>
+<!--div>
+                    <h1 class="text-center mb-4">Listas de deseos</h1>
 
+                        <div class="row">
+    
+                            <div class="col-12 col-md-6 col-lg-4 mb-5 d-flex align-items-stretch">
+                                <div class="card mx-auto" style="width: 18rem;">
+                                    <div class="ratio ratio-4x3">
+                                        <img src="https://images.hola.com/imagenes/cocina/recetas/20191017151958/ramen-pollo-huevo-cebollino-soja/0-734-730/ramen-adobe-m.jpg" class="card-img-top w-100 h-100">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Nombre de la lista</h5>
+                                        <p class="card-text">Descripción de la lista</p>
+                                        <a href="#" class="btn btn-primary bg-orange shadow-none rounded-1">Ver más</a>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="col-12 col-md-6 col-lg-4 mb-5 d-flex align-items-stretch">
+                                <div class="card mx-auto" style="width: 18rem;">
+                                    <div class="ratio ratio-4x3">
+                                        <img src="https://images.hola.com/imagenes/cocina/recetas/20191017151958/ramen-pollo-huevo-cebollino-soja/0-734-730/ramen-adobe-m.jpg" class="card-img-top w-100 h-100">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Nombre de la lista</h5>
+                                        <p class="card-text">Descripción de la lista</p>
+                                        <a href="#" class="btn btn-primary bg-orange shadow-none rounded-1">Ver más</a>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="col-12 col-md-6 col-lg-4 mb-5 d-flex align-items-stretch">
+                                <div class="card mx-auto" style="width: 18rem;">
+                                    <div class="ratio ratio-4x3">
+                                        <img src="https://images.hola.com/imagenes/cocina/recetas/20191017151958/ramen-pollo-huevo-cebollino-soja/0-734-730/ramen-adobe-m.jpg" class="card-img-top w-100 h-100">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Nombre de la lista</h5>
+                                        <p class="card-text">Descripción de la lista</p>
+                                        <a href="#" class="btn btn-primary bg-orange shadow-none rounded-1">Ver más</a>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="col-12 col-md-6 col-lg-4 mb-5 d-flex align-items-stretch">
+                                <div class="card mx-auto" style="width: 18rem;">
+                                    <div class="ratio ratio-4x3">
+                                        <img src="https://images.hola.com/imagenes/cocina/recetas/20191017151958/ramen-pollo-huevo-cebollino-soja/0-734-730/ramen-adobe-m.jpg" class="card-img-top w-100 h-100">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Nombre de la lista</h5>
+                                        <p class="card-text">Descripción de la lista</p>
+                                        <a href="#" class="btn btn-primary bg-orange shadow-none rounded-1">Ver más</a>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="col-12 col-md-6 col-lg-4 mb-5 d-flex align-items-stretch">
+                                <div class="card mx-auto" style="width: 18rem;">
+                                    <div class="ratio ratio-4x3">
+                                        <img src="https://codigoespagueti.com/wp-content/uploads/2022/07/naruto-plataforma-hbo-max.jpg" class="card-img-top w-100 h-100">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Nombre de la lista</h5>
+                                        <p class="card-text">Descripción de la lista</p>
+                                        <a href="#" class="btn btn-primary bg-orange shadow-none rounded-1">Ver más</a>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="col-12 col-md-6 col-lg-4 mb-5 d-flex align-items-stretch">
+                                <div class="card mx-auto" style="width: 18rem;">
+                                    <div class="ratio ratio-4x3">
+                                        <img src="https://images.hola.com/imagenes/cocina/recetas/20191017151958/ramen-pollo-huevo-cebollino-soja/0-734-730/ramen-adobe-m.jpg" class="card-img-top w-100 h-100">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Nombre de la lista</h5>
+                                        <p class="card-text">Descripción de la lista</p>
+                                        <a href="#" class="btn btn-primary bg-orange shadow-none rounded-1">Ver más</a>
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+    
+                        <nav aria-label="Page navigation example">
+                            <ul class="mt-4 pagination justify-content-center">
+                                <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">Anterior</a></li>
+                                <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">Siguiente</a></li>
+                            </ul>
+                        </nav>
+</div-->
+
+<!--
+<div>
+                        <h1 class="text-center mb-4">Listas de deseos</h1>
+
+                        <h4 class="text-center"><i class="fas fa-lock"></i> Esta cuenta es privada</h4>
+</div>
+-->
+
+<!--
+                <div>
+                    
+                    <ul class="nav nav-tabs mb-4">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Listas de deseos</a>
+                        </li>
+                    </ul>
+
+                    <h1 class="text-center mb-4">Productos</h1>
                     <div class="row">
-
-                        <div class="col-12 col-md-6 col-lg-4 mb-5 d-flex align-items-stretch">
-                            <div class="card mx-auto" style="width: 18rem;">
-                                <img src="https://images.hola.com/imagenes/cocina/recetas/20191017151958/ramen-pollo-huevo-cebollino-soja/0-734-730/ramen-adobe-m.jpg" class="card-img-top img-fluid">
-                                <div class="card-body">
-                                    <h5 class="card-title">Nombre de la lista</h5>
-                                    <p class="card-text">Descripción de la lista</p>
-                                    <a href="#" class="btn btn-primary bg-orange shadow-none rounded-1">Ver más</a>
-                                </div>
-                            </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 car-prueba bg-white text-center car-prueba p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <p class="fw-bold price mb-0">$297.00</p>
+                            <p>Tentación de frutas</p>
+                            <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
                         </div>
 
-                        <div class="col-12 col-md-6 col-lg-4 mb-5 d-flex align-items-stretch">
-                            <div class="card mx-auto" style="width: 18rem;">
-                                <img src="https://images.hola.com/imagenes/cocina/recetas/20191017151958/ramen-pollo-huevo-cebollino-soja/0-734-730/ramen-adobe-m.jpg" class="card-img-top img-fluid">
-                                <div class="card-body">
-                                    <h5 class="card-title">Nombre de la lista</h5>
-                                    <p class="card-text">Descripción de la lista</p>
-                                    <a href="#" class="btn btn-primary bg-orange shadow-none rounded-1">Ver más</a>
-                                </div>
-                            </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <p class="fw-bold price mb-0">$297.00</p>
+                            <p>Tentación de frutas</p>
+                            <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
                         </div>
 
-                        <div class="col-12 col-md-6 col-lg-4 mb-5 d-flex align-items-stretch">
-                            <div class="card mx-auto" style="width: 18rem;">
-                                <img src="https://images.hola.com/imagenes/cocina/recetas/20191017151958/ramen-pollo-huevo-cebollino-soja/0-734-730/ramen-adobe-m.jpg" class="card-img-top img-fluid">
-                                <div class="card-body">
-                                    <h5 class="card-title">Nombre de la lista</h5>
-                                    <p class="card-text">Descripción de la lista</p>
-                                    <a href="#" class="btn btn-primary bg-orange shadow-none rounded-1">Ver más</a>
-                                </div>
-                            </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <p class="fw-bold price mb-0">$297.00</p>
+                            <p>Tentación de frutas</p>
+                            <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
                         </div>
 
-                        <div class="col-12 col-md-6 col-lg-4 mb-5 d-flex align-items-stretch">
-                            <div class="card mx-auto" style="width: 18rem;">
-                                <img src="https://images.hola.com/imagenes/cocina/recetas/20191017151958/ramen-pollo-huevo-cebollino-soja/0-734-730/ramen-adobe-m.jpg" class="card-img-top img-fluid">
-                                <div class="card-body">
-                                    <h5 class="card-title">Nombre de la lista</h5>
-                                    <p class="card-text">Descripción de la lista</p>
-                                    <a href="#" class="btn btn-primary bg-orange shadow-none rounded-1">Ver más</a>
-                                </div>
-                            </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <p class="fw-bold price mb-0">$297.00</p>
+                            <p>Tentación de frutas</p>
+                            <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
                         </div>
 
-                        <div class="col-12 col-md-6 col-lg-4 mb-5 d-flex align-items-stretch">
-                            <div class="card mx-auto" style="width: 18rem;">
-                                <img src="https://codigoespagueti.com/wp-content/uploads/2022/07/naruto-plataforma-hbo-max.jpg" class="card-img-top img-fluid">
-                                <div class="card-body">
-                                    <h5 class="card-title">Nombre de la lista</h5>
-                                    <p class="card-text">Descripción de la lista</p>
-                                    <a href="#" class="btn btn-primary bg-orange shadow-none rounded-1">Ver más</a>
-                                </div>
-                            </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <p class="fw-bold price mb-0">$297.00</p>
+                            <p>Tentación de frutas</p>
+                            <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
                         </div>
 
-                        <div class="col-12 col-md-6 col-lg-4 mb-5 d-flex align-items-stretch">
-                            <div class="card mx-auto" style="width: 18rem;">
-                                <img src="https://images.hola.com/imagenes/cocina/recetas/20191017151958/ramen-pollo-huevo-cebollino-soja/0-734-730/ramen-adobe-m.jpg" class="card-img-top img-fluid">
-                                <div class="card-body">
-                                    <h5 class="card-title">Nombre de la lista</h5>
-                                    <p class="card-text">Descripción de la lista</p>
-                                    <a href="#" class="btn btn-primary bg-orange shadow-none rounded-1">Ver más</a>
-                                </div>
-                            </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <p class="fw-bold price mb-0">$297.00</p>
+                            <p>Tentación de frutas</p>
+                            <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
                         </div>
 
+                        <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <p class="fw-bold price mb-0">$297.00</p>
+                            <p>Tentación de frutas</p>
+                            <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                        </div>
 
+                        <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <p class="fw-bold price mb-0">$297.00</p>
+                            <p>Tentación de frutas</p>
+                            <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <p class="fw-bold price mb-0">$297.00</p>
+                            <p>Tentación de frutas</p>
+                            <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <p class="fw-bold price mb-0">$297.00</p>
+                            <p>Tentación de frutas</p>
+                            <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <p class="fw-bold price mb-0">$297.00</p>
+                            <p>Tentación de frutas</p>
+                            <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <p class="fw-bold price mb-0">$297.00</p>
+                            <p>Tentación de frutas</p>
+                            <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                        </div>
+                    
                     </div>
-
+                    
+                    
+                    <nav aria-label="Page navigation example">
+                        <ul class="mt-4 pagination justify-content-center">
+                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">Anterior</a></li>
+                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">Siguiente</a></li>
+                        </ul>
+                    </nav>
                     
                 </div>
+-->
+            <div>
+                <h1 class="text-center mb-4">Productos aprobados</h1>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12 car-prueba bg-white text-center car-prueba p-5">
+                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                        <p class="fw-bold price mb-0">$297.00</p>
+                        <p>Tentación de frutas</p>
+                        <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
+                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                        <p class="fw-bold price mb-0">$297.00</p>
+                        <p>Tentación de frutas</p>
+                        <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
+                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                        <p class="fw-bold price mb-0">$297.00</p>
+                        <p>Tentación de frutas</p>
+                        <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
+                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                        <p class="fw-bold price mb-0">$297.00</p>
+                        <p>Tentación de frutas</p>
+                        <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
+                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                        <p class="fw-bold price mb-0">$297.00</p>
+                        <p>Tentación de frutas</p>
+                        <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
+                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                        <p class="fw-bold price mb-0">$297.00</p>
+                        <p>Tentación de frutas</p>
+                        <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
+                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                        <p class="fw-bold price mb-0">$297.00</p>
+                        <p>Tentación de frutas</p>
+                        <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
+                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                        <p class="fw-bold price mb-0">$297.00</p>
+                        <p>Tentación de frutas</p>
+                        <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
+                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                        <p class="fw-bold price mb-0">$297.00</p>
+                        <p>Tentación de frutas</p>
+                        <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
+                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                        <p class="fw-bold price mb-0">$297.00</p>
+                        <p>Tentación de frutas</p>
+                        <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
+                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                        <p class="fw-bold price mb-0">$297.00</p>
+                        <p>Tentación de frutas</p>
+                        <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 bg-white text-center car-prueba p-5">
+                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                        <p class="fw-bold price mb-0">$297.00</p>
+                        <p>Tentación de frutas</p>
+                        <button class="btn btn-primary shadow-none bg-orange rounded-1">Agregar al carrito</button>
+                    </div>
+                </div>
+                <nav aria-label="Page navigation example">
+                    <ul class="mt-4 pagination justify-content-center">
+                        <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">Anterior</a></li>
+                        <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">Siguiente</a></li>
+                    </ul>
+                </nav>
+            </div>
+                    
             </div>
         </div>
     </section>

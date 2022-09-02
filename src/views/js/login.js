@@ -56,14 +56,13 @@ $(document).ready(function() {
         }
     });
 
-    
     function jsonEncode(formData, multiFields = null) {
         let object = Object.fromEntries(formData.entries());
 
         // If the data has multi-select values
         if (multiFields && Array.isArray(multiFields)) {
             multiFields.forEach((field) => {
-            object[field] = formData.getAll(field);
+                object[field] = formData.getAll(field);
             });
         }
 
@@ -80,9 +79,10 @@ $(document).ready(function() {
         }
 
         const requestBody = jsonEncode(new FormData(this));
+        console.log(requestBody);
         $.ajax({
             method: 'POST',
-            url: 'Cake-Factory/api/v1/login',
+            url: 'api/v1/login',
             headers: {
                 'Accept' : 'application/json',
                 'Content-Type' : 'application/json'
@@ -94,7 +94,11 @@ $(document).ready(function() {
                 console.log(response);
             },
             error: function(response, status, error) {
+                // Debe devolver un error
                 console.log(status);
+            },
+            complete: function() {
+                
             }
         });
 
@@ -108,6 +112,30 @@ $(document).ready(function() {
         if (validations === false) {
             return;
         }
+
+        const requestBody = jsonEncode(new FormData(this));
+        console.log(requestBody);
+        $.ajax({
+            method: 'POST',
+            url: 'api/v1/email',
+            headers: {
+                'Accept' : 'application/json',
+                'Content-Type' : 'application/json'
+            },
+            dataType: 'json',
+            data: JSON.stringify(requestBody),
+            success: function(response) {
+                // Debe devolver el token
+                console.log(response);
+            },
+            error: function(response, status, error) {
+                // Puede fallar en caso de que no exista un usuario con ese correo
+                console.log(status);
+            },
+            complete: function() {
+
+            }
+        });
 
     });
 

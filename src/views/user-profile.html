@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
-    <title>La Suprema</title>
-
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake Factory</title>
 
     <link rel="shortcut icon" href="Assets/Icons/Icon.svg" type="image/x-icon">
 
@@ -94,124 +92,112 @@
     <div class="container my-4">
         <!-- Flexbox -->
         <div class="row d-flex justify-content-center">
-                <!-- Grid System Form Card -->
-                <form class="form bg-white rounded p-5 col-xl-6 col-lg-6 col-md-7" id="profile-form" novalidate>
-                    <!-- Inputs -->
-                    <div class="mb-4">
-                        <h1 class="form-title text-center h2">Perfil</h1>
+            <!-- Grid System Form Card -->
+            <form class="form bg-white rounded p-5 col-xl-6 col-lg-6 col-md-7" id="profile-form" novalidate>
+                <!-- Inputs -->
+                <h1 class="form-title text-center h2 mb-4">Perfil</h1>
+
+                <hr class="mb-4">
+
+                <div class="form-group text-center mb-4">
+                    <div class="position-relative">
+                        <label for="profile-picture" role="button" class="profile-picture-label text-white position-absolute rounded-circle"></label>
+                        <img style="width: 156px; height: 156px; object-fit:cover;" class="img-fluid rounded-circle" id="picture-box" src="assets/img/blank-profile-picture.svg">
                     </div>
+                    <input type="file" class="form-control shadow-none rounded-1 position-absolute" style="scale: 0.01" name="profile-picture" id="profile-picture" >
+                </div>
 
-                    <hr class="mb-4">
+                <div class="mb-4">
+                    <label class="form-linputabel" for="email">Correo electrónico</label>
+                    <div class="input-group">
+                        <input type="email" class="form-control shadow-none rounded-1" name="email" id="email" placeholder="ejemplo@correo.com">
+                    </div>
+                </div>
 
-                    <div class="form-group text-center mb-4">
-                        <div class="position-relative">
-                            <label for="profile-picture" role="button" class="profile-picture-label text-white position-absolute rounded-circle"></label>
-                            <img style="width: 156px; height: 156px; object-fit:cover;" class="img-fluid rounded-circle" id="picture-box" src="assets/img/blank-profile-picture.svg">
+                <div class="mb-4">
+                    <label class="form-label" for="name">Nombre de usuario</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control shadow-none rounded-1" name="username" id="username" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="form-label" for="birth-date">Fecha de nacimiento</label>
+                    <div class="input-group">
+                        <input type="date" class="form-control shadow-none rounded-1" name="birth-date" id="birth-date">
+                    </div>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="form-label" for="first-name">Nombre</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control shadow-none rounded-1" name="first-name" id="first-name">
+                    </div>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="form-label" for="last-name">Apellido(s)</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control shadow-none rounded-1" name="last-name" id="last-name">
+                    </div>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="form-label" role="button">Género</label>
+                    <div>
+                        <div class="form-check">
+                            <input class="form-check-input shadow-none" type="radio" name="gender" id="male">
+                            <label class="form-check-label" for="male" role="button">Masculino</label>
                         </div>
-                        <input type="file" class="form-control shadow-none rounded-1 position-absolute" style="scale: 0.01" name="profile-picture" id="profile-picture" >
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="form-linputabel" for="email">Correo electrónico</label>
-                        <div class="input-group">
-                            <input type="email" class="form-control shadow-none rounded-1" name="email" id="email" 
-                            placeholder="ejemplo@correo.com">
+                        <div class="form-check">
+                            <input class="form-check-input shadow-none" type="radio" name="gender" id="female">
+                            <label class="form-check-label" for="female" role="button">Femenino</label>
                         </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="form-label" for="name">Nombre de usuario</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control shadow-none rounded-1" name="username" id="username"
-                            autocomplete="off">
-                        </div>
-                    </div>
-
-                    <div class="form-group mb-4">
-                        <label class="form-label" for="birth-date">Fecha de nacimiento</label>
-                        <div class="input-group">
-                            <input type="date" class="form-control shadow-none rounded-1" name="birth-date" id="birth-date" 
-                            >
-                        </div>
-                    </div>
-
-                    <div class="form-group mb-4">
-                        <label class="form-label" for="first-name">Nombre</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control shadow-none rounded-1" name="first-name" id="first-name" 
-                            >
-                        </div>
-                    </div>
-
-                    <div class="form-group mb-4">
-                        <label class="form-label" for="last-name">Apellido(s)</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control shadow-none rounded-1" name="last-name" id="last-name" 
-                            >
-                        </div>
-                    </div>
-
-    
-                    <div class="form-group mb-4">
-                        <label class="form-label" role="button">Género</label>
-                        <div>
-                            <div class="form-check">
-                                <input class="form-check-input shadow-none" type="radio" name="gender" id="male">
-                                <label class="form-check-label" for="male" role="button">Masculino</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input shadow-none" type="radio" name="gender" id="female">
-                                <label class="form-check-label" for="female" role="button">Femenino</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input shadow-none" type="radio" name="gender" id="other">
-                                <label class="form-check-label" for="other" role="button">Otro</label>
-                            </div>  
+                        <div class="form-check">
+                            <input class="form-check-input shadow-none" type="radio" name="gender" id="other">
+                            <label class="form-check-label" for="other" role="button">Otro</label>
                         </div>  
-                    </div>
+                    </div>  
+                </div>
 
-                    <div class="form-group mb-4">
-                        <label style="visibility:hidden">A</label>
-                        <input type="submit" value="Editar" class="btn btn-primary bg-orange w-100 shadow-none" id="btn-login">
-                    </div>
-        
+                <div class="form-group mb-4">
+                    <label style="visibility:hidden">A</label>
+                    <input type="submit" value="Editar" class="btn btn-primary bg-orange w-100 shadow-none" id="btn-login">
+                </div>
 
-                    </form>
+            </form>
 
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                          <div class="modal-content bg-white">
-                            <div class="modal-header">
-                              <h5 class="modal-title fw-bold" id="exampleModalLabel">¿Olvidaste tu contraseña?</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content bg-white">
+                        <div class="modal-header">
+                            <h5 class="modal-title fw-bold" id="exampleModalLabel">¿Olvidaste tu contraseña?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">
-                              <p>¡No te preocupes!</p><p>Ingresa tu correo electrónico y te mandaremos un enlace para que puedas reestablecer tu contraseña</p>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>¡No te preocupes!</p><p>Ingresa tu correo electrónico y te mandaremos un enlace para que puedas reestablecer tu contraseña</p>
                             
-                              <form>
+                            <form>
                                 <div class="form-group mb-4">
                                     <label class="form-label" for="email">Correo electrónico</label>
                                     <div class="input-group">
-                                    <input type="email" class="form-control rounded shadow-none" name="email" id="resetEmail" 
-                                        placeholder="correo@ejemplo.com">
+                                        <input type="email" class="form-control rounded shadow-none" name="email" id="resetEmail" placeholder="correo@ejemplo.com">
                                     </div>
                                 </div>
-                              </form>
+                            </form>
                             
                             </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                              <button type="button" class="btn btn-primary">Enviar</button>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    <button type="button" class="btn btn-primary">Enviar</button>
+                                </div>
                             </div>
-                          </div>
                         </div>
-                      </div>
-
+                    </div>
                 </div>
-
-        </div>
+            </div>
 
     <!-- Main container -->
     <div class="container my-5">
@@ -279,24 +265,23 @@
         <!-- Container -->
         <div class="container-fluid text-center text-md-start">
             <!-- Grid Row -->
-                <div class="row text-center text-md-start">
+            <div class="row text-center text-md-start">
                 <!-- Grid Column -->
-
                 <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
                     <ul class="list-unstyled">
                         <li class="my-2"><img src="assets/img/Footer-Logo.svg" class="img-fluid" id="logo-banner"></li>
                     </ul>
                 </div>
               
-              <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
-                  <h5 class="text-uppercase mb-4 text-cream fw-bold">Recursos</h5>
-                  <ul class="list-unstyled">
-                      <li class="my-2"><a href="AboutUs.html" class="text-cream text-decoration-none">Acerca de nosotros</a><br></li>
-                      <li class="my-2"><a href="Contact.html" class="text-cream text-decoration-none">Contáctanos</a><br></li>
-                      <li class="my-2"><a href="FAQ.html" class="text-cream text-decoration-none">Preguntas frecuentes</a><br></li>
-                      <li class="my-2"><a href="BranchOffices.html" class="text-cream text-decoration-none">Sucursales</a><br></li>
-                  </ul>
-              </div>
+                <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
+                    <h5 class="text-uppercase mb-4 text-cream fw-bold">Recursos</h5>
+                    <ul class="list-unstyled">
+                        <li class="my-2"><a href="AboutUs.html" class="text-cream text-decoration-none">Acerca de nosotros</a><br></li>
+                        <li class="my-2"><a href="Contact.html" class="text-cream text-decoration-none">Contáctanos</a><br></li>
+                        <li class="my-2"><a href="FAQ.html" class="text-cream text-decoration-none">Preguntas frecuentes</a><br></li>
+                        <li class="my-2"><a href="BranchOffices.html" class="text-cream text-decoration-none">Sucursales</a><br></li>
+                    </ul>
+                </div>
 
               <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
                   <h5 class="text-uppercase mb-4 text-cream fw-bold">Políticas</h5>
@@ -329,29 +314,24 @@
                               <i class="fa fa-envelope text-cream me-3 h4"></i>Correo electrónico
                           </a>
                       </li>
-                  </ul>
-              </div>
+                    </ul>
+                </div>
+            </div>
 
-          <!-- Grid Row -->
-          </div>
+            <div class="container">
+                <div class="row pt-5 pb-3 d-flex align-items-center">
+                    <div class="col-md-12  text-center">
+                        <svg class="payment-icon" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="38" height="24" aria-labelledby="pi-master"><title id="pi-master">Mastercard</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/><circle fill="#EB001B" cx="15" cy="12" r="7"/><circle fill="#F79E1B" cx="23" cy="12" r="7"/><path fill="#FF5F00" d="M22 12c0-2.4-1.2-4.5-3-5.7-1.8 1.3-3 3.4-3 5.7s1.2 4.5 3 5.7c1.8-1.2 3-3.3 3-5.7z"/></svg>
+                        <svg class="payment-icon" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" width="38" height="24" role="img" aria-labelledby="pi-paypal"><title id="pi-paypal">PayPal</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/><path fill="#003087" d="M23.9 8.3c.2-1 0-1.7-.6-2.3-.6-.7-1.7-1-3.1-1h-4.1c-.3 0-.5.2-.6.5L14 15.6c0 .2.1.4.3.4H17l.4-3.4 1.8-2.2 4.7-2.1z"/><path fill="#3086C8" d="M23.9 8.3l-.2.2c-.5 2.8-2.2 3.8-4.6 3.8H18c-.3 0-.5.2-.6.5l-.6 3.9-.2 1c0 .2.1.4.3.4H19c.3 0 .5-.2.5-.4v-.1l.4-2.4v-.1c0-.2.3-.4.5-.4h.3c2.1 0 3.7-.8 4.1-3.2.2-1 .1-1.8-.4-2.4-.1-.5-.3-.7-.5-.8z"/><path fill="#012169" d="M23.3 8.1c-.1-.1-.2-.1-.3-.1-.1 0-.2 0-.3-.1-.3-.1-.7-.1-1.1-.1h-3c-.1 0-.2 0-.2.1-.2.1-.3.2-.3.4l-.7 4.4v.1c0-.3.3-.5.6-.5h1.3c2.5 0 4.1-1 4.6-3.8v-.2c-.1-.1-.3-.2-.5-.2h-.1z"/></svg>
+                    </div>
+                </div>
+            </div>
 
-          <div class="container">
-              <div class="row pt-5 pb-3 d-flex align-items-center">
-                  <div class="col-md-12  text-center">
-                      <svg class="payment-icon" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="38" height="24" aria-labelledby="pi-master"><title id="pi-master">Mastercard</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/><circle fill="#EB001B" cx="15" cy="12" r="7"/><circle fill="#F79E1B" cx="23" cy="12" r="7"/><path fill="#FF5F00" d="M22 12c0-2.4-1.2-4.5-3-5.7-1.8 1.3-3 3.4-3 5.7s1.2 4.5 3 5.7c1.8-1.2 3-3.3 3-5.7z"/></svg>
-                      <svg class="payment-icon" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" width="38" height="24" role="img" aria-labelledby="pi-paypal"><title id="pi-paypal">PayPal</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/><path fill="#003087" d="M23.9 8.3c.2-1 0-1.7-.6-2.3-.6-.7-1.7-1-3.1-1h-4.1c-.3 0-.5.2-.6.5L14 15.6c0 .2.1.4.3.4H17l.4-3.4 1.8-2.2 4.7-2.1z"/><path fill="#3086C8" d="M23.9 8.3l-.2.2c-.5 2.8-2.2 3.8-4.6 3.8H18c-.3 0-.5.2-.6.5l-.6 3.9-.2 1c0 .2.1.4.3.4H19c.3 0 .5-.2.5-.4v-.1l.4-2.4v-.1c0-.2.3-.4.5-.4h.3c2.1 0 3.7-.8 4.1-3.2.2-1 .1-1.8-.4-2.4-.1-.5-.3-.7-.5-.8z"/><path fill="#012169" d="M23.3 8.1c-.1-.1-.2-.1-.3-.1-.1 0-.2 0-.3-.1-.3-.1-.7-.1-1.1-.1h-3c-.1 0-.2 0-.2.1-.2.1-.3.2-.3.4l-.7 4.4v.1c0-.3.3-.5.6-.5h1.3c2.5 0 4.1-1 4.6-3.8v-.2c-.1-.1-.3-.2-.5-.2h-.1z"/></svg>
-                  </div>
-              </div>
-          </div>
-
-          <div class="container text-center img-responsive">
-              <p class="text-cream mb-0">© 2022 Pastelería La Suprema. Todos los derechos reservados.</p>
-          </div>
-
-      <!-- Container -->
-      </div>
-
-  </footer>
+            <div class="container text-center img-responsive">
+                <p class="text-cream mb-0">© 2022 Pastelería La Suprema. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- jQuery 3.6.0 -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -365,8 +345,7 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/48ce36e499.js" crossorigin="anonymous"></script>
 
-
-  <!-- JavaScript -->
-  <script type="text/javascript" src="./js/profile.js"></script>
+    <!-- JavaScript -->
+    <script type="text/javascript" src="./js/profile.js"></script>
 </body>
 </html>

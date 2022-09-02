@@ -2,7 +2,7 @@
 
 namespace Models\Interfaces;
 
-interface ProductRepository
+interface ProductRepositoryInterface
 {
     public function createProduct() : bool;
     public function getProducts();
