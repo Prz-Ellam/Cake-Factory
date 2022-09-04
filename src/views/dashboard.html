@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cake Factory</title>
 
-    <link rel="shortcut icon" href="assets/icons/Icon.svg" type="image/x-icon">
-    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +36,7 @@
 <body>
     <header class="fixed-top sticky-top">
         <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar">
-            <a class="navbar-brand" href="/"><img src="assets/img/Brand-Logo.svg" id="brand-logo"></a>
+            <a class="navbar-brand ms-2" href="/"><img src="assets/img/Brand-Logo.svg" id="brand-logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse">
                 <i class="fa fa-bars"></i>
             </button>
@@ -51,16 +49,36 @@
                         </div>
                     </div>
                 </form>
-                <ul class="navbar-nav" id="orange-navbar">
+                <ul class="navbar-nav align-items-center" id="orange-navbar">
                     <li class="nav-item">
-                        <a href="/signup" class="primary-nav-item nav-link text-white fw-bold rounded-3">
-                            <i class="fa fa-solid fa-sign-in mr-2 me-1"></i>Registrarse
+                        <a href="/chat" class="me-3 position-relative primary-nav-item nav-link text-white fw-bold rounded-3">
+                            <i class="fa fa-bell"></i>
+                            <span class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger">1</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/login" class="primary-nav-item me-3 nav-link text-white fw-bold rounded-3">
-                            <i class="fas fa-solid fa-user me-1"></i>Iniciar sesión
+                        <a href="/wishlists" class="me-3 position-relative primary-nav-item nav-link text-white fw-bold rounded-3">
+                            <i class="fa fa-heart"></i>
+                            <span class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger">1</span>
                         </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/shopping-cart" class="me-3 position-relative primary-nav-item nav-link text-white fw-bold rounded-3">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger">3</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="assets/img/default.jpg" alt="logo" class=" img-fluid rounded-circle" style="width:32px; height:32px">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-white rounded-1 shadow-sm">
+                            <a href="/profile" class="dropdown-item">Mi perfil</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="/products" class="dropdown-item">Mis productos</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item" id="close-session">Cerrar sesión</a>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -70,7 +88,7 @@
                 <i class="fa fa-bars text-brown"></i>
             </button>
             <div class="collapse navbar-collapse" id="subnavbar-collapse">
-                <ul class="navbar-nav me-auto">
+                <ul class="navbar-nav ms-2">
                     <li class="nav-item">
                         <a class="nav-link ms-1 me-4 p-1 text-brown" href="/home">Inicio</a>
                     </li>

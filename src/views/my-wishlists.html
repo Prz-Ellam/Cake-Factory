@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Suprema</title>
 
-    <link rel="shortcut icon" href="assets/icons/Icon.svg" type="image/x-icon">
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +30,7 @@
 <body>
     <header class="fixed-top sticky-top">
         <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar">
-            <a class="navbar-brand" href="/"><img src="assets/img/Brand-Logo.svg" id="brand-logo"></a>
+            <a class="navbar-brand ms-2" href="/"><img src="assets/img/Brand-Logo.svg" id="brand-logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse">
                 <i class="fa fa-bars"></i>
             </button>
@@ -45,7 +43,7 @@
                         </div>
                     </div>
                 </form>
-                <ul class="navbar-nav" id="orange-navbar">
+                <ul class="navbar-nav align-items-center" id="orange-navbar">
                     <li class="nav-item">
                         <a href="/chat" class="me-3 position-relative primary-nav-item nav-link text-white fw-bold rounded-3">
                             <i class="fa fa-bell"></i>
@@ -66,9 +64,9 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="api/v1/images" alt="logo" class=" img-fluid rounded-circle" style="width:32px; height:32px">
+                            <img src="assets/img/default.jpg" alt="logo" class=" img-fluid rounded-circle" style="width:32px; height:32px">
                         </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-white rounded-1  shadow-sm">
+                        <div class="dropdown-menu dropdown-menu-end bg-white rounded-1 shadow-sm">
                             <a href="/profile" class="dropdown-item">Mi perfil</a>
                             <div class="dropdown-divider"></div>
                             <a href="/products" class="dropdown-item">Mis productos</a>
@@ -84,21 +82,18 @@
                 <i class="fa fa-bars text-brown"></i>
             </button>
             <div class="collapse navbar-collapse" id="subnavbar-collapse">
-                <ul class="navbar-nav me-auto">
+                <ul class="navbar-nav ms-2">
                     <li class="nav-item">
                         <a class="nav-link ms-1 me-4 p-1 text-brown" href="/home">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-4 p-1 text-brown" href="/">Contacto</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-4 p-1 text-brown" href="/">Nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-4 p-1 text-brown" href="/">Sucursales</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link me-4 p-1 text-brown" href="/create-product">Vender</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-4 p-1 text-brown" href="/sales-report">Reporte de ventas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-4 p-1 text-brown" href="/orders-report">Reporte de compras</a>
                     </li>
                 </ul>
             </div>
@@ -119,11 +114,11 @@
                     <table class="table table-hover nowrap" width="100%" id="wishlist-table">
                         <thead>
                             <tr>
-                                <th scope="col" width="10%">#</th>
-                                <th scope="col" width="20%">Nombre</th>
-                                <th scope="col" width="30%">Descripción</th>
-                                <th scope="col" width="10%">Visibilidad</th>
-                                <th scope="col" width="20%">Acciones</th>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Descripción</th>
+                                <th scope="col">Visibilidad</th>
+                                <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody id="wishlist-table-body">
@@ -248,12 +243,12 @@
                     <h5 class="text-uppercase mb-4 text-cream fw-bold">Contacto</h5>
                     <ul class="list-unstyled">
                         <li class="my-2">
-                            <a href="https://www.facebook.com/PasteleriaLaSuprema" target="_blank" class="text-cream text-decoration-none">
+                            <a href="https://www.facebook.com" target="_blank" class="text-cream text-decoration-none">
                                 <i class="fab fa-facebook-f text-cream me-3 h4"></i>Facebook
                             </a>
                         </li>
                         <li class="my-2">
-                            <a href="https://www.instagram.com/pastelerialasuprema" target="_blank" class="text-cream text-decoration-none">
+                            <a href="https://www.instagram.com" target="_blank" class="text-cream text-decoration-none">
                                 <i class="fa fa-instagram text-cream me-3 h4" aria-hidden="true"></i>Instagram
                             </a>
                         </li>

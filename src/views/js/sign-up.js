@@ -183,6 +183,13 @@ $(document).ready(function() {
             }
 
             error.insertAfter(element.parent()).addClass('text-danger').addClass('form-text').attr('id', element[0].id + '-error-label');
+        },
+        highlight: function(element, errorClass, validClass) {
+            $(element).addClass('is-invalid').removeClass('is-valid');
+            console.log('Highlight');
+        },
+        unhighlight: function(element, errorClass, validClass) {
+            $(element).addClass('is-valid').removeClass('is-invalid');
         }
     });
 

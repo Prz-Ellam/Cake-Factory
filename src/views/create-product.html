@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Suprema</title>
 
-    <!-- Icon -->
-    <link rel="shortcut icon" href="assets/icons/Icon.svg" type="image/x-icon">
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +32,7 @@
 <body>
     <header class="fixed-top sticky-top">
         <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar">
-            <a class="navbar-brand" href="/"><img src="assets/img/Brand-Logo.svg" id="brand-logo"></a>
+            <a class="navbar-brand ms-2" href="/"><img src="assets/img/Brand-Logo.svg" id="brand-logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse">
                 <i class="fa fa-bars"></i>
             </button>
@@ -48,7 +45,7 @@
                         </div>
                     </div>
                 </form>
-                <ul class="navbar-nav" id="orange-navbar">
+                <ul class="navbar-nav align-items-center" id="orange-navbar">
                     <li class="nav-item">
                         <a href="/chat" class="me-3 position-relative primary-nav-item nav-link text-white fw-bold rounded-3">
                             <i class="fa fa-bell"></i>
@@ -67,10 +64,17 @@
                             <span class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger">3</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="/login" class="primary-nav-item me-3 nav-link text-white fw-bold rounded-3">
-                            <i class="fas fa-solid fa-user me-1"></i>Iniciar sesión
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="assets/img/default.jpg" alt="logo" class=" img-fluid rounded-circle" style="width:32px; height:32px">
                         </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-white rounded-1 shadow-sm">
+                            <a href="/profile" class="dropdown-item">Mi perfil</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="/products" class="dropdown-item">Mis productos</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item" id="close-session">Cerrar sesión</a>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -80,7 +84,7 @@
                 <i class="fa fa-bars text-brown"></i>
             </button>
             <div class="collapse navbar-collapse" id="subnavbar-collapse">
-                <ul class="navbar-nav me-auto">
+                <ul class="navbar-nav ms-2">
                     <li class="nav-item">
                         <a class="nav-link ms-1 me-4 p-1 text-brown" href="/home">Inicio</a>
                     </li>
@@ -101,7 +105,7 @@
     <!-- Main Container -->
     <section class="container my-4">
         <div class="row justify-content-center">
-            <form class="p-5 bg-white rounded shadow-sm col-lg-8 col-md-8 form-card" id="create-product-form">
+            <form class="bg-white rounded-1 shadow-sm p-sm-5 p-4 col-lg-8 col-md-8" id="create-product-form">
                 <!-- Inputs -->
                 <h1 class="h2 text-center mb-4">Agregar producto</h1>
 
@@ -122,61 +126,59 @@
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label" for="" role="button">Tipo de venta</label>
+                    <label class="form-label" role="button">Tipo de venta</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="type-of-sell" id="sell" checked>
+                        <input class="custom-control-input form-check-input shadow-none" type="radio" name="type-of-sell" id="sell" value="1" checked>
                         <label class="form-check-label" for="sell" role="button">Es para vender</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="type-of-sell" id="cotizar">
+                        <input class="custom-control-input form-check-input shadow-none" type="radio" name="type-of-sell" id="cotizar" value="2">
                         <label class="form-check-label" for="cotizar" role="button">Es para cotizar</label>
                     </div>
                 </div>
                 
-
-                    <div class="mb-4">
-                        <label class="form-label" for="price" role="button">Precio</label>
-                        <div class="input-group">
-                            <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control shadow-none rounded-1" name="price" id="price">
-                        </div>
+                <div class="mb-4">
+                    <label class="form-label" for="price" role="button">Precio</label>
+                    <div class="input-group">
+                        <input type="number" min="0.00" max="10000.00" step="0.01" value="0.00" class="form-control shadow-none rounded-1" name="price" id="price">
                     </div>
+                </div>
 
-                    <div class="mb-4">
-                        <label class="form-label" for="stock" role="button">Cantidad disponible</label>
-                        <div class="input-group">
-                            <input type="number" class="form-control shadow-none rounded-1" name="stock" id="stock">
-                        </div>
+                <div class="mb-4">
+                    <label class="form-label" for="stock" role="button">Cantidad disponible</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control shadow-none rounded-1" value="0" name="stock" id="stock">
                     </div>
+                </div>
 
-                    <div class="mb-4">
-                        <label label="form-label" for="images">Imágenes</label>
-                        <input type="file" class="form-control shadow-none" name="images" id="images" multiple accept="image/*">
-                    </div>
+                <div class="mb-4">
+                    <label label="form-label" for="images">Imágenes</label>
+                    <input type="file" class="form-control shadow-none" name="images" id="images" multiple accept="image/*">
+                </div>
 
-                    <div class="mb-4" style="overflow-x: scroll; width: 100%; white-space: nowrap;" id="image-list">
-                    </div>
+                <div class="mb-4" style="overflow-x: scroll; width: 100%; white-space: nowrap;" id="image-list">
+                </div>
 
-                    <div class="mb-4">
-                        <label class="form-label" for="videos">Videos</label>
-                        <input type="file" class="form-control shadow-none" name="videos" id="videos" multiple accept="video/*">
-                    </div>
+                <div class="mb-4">
+                    <label class="form-label" for="videos">Videos</label>
+                    <input type="file" class="form-control shadow-none" name="videos" id="videos" multiple accept="video/*">
+                </div>
 
-                    <div class="mb-4" style="overflow-x: scroll; width: 100%; white-space: nowrap;" id="video-list">
+                <div class="mb-4" style="overflow-x: scroll; width: 100%; white-space: nowrap;" id="video-list">
                         
-                    </div>
+                </div>
 
-                    <div class="mb-3">
-                        <label class="form-label tags-label" for="categories">Categorías</label>
-                        <button type="button" class="btn btn-primary badge ms-2" data-bs-toggle="modal" data-bs-target="#create-category">Crear categoría</button>
-                        <select id="categories" name="categories" multiple>
-                            <option value="" selected hidden>Seleccionar</option>
-                            <option value="1">1</option>
-                        </select>
-                    </div>
+                <div class="mb-3">
+                    <label class="form-label tags-label" for="categories">Categorías</label>
+                    <button type="button" class="btn btn-primary badge ms-2" data-bs-toggle="modal" data-bs-target="#create-category">Crear categoría</button>
+                    <select id="categories" name="categories" multiple>
+                        <option value="" selected hidden>Seleccionar</option>
+                        <option value="1">1</option>
+                    </select>
+                </div>
 
-                    <div class="d-flex">
-                        <input class="btn bg-orange text-light shadow-none rounded-1 w-100" type="submit" value="Registrar" id="submit">
-                    </div>
+                <input class="btn btn-orange text-light shadow-none rounded-1 w-100 mt-3" type="submit" value="Registrar" id="submit">
+                
             </form>
         </div>
     </section>

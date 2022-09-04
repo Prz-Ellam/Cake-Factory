@@ -171,7 +171,8 @@ $(document).ready(function() {
         }
 
         const requestBody = new FormData(this);
-        console.log(requestBody);
+        console.log([...requestBody]);
+        return;
         $.ajax({
             method: 'POST',
             url: 'api/v1/products',

@@ -12,7 +12,7 @@ body {
 }
 
 .success-icon {
-    color:rgb(121, 177, 143);
+    color:#79b18f;
     position: absolute;
     visibility: hidden;
     font-size: 18px;
@@ -22,7 +22,7 @@ body {
 }
 
 .error-icon {
-    color:rgb(222, 79, 84);
+    color:#de4f54;
     position: absolute;
     visibility: hidden;
     font-size: 18px;
@@ -66,20 +66,6 @@ body {
     border-color: #bd491b;
 }
 
-
-.input-group {
-    position: relative;
-    width: auto;
-    display: flex;
-    margin: auto;
-    align-items: center;
-    justify-content: center;
-}
-
-.form {
-    filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.25));
-}
-
 #remember {
     border: 1px solid #BBBBBB;
 }
@@ -92,24 +78,48 @@ body {
 
 .is-valid {
     outline: 1px solid #79b18f;
+    border: none;
 }
 
 .is-invalid {
     outline: 1px solid #de4f54;
+    border: none;
 }
 
-#caps-lock {
-    visibility: hidden;
-}
-
-.form-control.is-valid {
+.form-control.is-valid, .form-select.is-valid {
     background-image: url("../assets/icons/check-circle-solid.svg");
 }
 
-.form-control.is-invalid {
+.form-control.is-invalid, .form-select.is-invalid {
     background-image: url("../assets/icons/exclamation-circle-solid.svg");
 }
 
-#btn-password {
+.btn-password {
     width: 48px !important;
+}
+
+.text-orange {
+    color: #FF5E1F;
+}
+
+.text-orange:hover, .text-orange:active {
+    color: #C44817;
+}
+
+.btn-orange {
+    color: #fff;
+    background-color: #FF5E1F;
+    border-color: #FF5E1F;
+}
+
+.btn-orange:hover {
+    color: #fff;
+    background-color: #CA4C1B;
+    border-color: #CA4C1B;
+}
+
+.btn-orange:active {
+    color: #fff;
+    background-color: #bd491b;
+    border-color: #bd491b;
 }
