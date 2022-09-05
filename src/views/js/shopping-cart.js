@@ -1,6 +1,7 @@
 $(document).ready(function()
 {
     $('#shopping-cart-id').DataTable({
+        responsive: true,
         "language": {
             "lengthMenu": "Mostrar _MENU_ registros por página",
             "zeroRecords": "No se encontró información",

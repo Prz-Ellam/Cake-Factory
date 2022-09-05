@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
     var detailedSalesReport = $('#detailed-sales-report').DataTable({
+        responsive: true,
         "language": {
             "lengthMenu": "Mostrar _MENU_ registros por página",
             "zeroRecords": "No se encontró información",
@@ -10,6 +11,7 @@ $(document).ready(function() {
         }
     });
     var groupSalesReport = $('#group-sales-report').DataTable({
+        responsive: true,
         "language": {
             "lengthMenu": "Mostrar _MENU_ registros por página",
             "zeroRecords": "No se encontró información",

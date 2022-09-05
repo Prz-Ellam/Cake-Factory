@@ -71,4 +71,8 @@ $(document).ready(function() {
 
     });
 
+    $('#btn-side-bar').click(function() {
+        $('.side-bar').toggleClass('active');
+    });
+
 });

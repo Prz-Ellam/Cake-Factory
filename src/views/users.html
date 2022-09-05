@@ -23,8 +23,123 @@
     <link type="text/css" href="./styles/navbar.css" rel="stylesheet">
     <link type="text/css" href="./styles/layout.css" rel="stylesheet">
     <link type="text/css" href="./styles/footer.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/admin.css">
 </head>
 <body>
+
+    <div class="main-container d-flex">
+        <div class="side-bar bg-white p-4" id="side-nav">
+            <div class="header-box mb-4 d-flex justify-content-between align-items-center">
+                <h1 class="fs-4">Hola Mundo</h1>
+                <button class="btn d-inline d-sm-none" id="btn-side-bar"><i class="fas fa-bars"></i></button>
+            </div>
+            <ul class="list-unstyled">
+                <li class="list-item rounded-1">
+                    <a href="#" class="text-decoration-none d-flex justify-content-between px-2 py-2 mb-1">
+                        <span><i class="fas fa-user me-2"></i>Usuarios</span>
+                        <span>1</span>
+                    </a>
+                </li>
+                <li class="list-item rounded-1">
+                    <a href="#" class="text-decoration-none d-flex justify-content-between px-2 py-2 mb-1">
+                        <span>Productos</span>
+                        <span>2</span>
+                    </a>
+                </li>
+                <li class="list-item rounded-1">
+                    <a href="#" class="text-decoration-none d-flex justify-content-between px-2 py-2 mb-1">
+                        <span>Categorias</span>
+                        <span>2</span>
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <ul class="list-unstyled">
+                <li><a href="#" class="text-decoration-none">Salir</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="container my-4">
+                <div class="row d-flex justify-content-center">
+                    <div class="bg-white p-4 col-12">
+                        <div class="text-center text-brown">
+                            <h1><i class="fa fa-user"></i> Usuarios</h1>
+                        </div>
+                        
+                        <hr>
+                        
+                        <div class="table-responsive p-1">
+                            <div class="d-flex justify-content-end">
+                        
+                            <button class="btn btn-success shadow-none mb-2 rounded-1" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-user-plus"></i> Agregar usuario</button>
+                            </div>
+                            <table class="table table-hover" id="table-users">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Correo electrónico</th>
+                                        <th scope="col">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr role="button">
+                                        <td scope="row">1</td>
+                                        <td><img class="img-fluid rounded-circle" width="40" height="40" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg"> Eliam</td>
+                                        <td>eliam@correo.com</td>
+                                        <td>
+                                            <button class="btn btn-primary shadow-none rounded-1"><i class="fa fa-pencil"></i></button>
+                                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr role="button">
+                                        <td scope="row">2</td>
+                                        <td><img class="img-fluid rounded-circle" width="40" height="40" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg"> Elisa</td>
+                                        <td>elisa@correo.com</td>
+                                        <td>
+                                            <button class="btn btn-primary shadow-none rounded-1"><i class="fa fa-pencil"></i></button>
+                                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr role="button">
+                                        <td scope="row">3</td>
+                                        <td><img class="img-fluid rounded-circle" width="40" height="40" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg"> Eligio</td>
+                                        <td>eligio@correo.com</td>
+                                        <td>
+                                            <button class="btn btn-primary shadow-none rounded-1"><i class="fa fa-pencil"></i></button>
+                                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr role="button">
+                                        <td scope="row">4</td>
+                                        <td><img class="img-fluid rounded-circle" width="40" height="40" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg"> Eliot</td>
+                                        <td>eliot@correo.com</td>
+                                        <td>
+                                            <button class="btn btn-primary shadow-none rounded-1"><i class="fa fa-pencil"></i></button>
+                                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr role="button">
+                                        <td scope="row">5</td>
+                                        <td><img class="img-fluid rounded-circle" width="40" height="40" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg"> Elias</td>
+                                        <td>elias@correo.com</td>
+                                        <td>
+                                            <button class="btn btn-primary shadow-none rounded-1"><i class="fa fa-pencil"></i></button>
+                                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <!--navclass="navbar navbar-expand d-flex flex-column align-items-start">
         <a class="navbar-brand text-light mt-5">Hola</a>
@@ -34,7 +149,7 @@
             <li class="nav-item w-100 text-light">C</li>
         </ul>
     </nav-->
-
+<!--
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -200,7 +315,8 @@
             </table>
         </div>
     </div>
-
+-->
+<template>
     <!-- Footer -->
     <footer class="page-footer p-5">
         <!-- Container -->
@@ -270,7 +386,7 @@
             </div>
         </div>
     </footer>
-
+</template>
     <!-- jQuery 3.6.0 -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 

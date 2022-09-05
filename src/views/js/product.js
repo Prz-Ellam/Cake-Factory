@@ -38,22 +38,21 @@ $(document).ready(function() {
         }
     });
 
-    const stars = [$(".rating__star")];
+    $(".rating-star").click(function() {
 
-    $(".rating__star").click(function() {
+        const stars = $(this).parent().children();
     
         //let position = $(this).position();
-        let starIndex = parseInt($(this)[0].id);
+        let starIndex = parseInt($(this).attr('value'));
     
         for (let i = starIndex; i > 0; i--) {
-            stars[0][i - 1].className = "rating__star fas fa-star";
+            stars[i - 1].className = 'rating__star fas fa-star';
         }
         
         for (let i = starIndex; i < 6; i++) {
-            stars[0][i].className = "rating__star far fa-star";
+            stars[i].className = 'rating__star far fa-star';
         }
         
-    
     });
     
     

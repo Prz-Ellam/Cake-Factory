@@ -49,6 +49,7 @@ $application->view('/users', '/users.html');
 $application->view('/checkout', '/checkout.html');
 $application->view('/chat', '/chat.html');
 $application->view('/create-product', '/create-product.html');
+$application->view('/edit-product', '/product-edition.html');
 $application->view('/profile', '/user-profile.html');
 $application->view('/search', '/search.html');
 $application->view('/sales-report', '/sales-report.html');

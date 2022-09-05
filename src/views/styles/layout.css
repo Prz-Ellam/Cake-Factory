@@ -99,7 +99,7 @@ body {
 
 @media (max-width: 575px) {
     
-    #login-form, #sign-up-form, #search-container, #create-product-form {
+    #login-form, #sign-up-form, #search-container, #create-product-form, #msform {
         border-radius: 0 !important;
     }
     
