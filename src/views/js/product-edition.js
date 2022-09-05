@@ -6,4 +6,10 @@ $(document).ready(function() {
         filter: true
     });
 
+    $('#product-edition').submit(function(event) {
+
+        event.preventDefault();
+
+    });
+
 });

@@ -102,7 +102,7 @@
                     
                 <h1 class="h2 text-brown text-center mb-4">Resultados de la búsqueda</h2>
 
-                <ul class="nav nav-tabs mb-4">
+                <ul class="nav nav-tabs mb-4" id="main-tab">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Productos</a>
                     </li>
@@ -111,168 +111,176 @@
                     </li>
                 </ul>
                 
-                <div class="row d-flex justify-content-between">
-                    <div class="col-12 col-md-6">
-                        <div class="input-group mb-3">
-                            <select class="form-select shadow-none" name="categories" id="basic-addon1">
-                                <option value="1">Categorías</option>
-                            </select>
-                            <input type="text" class="form-control shadow-none" placeholder="Producto" aria-label="Username" aria-describedby="basic-addon1">
-                            <button class="btn btn-primary bg-orange shadow-none"><i class="fas fa-search text-white"></i></button>
+                <div id="products-section">
+                    <div class="row d-flex justify-content-between">
+                        <div class="col-12 col-md-6">
+                            <div class="input-group mb-3">
+                                <select class="form-select shadow-none" name="categories" id="basic-addon1">
+                                    <option value="1">Categorías</option>
+                                </select>
+                                <input type="text" class="form-control shadow-none" placeholder="Producto" aria-label="Username" aria-describedby="basic-addon1">
+                                <button class="btn btn-primary bg-orange shadow-none"><i class="fas fa-search text-white"></i></button>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <div class="input-group mb-3">
+                                <select class="form-select shadow-none">
+                                    <option>Filtros</option>
+                                    <option value="">Los más vendidos</option>
+                                    <option value="">Los menos vendidos</option>
+                                    <option value="">Precio: de más bajo a más alto</option>
+                                    <option value="">Precio: de más alto a más bajo</option>
+                                    <option value="">Los mejor calificados</option>
+                                    <option value="">Alfabeticamente de la A a la Z</option>
+                                    <option value="">Alfabeticamente de la Z a la A</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-2">
+                            <p class="text-start"><strong>16</strong> productos encontrados</p>
                         </div>
                     </div>
-                    <div class="col-12 col-md-3">
-                        <div class="input-group mb-3">
-                            <select class="form-select shadow-none">
-                                <option>Filtros</option>
-                                <option value="">Los más vendidos</option>
-                                <option value="">Los menos vendidos</option>
-                                <option value="">Precio: de más bajo a más alto</option>
-                                <option value="">Precio: de más alto a más bajo</option>
-                                <option value="">Los mejor calificados</option>
-                                <option value="">Alfabeticamente de la A a la Z</option>
-                                <option value="">Alfabeticamente de la Z a la A</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-12 mt-2">
-                        <p class="text-start"><strong>16</strong> productos encontrados</p>
-                    </div>
-                </div>
-
-                <div class="row">
-
-                    <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
-                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
-                        <h5 class="fw-bold mb-0">$299.00</h5>
-                        <p>Tentación de frutas</p>
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
-                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
-                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
-                        <h5 class="fw-bold mb-0">$299.00</h5>
-                        <p>Tentación de frutas</p>
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
-                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
-                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
-                        <h5 class="fw-bold mb-0">$299.00</h5>
-                        <p>Tentación de frutas</p>
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
-                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
-                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
-                        <h5 class="fw-bold mb-0">$299.00</h5>
-                        <p>Tentación de frutas</p>
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
-                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
-                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
-                        <h5 class="fw-bold mb-0">$299.00</h5>
-                        <p>Tentación de frutas</p>
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
-                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
-                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
-                        <h5 class="fw-bold mb-0">$299.00</h5>
-                        <p>Tentación de frutas</p>
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
-                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
-                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
-                        <h5 class="fw-bold mb-0">$299.00</h5>
-                        <p>Tentación de frutas</p>
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
-                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
-                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
-                        <h5 class="fw-bold mb-0">$299.00</h5>
-                        <p>Tentación de frutas</p>
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
-                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
-                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
-                        <h5 class="fw-bold mb-0">$299.00</h5>
-                        <p>Tentación de frutas</p>
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
-                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
-                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
-                        <h5 class="fw-bold mb-0">$299.00</h5>
-                        <p>Tentación de frutas</p>
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
-                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
-                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
-                        <h5 class="fw-bold mb-0">$299.00</h5>
-                        <p>Tentación de frutas</p>
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
-                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
-                        <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
-                        <h5 class="fw-bold mb-0">$299.00</h5>
-                        <p>Tentación de frutas</p>
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
-                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
-                        </div>
-                    </div>
-
-                </div>
                     
-                <nav aria-label="Page navigation example">
-                    <ul class="mt-4 pagination justify-content-center">
-                        <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">Anterior</a></li>
-                        <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">Siguiente</a></li>
-                    </ul>
-                </nav>
+                    <div class="row">
+                    
+                        <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <h5 class="fw-bold mb-0">$299.00</h5>
+                            <p>Tentación de frutas</p>
+                            <div class="d-flex justify-content-center">
+                                <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
+                                <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
+                            </div>
+                        </div>
+                    
+                        <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <h5 class="fw-bold mb-0">$299.00</h5>
+                            <p>Tentación de frutas</p>
+                            <div class="d-flex justify-content-center">
+                                <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
+                                <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
+                            </div>
+                        </div>
+                    
+                        <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <h5 class="fw-bold mb-0">$299.00</h5>
+                            <p>Tentación de frutas</p>
+                            <div class="d-flex justify-content-center">
+                                <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
+                                <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
+                            </div>
+                        </div>
+                    
+                        <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <h5 class="fw-bold mb-0">$299.00</h5>
+                            <p>Tentación de frutas</p>
+                            <div class="d-flex justify-content-center">
+                                <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
+                                <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
+                            </div>
+                        </div>
+                    
+                        <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <h5 class="fw-bold mb-0">$299.00</h5>
+                            <p>Tentación de frutas</p>
+                            <div class="d-flex justify-content-center">
+                                <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
+                                <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
+                            </div>
+                        </div>
+                    
+                        <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <h5 class="fw-bold mb-0">$299.00</h5>
+                            <p>Tentación de frutas</p>
+                            <div class="d-flex justify-content-center">
+                                <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
+                                <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
+                            </div>
+                        </div>
+                    
+                        <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <h5 class="fw-bold mb-0">$299.00</h5>
+                            <p>Tentación de frutas</p>
+                            <div class="d-flex justify-content-center">
+                                <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
+                                <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
+                            </div>
+                        </div>
+                    
+                        <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <h5 class="fw-bold mb-0">$299.00</h5>
+                            <p>Tentación de frutas</p>
+                            <div class="d-flex justify-content-center">
+                                <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
+                                <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
+                            </div>
+                        </div>
+                    
+                        <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <h5 class="fw-bold mb-0">$299.00</h5>
+                            <p>Tentación de frutas</p>
+                            <div class="d-flex justify-content-center">
+                                <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
+                                <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
+                            </div>
+                        </div>
+                    
+                        <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <h5 class="fw-bold mb-0">$299.00</h5>
+                            <p>Tentación de frutas</p>
+                            <div class="d-flex justify-content-center">
+                                <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
+                                <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
+                            </div>
+                        </div>
+                    
+                        <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <h5 class="fw-bold mb-0">$299.00</h5>
+                            <p>Tentación de frutas</p>
+                            <div class="d-flex justify-content-center">
+                                <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
+                                <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
+                            </div>
+                        </div>
+                    
+                        <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
+                            <a href="/product"><img src="assets/img/E001S011649.jpg" class="img-fluid p-3"></a>
+                            <h5 class="fw-bold mb-0">$299.00</h5>
+                            <p>Tentación de frutas</p>
+                            <div class="d-flex justify-content-center">
+                                <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
+                                <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
+                            </div>
+                        </div>
+                    
+                    </div>
+                        
+                    <nav aria-label="Page navigation example">
+                        <ul class="mt-4 pagination justify-content-center">
+                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">Anterior</a></li>
+                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">Siguiente</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="d-none" id="users-section">
+                    <h1>Usuarios</h1>
+                </div>
+
+
             </div>
         </div>
     </section>

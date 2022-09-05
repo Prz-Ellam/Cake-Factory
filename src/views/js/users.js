@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     $('#table-users').DataTable({
         "language": {
-            "lengthMenu": "Mostrar _MENU_ registros por página",
+            "lengthMenu": "Mostrar _MENU_ registros",
             "zeroRecords": "No se encontró información",
             "info": "Mostrando página _PAGE_ de _PAGES_",
             "infoEmpty": "No hay registros disponibles",
