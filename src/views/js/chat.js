@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $('#basic-addon2').click(function() {
+    $('#send-message').click(function() {
 
         let message = $('#message').val();
         
@@ -41,7 +41,7 @@ $(document).ready(function() {
     {
         $('#comment-box').append(`
             <div class="d-flex justify-content-end my-3">
-                <small class="bg-primary bg-orange text-light p-2 rounded-2 overflow-auto">${message}</small>
+                <small class="bg-orange text-light p-2 rounded-2 overflow-auto">${message}</small>
             </div>
         `);
         $('#message').val('');

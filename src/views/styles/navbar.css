@@ -19,6 +19,10 @@ body {
     height: 38px;
 }
 
+#brand-logo-auth {
+    height: 48px;
+}
+
 .search {
     border-top-right-radius: 0em;
     border-bottom-right-radius: 0em;

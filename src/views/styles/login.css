@@ -1,15 +1,15 @@
-body {
-    background-color: #F0D5CC;
-    font-family: 'Montserrat', sans-serif;
-}
-
 .navbar {
+    background-color: #FF5E1F;
     position: absolute;
     display: inline-block;
     width: 100%;
     height: 30%;
     z-index: -10;
 }
+
+
+
+
 
 .success-icon {
     color:#79b18f;
@@ -31,40 +31,8 @@ body {
     z-index: 200;
 }
 
-#show-password, #show-confirmpassword {
-    cursor: pointer;
-    position: absolute;
-    visibility: visible;
-    font-size: 18px;
-    z-index: 200;
-    top: 10px;
-    right: 30px;
-}
 
-#hide-password, #hide-confirmpassword {
-    cursor: pointer;
-    position: absolute;
-    visibility: hidden;
-    font-size: 18px;
-    z-index: 200;
-    top: 10px;
-    right: 29px;
-}
 
-#btn-login {
-    background-color: #FF5E1F;
-    border-color: #FF5E1F;
-}
-
-#btn-login:hover {
-    background-color: #CA4C1B;
-    border-color: #CA4C1B;
-}
-
-#btn-login:active {
-    background-color: #bd491b;
-    border-color: #bd491b;
-}
 
 #remember {
     border: 1px solid #BBBBBB;
@@ -97,6 +65,9 @@ body {
 .btn-password {
     width: 48px !important;
 }
+
+
+
 
 .text-orange {
     color: #FF5E1F;
