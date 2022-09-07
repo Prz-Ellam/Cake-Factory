@@ -40,6 +40,33 @@ const carouselCard3 = /*html*/`
 </div>
 `;
 
+const carouselCategoryCard = /*html*/`
+<div class="item">
+    <div class="text-center car-prueba p-4 m-4 rounded">
+        <a href="/search"><img src="assets/img/IMG001.jpg" class="p-3"></a>
+        <p class="h4 brown">Categoría</p>
+    </div>
+</div>
+`;
+
+const carouselCategoryCard2 = /*html*/`
+<div class="item">
+    <div class="text-center car-prueba p-4 m-4 rounded">
+        <a href="/search"><img src="assets/img/E001S000032.jpg" class="p-3"></a>
+        <p class="h4 brown">Categoría</p>
+    </div>
+</div>
+`;
+
+const carouselCategoryCard3 = /*html*/`
+<div class="item">
+    <div class="text-center car-prueba p-4 m-4 rounded">
+        <a href="/search"><img src="assets/img/E001S007866.jpg" class="p-3"></a>
+        <p class="h4 brown">Categoría</p>
+    </div>
+</div>
+`;
+
 
 $('#recomendations').append(carouselCard);
 $('#sellers').append(carouselCard);
@@ -56,6 +83,9 @@ $('#sellers').append(carouselCard3);
 $('#stars').append(carouselCard3);
 $('#recents').append(carouselCard3);
 
+$('#categories-carousel').append(carouselCategoryCard);
+$('#categories-carousel').append(carouselCategoryCard2);
+$('#categories-carousel').append(carouselCategoryCard3);
 
 $(document).ready(function()
 {

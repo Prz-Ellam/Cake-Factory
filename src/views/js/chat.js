@@ -1,3 +1,19 @@
+const chatComponent = /*html*/`
+<div class="d-flex chat rounded-1 p-1" role="button">
+    <img style="width: 64px; height: 64px" class="img-fluid rounded-circle" src="https://yt3.ggpht.com/VCCyXIL2AVUnugdnXvydgvHViMLNEZOA2HftUTWEn2QZd-ra7pbseNoXKY1trViLg9hKNlJjC2Y=s900-c-k-c0x00ffffff-no-rj">
+    <div class="row ms-2 align-self-center" style="white-space: nowrap; width: 75%; text-overflow: ellipsis; overflow: hidden;">
+        <span class="fw-bold">Bryan Duarte</span>
+        <small>Hola</small>
+    </div>
+</div>
+<hr>
+`;
+
+for (let i = 0; i < 8; i++)
+{
+    $('#chats-container').append(chatComponent);
+}
+
 $(document).ready(function() {
 
     $('#send-message').click(function() {
