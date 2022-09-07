@@ -9,6 +9,27 @@ $(document).ready(function() {
         
     });
 
+    var element;
+
+    $('#btn-delete-wishlist').click(function() {
+
+        element.parent().parent().parent().parent().remove();
+
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: '¡El producto ha sido eliminado!',
+            showConfirmButton: false,
+            showCloseButton: true,
+            timer: 1500
+        });
+
+    });
+
+    $('.btn-danger').click(function() {
+        element = $(this);
+    })
+
     // Data size (no puede pesar mas de 8MB)
     $.validator.addMethod('filesize', function(value, element, parameter) {
 

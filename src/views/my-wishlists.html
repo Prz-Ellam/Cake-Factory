@@ -37,7 +37,7 @@
             <div class="collapse navbar-collapse me-auto" id="navbar-collapse">
                 <form class="form-inline ms-xl-5 me-lg-auto w-50" id="search-box" action="/search">
                     <div class="input-group w-100">
-                        <input type="search" class="form-control search shadow-none" name="search" id="search" placeholder="Buscar productos">
+                        <input type="search" class="form-control search shadow-none" name="search" id="search" placeholder="Buscar en Cake Factory">
                         <div class="input-group-append">
                             <button class="btn bg-white search-btn shadow-none" type="submit" id="search-btn"><i class="fas fa-search text-secondary"></i></button>
                         </div>
@@ -122,7 +122,7 @@
                                 <p class="card-text">Descripción de la lista</p>
                                 <div class="d-flex justify-content-start">
                                     <a href="/edit-product" class="btn btn-primary shadow-none rounded-1 me-1">Editar</a>
-                                    <a href="#" class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-product">Eliminar</a>
+                                    <a href="#" class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-wishlist">Eliminar</a>
                                 </div>
                             </div>
                         </div>
@@ -138,7 +138,7 @@
                                 <p class="card-text">Descripción de la lista</p>
                                 <div class="d-flex justify-content-start">
                                     <a href="/edit-product" class="btn btn-primary shadow-none rounded-1 me-1">Editar</a>
-                                    <a href="#" class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-product">Eliminar</a>
+                                    <a href="#" class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-wishlist">Eliminar</a>
                                 </div>
                             </div>
                         </div>
@@ -154,7 +154,7 @@
                                 <p class="card-text">Descripción de la lista</p>
                                 <div class="d-flex justify-content-start">
                                     <a href="/edit-product" class="btn btn-primary shadow-none rounded-1 me-1">Editar</a>
-                                    <a href="#" class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-product">Eliminar</a>
+                                    <a href="#" class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-wishlist">Eliminar</a>
                                 </div>
                             </div>
                         </div>
@@ -170,7 +170,7 @@
                                 <p class="card-text">Descripción de la lista</p>
                                 <div class="d-flex justify-content-start">
                                     <a href="/edit-product" class="btn btn-primary shadow-none rounded-1 me-1">Editar</a>
-                                    <a href="#" class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-product">Eliminar</a>
+                                    <a href="#" class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-wishlist">Eliminar</a>
                                 </div>
                             </div>
                         </div>
@@ -186,7 +186,7 @@
                                 <p class="card-text">Descripción de la lista</p>
                                 <div class="d-flex justify-content-start">
                                     <a href="/edit-product" class="btn btn-primary shadow-none rounded-1 me-1">Editar</a>
-                                    <a href="#" class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-product">Eliminar</a>
+                                    <a href="#" class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-wishlist">Eliminar</a>
                                 </div>
                             </div>
                         </div>
@@ -202,7 +202,7 @@
                                 <p class="card-text">Descripción de la lista</p>
                                 <div class="d-flex justify-content-start">
                                     <a href="/edit-product" class="btn btn-primary shadow-none rounded-1 me-1">Editar</a>
-                                    <a href="#" class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-product">Eliminar</a>
+                                    <a href="#" class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-wishlist">Eliminar</a>
                                 </div>
                             </div>
                         </div>
@@ -218,56 +218,24 @@
                         </ul>
                     </nav>
                 </div>
+            </div>
+        </div>
+    </div>
 
-                <!--
-                <div class="table-responsive bg-white p-1">
-                    <div class="d-flex justify-content-end">
-                        <button type="button" class="btn btn-success shadow-none mb-2 rounded-1" data-bs-toggle="modal" data-bs-target="#create-wishlist"><i class="fa fa-heart"></i> Agregar lista</button>
-                    </div>
-                    <table class="table table-hover nowrap" width="100%" id="wishlist-table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Descripción</th>
-                                <th scope="col">Visibilidad</th>
-                                <th scope="col">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody id="wishlist-table-body">
-                            <tr role="button">
-                                <td scope="row">1</td>
-                                <td>
-                                    <img class="img-fluid rounded-circle" width="64" height="64" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg">
-                                    <p>Navideñaaa</p>
-                                </td>
-                                <td class="overflow-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis molestiae voluptatum ratione cumque quod veniam doloribus voluptatem, unde dignissimos et suscipit tempora ea reiciendis enim exercitationem veritatis cupiditate iure nulla? Esta lista contiene muchas cosas</td>
-                                <td>Publica</td>
-                                <td>
-                                    <button class="btn btn-success shadow-none rounded-1 btn-search"><i class="fa fa-search"></i></button>
-                                    <button class="btn btn-primary shadow-none rounded-1"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr role="button">
-                                <td scope="row">2</td>
-                                <td>
-                                    <img class="img-fluid rounded-circle" width="64" height="64" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg">
-                                    <p>Navideña</p>
-                                </td>
-                                <td>Esta lista contiene muchas cosas</td>
-                                <td>Publica</td>
-                                <td>
-                                    <button class="btn btn-success shadow-none rounded-1 btn-search"><i class="fa fa-search"></i></button>
-                                    <button class="btn btn-primary shadow-none rounded-1"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-trash"></i></button>
-                                </td>
-                            </tr>
-        
-                        </tbody>
-                    </table>
+    <div class="modal fade" id="delete-wishlist" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content border-0 shadow-sm">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title">Eliminar lista de deseo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                -->
+                <div class="modal-body">
+                    <p>¿Estás seguro que deseas eliminar esta lista de deseos?</p>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="btn-delete-wishlist" data-bs-dismiss="modal">Aceptar</button>
+                </div>
             </div>
         </div>
     </div>
@@ -332,28 +300,29 @@
             <!-- Grid Row -->
             <div class="row text-md-start text-center">
                 <!-- Grid Column -->
-                <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
+                <div class="col-md-3 mx-auto mb-3">
                     <ul class="list-unstyled">
-                        <li class="my-2"><img src="assets/img/Footer-Logo.svg" class="img-fluid" id="logo-banner"></li>
+                        <li class="my-2">
+                            <a href="/home"><img src="assets/img/logo.svg" class="img-fluid" id="logo-banner" alt="Logo Banner"></a>
+                        </li>
                     </ul>
                 </div>
-                <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
+                <div class="col-md-3 mx-auto mb-3">
                     <h5 class="text-uppercase mb-4 text-cream fw-bold">Recursos</h5>
                     <ul class="list-unstyled">
-                        <li class="my-2"><a href="AboutUs.html" class="text-cream text-decoration-none">Acerca de nosotros</a><br></li>
-                        <li class="my-2"><a href="Contact.html" class="text-cream text-decoration-none">Contáctanos</a><br></li>
-                        <li class="my-2"><a href="FAQ.html" class="text-cream text-decoration-none">Preguntas frecuentes</a><br></li>
-                        <li class="my-2"><a href="BranchOffices.html" class="text-cream text-decoration-none">Sucursales</a><br></li>
+                        <li class="my-2"><a href="#" class="text-cream text-decoration-none">Acerca de nosotros</a><br></li>
+                        <li class="my-2"><a href="#" class="text-cream text-decoration-none">Contáctanos</a><br></li>
+                        <li class="my-2"><a href="#" class="text-cream text-decoration-none">Preguntas frecuentes</a><br></li>
                     </ul>
                 </div>
-                <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
+                <div class="col-md-3 mx-auto mb-3">
                     <h5 class="text-uppercase mb-4 text-cream fw-bold">Políticas</h5>
                     <ul class="list-unstyled">
-                        <li class="my-2"><a href="RefundPolicy.html" class="text-cream text-decoration-none">Política de reembolsos</a><br></li>
-                        <li class="my-2"><a href="PrivacyPolicy.html" class="text-cream text-decoration-none">Política de privacidad</a><br></li>
+                        <li class="my-2"><a href="#" class="text-cream text-decoration-none">Política de reembolsos</a><br></li>
+                        <li class="my-2"><a href="#" class="text-cream text-decoration-none">Política de privacidad</a><br></li>
                     </ul>
                 </div>
-                <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
+                <div class="col-md-3 mx-auto mb-3">
                     <h5 class="text-uppercase mb-4 text-cream fw-bold">Contacto</h5>
                     <ul class="list-unstyled">
                         <li class="my-2">

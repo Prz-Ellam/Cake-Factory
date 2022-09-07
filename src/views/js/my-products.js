@@ -1,6 +1,20 @@
 $(document).ready(function() {
 
+    const productCard = /*html*/`
+        <div class="bg-white col-lg-4 col-md-6 col-sm-12 text-center p-5">
+            <a href="/product"><img src="assets/img/E001S000032.jpg" class="img-fluid p-3"></a>
+            <h5 class="fw-bold mb-0">$298.00</h5>
+            <p>Tentación de frutas</p>
+            <div class="d-flex justify-content-center">
+                <a href="/edit-product" class="btn btn-primary shadow-none rounded-1 me-1">Editar</a>
+                <a href="#" class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-product">Eliminar</a>
+            </div>
+        </div>
+    `;
+
     var element;
+
+    $('#products-container').append(productCard);
 
     $('#btn-delete-product').click(function(e) {
 

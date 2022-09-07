@@ -19,7 +19,15 @@ $(document).ready(function()
         }
     });
 
+    $('.btn-danger').click(function() {
+        $(this).parent().parent().remove();
+    });
+
     $('#finish-order').click(function() {
         window.location.href = '/checkout';
+    });
+
+    $('#back').click(function() {
+        window.location.href = '/home';
     });
 });

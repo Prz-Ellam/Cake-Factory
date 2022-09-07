@@ -32,7 +32,7 @@
             <div class="collapse navbar-collapse me-auto" id="navbar-collapse">
                 <form class="form-inline ms-xl-5 me-lg-auto w-50" id="search-box" action="/search">
                     <div class="input-group w-100">
-                        <input type="search" class="form-control search shadow-none" name="search" id="search" placeholder="Buscar productos">
+                        <input type="search" class="form-control search shadow-none" name="search" id="search" placeholder="Buscar en Cake Factory">
                         <div class="input-group-append">
                             <button class="btn bg-white search-btn shadow-none" type="submit" id="search-btn"><i class="fas fa-search text-secondary"></i></button>
                         </div>
@@ -102,7 +102,7 @@
                 <h1 class="h2 text-center mb-4">Mis productos</h1>
                 <hr class="mb-4">
 
-                <div class="row">
+                <div class="row" id="products-container">
                     
                     <div class="bg-white col-lg-4 col-md-6 col-sm-12  text-center p-5">
                         <a href="/product"><img src="assets/img/E001S000032.jpg" class="img-fluid p-3"></a>
@@ -223,32 +223,33 @@
                             <a href="#" class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-product">Eliminar</a>
                         </div>
                     </div>
-
-                    <nav aria-label="Page navigation example">
-                        <ul class="mt-4 pagination justify-content-center">
-                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">Anterior</a></li>
-                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">Siguiente</a></li>
-                        </ul>
-                    </nav>
                 </div>
+
+                <nav aria-label="Page navigation example">
+                    <ul class="mt-4 pagination justify-content-center">
+                        <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">Anterior</a></li>
+                        <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">Siguiente</a></li>
+                    </ul>
+                </nav>
+
             </div>
         </div>
     </div>
 
-    <div class="modal" id="delete-product" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="delete-product" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
+            <div class="modal-content border-0 shadow-sm">
+                <div class="modal-header border-0">
                     <h5 class="modal-title">Eliminar producto</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <p>¿Estás seguro que deseas eliminar este producto?</p>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer border-0">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="button" class="btn btn-danger" id="btn-delete-product" data-bs-dismiss="modal">Aceptar</button>
                 </div>
@@ -263,28 +264,29 @@
             <!-- Grid Row -->
             <div class="row text-md-start text-center">
                 <!-- Grid Column -->
-                <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
+                <div class="col-md-3 mx-auto mb-3">
                     <ul class="list-unstyled">
-                        <li class="my-2"><img src="assets/img/Footer-Logo.svg" class="img-fluid" id="logo-banner"></li>
+                        <li class="my-2">
+                            <a href="/home"><img src="assets/img/logo.svg" class="img-fluid" id="logo-banner" alt="Logo Banner"></a>
+                        </li>
                     </ul>
                 </div>
-                <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
+                <div class="col-md-3 mx-auto mb-3">
                     <h5 class="text-uppercase mb-4 text-cream fw-bold">Recursos</h5>
                     <ul class="list-unstyled">
-                        <li class="my-2"><a href="AboutUs.html" class="text-cream text-decoration-none">Acerca de nosotros</a><br></li>
-                        <li class="my-2"><a href="Contact.html" class="text-cream text-decoration-none">Contáctanos</a><br></li>
-                        <li class="my-2"><a href="FAQ.html" class="text-cream text-decoration-none">Preguntas frecuentes</a><br></li>
-                        <li class="my-2"><a href="BranchOffices.html" class="text-cream text-decoration-none">Sucursales</a><br></li>
+                        <li class="my-2"><a href="#" class="text-cream text-decoration-none">Acerca de nosotros</a><br></li>
+                        <li class="my-2"><a href="#" class="text-cream text-decoration-none">Contáctanos</a><br></li>
+                        <li class="my-2"><a href="#" class="text-cream text-decoration-none">Preguntas frecuentes</a><br></li>
                     </ul>
                 </div>
-                <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
+                <div class="col-md-3 mx-auto mb-3">
                     <h5 class="text-uppercase mb-4 text-cream fw-bold">Políticas</h5>
                     <ul class="list-unstyled">
-                        <li class="my-2"><a href="RefundPolicy.html" class="text-cream text-decoration-none">Política de reembolsos</a><br></li>
-                        <li class="my-2"><a href="PrivacyPolicy.html" class="text-cream text-decoration-none">Política de privacidad</a><br></li>
+                        <li class="my-2"><a href="#" class="text-cream text-decoration-none">Política de reembolsos</a><br></li>
+                        <li class="my-2"><a href="#" class="text-cream text-decoration-none">Política de privacidad</a><br></li>
                     </ul>
                 </div>
-                <div class="col-md-3 col-xl-3 col-lg-3 mx-auto mb-3">
+                <div class="col-md-3 mx-auto mb-3">
                     <h5 class="text-uppercase mb-4 text-cream fw-bold">Contacto</h5>
                     <ul class="list-unstyled">
                         <li class="my-2">
