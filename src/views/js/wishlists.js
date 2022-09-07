@@ -1,3 +1,26 @@
+const wishlistCard = /*html*/`
+<div class="col-12 col-md-6 col-lg-4 mb-5 d-flex align-items-stretch">
+    <div class="card mx-auto" style="width: 18rem;">
+        <div class="ratio ratio-4x3">
+            <img src="https://images.hola.com/imagenes/cocina/recetas/20191017151958/ramen-pollo-huevo-cebollino-soja/0-734-730/ramen-adobe-m.jpg" class="card-img-top w-100 h-100">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Nombre de la lista</h5>
+            <p class="card-text">Descripción de la lista</p>
+            <div class="d-flex justify-content-start">
+                <a href="/edit-product" class="btn btn-primary shadow-none rounded-1 me-1">Editar</a>
+                <a href="#" class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-wishlist">Eliminar</a>
+            </div>
+        </div>
+    </div>
+</div>
+`;
+
+for (let i = 0; i < 12; i++)
+{
+    $('#wishlist-container').append(wishlistCard);
+}
+
 $(document).ready(function() {
 
     $('.btn-search').on('click', function () {
