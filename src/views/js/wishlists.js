@@ -34,24 +34,33 @@ $(document).ready(function() {
 
     var element;
 
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        showCloseButton: true,
+        timer: 1500,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    });
+
     $('#btn-delete-wishlist').click(function() {
 
         element.parent().parent().parent().parent().remove();
 
-        Swal.fire({
-            position: 'top-end',
+        Toast.fire({
             icon: 'success',
-            title: '¡El producto ha sido eliminado!',
-            showConfirmButton: false,
-            showCloseButton: true,
-            timer: 1500
+            title: 'Tu lista de deseos ha sido eliminada'
         });
 
     });
 
-    $('.btn-danger').click(function() {
+    $('.btn-red').click(function() {
         element = $(this);
     })
+    
 
     // Data size (no puede pesar mas de 8MB)
     $.validator.addMethod('filesize', function(value, element, parameter) {
@@ -124,6 +133,27 @@ $(document).ready(function() {
             infoFiltered: "(Filtrados _MAX_ registros en total)"
         }
     });
+
+    $('#images').on('change', function(e) {
+
+        const fileList = $(this)[0].files;
+        $.each(fileList, function(i, element) {
+
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                $('#image-list').append(`
+                    <span class="position-relative">
+                        <button type="button" class="btn btn-outline-info bg-dark close border-0 rounded-0 shadow-sm text-light position-absolute" onclick="$(this).parent().remove()">&times;</button>
+                        <img class="product-mul" src="${e.target.result}">
+                    </span>
+                `);
+            };
+            reader.readAsDataURL(element);
+
+        });
+
+    });
+
 
     $('#wishlist-image').on('change', function(e) {
             

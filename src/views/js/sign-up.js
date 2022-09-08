@@ -326,9 +326,9 @@ $(document).ready(function() {
 
     $('#password').password();
 
-    $('#sign-up-form').submit(function(e) {
+    $('#sign-up-form').submit(function(event) {
 
-        e.preventDefault();
+        event.preventDefault();
 
         if($(this).valid() === false) {
             return;
@@ -348,10 +348,13 @@ $(document).ready(function() {
             success: function(response) {
                 // Debe devolver un token con el inicio de sesion
                 console.log(response);
-                //window.location.href = "http://localhost:8080/Cake-Factory/home";
+                //window.location.href = "/home";
             },
             error: function(response, status, error) {
                 console.log(status);
+            },
+            complete: function() {
+
             }
         });
 

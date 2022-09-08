@@ -5,8 +5,8 @@ const carouselCard = /*html*/`
         <h5 class="fw-bold mb-0">$297.00</h5>
         <p>Fresas con crema</p>
         <div class="d-flex justify-content-center">
-            <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
-            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
+            <button class="btn btn-orange shadow-none rounded-1 me-1 add-cart">Agregar al carrito</button>
+            <button class="btn btn-danger shadow-none rounded-1 add-wishlist" data-bs-toggle="modal" data-bs-target="#select-wishlist"><i class="fa fa-heart"></i></button>
         </div>
     </div>
 </div>
@@ -19,8 +19,8 @@ const carouselCard2 = /*html*/`
         <h5 class="fw-bold price mb-0">$297.00</h5>
         <p>Tres leches combinado</p>
         <div class="d-flex justify-content-center">
-            <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
-            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
+            <button class="btn btn-orange shadow-none rounded-1 me-1 add-cart">Agregar al carrito</button>
+            <button class="btn btn-danger shadow-none rounded-1 add-wishlist" data-bs-toggle="modal" data-bs-target="#select-wishlist"><i class="fa fa-heart"></i></button>
         </div>
     </div>
 </div>
@@ -33,8 +33,8 @@ const carouselCard3 = /*html*/`
         <h5 class="fw-bold price h6 mb-0">$297.00</h5>
         <p>Bambino tentación de fresa</p>
         <div class="d-flex justify-content-center">
-            <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
-            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
+            <button class="btn btn-orange shadow-none rounded-1 me-1 add-cart">Agregar al carrito</button>
+            <button class="btn btn-danger shadow-none rounded-1 add-wishlist" data-bs-toggle="modal" data-bs-target="#select-wishlist"><i class="fa fa-heart"></i></button>
         </div>
     </div>
 </div>
@@ -89,21 +89,37 @@ $('#categories-carousel').append(carouselCategoryCard3);
 
 $(document).ready(function()
 {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        showCloseButton: true,
+        timer: 1500,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    });
 
-    $('.btn-shopping-cart').click(function() {
-        Swal.fire({
-            position: 'top-end',
+    $('.add-cart').click(function() {
+        Toast.fire({
             icon: 'success',
-            title: 'Tu producto ha sido añadido al carrito',
-            showConfirmButton: false,
-            timer: 1500
-          });
-    })
+            title: 'Tu producto ha sido añadido al carrito'
+        });
+    });
 
     $('#start-shop').click(function() {
 
         window.location.href = '/search';
 
+    });
+
+    $('#add-wishlists').submit(function(event) {
+        event.preventDefault();
+        Toast.fire({
+            icon: 'success',
+            title: 'Tu producto ha sido añadido a las listas de deseos'
+        })
     });
     
     $('.sellers').owlCarousel({

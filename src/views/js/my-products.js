@@ -16,22 +16,30 @@ $(document).ready(function() {
 
     var element;
 
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        showCloseButton: true,
+        timer: 1500,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    });
+
     $('#btn-delete-product').click(function(e) {
 
         element.parent().parent().remove();
 
-        Swal.fire({
-            position: 'top-end',
+        Toast.fire({
             icon: 'success',
-            title: '¡El producto ha sido eliminado!',
-            showConfirmButton: false,
-            showCloseButton: true,
-            timer: 1500
+            title: 'Tu producto ha sido eliminado'
         });
 
     });
 
-    $('.btn-danger').click(function() {
+    $('.btn-red').click(function() {
         element = $(this);
     })
 

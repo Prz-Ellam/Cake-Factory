@@ -25,6 +25,7 @@
     <link href="./styles/layout.css" rel="stylesheet">
     <link type="text/css" href="./styles/profile-picture.css" rel="stylesheet">
     <link href="./styles/footer.css" rel="stylesheet">
+    <link type="text/css" href="./styles/create-product.css" rel="stylesheet">
 </head>
 <body>
     <header class="fixed-top sticky-top">
@@ -155,12 +156,12 @@
                     </div>
                     <div class="modal-body">
                         <!-- TODO: Table overflow in columns -->
-                        <div class="form-group text-center mb-4">
-                            <div class="position-relative">
-                                <label for="wishlist-image" role="button" class="profile-picture-label text-white position-absolute rounded-1"></label>
-                                <img style="width: 156px; height: 156px; object-fit:cover;" class="img-fluid rounded-1" id="picture-box" src="assets/img/default.jpg">
-                            </div>
-                            <input type="file" class="form-control shadow-none rounded-1 d-none" name="image" id="wishlist-image">
+                        <div class="mb-4">
+                            <label label="form-label" for="images">Imágenes</label>
+                            <input type="file" class="form-control shadow-none" name="images" id="images" multiple accept="image/*">
+                        </div>
+        
+                        <div class="mb-4" style="overflow-x: scroll; width: 100%; white-space: nowrap;" id="image-list">
                         </div>
                          
                         <div class="mb-3">

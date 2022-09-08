@@ -7,8 +7,6 @@
     <title>Cake Factory</title>
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
 
     <!-- Bootstrap 5.0.0 -->
@@ -142,9 +140,9 @@
                                 </div>
                                 <div class="col-lg-4 mb-4">
                                     <label class="form-label">Estado</label>
-                                    <select class="form-select shadow-none rounded-1" name="state">
-                                        <option>Seleccionar</option>
-                                    </select>
+                                    <div class="input-group">
+                                        <input class="form-control shadow-none rounded-1" type="text" name="state">
+                                    </div>
                                 </div>
                                 <div class="col-lg-4 mb-4">
                                     <label class="form-label">Código postal</label>
@@ -211,6 +209,10 @@
                                     <label>Código de seguridad</label>
                                     <input class="form-control shadow-none" type="text">
                                 </div>
+
+
+                                <button class="btn btn-warning w-100 rounded-1 shadow-none">Paypal</button>
+
                             </div> 
                             <input type="button" name="previous" class="previous btn btn-primary bg-orange rounded-1" value="Regresar">
                             <input type="submit" id="finish" name="next" class="next btn btn-primary bg-orange rounded-1" value="Finalizar">

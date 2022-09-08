@@ -19,4 +19,10 @@ $(document).ready(function() {
         }
     });
 
+    $('.btn-danger').click(function() {
+
+        $(this).parent().parent().remove();
+
+    });
+
 });

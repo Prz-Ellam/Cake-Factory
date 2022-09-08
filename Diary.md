@@ -26,3 +26,6 @@ https://www.php-fig.org/bylaws/psr-naming-conventions/
 Cross Site Scripting
 Trim
 Mayus y minus en contraseña
+
+
+Buscar la forma de que las img con texto se vea bonito
