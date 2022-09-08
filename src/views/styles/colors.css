@@ -11,7 +11,7 @@
 }
 
 .bg-orange {
-    background-color: #FF5E1F;
+    background-color: #ff5e1f;
 }
 
 .btn-orange {
@@ -30,6 +30,60 @@
     color: #fff;
     background-color: #bd491b;
     border-color: #bd491b;
+}
+
+.btn-red {
+    color: #FFFFFF;
+    background-color: #dd3333;
+    border-color: #dd3333;
+}
+
+.btn-red:hover {
+    color: #FFFFFF;
+    background-color: #c72e2e;
+    border-color: #c72e2e;
+}
+
+.btn-red:active {
+    color: #FFFFFF;
+    background-color: #b12929;
+    border-color: #b12929;
+}
+
+.btn-blue {
+    color: #FFFFFF;
+    background-color: #3085d6;
+    border-color: #3085d6;
+}
+
+.btn-blue:hover {
+    color: #FFFFFF;
+    background-color: #2b77c0;
+    border-color: #2b77c0;
+}
+
+.btn-blue:active {
+    color: #FFFFFF;
+    background-color: #266aab;
+    border-color: #266aab;
+}
+
+.btn-grey {
+    color: #FFFFFF;
+    background-color: #6e7881;
+    border-color: #6e7881;
+}
+
+.btn-grey:hover {
+    color: #FFFFFF;
+    background-color: #636c74;
+    border-color: #636c74;
+}
+
+.btn-grey:active {
+    color: #FFFFFF;
+    background-color: #586067;
+    border-color: #586067;
 }
 
 

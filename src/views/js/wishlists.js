@@ -5,11 +5,11 @@ const wishlistCard = /*html*/`
             <img src="https://images.hola.com/imagenes/cocina/recetas/20191017151958/ramen-pollo-huevo-cebollino-soja/0-734-730/ramen-adobe-m.jpg" class="card-img-top w-100 h-100">
         </div>
         <div class="card-body">
-            <h5 class="card-title">Nombre de la lista</h5>
-            <p class="card-text">Descripción de la lista</p>
+            <h5 class="card-title text-brown">Nombre de la lista</h5>
+            <p class="card-text text-brown">Descripción de la lista</p>
             <div class="d-flex justify-content-start">
-                <a href="/edit-product" class="btn btn-primary shadow-none rounded-1 me-1">Editar</a>
-                <a href="#" class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-wishlist">Eliminar</a>
+                <a href="/edit-product" class="btn btn-blue shadow-none rounded-1 me-1">Editar</a>
+                <a href="#" class="btn btn-red shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-wishlist">Eliminar</a>
             </div>
         </div>
     </div>

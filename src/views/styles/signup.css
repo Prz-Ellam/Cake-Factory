@@ -10,16 +10,6 @@
     width: 48px !important;
 }
 
-.img {
-    width: 156px;
-    height: 156px;
-    object-fit: cover;
-}
-
-#profile-picture {
-    scale: 0.01;
-}
-
 /* Estos son los botones naranjas */
 
 /*

@@ -10,7 +10,7 @@
 }
 
 .list-item:hover {
-    background-color: black;
+    background-color: rgba(0,0,0,0.75);
 }
 
 @media (max-width: 767px) {

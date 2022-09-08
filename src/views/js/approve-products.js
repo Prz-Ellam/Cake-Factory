@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
-    $('#categories').DataTable({
+    $('#table-products').DataTable({
         responsive: true,
         bAutoWidth: false,
-        language: {
+        "language": {
             "lengthMenu": "Mostrar _MENU_ registros",
             "zeroRecords": "No se encontró información",
             "info": "Mostrando página _PAGE_ de _PAGES_",

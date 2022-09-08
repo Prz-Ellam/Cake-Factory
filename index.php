@@ -59,6 +59,7 @@ $application->view('/pending-products', '/approve-products.html');
 $application->view('/categories', '/categories.html');
 
 $application->view('/sandbox', '/user-profile-2.html');
+$application->view('/admin', '/admin-dashboard.html');
 
 $application->run();
 

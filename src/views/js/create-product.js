@@ -23,7 +23,7 @@ $(document).ready(function() {
             reader.onload = function(e) {
                 $('#image-list').append(`
                     <span class="position-relative">
-                        <button type="button" class="btn btn-outline-info close border-0 rounded-0 shadow-sm text-light position-absolute">&times;</button>
+                        <button type="button" class="btn btn-outline-info bg-dark close border-0 rounded-0 shadow-sm text-light position-absolute" onclick="$(this).parent().remove()">&times;</button>
                         <img class="product-mul" src="${e.target.result}">
                     </span>
                 `);
@@ -43,11 +43,11 @@ $(document).ready(function() {
             reader.onload = function(e) {
                 $('#video-list').append(`
                 <span class="position-relative">
-                    <button type="button" class="btn btn-outline-info close border-0 rounded-0 shadow-sm text-light position-absolute">&times;</button>
                     <video class="product-mul" controls>
                         <source src="${e.target.result}">
                     </video>
                 </span>
+                <button type="button" class="btn bg-dark btn-outline-info close border-0 rounded-0 shadow-sm text-light" onclick="$(this).prev().remove(); $(this).remove()">&times;</button>
                 `);
             };
             reader.readAsDataURL(element);
