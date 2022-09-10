@@ -14,6 +14,11 @@ for (let i = 0; i < 12; i++) $('#products-container').append(productCard);
 
 $(document).ready(function() {
 
+    $("#main-tab li a").click(function(e) {
+        e.preventDefault();
+        $(this).tab("show");
+    });
+
     var element;
 
     const Toast = Swal.mixin({

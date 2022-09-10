@@ -7,7 +7,7 @@ const wishlistCard = /*html*/`
         <div class="card-body">
             <h5 class="card-title">Nombre de la lista</h5>
             <p class="card-text">Descripción de la lista</p>
-            <button class="btn btn-primary bg-orange shadow-none rounded-1">Ver más</button>
+            <a href="/wishlist" class="btn btn-primary bg-orange shadow-none rounded-1">Ver más</a>
         </div>
     </div>
 </div>
@@ -19,8 +19,8 @@ const productCard = /*html*/`
     <h5 class="fw-bold price mb-0">$297.00</h5>
     <p>Tentación de frutas</p>
     <div class="d-flex justify-content-center">
-        <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
-        <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
+        <button class="btn btn-orange shadow-none rounded-1 me-1 add-cart">Agregar al carrito</button>
+        <button class="btn btn-danger shadow-none rounded-1 add-wishlists"><i class="fa fa-heart"></i></button>
     </div>
 </div>
 `;
@@ -41,8 +41,25 @@ $(document).ready(function() {
     $("#main-tab li a").click(function(e) {
         e.preventDefault();
         $(this).tab("show");
+    });
 
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        showCloseButton: true,
+        timer: 1500,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    });
 
+    $('.add-cart').click(function() {
+        Toast.fire({
+            icon: 'success',
+            title: 'Tu producto ha sido añadido al carrito'
+        });
     });
 
 });

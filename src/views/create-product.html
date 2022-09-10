@@ -22,6 +22,10 @@
     <!-- Multiple Select -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/multiple-select@1.5.2/dist/multiple-select.min.css" integrity="sha256-YxMnAq0wFCBOIF/R4MKL4FKRmadnH3co4oeTjIuyvQw=" crossorigin="anonymous">
 
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
+
+    <link rel="stylesheet" href="./styles/colors.css">
     <link href="./styles/navbar.css" rel="stylesheet">
     <link href="./styles/layout.css" rel="stylesheet">
     <link href="./styles/footer.css" rel="stylesheet">
@@ -100,10 +104,9 @@
         </nav>
     </header>
 
-    <!-- Main Container -->
     <section class="container my-4">
-        <div class="row justify-content-center">
-            <form class="bg-white rounded-1 shadow-sm p-sm-5 p-4 col-lg-8 col-md-8" id="create-product-form">
+        <div class="row d-flex justify-content-center">
+            <form class="bg-white shadow-sm rounded-1 p-5 col-8" id="create-product-form">
                 <!-- Inputs -->
                 <h1 class="h2 text-center mb-4">Agregar producto</h1>
 
@@ -150,25 +153,31 @@
                 </div>
 
                 <div class="mb-4">
-                    <label label="form-label" for="images">Imágenes</label>
-                    <input type="file" class="form-control shadow-none" name="images" id="images" multiple accept="image/*">
-                </div>
-
-                <div class="mb-4" style="overflow-x: scroll; width: 100%; white-space: nowrap;" id="image-list">
+                    <label for="images" label="form-label" role="button">Imágenes (mínimo 3)</label>
+                    <div class="input-group">
+                        <label for="images" role="button" class="btn btn-primary rounded-1 w-100"><i class="fa fa-upload" aria-hidden="true"></i> Añadir imágenes</label>
+                        <input type="file" class="form-control shadow-none d-none" name="images" id="images" multiple accept="image/*">
+                    </div>
+                    <div class="my-4" style="overflow-x: scroll; width: 100%; white-space: nowrap;" id="image-list">
+                    </div>
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label" for="videos">Videos</label>
-                    <input type="file" class="form-control shadow-none" name="videos" id="videos" multiple accept="video/*">
+                    <label for="videos" class="form-label" role="button">Videos (mínimo 1)</label>
+                    <div class="input-group">
+                        <label for="videos" role="button" class="btn btn-success rounded-1 w-100"><i class="fa fa-upload" aria-hidden="true"></i> Añadir videos</label>
+                        <input type="file" class="form-control shadow-none d-none" name="videos" id="videos" multiple accept="video/*">
+                    </div>
+                    <div class="mb-4" style="overflow-x: scroll; width: 100%; white-space: nowrap;" id="video-list">
+                        
+                    </div>
                 </div>
 
-                <div class="mb-4" style="overflow-x: scroll; width: 100%; white-space: nowrap;" id="video-list">
-                        
-                </div>
+                
 
                 <div class="mb-3">
                     <label class="form-label tags-label" for="categories">Categorías</label>
-                    <button type="button" class="btn btn-primary badge ms-2" data-bs-toggle="modal" data-bs-target="#create-category">Crear categoría</button>
+                    <button type="button" class="btn btn-orange badge shadow-none ms-2" data-bs-toggle="modal" data-bs-target="#create-category">Crear categoría</button>
                     <select id="categories" name="categories" multiple>
                         <option value="" selected hidden>Seleccionar</option>
                         <option value="1">1</option>
@@ -182,9 +191,9 @@
     </section>
 
     <!-- Modal -->
-    <div class="modal fade" id="create-category" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="create-category" tabindex="-1" aria-labelledby="create-category-label" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content rounded-1 bg-white border-0">
+            <div class="modal-content bg-white rounded-1 border-0 shadow-sm">
                 <form id="create-category-form">
                     <div class="modal-header border-0">
                         <h5 class="modal-title" id="exampleModalLabel">Agregar categoría</h5>
@@ -193,25 +202,23 @@
                     <div class="modal-body">
 
                         <div class="mb-4">
-                            <label class="form-label" for="category-name" role="button">Nombre</label>
+                            <label for="category-name" class="form-label" role="button">Nombre</label>
                             <div class="input-group">
-                                <input type="text" class="form-control shadow-none rounded-1" name="category-name" id="category-name"
-                                autocomplete="off">
+                                <input type="text" class="form-control shadow-none rounded-1" id="category-name" name="category-name" autocomplete="off">
                             </div>
                         </div>
     
                         <div class="mb-4">
-                            <label class="form-label" for="category-description" role="button">Descripción</label>
+                            <label for="category-description" class="form-label" role="button">Descripción</label>
                             <div class="input-group">
-                                <textarea class="form-control shadow-none rounded-1" name="category-description" id="category-description" 
-                                rows="5" placeholder="¿Qué productos contendrá?"></textarea>
+                                <textarea class="form-control shadow-none rounded-1" id="category-description" name="category-description" rows="5" placeholder="¿Qué productos contendrá?"></textarea>
                             </div>
                         </div>
                     
                     </div>
                     <div class="modal-footer border-0">
-                        <button type="button" class="btn bg-gray rounded-1" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary bg-orange rounded-1">Guardar</button>
+                        <button type="button" class="btn btn-grey rounded-1" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-orange rounded-1">Guardar</button>
                     </div>
                 </form>
             </div>

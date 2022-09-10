@@ -14,45 +14,108 @@ $(document).ready(function() {
         filter: true
     });
 
+    const images = [];
+    var imageCounter = 0;
     $('#images').on('change', function(e) {
 
-        const fileList = $(this)[0].files;
-        $.each(fileList, function(i, element) {
+        const files = $(this)[0].files;
+        $.each(files, function(i, file) {
 
-            let reader = new FileReader();
-            reader.onload = function(e) {
-                $('#image-list').append(`
-                    <span class="position-relative">
-                        <button type="button" class="btn btn-outline-info bg-dark close border-0 rounded-0 shadow-sm text-light position-absolute" onclick="$(this).parent().remove()">&times;</button>
+            let fileReader = new FileReader();
+            fileReader.onload = function(e) {
+                $('#image-list').append(/*html*/`
+                    <span class="position-relative" id="image-${imageCounter}">
+                        <button type="button" class="btn btn-outline-info bg-dark image-close border-0 rounded-0 shadow-sm text-light position-absolute">&times;</button>
                         <img class="product-mul" src="${e.target.result}">
                     </span>
                 `);
+                images.push({
+                    'id': imageCounter,
+                    'file': file
+                });
+                imageCounter++;
+                if (images.length >= 3)
+                {
+                    $('#images-error-label').remove();
+                }
             };
-            reader.readAsDataURL(element);
+            fileReader.readAsDataURL(file);
 
         });
 
     });
 
+    $(document).on('click', '.image-close', function(event) {
+
+        const imageHTML = $(this).parent();
+        const id = Number(imageHTML.attr('id').split('-')[1]);
+
+        const deletedImage = images.filter((image) => {
+            return image.id === id;
+        })[0];
+
+        images.forEach((element, i) => {
+            if (element.id === deletedImage.id)
+            {
+                images.splice(i, 1);
+            }
+        });
+
+        imageHTML.remove();
+
+    });
+
+    const videos = [];
+    var videoCounter = 0;
     $('#videos').on('change', function(e) {
 
-        const fileList = $(this)[0].files;
-        $.each(fileList, function(i, element) {
+        const files = $(this)[0].files;
+        $.each(files, function(i, file) {
 
             let reader = new FileReader();
             reader.onload = function(e) {
                 $('#video-list').append(`
-                <span class="position-relative">
+                <span class="position-relative" id="video-${videoCounter}">
                     <video class="product-mul" controls>
                         <source src="${e.target.result}">
                     </video>
                 </span>
-                <button type="button" class="btn bg-dark btn-outline-info close border-0 rounded-0 shadow-sm text-light" onclick="$(this).prev().remove(); $(this).remove()">&times;</button>
+                <button type="button" class="btn bg-dark btn-outline-info video-close border-0 rounded-0 shadow-sm text-light">&times;</button>
                 `);
+                videos.push({
+                    'id': videoCounter,
+                    'file': file
+                });
+                videoCounter++;
+                if (videos.length >= 1)
+                {
+                    console.log('Videos correctos');
+                }
             };
-            reader.readAsDataURL(element);
+            reader.readAsDataURL(file);
 
         });
+
+    });
+
+    $(document).on('click', '.video-close', function(event) {
+
+        const videoHTML = $(this).prev();
+        const id = Number(videoHTML.attr('id').split('-')[1]);
+
+        const deletedVideo = videos.filter((video) => {
+            return video.id === id;
+        })[0];
+
+        videos.forEach((element, i) => {
+            if (element.id === deletedVideo.id)
+            {
+                videos.splice(i, 1);
+            }
+        });
+
+        videoHTML.remove();
+        $(this).remove();
 
     });
 
@@ -131,9 +194,9 @@ $(document).ready(function() {
     }
 
 
-    $('#create-category-form').submit(function(e) {
+    $('#create-category-form').submit(function(event) {
 
-        e.preventDefault();
+        event.preventDefault();
 
         let validations = $(this).valid();
         if (validations === false) {
@@ -158,7 +221,7 @@ $(document).ready(function() {
                 console.log(status);
             },
             complete: function() {
-                
+                console.log('Complete');
             }
         });
 
@@ -169,7 +232,23 @@ $(document).ready(function() {
         e.preventDefault();
 
         let validations = $(this).valid();
-        if (validations === false) {
+
+        let valids = true;
+        if (images.length < 3)
+        {
+            const element = $('#images');
+            const error = $.parseHTML('<small>La cantidad de imagenes debe ser mínimo 3</small>')
+            $(error).insertAfter($('#images').parent().next()).addClass('text-danger').addClass('form-text').attr('id', element[0].id + '-error-label');
+            valids = false;
+        }
+
+        if (videos.length < 1)
+        {
+            console.log('Faltan videos');
+            valids = false;
+        }
+
+        if (validations === false || valids === false) {
             return;
         }
 

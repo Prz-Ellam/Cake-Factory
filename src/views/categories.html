@@ -88,10 +88,10 @@
                                         <td>Frutas</td>
                                         <td>Son de frutas</td>
                                         <td>
-                                            <button class="btn btn-primary shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#edit-category">
+                                            <button class="btn btn-primary shadow-none rounded-1 edit-category" data-bs-toggle="modal" data-bs-target="#edit-category">
                                                 <i class="fa fa-pencil"></i>
                                             </button>
-                                            <button class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-category">
+                                            <button class="btn btn-danger shadow-none rounded-1 delete-category" data-bs-toggle="modal" data-bs-target="#delete-category">
                                                 <i class="fa fa-trash"></i>
                                             </button>
                                         </td>
@@ -101,10 +101,10 @@
                                         <td>Frutas</td>
                                         <td>Son de frutas</td>
                                         <td>
-                                            <button class="btn btn-primary shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#edit-category">
+                                            <button class="btn btn-primary shadow-none rounded-1 edit-category" data-bs-toggle="modal" data-bs-target="#edit-category">
                                                 <i class="fa fa-pencil"></i>
                                             </button>
-                                            <button class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-category">
+                                            <button class="btn btn-danger shadow-none rounded-1 delete-category" data-bs-toggle="modal" data-bs-target="#delete-category">
                                                 <i class="fa fa-trash"></i>
                                             </button>
                                         </td>
@@ -114,10 +114,10 @@
                                         <td>Frutas</td>
                                         <td>Son de frutas</td>
                                         <td>
-                                            <button class="btn btn-primary shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#edit-category">
+                                            <button class="btn btn-primary shadow-none rounded-1 edit-category" data-bs-toggle="modal" data-bs-target="#edit-category">
                                                 <i class="fa fa-pencil"></i>
                                             </button>
-                                            <button class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-category">
+                                            <button class="btn btn-danger shadow-none rounded-1 delete-category" data-bs-toggle="modal" data-bs-target="#delete-category">
                                                 <i class="fa fa-trash"></i>
                                             </button>
                                         </td>
@@ -131,7 +131,7 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Crear categoria -->
     <div class="modal fade" id="create-category" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content rounded-1 bg-white border-0">
@@ -145,60 +145,56 @@
                         <div class="mb-4">
                             <label class="form-label" for="category-name" role="button">Nombre</label>
                             <div class="input-group">
-                                <input type="text" class="form-control shadow-none rounded-1" name="category-name" id="category-name"
-                                autocomplete="off">
+                                <input type="text" class="form-control shadow-none rounded-1" name="category-name" id="create-category-name" autocomplete="off">
                             </div>
                         </div>
     
                         <div class="mb-4">
                             <label class="form-label" for="category-description" role="button">Descripción</label>
                             <div class="input-group">
-                                <textarea class="form-control shadow-none rounded-1" name="category-description" id="category-description" 
-                                rows="5" placeholder="¿Qué productos contendrá?"></textarea>
+                                <textarea class="form-control shadow-none rounded-1" name="category-description" id="create-category-description" rows="5" placeholder="¿Qué productos contendrá?"></textarea>
                             </div>
                         </div>
                     
                     </div>
                     <div class="modal-footer border-0">
-                        <button type="button" class="btn bg-gray rounded-1" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary bg-orange rounded-1">Guardar</button>
+                        <button type="button" class="btn btn-grey shadow-none rounded-1" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-orange shadow-none rounded-1">Guardar</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="edit-category" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Editar categoria -->
+    <div class="modal fade" id="edit-category" tabindex="-1" aria-labelledby="edit-category-label" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content rounded-1 bg-white border-0">
                 <form id="edit-category-form">
                     <div class="modal-header border-0">
-                        <h5 class="modal-title" id="exampleModalLabel">Editar categoría</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="modal-title" id="edit-category-label">Editar categoría</h5>
+                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
 
                         <div class="mb-4">
                             <label class="form-label" for="category-name" role="button">Nombre</label>
                             <div class="input-group">
-                                <input type="text" class="form-control shadow-none rounded-1" name="category-name" id="category-name"
-                                autocomplete="off">
+                                <input type="text" class="form-control shadow-none rounded-1" name="category-name" id="edit-category-name" autocomplete="off">
                             </div>
                         </div>
     
                         <div class="mb-4">
                             <label class="form-label" for="category-description" role="button">Descripción</label>
                             <div class="input-group">
-                                <textarea class="form-control shadow-none rounded-1" name="category-description" id="category-description" 
-                                rows="5" placeholder="¿Qué productos contendrá?"></textarea>
+                                <textarea class="form-control shadow-none rounded-1" name="category-description" id="edit-category-description" rows="5" placeholder="¿Qué productos contendrá?"></textarea>
                             </div>
                         </div>
                     
                     </div>
                     <div class="modal-footer border-0">
-                        <button type="button" class="btn bg-gray rounded-1" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary bg-orange rounded-1">Guardar</button>
+                        <button type="button" class="btn btn-grey shadow-none rounded-1" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-orange shadow-none rounded-1">Guardar</button>
                     </div>
                 </form>
             </div>
