@@ -218,7 +218,7 @@ $(document).ready(function() {
         }
     });
 
-    // TODO: Hacer jalar esto
+    // Validar que solo se inserten imagenes
     $('#profile-picture').on('change', function(e) {
         
         // Si se le da Cancelar, se pone la imagen por defecto y el path vacio
@@ -229,10 +229,9 @@ $(document).ready(function() {
             return;
         }
         
-        const reader = new FileReader();
-        reader.readAsDataURL($(this)[0].files[0]);
-        
-        // A PARTIR DE AQUI ES TEST PARA VALIDAR QUE SOLO SE INGRESEN IMAGENES
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL($(this)[0].files[0]);
+
         const file = $(this)[0].files[0];
              
         // Allowing file type as image/*
@@ -240,15 +239,14 @@ $(document).ready(function() {
         if (!regexpImages.exec(file.type))
         {
             $(this).val('');
-            reader.onloadend = function(e) {
+            fileReader.onloadend = function(e) {
                 $('#picture-box').attr('src', './assets/img/blank-profile-picture.svg');
                 $('#profile-picture').val('');
             };
             return;
         }
 
-        // AQUI TERMINA LA VALIDACION PARA EL TIPO DE IMAGEN
-        reader.onloadend = function(e) {
+        fileReader.onloadend = function(e) {
             $('#picture-box').attr('src', e.target.result);
         };
     });
@@ -330,7 +328,7 @@ $(document).ready(function() {
 
         event.preventDefault();
 
-        if($(this).valid() === false) {
+        if ($(this).valid() === false) {
             return;
         }
 
@@ -354,7 +352,7 @@ $(document).ready(function() {
                 console.log(status);
             },
             complete: function() {
-
+                console.log('Complete');
             }
         });
 

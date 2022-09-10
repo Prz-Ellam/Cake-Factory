@@ -116,6 +116,11 @@ $(document).ready(function()
 
     $('#add-wishlists').submit(function(event) {
         event.preventDefault();
+
+        modal = document.getElementById('select-wishlist');
+        modalInstance = bootstrap.Modal.getInstance(modal);
+        modalInstance.hide();
+
         Toast.fire({
             icon: 'success',
             title: 'Tu producto ha sido añadido a las listas de deseos'

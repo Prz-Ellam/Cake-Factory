@@ -30,15 +30,14 @@
         <nav class="navbar fixed-top"></nav>
     </header>
 
-    <!-- Main container -->
     <section class="container my-4">
-        <!-- Flexbox -->
         <div class="row d-flex justify-content-center">
-            <!-- Form Card and Grid System -->
-            <form class="bg-white shadow-sm rounded-1 p-5 col-lg-6 col-md-8" id="sign-up-form" novalidate>
-                <!-- Inputs -->
-                <h1 class="text-center h2">Regístrate</h1>
-                <p class="text-center mb-4">para encontrar tu pastel favorito</p>
+            <form class="bg-white shadow-sm rounded-1 p-5 col-lg-6 col-md-8" id="sign-up-form" novalidate action="#">
+                
+                <div class="text-center">
+                    <h1 class="h2">Regístrate</h1>
+                    <p class="mb-4">para encontrar tu pastel favorito</p>
+                </div>
                 
                 <hr class="mb-4">
 
@@ -64,28 +63,28 @@
                     </div>
                 </div>
 
-                <div class="form-group mb-4">
+                <div class="mb-4">
                     <label class="form-label" for="birth-date" role="button">Fecha de nacimiento</label>
                     <div class="input-group">
                         <input type="date" class="form-control shadow-none rounded-1" name="birth-date" id="birth-date">
                     </div>
                 </div>
 
-                <div class="form-group mb-4">
+                <div class="mb-4">
                     <label class="form-label" for="first-name" role="button">Nombre</label>
                     <div class="input-group">
                         <input type="text" class="form-control shadow-none rounded-1" name="first-name" id="first-name">
                     </div>
                 </div>
 
-                <div class="form-group mb-4">
+                <div class="mb-4">
                     <label class="form-label" for="last-name" role="button">Apellido(s)</label>
                     <div class="input-group">
                         <input type="text" class="form-control shadow-none rounded-1" name="last-name" id="last-name">
                     </div>
                 </div>
 
-                <div class="form-group mb-4">
+                <div class="mb-4">
                     <label class="form-label" for="visibility" role="button">Visibilidad</label>
                     <div class="input-group">
                         <select class="form-select shadow-none rounded-1" name="visibility" id="visibility" role="button">
@@ -96,7 +95,7 @@
                     </div>
                 </div>
 
-                <div class="form-group mb-4">
+                <div class="mb-4">
                     <label class="form-label" role="button">Sexo</label>
                     <div>
                         <div class="form-check">
@@ -114,7 +113,7 @@
                     </div>  
                 </div>
 
-                <div class="form-group mb-4">
+                <div class="mb-4">
                     <label class="form-label" for="password" role="button">Contraseña</label>
                     <div class="input-group">
                         <input type="password" class="form-control shadow-none" name="password" id="password">
@@ -134,7 +133,7 @@
                     </div>
                 </div>
 
-                <div class="form-group mb-4">
+                <div class="mb-4">
                     <label class="form-label" for="confirm-password" role="button">Confirmar Contraseña</label>
                     <div class="input-group">
                         <input type="password" name="confirm-password" id="confirm-password" class="form-control shadow-none">
@@ -144,23 +143,21 @@
                     </div>
                 </div>
 
-                <div class="form-group mb-4 mt-5">
+                <div class="mb-4 mt-5">
                     <button type="input" class="btn btn-orange w-100 shadow-none rounded-1" id="btn-signup">Crear una cuenta</button>
                 </div>
 
-                <p class="text-center mb-0">¿Ya tienes cuenta?</p>
-                <a href="/login" class="d-block text-orange text-center text-decoration-none">Inicia sesión ahora</a>
+                <div class="text-center">
+                    <p class="mb-0">¿Ya tienes cuenta?</p>
+                    <a href="/login" class="d-block text-orange text-decoration-none">Inicia sesión ahora</a>
+                </div>
             </form>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="page-footer p-5">
-        <!-- Container -->
         <div class="container-fluid">
-            <!-- Grid Row -->
             <div class="row text-md-start text-center">
-                <!-- Grid Column -->
                 <div class="col-md-3 mx-auto mb-3">
                     <ul class="list-unstyled">
                         <li class="my-2">

@@ -1,14 +1,87 @@
+class Wishlist
+{
+    constructor(name, description, visibility, images)
+    {
+        this.name = name;
+        this.description = description;
+        this.visibility = visibility;
+        this.images = images;
+    }
+}
+
+function getImages(card, images) {
+
+    $.each(images, function(i, image) {
+
+        let reader = new FileReader();
+        reader.onload = function(image) {
+            const imagesHTML = /*html*/`
+            <div class="carousel-item${(i == 0 ? " active" : "")}" data-bs-interval="10000">
+                <div class="ratio ratio-4x3">
+                    <img src="${image.target.result}" class="card-img-top w-100 h-100">
+                </div>
+            </div>
+            `;
+            $(card).find('.card .carousel .carousel-inner').append(imagesHTML);
+        };
+        reader.readAsDataURL(image);
+
+    });
+
+    var carouselDOM = $(card).find('.card .carousel')[0];
+    new bootstrap.Carousel(carouselDOM);
+}
+
+function WishlistCard(wishlist) {
+
+    const visibility = (Number(wishlist.visibility) === 1) ? 
+    `<p class="text-brown wishlist-visibility" value="1"><i class="fas fa-users" aria-hidden="true"></i> Pública</p>`
+    :
+    `<p class="text-brown wishlist-visibility" value="2"><i class="fas fa-lock"></i> Privada</p>`;
+
+    const card = $($.parseHTML(/*html*/`
+    <div class="col-12 col-md-6 col-lg-4 mb-5 d-flex align-items-stretch">
+        <div class="card mx-auto" style="width: 18rem;">
+            <div class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                </div>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title text-brown wishlist-name">${wishlist.name}</h5>
+                <p class="card-text text-brown mb-2 wishlist-description">${wishlist.description}</p>
+                ${visibility}
+                <div class="d-flex justify-content-start">
+                    <a href="#" class="btn btn-blue shadow-none rounded-1 me-1 edit-wishlist" data-bs-toggle="modal" data-bs-target="#edit-wishlist">Editar</a>
+                    <a href="#" class="btn btn-red shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-wishlist">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    `));
+
+    $('#wishlist-container').append(card);
+    getImages(card, wishlist.images);
+}
+
+
 const wishlistCard = /*html*/`
 <div class="col-12 col-md-6 col-lg-4 mb-5 d-flex align-items-stretch">
     <div class="card mx-auto" style="width: 18rem;">
-        <div class="ratio ratio-4x3">
-            <img src="https://images.hola.com/imagenes/cocina/recetas/20191017151958/ramen-pollo-huevo-cebollino-soja/0-734-730/ramen-adobe-m.jpg" class="card-img-top w-100 h-100">
+        <div class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <div class="ratio ratio-4x3">
+                        <img src="https://images.hola.com/imagenes/cocina/recetas/20191017151958/ramen-pollo-huevo-cebollino-soja/0-734-730/ramen-adobe-m.jpg" class="card-img-top w-100 h-100">
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="card-body">
-            <h5 class="card-title text-brown">Nombre de la lista</h5>
-            <p class="card-text text-brown">Descripción de la lista</p>
+            <h5 class="card-title text-brown wishlist-name">Nombre de la lista</h5>
+            <p class="card-text text-brown wishlist-description mb-2">Descripción de la lista</p>
+            <p class="text-brown wishlist-visibility" value="1"><i class="fas fa-users" aria-hidden="true"></i> Público</p>
             <div class="d-flex justify-content-start">
-                <a href="/edit-product" class="btn btn-blue shadow-none rounded-1 me-1">Editar</a>
+                <a href="/edit-product" class="btn btn-blue shadow-none rounded-1 me-1 edit-wishlist" data-bs-toggle="modal" data-bs-target="#edit-wishlist">Editar</a>
                 <a href="#" class="btn btn-red shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-wishlist">Eliminar</a>
             </div>
         </div>
@@ -60,6 +133,23 @@ $(document).ready(function() {
     $('.btn-red').click(function() {
         element = $(this);
     })
+
+    $('.ratio').click(function() {
+
+        window.location.href = '/wishlist';
+
+    });
+
+    var editCard;
+    $(document).on('click', '.edit-wishlist' ,function(){
+        
+        editCard = $(this).parent().parent();
+
+        $('#edit-wishlist-name').val($(editCard).find('.wishlist-name').text());
+        $('#edit-wishlist-description').val($(editCard).find('.wishlist-description').text());
+        $('#edit-wishlist-visibility').val($(editCard).find('.wishlist-visibility').attr('value'));
+
+    });
     
 
     // Data size (no puede pesar mas de 8MB)
@@ -78,9 +168,6 @@ $(document).ready(function() {
 
     $('#wishlist-form').validate({
         rules: {
-            'image': {
-                required: true
-            },
             'name': {
                 required: true
             },
@@ -92,9 +179,6 @@ $(document).ready(function() {
             }
         },
         messages: {
-            'image': {
-                required: 'Hola'
-            },
             'name': {
                 required: 'El nombre de la lista de deseos no puede estar vacío.'
             },
@@ -111,29 +195,7 @@ $(document).ready(function() {
         }
     });
 
-    $('#wishlist-table').DataTable({
-        responsive: {
-            details: {
-                display: $.fn.dataTable.Responsive.display.modal( {
-                    header: function (row) {
-                        var data = row.data();
-                        return 'Registro';
-                    }
-                } ),
-                renderer: $.fn.dataTable.Responsive.renderer.tableAll( {
-                    tableClass: 'table'
-                } )
-            }
-        },
-        language: {
-            lengthMenu: "Mostrar _MENU_ registros",
-            zeroRecords: "No se encontró información",
-            info: "Mostrando página _PAGE_ de _PAGES_",
-            infoEmpty: "No hay registros disponibles",
-            infoFiltered: "(Filtrados _MAX_ registros en total)"
-        }
-    });
-
+    var wishlistImages = [];
     $('#images').on('change', function(e) {
 
         const fileList = $(this)[0].files;
@@ -148,9 +210,12 @@ $(document).ready(function() {
                     </span>
                 `);
             };
+            wishlistImages.push(element);
             reader.readAsDataURL(element);
 
         });
+
+        $(this).val('');
 
     });
 
@@ -216,73 +281,95 @@ $(document).ready(function() {
         if (parts.length === 2) return parts.pop().split(';').shift();
     }
 
-    $('#wishlist-form').submit(function(e) {
+    $('#wishlist-form').submit(function(event) {
 
-        e.preventDefault();
+        event.preventDefault();
 
         let validations = $(this).valid();
         if (validations === false) {
             return;
         }
 
-        const requestBody = jsonEncode(new FormData(this));
-        console.log(requestBody);
+        const requestBody = new FormData(this);
+        wishlistImages.forEach((image) => { requestBody.append('images', image); });
+        console.log([...requestBody]);
 
         modal = document.getElementById('create-wishlist');
         modalInstance = bootstrap.Modal.getInstance(modal);
         modalInstance.hide();
-      
-        const session = 1;
+        
         $.ajax({
             method: 'POST',
-            url: `Cake-Factory/api/v1/users/${session}/wishlists`,
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': getCookie('token')
-            },
-            data: JSON.stringify(requestBody),
-            dataType: 'json',
+            url: `Cake-Factory/api/v1/users/${1}/wishlists`,
+            data: requestBody,
+            //dataType: 'json',
+            cache: false,
+            contentType: false,
+            processData: false,
             success: function(response) {
-                // TODO: Esconde la scroll bar
-                Swal.fire({
-                    position: 'top-end',
+                Toast.fire({
                     icon: 'success',
-                    title: '¡La categoría se ha guardado!',
-                    showConfirmButton: false,
-                    showCloseButton: true,
-                    timer: 1500
+                    title: 'Tu lista de deseos se ha guardado'
                 });
             },
             error: function(jqXHR, status, error) {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'error',
-                    title: '¡Hubo un error!',
-                    showConfirmButton: false,
-                    showCloseButton: true,
-                    timer: 1500
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Hubo un error...'
                 });
             },
             complete: function() {
 
-                const table = $('#wishlist-table').DataTable();
-                table.row.add([
-                    1,                          // ID
-                    `<img class="img-fluid rounded-circle" width="40" height="40" src="${reader.result}"> ${requestBody.name}</td>`,           // Name
-                    requestBody.description,    // Description
-                    requestBody.visibility,     // Visibility
-                    ''
-                ]).draw(false);
+                const wishlist = new Wishlist(
+                    requestBody.get('name'),
+                    requestBody.get('description'),
+                    requestBody.get('visibility'),
+                    requestBody.getAll('images')
+                );
 
-                $('#wishlist-name').val("");
-                $('#wishlist-description').val("");
+                $('#wishlist-container').append(WishlistCard(wishlist));
+
+                $('#wishlist-name').val('');
+                $('#wishlist-description').val('');
+                $('#wishlist-visibility').val('');
+                
             }
         });
-       
-        /*
-        http://kp.bkd.sidoarjokab.go.id/website/lib/DataTables-1.10.7/examples/api/add_row.html#:~:text=New%20rows%20can%20be%20added,be%20added%20using%20the%20rows.
-        */
+        
     })
+
+    $('#edit-wishlist-form').submit(function(event) {
+
+        event.preventDefault();
+
+        const requestBody = new FormData(this);
+
+        const wishlist = new Wishlist(
+            requestBody.get('name'),
+            requestBody.get('description'),
+            requestBody.get('visibility'),
+            requestBody.getAll('images')
+        );
+
+        modal = document.getElementById('edit-wishlist');
+        modalInstance = bootstrap.Modal.getInstance(modal);
+        modalInstance.hide();
+
+        console.log(wishlist);
+        editCard.find('.wishlist-name').text(requestBody.get('name'));
+        editCard.find('.wishlist-description').text(requestBody.get('description'));
+        editCard.find('.wishlist-visibility').html(
+            (Number(requestBody.get('visibility')) === 1) ?
+            /*html*/`<i class="fas fa-users" aria-hidden="true"></i> Pública</p>`
+            :
+            /*html*/`<i class="fas fa-lock"></i> Privada</p>`
+        );
+
+        Toast.fire({
+            icon: 'success',
+            title: 'Tu lista de deseos se ha actualizado'
+        });
+
+    });
     
 });

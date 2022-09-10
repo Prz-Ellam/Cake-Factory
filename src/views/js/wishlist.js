@@ -19,10 +19,33 @@ $(document).ready(function() {
         }
     });
 
-    $('.btn-danger').click(function() {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        showCloseButton: true,
+        timer: 1500,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    });
+
+    $(document).on('click', '.add-cart', function() {
+        Toast.fire({
+            icon: 'success',
+            title: 'Tu producto ha sido añadido al carrito'
+        });
+    });
+
+    $(document).on('click', '.btn-red', function() {
 
         $(this).parent().parent().remove();
 
     });
+
+    $('td img').click(function() {
+        window.location.href = '/product';
+    })
 
 });

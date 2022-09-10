@@ -156,6 +156,9 @@ $(document).ready(function() {
             },
             error: function(response, status, error) {
                 console.log(status);
+            },
+            complete: function() {
+                
             }
         });
 
