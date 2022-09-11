@@ -7,7 +7,7 @@ const wishlistCard = /*html*/`
         <div class="card-body">
             <h5 class="card-title">Nombre de la lista</h5>
             <p class="card-text">Descripción de la lista</p>
-            <a href="/wishlist" class="btn btn-primary bg-orange shadow-none rounded-1">Ver más</a>
+            <a href="/wishlist" class="btn btn-orange shadow-none rounded-1">Ver más</a>
         </div>
     </div>
 </div>
@@ -20,14 +20,15 @@ const productCard = /*html*/`
     <p>Tentación de frutas</p>
     <div class="d-flex justify-content-center">
         <button class="btn btn-orange shadow-none rounded-1 me-1 add-cart">Agregar al carrito</button>
-        <button class="btn btn-danger shadow-none rounded-1 add-wishlists"><i class="fa fa-heart"></i></button>
+        <button class="btn btn-red shadow-none rounded-1 add-wishlists" data-bs-toggle="modal" data-bs-target="#select-wishlist"><i class="fa fa-heart"></i></button>
     </div>
 </div>
 `;
 
 for (let i = 0; i < 6; i++)
 {
-    $('#wishlist-container').append(wishlistCard);
+    $('#client-wishlist-container').append(wishlistCard);
+    $('#seller-wishlist-container').append(wishlistCard);
 }
 
 for (let i = 0; i < 12; i++)
@@ -38,9 +39,23 @@ for (let i = 0; i < 12; i++)
 
 $(document).ready(function() {
 
+    const id = new URLSearchParams(window.location.search).get("id");
+    $(`#test-${id}`).removeClass('d-none');
+
     $("#main-tab li a").click(function(e) {
         e.preventDefault();
         $(this).tab("show");
+
+        if ($(this).text() === 'Productos')
+        {
+            $('#seller-wishlist-container').addClass('d-none');
+            $('#seller-product-container').removeClass('d-none');
+        }
+        else if ($(this).text() === 'Listas de deseos')
+        {
+            $('#seller-product-container').addClass('d-none');
+            $('#seller-wishlist-container').removeClass('d-none');
+        }
     });
 
     const Toast = Swal.mixin({
@@ -60,6 +75,19 @@ $(document).ready(function() {
             icon: 'success',
             title: 'Tu producto ha sido añadido al carrito'
         });
+    });
+
+    $('#add-wishlists').submit(function(event) {
+        event.preventDefault();
+
+        modal = document.getElementById('select-wishlist');
+        modalInstance = bootstrap.Modal.getInstance(modal);
+        modalInstance.hide();
+
+        Toast.fire({
+            icon: 'success',
+            title: 'Tu producto ha sido añadido a las listas de deseos'
+        })
     });
 
 });

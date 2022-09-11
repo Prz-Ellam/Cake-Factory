@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cake Factory</title>
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
     
     <!-- Bootstrap 5.0.0 -->
@@ -23,6 +21,8 @@
     <link href="./styles/navbar.css" rel="stylesheet">
     <link type="text/css" href="./styles/layout.css" rel="stylesheet">
     <link href="./styles/footer.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles/colors.css">
 </head>
 <body>
     <header class="fixed-top sticky-top">
@@ -100,8 +100,8 @@
     <section class="container my-4">
         <div class="row d-flex justify-content-center">
             <div class="bg-white rounded-1 p-sm-5 p-4 shadow-sm col-lg-12" id="profile-body">
-
-                <div>
+                
+               
                     <!-- Media object -->
                     <section class="w-100 px-3">
                         <div class="row d-flex justify-content-center justify-content-md-start">
@@ -124,10 +124,11 @@
                     <!-- https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-media-objects.php#:~:text=Bootstrap%20media%20object%20has%20been,flex%20and%20spacing%20utility%20classes. -->
                     
                     <hr class="mb-5">
-                    
-                    <h1 class="text-center mb-4">Listas de deseos</h1>
-                    
-                    <div class="row" id="wishlist-container">
+
+                <div id="test-1" class="d-none">
+                    <h1 class="text-brown text-center mb-4"><i class="fa fa-heart"></i> Listas de deseos</h1>
+
+                    <div class="row" id="client-wishlist-container">
                     </div>
                     
                     <nav aria-label="Page navigation example">
@@ -142,68 +143,131 @@
                 </div>
 
 
-                <div>
-                    <h1 class="text-center mb-4">Listas de deseos</h1>
-                    <h4 class="text-center"><i class="fas fa-lock"></i> Esta cuenta es privada</h4>
+                <div id="test-2" class="d-none">
+                    <h1 class="text-brown text-center mb-4"><i class="fa fa-heart"></i> Listas de deseos</h1>
+                    <h4 class="text-brown text-center"><i class="fas fa-lock"></i> Esta cuenta es privada</h4>
                 </div>
 
 
-                <div>
+                <div id="test-3" class="d-none">
                     
-                <ul class="nav nav-tabs mb-4" id="main-tab">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Productos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Listas de deseos</a>
-                    </li>
-                </ul>
-
-                    <h1 class="text-center mb-4">Productos</h1>
-                    <div class="row" id="seller-product-container">
-                    </div>
-                    
-                    <nav aria-label="Page navigation example">
-                        <ul class="mt-4 pagination justify-content-center">
-                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">Anterior</a></li>
-                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">Siguiente</a></li>
-                        </ul>
-                    </nav>
-                    
-            </div>
-
-
-
-            
-                <h1 class="text-center mb-4">Productos aprobados</h1>
-                <hr class="mb-4">
-
-                <div class="row" id="admin-product-container">
-                </div>
-                <nav aria-label="Page navigation example">
-                    <ul class="mt-4 pagination justify-content-center">
-                        <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">Anterior</a></li>
-                        <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">Siguiente</a></li>
+                    <ul class="nav nav-tabs mb-4" id="main-tab">
+                        <li class="nav-item">
+                            <a class="nav-link text-brown active" href="#">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-brown" href="#">Listas de deseos</a>
+                        </li>
                     </ul>
-                </nav>
+
+                    <div class="row" id="seller-product-container">
+                        <h1 class="text-brown text-center mb-4">Productos</h1>
+                    </div>
+                    <div class="row d-none" id="seller-wishlist-container">
+                        <h1 class="text-brown text-center mb-4"><i class="fa fa-heart"></i> Listas de deseos</h1>
+                    </div>
+                    
+                    <nav aria-label="Page navigation example">
+                        <ul class="mt-4 pagination justify-content-center">
+                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">Anterior</a></li>
+                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">Siguiente</a></li>
+                        </ul>
+                    </nav>
+                    
+                </div>
+            
+                <div id="test-4" class="d-none">
+                    <h1 class="text-brown text-center mb-4">Productos aprobados</h1>
+                    
+                    <div class="row" id="admin-product-container">
+                    </div>
+                    <nav aria-label="Page navigation example">
+                        <ul class="mt-4 pagination justify-content-center">
+                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">Anterior</a></li>
+                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link shadow-none" style="color: #3B1002" href="#">Siguiente</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
             </div>
 
         </div>
     </section>
 
+    <div class="modal fade" id="select-wishlist" tabindex="-1" aria-labelledby="select-wishlist-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <form class="modal-content" id="add-wishlists">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="select-wishlist-label">¿A qué listas de deseos quieres añadir?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>
+                                <img src="./assets/img/E001S000031.jpg" class="img-fluid" alt="lay" style="max-width: 128px">
+                                Navideños
+                            </span>
+                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>
+                                <img src="./assets/img/E001S000031.jpg" class="img-fluid" alt="lay" style="max-width: 128px">
+                                Cumpleaños
+                            </span>
+                            <input name="wishlists" class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>
+                                <img src="./assets/img/E001S000031.jpg" class="img-fluid" alt="lay" style="max-width: 128px">
+                                Baby shower
+                            </span>
+                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>
+                                <img src="./assets/img/E001S000031.jpg" class="img-fluid" alt="lay" style="max-width: 128px">
+                                Para año nuevo
+                            </span>
+                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>
+                                <img src="./assets/img/E001S000031.jpg" class="img-fluid" alt="lay" style="max-width: 128px">
+                                Para Rex
+                            </span>
+                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                        </li>
+
+                        <nav aria-label="Page navigation" class="mt-4 text-center d-flex justify-content-center">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link text-brown shadow-none" href="#">Anterior</a></li>
+                                <li class="page-item"><a class="page-link text-brown shadow-none" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link text-brown shadow-none" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link text-brown shadow-none" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link text-brown shadow-none" href="#">Siguiente</a></li>
+                            </ul>
+                        </nav>
+                    </ul>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary rounded-1 shadow-none" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-orange rounded-1 shadow-none">Aceptar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="page-footer p-5">
-        <!-- Container -->
         <div class="container-fluid">
-            <!-- Grid Row -->
             <div class="row text-md-start text-center">
-                <!-- Grid Column -->
                 <div class="col-md-3 mx-auto mb-3">
                     <ul class="list-unstyled">
                         <li class="my-2">

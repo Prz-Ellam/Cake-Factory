@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cake Factory</title>
@@ -19,11 +19,13 @@
     <!-- Font Awesome -->
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.28/sweetalert2.min.css" integrity="sha512-yq+qDDTUuLA4zvJjuvcpV809SNmM0ReTyeadKsNvW0cSvGVfj3K20SdlkburwJHHdzuGDtFElBcxndjd7J3nrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="styles/admin.css">
     <link rel="stylesheet" href="styles/colors.css">
 </head>
 <body>
-
     <div class="main-container d-flex">
         <div class="side-bar bg-orange p-2 active" id="side-nav">
             <div class="header-box mb-4 mt-2 d-flex justify-content-between align-items-center">
@@ -87,8 +89,8 @@
                                             <td><img class="img-fluid rounded-circle" width="40" height="40" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg"> Eliam</td>
                                             <td>12 de marzo de 2022</td>
                                             <td>
-                                                <button class="btn btn-success shadow-none rounded-1"><i class="fa fa-check"></i></button>
-                                                <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-trash"></i></button>
+                                                <button class="btn btn-success shadow-none rounded-1 btn-approve"><i class="fa fa-check"></i></button>
+                                                <button class="btn btn-danger shadow-none rounded-1 btn-denied"><i class="fa fa-trash"></i></button>
                                             </td>
                                         </tr>
                                         <tr role="button">
@@ -97,8 +99,8 @@
                                             <td><img class="img-fluid rounded-circle" width="40" height="40" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg"> Eliam</td>
                                             <td>12 de marzo de 2022</td>
                                             <td>
-                                                <button class="btn btn-success shadow-none rounded-1"><i class="fa fa-check"></i></button>
-                                                <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-trash"></i></button>
+                                                <button class="btn btn-success shadow-none rounded-1 btn-approve"><i class="fa fa-check"></i></button>
+                                                <button class="btn btn-danger shadow-none rounded-1 btn-denied"><i class="fa fa-trash"></i></button>
                                             </td>
                                         </tr>
                                         <tr role="button">
@@ -107,8 +109,8 @@
                                             <td><img class="img-fluid rounded-circle" width="40" height="40" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg"> Eliam</td>
                                             <td>12 de marzo de 2022</td>
                                             <td>
-                                                <button class="btn btn-success shadow-none rounded-1"><i class="fa fa-check"></i></button>
-                                                <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-trash"></i></button>
+                                                <button class="btn btn-success shadow-none rounded-1 btn-approve"><i class="fa fa-check"></i></button>
+                                                <button class="btn btn-danger shadow-none rounded-1 btn-denied"><i class="fa fa-trash"></i></button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -190,6 +192,9 @@
    
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/48ce36e499.js" crossorigin="anonymous"></script>
+
+    <!-- Sweet Alert -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.28/sweetalert2.all.min.js" integrity="sha512-nWDPZH/tnW5b1KedLPkb9inxNXadIf4qQDoGTxPJcQNMn4XwPIIlmHSPofT821taBuF1t/uiGSOsRrVccwXS4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script type="text/javascript" src="js/approve-products.js"></script>
 </body>

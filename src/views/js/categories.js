@@ -8,8 +8,6 @@ class Category {
 
 $(document).ready(function() {
 
-    var category;
-
     var table = $('#categories').DataTable({
         responsive: true,
         bAutoWidth: false,
@@ -29,25 +27,31 @@ $(document).ready(function() {
         }
     });
 
+    $('.form-control').addClass('shadow-none');
+    $('.form-select').addClass('shadow-none');
+    $('.page-link').addClass('shadow-none');
+
     $('#btn-side-bar').click(function() {
         $('.side-bar').toggleClass('active');
     });
 
     $('#create-category-form').validate({
         rules: {
-            'category-name': {
-                required: true
+            'name': {
+                required: true,
+                maxlength: 20
             },
-            'category-description': {
-               
+            'description': {
+                maxlength: 50
             }
         },
         messages: {
-            'category-name': {
-                required: 'El nombre no puede estar vacío.'
+            'name': {
+                required: 'El nombre no puede estar vacío.',
+                maxlength: 'El nombre de la categoría es muy largo'
             },
-            'category-description': {
-                
+            'description': {
+                maxlength: 'La descripción de la categoría es muy largo'
             }
         },
         errorElement: 'small',
@@ -58,19 +62,21 @@ $(document).ready(function() {
 
     $('#edit-category-form').validate({
         rules: {
-            'category-name': {
-                required: true
+            'name': {
+                required: true,
+                maxlength: 20
             },
-            'category-description': {
-               
+            'description': {
+                maxlength: 50
             }
         },
         messages: {
-            'category-name': {
-                required: 'El nombre no puede estar vacío.'
+            'name': {
+                required: 'El nombre no puede estar vacío.',
+                maxlength: 'El nombre de la categoría es muy largo'
             },
-            'category-description': {
-                
+            'description': {
+                maxlength: 'La descripción de la categoría es muy largo'
             }
         },
         errorElement: 'small',
@@ -93,19 +99,8 @@ $(document).ready(function() {
     }
 
     var row;
-    $('.edit-category').click(function() {
-
-        row = $(this).parent().parent();
-        const dataTable = $('#categories').DataTable();
-        const data = dataTable.row(row).data();
-
-        category = new Category(data[1], data[2]);
-
-        $('#edit-category-name').val(category.name);
-        $('#edit-category-description').val(category.description);
-
-    });
-
+    var count = 4;
+    
     $('#create-category-form').submit(function(event) {
 
         event.preventDefault();
@@ -119,8 +114,24 @@ $(document).ready(function() {
         modalInstance = bootstrap.Modal.getInstance(modal);
         modalInstance.hide();
 
-        const requestBody = jsonEncode(new FormData(this));
-        console.log(requestBody);
+        const requestBody = new FormData(this);
+        console.log([...requestBody]);
+
+        table.row.add([
+            count++,
+            requestBody.get('name'),
+            requestBody.get('description'),
+            `<button class="btn btn-primary shadow-none rounded-1 btn-edit" data-bs-toggle="modal" data-bs-target="#edit-category">
+                <i class="fa fa-pencil"></i>
+            </button>
+            <button class="btn btn-danger shadow-none rounded-1 btn-delete" data-bs-toggle="modal" data-bs-target="#delete-category">
+                <i class="fa fa-trash"></i>
+            </button>`
+        ]).draw();
+
+        $('#create-category-name').val('');
+        $('#create-category-description').val('');
+
         return;
         $.ajax({
             method: 'POST',
@@ -144,6 +155,20 @@ $(document).ready(function() {
 
     });
 
+    $(document).on('click', '.btn-edit', function() {
+
+        row = $(this).closest('tr');
+
+        const dataTable = $('#categories').DataTable();
+        const data = dataTable.row(row).data();
+
+        const category = new Category(data[1], data[2]);
+
+        $('#edit-category-name').val(category.name);
+        $('#edit-category-description').val(category.description);
+
+    });
+
     $('#edit-category-form').submit(function(event) {
 
         event.preventDefault();
@@ -153,10 +178,30 @@ $(document).ready(function() {
             return;
         }
 
-        $($(row).children()[1]).html($('#edit-category-name').val());
-        $($(row).children()[2]).html($('#edit-category-description').val());
+        const data = table.row(row).data();
+        data[1] = $('#edit-category-name').val();
+        data[2] = $('#edit-category-description').val();
+        table.row(row).data(data).draw();
 
-        table.draw(false)
+        modal = document.getElementById('edit-category');
+        modalInstance = bootstrap.Modal.getInstance(modal);
+        modalInstance.hide();
+
+    });
+
+    $(document).on('click', '.btn-delete', function() {
+
+        row = $(this).closest('tr');
+
+    });
+
+    $('.delete-category').click(function() {
+
+        table.row(row).remove().draw();
+
+        modal = document.getElementById('delete-category');
+        modalInstance = bootstrap.Modal.getInstance(modal);
+        modalInstance.hide();
 
     });
 

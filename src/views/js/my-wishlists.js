@@ -26,27 +26,6 @@ function getImages() {
 
     return imagesHTML;
 
-    //$.each(images, function(i, image) {
-
-    //    let reader = new FileReader();
-    //    reader.onload = function(image) {
-    //        const imagesHTML = /*html*/`
-    //        <div class="carousel-item${(i == 0 ? " active" : "")}" data-bs-interval="10000">
-    //            <div class="ratio ratio-4x3">
-    //                <img src="${image.target.result}" class="card-img-top w-100 h-100">
-    //            </div>
-    //        </div>
-    //        `;
-    //        $(card).find('.card .carousel .carousel-inner').append(imagesHTML);
-    //    };
-    //    reader.readAsDataURL(image);
-
-    //});
-
-    
-
-    //var carouselDOM = $(card).find('.card .carousel')[0];
-    //new bootstrap.Carousel(carouselDOM);
 }
 
 function WishlistCard(wishlist) {
@@ -119,16 +98,85 @@ for (let i = 0; i < 12; i++)
 
 $(document).ready(function() {
 
-    $('.btn-search').on('click', function () {
+    // Data size (no puede pesar mas de 8MB)
+    $.validator.addMethod('filesize', function(value, element, parameter) {
 
-        // Esto es muy raro pero funcionara por ahora
-        const id = $(this).parent()[0].children[0].innerHTML;
-        // window.location.href = `/wishlist/${id}`;
-        window.location.href = '/wishlist';
-        
+        let result;
+        if (element.files[0] === undefined) {
+            return this.optional(element) || result; 
+        }
+
+        const size = (element.files[0].size / 1024 / 1024).toFixed(2);
+        result = (parseFloat(size) > parameter) ? false : true;
+
+        return this.optional(element) || result;
+    }, 'Please enter a valid file');
+
+    $('#add-wishlist-form').validate({
+        rules: {
+            'name': {
+                required: true,
+                maxlength: 20
+            },
+            'description': {
+                required: true,
+                maxlength: 50
+            },
+            'visibility': {
+                required: true
+            }
+        },
+        messages: {
+            'name': {
+                required: 'El nombre de la lista de deseos no puede estar vacío.',
+                maxlength: 'El nombre de la lista es demasiado largo'
+            },
+            'description': {
+                required: 'La descripción de la lista de deseos no puede estar vacía.',
+                maxlength: 'La descripción de la lista es demasiado larga'
+            },
+            'visibility': {
+                required: 'La visibilidad no puede estar vacía.'
+            }
+        },
+        errorElement: 'small',
+        errorPlacement: function(error, element) {
+            error.insertAfter(element.parent()).addClass('text-danger').addClass('form-text').attr('id', element[0].id + '-error-label');
+        }
     });
 
-    var element;
+    $('#edit-wishlist-form').validate({
+        rules: {
+            'name': {
+                required: true,
+                maxlength: 20
+            },
+            'description': {
+                required: true,
+                maxlength: 50
+            },
+            'visibility': {
+                required: true
+            }
+        },
+        messages: {
+            'name': {
+                required: 'El nombre de la lista de deseos no puede estar vacío.',
+                maxlength: 'El nombre de la lista es demasiado largo'
+            },
+            'description': {
+                required: 'La descripción de la lista de deseos no puede estar vacía.',
+                maxlength: 'La descripción de la lista es demasiado larga'
+            },
+            'visibility': {
+                required: 'La visibilidad no puede estar vacía.'
+            }
+        },
+        errorElement: 'small',
+        errorPlacement: function(error, element) {
+            error.insertAfter(element.parent()).addClass('text-danger').addClass('form-text').attr('id', element[0].id + '-error-label');
+        }
+    });
 
     const Toast = Swal.mixin({
         toast: true,
@@ -141,6 +189,20 @@ $(document).ready(function() {
           toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
     });
+
+    $(document).on('click', '.ratio', function() {
+
+        window.location.href = '/wishlist';
+
+    });
+
+
+
+    
+
+    var element;
+
+    
 
     $('#btn-delete-wishlist').click(function() {
 
@@ -157,11 +219,7 @@ $(document).ready(function() {
         element = $(this);
     })
 
-    $('.ratio').click(function() {
-
-        window.location.href = '/wishlist';
-
-    });
+    
 
     async function imageToDataURL(imageUrl) {
         let img = await fetch(imageUrl);
@@ -196,7 +254,6 @@ $(document).ready(function() {
 
             var index = this.children[0].children[0].src.lastIndexOf("/") + 1;
             var filename = this.children[0].children[0].src.substr(index);
-            console.log(filename);
 
             console.log(type);
             $('#edit-image-list').append(`
@@ -216,86 +273,11 @@ $(document).ready(function() {
             fileInput.files = dataTransfer.files;
         })
 
-        
-
 
         $('#edit-wishlist-name').val($(editCard).find('.wishlist-name').text());
         $('#edit-wishlist-description').val($(editCard).find('.wishlist-description').text());
         $('#edit-wishlist-visibility').val($(editCard).find('.wishlist-visibility').attr('value'));
 
-    });
-    
-
-    // Data size (no puede pesar mas de 8MB)
-    $.validator.addMethod('filesize', function(value, element, parameter) {
-
-        let result;
-        if (element.files[0] === undefined) {
-            return this.optional(element) || result; 
-        }
-
-        const size = (element.files[0].size / 1024 / 1024).toFixed(2);
-        result = (parseFloat(size) > parameter) ? false : true;
-
-        return this.optional(element) || result;
-    }, 'Please enter a valid file');
-
-    $('#add-wishlist-form').validate({
-        rules: {
-            'name': {
-                required: true
-            },
-            'description': {
-                required: true
-            },
-            'visibility': {
-                required: true
-            }
-        },
-        messages: {
-            'name': {
-                required: 'El nombre de la lista de deseos no puede estar vacío.'
-            },
-            'description': {
-                required: 'La descripción de la lista de deseos no puede estar vacía.'
-            },
-            'visibility': {
-                required: 'La visibilidad no puede estar vacía.'
-            }
-        },
-        errorElement: 'small',
-        errorPlacement: function(error, element) {
-            error.insertAfter(element.parent()).addClass('text-danger').addClass('form-text').attr('id', element[0].id + '-error-label');
-        }
-    });
-
-    $('#edit-wishlist-form').validate({
-        rules: {
-            'name': {
-                required: true
-            },
-            'description': {
-                required: true
-            },
-            'visibility': {
-                required: true
-            }
-        },
-        messages: {
-            'name': {
-                required: 'El nombre de la lista de deseos no puede estar vacío.'
-            },
-            'description': {
-                required: 'La descripción de la lista de deseos no puede estar vacía.'
-            },
-            'visibility': {
-                required: 'La visibilidad no puede estar vacía.'
-            }
-        },
-        errorElement: 'small',
-        errorPlacement: function(error, element) {
-            error.insertAfter(element.parent()).addClass('text-danger').addClass('form-text').attr('id', element[0].id + '-error-label');
-        }
     });
 
     // Agregar Listas de deseos
@@ -304,7 +286,6 @@ $(document).ready(function() {
     $('#add-images-transfer').on('change', function(e) {
 
         const files = $(this)[0].files;
-
         $.each(files, function(i, file) {
 
             let fileReader = new FileReader();
@@ -511,7 +492,6 @@ $(document).ready(function() {
                 );
 
                 $('#wishlist-container').append(WishlistCard(wishlist));
-
                 $('#wishlist-name').val('');
                 $('#wishlist-description').val('');
                 $('#wishlist-visibility').val('');
@@ -531,6 +511,7 @@ $(document).ready(function() {
         }
 
         const requestBody = new FormData(this);
+        console.log([...requestBody]);
 
         const wishlist = new Wishlist(
             requestBody.get('name'),
@@ -543,7 +524,6 @@ $(document).ready(function() {
         modalInstance = bootstrap.Modal.getInstance(modal);
         modalInstance.hide();
 
-        console.log(wishlist);
         editCard.find('.wishlist-name').text(requestBody.get('name'));
         editCard.find('.wishlist-description').text(requestBody.get('description'));
         editCard.find('.wishlist-visibility').html(
@@ -552,6 +532,7 @@ $(document).ready(function() {
             :
             /*html*/`<i class="fas fa-lock"></i> Privada</p>`
         );
+        editCard.find('.wishlist-visibility').attr('value', requestBody.get('visibility'));
 
         let cardBody = $(editCard).parent().find('.carousel .carousel-inner');
         $(cardBody).html('');

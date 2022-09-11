@@ -3,7 +3,7 @@ $(document).ready(function() {
     // Reglas del formulario de login
     $('#login-form').validate({
         rules: {
-            'email': {
+            'login-or-email': {
                 required: true,
                 email: false
             },
@@ -12,8 +12,8 @@ $(document).ready(function() {
             }
         },
         messages: {
-            'email' : {
-                required: 'El correo electrónico no puede estar vacío.'
+            'login-or-email' : {
+                required: 'El usuario o correo electrónico no puede estar vacío.'
             },
             'password': {
                 required: 'La contraseña no puede estar vacía.'
@@ -25,16 +25,22 @@ $(document).ready(function() {
         }
     });
 
+    $.validator.addMethod('email5322', function(value, element) {
+        return this.optional(element) || /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/.test(value);
+    }, 'Please enter a valid email');
+
     $('#send-mail').validate({
         rules: {
             'email': {
                 required: true,
-                email: false
+                email: false,
+                email5322: true
             }
         },
         messages: {
             'email': {
-                required: 'El correo electrónico no puede estar vacío.'
+                required: 'El correo electrónico no puede estar vacío.',
+                email5322: 'El correo electrónico que ingresó no es válido'
             }
         },
         errorElement: 'small',
@@ -69,17 +75,18 @@ $(document).ready(function() {
         return object;
     }
 
-    $('#login-form').submit(function(e) {
+    $('#login-form').submit(function(event) {
 
-        e.preventDefault();
+        event.preventDefault();
 
         let validations = $(this).valid();
         if (validations === false) {
             return;
         }
 
-        const requestBody = jsonEncode(new FormData(this));
-        console.log(requestBody);
+        const requestBody = new FormData(this);
+        console.log([...requestBody]);
+        return;
         $.ajax({
             method: 'POST',
             url: 'api/v1/login',
@@ -104,17 +111,18 @@ $(document).ready(function() {
 
     });
 
-    $('#send-mail').submit(function(e) {
+    $('#send-mail').submit(function(event) {
 
-        e.preventDefault();
+        event.preventDefault();
 
         let validations = $(this).valid();
         if (validations === false) {
             return;
         }
 
-        const requestBody = jsonEncode(new FormData(this));
-        console.log(requestBody);
+        const requestBody = new FormData(this);
+        console.log([...requestBody]);
+        return;
         $.ajax({
             method: 'POST',
             url: 'api/v1/email',

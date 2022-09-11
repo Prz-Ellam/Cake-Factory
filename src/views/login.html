@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cake Factory</title>
@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="styles/login.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/colors.css">
+    <link rel="stylesheet" href="styles/signup.css">
 </head>
 <body>
     <!-- Title -->
@@ -33,13 +34,12 @@
             <form class="bg-white rounded-1 shadow-sm p-5 col-lg-5 col-md-7" id="login-form" novalidate>
 
                 <h1 class="h2 text-center mb-4">Iniciar sesión</h1>
-
                 <hr class="mb-4">
 
                 <div class="mb-4">
-                    <label class="form-label" for="email" role="button">Correo electrónico o nombre de usuario</label>
+                    <label class="form-label" for="login-or-email" role="button">Correo electrónico o nombre de usuario</label>
                     <div class="input-group">
-                        <input type="email" class="form-control shadow-none rounded-1" name="email" id="email" placeholder="">
+                        <input type="email" class="form-control shadow-none rounded-1" name="login-or-email" id="login-or-email" placeholder="">
                     </div>
                 </div>
 
@@ -54,16 +54,18 @@
                 </div>
     
                 <div class="mb-4">
-                    <input type="checkbox" class="form-check-input shadow-none rounded-1" name="remember" id="remember" role="button">
+                    <input type="checkbox" class="form-check-input shadow-none rounded-1" name="remember" id="remember" value="1" role="button">
                     <label class="form-label" for="remember" role="button">Recuérdame</label>
                 </div>
     
                 <button type="submit" class="btn btn-orange mb-4 w-100 shadow-none rounded-1" id="btn-login">Iniciar sesión</button>
 
-                <p class="text-center mb-0">¿Aún no tienes cuenta?</p>
-                <a href="/signup" class="d-block text-orange text-center text-decoration-none">¡Regístrate ahora!</a>        
-                <hr class="mb-4">
-                <a class="d-block text-center mb-0 text-orange text-decoration-none" data-bs-toggle="modal" data-bs-target="#restore-password" role="button">¿Olvidaste tu contraseña?</a>
+                <div class="text-center">
+                    <p class="mb-0">¿Aún no tienes cuenta?</p>
+                    <a href="/signup" class="d-block text-orange text-decoration-none">¡Regístrate ahora!</a>        
+                    <hr class="mb-4">
+                    <a class="d-block mb-0 text-orange text-decoration-none" data-bs-toggle="modal" data-bs-target="#restore-password" role="button">¿Olvidaste tu contraseña?</a>
+                </div>
             </form>
         </div>
     </section>
@@ -87,7 +89,7 @@
                         </div>
                     </div>
                     <div class="modal-footer border-0">
-                        <button type="button" class="btn btn-grey shadow-none rounded-1" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-gray shadow-none rounded-1" data-bs-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-orange shadow-none rounded-1">Enviar</button>
                     </div>
                 </form>

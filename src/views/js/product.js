@@ -56,21 +56,95 @@ $(document).ready(function() {
     });
     
     
-        $(".zoom").ezPlus({
-            zoomType: 'inner',
-            cursor: 'crosshair',
-            zoomWindowFadeIn: 500,
-            zoomWindowFadeOut: 500,
-            lensFadeIn: 500,
+    $(".zoom").ezPlus({
+        zoomType: 'inner',
+        cursor: 'crosshair',
+        zoomWindowFadeIn: 500,
+        zoomWindowFadeOut: 500,
+        lensFadeIn: 500,
+        lensFadeOut: 500
+    }/*{
+        zoomType: "inner",
+        zoomLevel: 2,
+        cursor: "crosshair",
+        zoomWindowFadeIn: 500,
+        zoomWindowFadeOut: 500,
+        lensFadeIn: 500,
             lensFadeOut: 500
-        }/*{
-            zoomType: "inner",
-            zoomLevel: 2,
-            cursor: "crosshair",
-            zoomWindowFadeIn: 500,
-            zoomWindowFadeOut: 500,
-            lensFadeIn: 500,
-            lensFadeOut: 500
-        }*/);
+    }*/);
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        showCloseButton: true,
+        timer: 1500,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    });
+
+    $('.add-cart').click(function() {
+        Toast.fire({
+            icon: 'success',
+            title: 'Tu producto ha sido añadido al carrito'
+        });
+    });
+
+    $('#add-cart').click(function() {
+        Toast.fire({
+            icon: 'success',
+            title: 'Tu producto ha sido añadido al carrito'
+        });
+    });
+
+    $('#add-wishlists').submit(function(event) {
+        event.preventDefault();
+
+        modal = document.getElementById('select-wishlist');
+        modalInstance = bootstrap.Modal.getInstance(modal);
+        modalInstance.hide();
+
+        Toast.fire({
+            icon: 'success',
+            title: 'Tu producto ha sido añadido a las listas de deseos'
+        })
+    });
+
+    $('#send-message').click(function() {
+
+        const text = $('#message-box').val();
+        $('#message-box').val('');
+
+        if (text === '')
+        {
+            return;
+        }
+
+        const html = /*html*/`
+        <div class="d-flex">
+            <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;">
+            <div class="col-9">
+                <a href="/sandbox" class="mt-0 me-1">Eliam Rodríguez Pérez</a>
+                <span class="rating">
+                    <i class="rating__star far fa-star" value="1"></i>
+                    <i class="rating__star far fa-star" value="2"></i>
+                    <i class="rating__star far fa-star" value="3"></i>
+                    <i class="rating__star far fa-star" value="4"></i>
+                    <i class="rating__star far fa-star" value="5"></i>
+                </span>
+                <p class="mb-0">${text}</p>
+                <small>${new Date().toUTCString()}</small><br>
+                <span class="badge bg-primary" role="button">Editar</span>
+                <span class="badge bg-danger" role="button">Eliminar</span>
+            </div>
+        </div>
+        <hr>`;
+
+        $('#comment-section').prepend(html);
+
+
+    });
 
 })

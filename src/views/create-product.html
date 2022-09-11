@@ -14,11 +14,7 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
-    
-    <!-- Owl Carousel -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    
+
     <!-- Multiple Select -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/multiple-select@1.5.2/dist/multiple-select.min.css" integrity="sha256-YxMnAq0wFCBOIF/R4MKL4FKRmadnH3co4oeTjIuyvQw=" crossorigin="anonymous">
 
@@ -179,7 +175,7 @@
                     <label class="form-label tags-label" for="categories">Categorías</label>
                     <button type="button" class="btn btn-orange badge shadow-none ms-2" data-bs-toggle="modal" data-bs-target="#create-category">Crear categoría</button>
                     <div>
-                        <select id="categories" name="categories" multiple="multiple" placeholder="Seleccionar">
+                        <select id="categories" name="categories" multiple="multiple" placeholder="Seleccionar" width="100%">
                             <option value="1">Frutas</option>
                             <option value="2">Chocolate</option>
                             <option value="3">Helado</option>
@@ -208,20 +204,20 @@
                         <div class="mb-4">
                             <label for="category-name" class="form-label" role="button">Nombre</label>
                             <div class="input-group">
-                                <input type="text" class="form-control shadow-none rounded-1" id="category-name" name="category-name" autocomplete="off">
+                                <input type="text" class="form-control shadow-none rounded-1" id="category-name" name="name" autocomplete="off">
                             </div>
                         </div>
     
                         <div class="mb-4">
                             <label for="category-description" class="form-label" role="button">Descripción</label>
                             <div class="input-group">
-                                <textarea class="form-control shadow-none rounded-1" id="category-description" name="category-description" rows="5" placeholder="¿Qué productos contendrá?"></textarea>
+                                <textarea class="form-control shadow-none rounded-1" id="category-description" name="description" rows="5" placeholder="¿Qué productos contendrá?"></textarea>
                             </div>
                         </div>
                     
                     </div>
                     <div class="modal-footer border-0">
-                        <button type="button" class="btn btn-grey rounded-1" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-gray rounded-1" data-bs-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-orange rounded-1">Guardar</button>
                     </div>
                 </form>
@@ -231,11 +227,8 @@
 
     <!-- Footer -->
     <footer class="page-footer p-5">
-        <!-- Container -->
         <div class="container-fluid">
-            <!-- Grid Row -->
             <div class="row text-md-start text-center">
-                <!-- Grid Column -->
                 <div class="col-md-3 mx-auto mb-3">
                     <ul class="list-unstyled">
                         <li class="my-2">
@@ -314,9 +307,6 @@
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/48ce36e499.js" crossorigin="anonymous"></script>
-
-    <!-- Owl Carousel -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- JavaScript -->
     <script src="./js/create-product.js"></script>

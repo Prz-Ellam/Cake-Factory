@@ -93,10 +93,12 @@ $(document).ready(function() {
                 }
             },
             'first-name': {
-                required: true
+                required: true,
+                regex: /^[a-zA-Z \u00C0-\u00FF]+$/
             },
             'last-name': {
-                required: true
+                required: true,
+                regex: /^[a-zA-Z \u00C0-\u00FF]+$/
             },
             'visibility': {
                 required: true
@@ -138,10 +140,12 @@ $(document).ready(function() {
                 remote: 'El nombre de usuario está siendo usado por alguien más.'
             },
             'first-name': {
-                required: 'El nombre no puede estar vacío.'
+                required: 'El nombre no puede estar vacío.',
+                regex: 'El nombre solo puede contener letras.'
             },
             'last-name': {
-                required: 'El apellido no puede estar vacío.'
+                required: 'El apellido no puede estar vacío.',
+                regex: 'El apellido solo puede contener letras'
             },
             'visibility': {
                 required: 'La visibilidad de usuario es requerida'
@@ -334,6 +338,7 @@ $(document).ready(function() {
 
         const requestBody = new FormData(this);
         console.log([...requestBody]);
+        return;
         // Send Sign Up Request
         $.ajax({
             method: 'POST',

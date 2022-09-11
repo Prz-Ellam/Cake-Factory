@@ -40,7 +40,12 @@ $(document).ready(function() {
 
     $(document).on('click', '.btn-red', function() {
 
-        $(this).parent().parent().remove();
+        $(this).closest('tr').remove();
+
+        Toast.fire({
+            icon: 'success',
+            title: 'Tu producto ha sido eliminado de la lista de deseos'
+        });
 
     });
 

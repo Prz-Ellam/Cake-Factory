@@ -7,8 +7,6 @@
     <title>Cake Factory</title>
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
         
     <!-- Bootstrap 5.0.0 -->
@@ -18,7 +16,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.28/sweetalert2.min.css" integrity="sha512-yq+qDDTUuLA4zvJjuvcpV809SNmM0ReTyeadKsNvW0cSvGVfj3K20SdlkburwJHHdzuGDtFElBcxndjd7J3nrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- CSS -->
+    <link rel="stylesheet" href="./styles/colors.css">
     <link href="./styles/navbar.css" rel="stylesheet">
     <link href="./styles/layout.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/index.css">
@@ -100,11 +102,8 @@
 
     <!-- Main Container -->
     <section class="container my-4">
-        <!-- Flex Box -->
         <div class="row d-flex justify-content-center">
-            <!-- Card -->
             <div class="p-5 bg-white rounded shadow-sm form-card">
-                <!-- Inputs -->
                 <div class="text-center mb-4">
                     <h1 class="text-brown">Detalles de producto</h1>
                 </div>
@@ -115,10 +114,10 @@
                     <div class="col-lg-6 p-5 align-self-center">
                         <img class="img-fluid zoom" id="zoom" src="./assets/img/E001S000026.jpg">
                         <div class="row">
-                            <img class="img-fluid col-6 col-md-3" id="" src="./assets/img/E001S000026.jpg">
-                            <img class="img-fluid col-6 col-md-3" id="" src="./assets/img/E001S000026.jpg">
-                            <img class="img-fluid col-6 col-md-3" id="" src="./assets/img/E001S000026.jpg">
-                            <img class="img-fluid col-6 col-md-3" id="" src="./assets/img/E001S000026.jpg">
+                            <img class="img-fluid col-6 col-md-3" role="button" id="" src="./assets/img/E001S000026.jpg">
+                            <img class="img-fluid col-6 col-md-3" role="button" id="" src="./assets/img/E001S000026.jpg">
+                            <img class="img-fluid col-6 col-md-3" role="button" id="" src="./assets/img/E001S000026.jpg">
+                            <img class="img-fluid col-6 col-md-3" role="button" id="" src="./assets/img/E001S000026.jpg">
                         </div>
                     </div>
 
@@ -142,27 +141,14 @@
                         
                         <hr>
 
-                            <!--div class="form-group">
-                            <label class="text-brown">Cantidad</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <input type="button" class="btn btn-outline-secondary" value="-">
-                                </div>
-                                <input type="number" value="1" min="1" max="100" class="quantity form-control shadow-none text-center w-50">
-                                <div class="input-group-append">
-                                    <input type="button" class="btn btn-outline-secondary" value="+">
-                                </div>
-                            </div>
-                            </div-->
-
                         <div class="form-group">
                             <label class="text-brown">Cantidad</label>
                             <input type="number" value="1" min="1" max="100" class="quantity form-control shadow-none w-50 mb-4" id="quantity">
                         </div>
 
                         <div class="w-100 d-md-flex" >
-                            <button class="ms-auto btn btn-md btn-secondary shadow-none p-3 bg-orange h5 me-3 w-100" id="add-cart"><i class="fas fa-shopping-cart me-1"></i> Agregar al carrito</button>
-                            <button class="ms-auto btn btn-md btn-secondary shadow-none p-3 bg-orange h5 w-100"><i class="fa fa-heart"></i> Lista de deseos</button>
+                            <button class="ms-auto btn btn-md btn-orange shadow-none p-3 h5 me-3 w-100" id="add-cart"><i class="fas fa-shopping-cart me-1"></i> Agregar al carrito</button>
+                            <button class="ms-auto btn btn-md btn-orange shadow-none p-3 h5 w-100" data-bs-toggle="modal" data-bs-target="#select-wishlist" id="add-wishlist"><i class="fa fa-heart"></i> Lista de deseos</button>
                         </div>     
                     </div>
                 </div>
@@ -179,110 +165,115 @@
 
             <hr>
 
-            <div class="d-flex">
-                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;">
-                <div class="row">
-                    <div class="col-9">
-                        <a href="/sandbox" class="mt-0 me-1">Eliam Rodríguez Pérez</a>
-                        <span class="rating">
-                            <i class="rating__star far fa-star" value="1"></i>
-                            <i class="rating__star far fa-star" value="2"></i>
-                            <i class="rating__star far fa-star" value="3"></i>
-                            <i class="rating__star far fa-star" value="4"></i>
-                            <i class="rating__star far fa-star" value="5"></i>
-                        </span>
-                        <p class="mb-0">Hola me gusta mucho este producto creo que es muy bueno</p>
-                        <small>15 de enero de 2022 a las 03:46</small><br>
-                        <span class="badge bg-primary" role="button">Editar</span>
-                        <span class="badge bg-danger" role="button">Eliminar</span>
+            <textarea class="form-control rounded-1 shadow-none mb-3" id="message-box" placeholder="Escribe un comentario"></textarea>
+            <button class="btn btn-orange rounded-1 shadow-none mb-4" id="send-message">Enviar</button>
+
+            <div id="comment-section">
+                <div class="d-flex">
+                    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;">
+                    <div class="row">
+                        <div class="col-9">
+                            <a href="/sandbox" class="mt-0 me-1">Eliam Rodríguez Pérez</a>
+                            <span class="rating">
+                                <i class="rating__star far fa-star" value="1"></i>
+                                <i class="rating__star far fa-star" value="2"></i>
+                                <i class="rating__star far fa-star" value="3"></i>
+                                <i class="rating__star far fa-star" value="4"></i>
+                                <i class="rating__star far fa-star" value="5"></i>
+                            </span>
+                            <p class="mb-0">Hola me gusta mucho este producto creo que es muy bueno</p>
+                            <small>15 de enero de 2022 a las 03:46</small><br>
+                            <span class="badge bg-primary" role="button">Editar</span>
+                            <span class="badge bg-danger" role="button">Eliminar</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <hr>
-
-            <div class="d-flex">
-                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;">
-                <div class="row">
-                    <div class="col-9">
-                        <a href="/sandbox" class="mt-0 me-1">Eliam Rodríguez Pérez</a>
-                        <span class="rating">
-                            <i class="rating__star far fa-star" value="1"></i>
-                            <i class="rating__star far fa-star" value="2"></i>
-                            <i class="rating__star far fa-star" value="3"></i>
-                            <i class="rating__star far fa-star" value="4"></i>
-                            <i class="rating__star far fa-star" value="5"></i>
-                        </span>
-                        <p class="mb-0">Hola me gusta mucho este producto creo que es muy bueno</p>
-                        <small>15 de enero de 2022 a las 03:46</small><br>
-                        <span class="badge bg-primary" role="button">Editar</span>
-                        <span class="badge bg-danger" role="button">Eliminar</span>
+                
+                <hr>
+                
+                <div class="d-flex">
+                    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;">
+                    <div class="row">
+                        <div class="col-9">
+                            <a href="/sandbox" class="mt-0 me-1">Eliam Rodríguez Pérez</a>
+                            <span class="rating">
+                                <i class="rating__star far fa-star" value="1"></i>
+                                <i class="rating__star far fa-star" value="2"></i>
+                                <i class="rating__star far fa-star" value="3"></i>
+                                <i class="rating__star far fa-star" value="4"></i>
+                                <i class="rating__star far fa-star" value="5"></i>
+                            </span>
+                            <p class="mb-0">Hola me gusta mucho este producto creo que es muy bueno</p>
+                            <small>15 de enero de 2022 a las 03:46</small><br>
+                            <span class="badge bg-primary" role="button">Editar</span>
+                            <span class="badge bg-danger" role="button">Eliminar</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <hr>
-
-            <div class="d-flex">
-                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;">
-                <div class="row">
-                    <div class="col-9">
-                        <a href="/sandbox" class="mt-0 me-1">Eliam Rodríguez Pérez</a>
-                        <span class="rating">
-                            <i class="rating__star far fa-star" value="1"></i>
-                            <i class="rating__star far fa-star" value="2"></i>
-                            <i class="rating__star far fa-star" value="3"></i>
-                            <i class="rating__star far fa-star" value="4"></i>
-                            <i class="rating__star far fa-star" value="5"></i>
-                        </span>
-                        <p class="mb-0">Hola me gusta mucho este producto creo que es muy bueno</p>
-                        <small>15 de enero de 2022 a las 03:46</small><br>
-                        <span class="badge bg-primary" role="button">Editar</span>
-                        <span class="badge bg-danger" role="button">Eliminar</span>
+                
+                <hr>
+                
+                <div class="d-flex">
+                    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;">
+                    <div class="row">
+                        <div class="col-9">
+                            <a href="/sandbox" class="mt-0 me-1">Eliam Rodríguez Pérez</a>
+                            <span class="rating">
+                                <i class="rating__star far fa-star" value="1"></i>
+                                <i class="rating__star far fa-star" value="2"></i>
+                                <i class="rating__star far fa-star" value="3"></i>
+                                <i class="rating__star far fa-star" value="4"></i>
+                                <i class="rating__star far fa-star" value="5"></i>
+                            </span>
+                            <p class="mb-0">Hola me gusta mucho este producto creo que es muy bueno</p>
+                            <small>15 de enero de 2022 a las 03:46</small><br>
+                            <span class="badge bg-primary" role="button">Editar</span>
+                            <span class="badge bg-danger" role="button">Eliminar</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <hr>
-
-            <div class="d-flex">
-                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;">
-                <div class="row">
-                    <div class="col-9">
-                        <a href="/sandbox" class="mt-0 me-1">Eliam Rodríguez Pérez</a>
-                        <span class="rating">
-                            <i class="rating__star far fa-star" value="1"></i>
-                            <i class="rating__star far fa-star" value="2"></i>
-                            <i class="rating__star far fa-star" value="3"></i>
-                            <i class="rating__star far fa-star" value="4"></i>
-                            <i class="rating__star far fa-star" value="5"></i>
-                        </span>
-                        <p class="mb-0">Hola me gusta mucho este producto creo que es muy bueno</p>
-                        <small>15 de enero de 2022 a las 03:46</small><br>
-                        <span class="badge bg-primary" role="button">Editar</span>
-                        <span class="badge bg-danger" role="button">Eliminar</span>
+                
+                <hr>
+                
+                <div class="d-flex">
+                    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;">
+                    <div class="row">
+                        <div class="col-9">
+                            <a href="/sandbox" class="mt-0 me-1">Eliam Rodríguez Pérez</a>
+                            <span class="rating">
+                                <i class="rating__star far fa-star" value="1"></i>
+                                <i class="rating__star far fa-star" value="2"></i>
+                                <i class="rating__star far fa-star" value="3"></i>
+                                <i class="rating__star far fa-star" value="4"></i>
+                                <i class="rating__star far fa-star" value="5"></i>
+                            </span>
+                            <p class="mb-0">Hola me gusta mucho este producto creo que es muy bueno</p>
+                            <small>15 de enero de 2022 a las 03:46</small><br>
+                            <span class="badge bg-primary" role="button">Editar</span>
+                            <span class="badge bg-danger" role="button">Eliminar</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <hr>
-
-            <div class="d-flex">
-                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;">
-                <div class="row">
-                    <div class="col-9">
-                        <a href="/sandbox" class="mt-0 me-1">Eliam Rodríguez Pérez</a>
-                        <span class="rating">
-                            <i class="rating__star far fa-star" value="1"></i>
-                            <i class="rating__star far fa-star" value="2"></i>
-                            <i class="rating__star far fa-star" value="3"></i>
-                            <i class="rating__star far fa-star" value="4"></i>
-                            <i class="rating__star far fa-star" value="5"></i>
-                        </span>
-                        <p class="mb-0">Hola me gusta mucho este producto creo que es muy bueno</p>
-                        <small>15 de enero de 2022 a las 03:46</small><br>
-                        <span class="badge bg-primary" role="button">Editar</span>
-                        <span class="badge bg-danger" role="button">Eliminar</span>
+                
+                <hr>
+                
+                <div class="d-flex">
+                    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;">
+                    <div class="row">
+                        <div class="col-9">
+                            <a href="/sandbox" class="mt-0 me-1">Eliam Rodríguez Pérez</a>
+                            <span class="rating">
+                                <i class="rating__star far fa-star" value="1"></i>
+                                <i class="rating__star far fa-star" value="2"></i>
+                                <i class="rating__star far fa-star" value="3"></i>
+                                <i class="rating__star far fa-star" value="4"></i>
+                                <i class="rating__star far fa-star" value="5"></i>
+                            </span>
+                            <p class="mb-0">Hola me gusta mucho este producto creo que es muy bueno</p>
+                            <small>15 de enero de 2022 a las 03:46</small><br>
+                            <span class="badge bg-primary" role="button">Editar</span>
+                            <span class="badge bg-danger" role="button">Eliminar</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -304,8 +295,8 @@
                         <h5 class="fw-bold price mb-0">$297.00</h5>
                         <p>Fresas con crema</p>
                         <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
-                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
+                            <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1 add-cart">Agregar al carrito</button>
+                            <button class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#select-wishlist"><i class="fa fa-heart"></i></button>
                         </div>
                     </div>
                 </div>
@@ -316,8 +307,8 @@
                         <h5 class="fw-bold price h6 mb-0">$297.00</h5>
                         <p>Bambino tentación de fresa</p>
                         <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
-                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
+                            <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1 add-cart">Agregar al carrito</button>
+                            <button class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#select-wishlist"><i class="fa fa-heart"></i></button>
                         </div>
                     </div>
                 </div>
@@ -328,8 +319,8 @@
                         <h5 class="fw-bold price mb-0">$297.00</h5>
                         <p>Tentación de frutas</p>
                         <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1">Agregar al carrito</button>
-                            <button class="btn btn-danger shadow-none rounded-1"><i class="fa fa-heart"></i></button>
+                            <button class="btn btn-primary shadow-none bg-orange rounded-1 me-1 add-cart">Agregar al carrito</button>
+                            <button class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#select-wishlist"><i class="fa fa-heart"></i></button>
                         </div>
                     </div>
                 </div>  
@@ -337,13 +328,74 @@
         </div>
     </section>
 
+    <div class="modal fade" id="select-wishlist" tabindex="-1" aria-labelledby="select-wishlist-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <form class="modal-content" id="add-wishlists">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="select-wishlist-label">¿A qué listas de deseos quieres añadir?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>
+                                <img src="./assets/img/E001S000031.jpg" class="img-fluid" alt="lay" style="max-width: 128px">
+                                Navideños
+                            </span>
+                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>
+                                <img src="./assets/img/E001S000031.jpg" class="img-fluid" alt="lay" style="max-width: 128px">
+                                Cumpleaños
+                            </span>
+                            <input name="wishlists" class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>
+                                <img src="./assets/img/E001S000031.jpg" class="img-fluid" alt="lay" style="max-width: 128px">
+                                Baby shower
+                            </span>
+                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>
+                                <img src="./assets/img/E001S000031.jpg" class="img-fluid" alt="lay" style="max-width: 128px">
+                                Para año nuevo
+                            </span>
+                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>
+                                <img src="./assets/img/E001S000031.jpg" class="img-fluid" alt="lay" style="max-width: 128px">
+                                Para Rex
+                            </span>
+                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                        </li>
+
+                        <nav aria-label="Page navigation" class="mt-4 text-center d-flex justify-content-center">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link text-brown shadow-none" href="#">Anterior</a></li>
+                                <li class="page-item"><a class="page-link text-brown shadow-none" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link text-brown shadow-none" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link text-brown shadow-none" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link text-brown shadow-none" href="#">Siguiente</a></li>
+                            </ul>
+                        </nav>
+                    </ul>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary rounded-1 shadow-none" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-orange rounded-1 shadow-none">Aceptar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="page-footer p-5">
-        <!-- Container -->
         <div class="container-fluid">
-            <!-- Grid Row -->
             <div class="row text-md-start text-center">
-                <!-- Grid Column -->
                 <div class="col-md-3 mx-auto mb-3">
                     <ul class="list-unstyled">
                         <li class="my-2">
@@ -428,6 +480,9 @@
     
     <!-- Owl Carousel -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Sweet Alert -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.28/sweetalert2.all.min.js" integrity="sha512-nWDPZH/tnW5b1KedLPkb9inxNXadIf4qQDoGTxPJcQNMn4XwPIIlmHSPofT821taBuF1t/uiGSOsRrVccwXS4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- JavaScript -->
     <script type="text/javascript" src="./js/product.js"></script>

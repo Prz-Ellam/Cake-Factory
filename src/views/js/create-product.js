@@ -137,19 +137,21 @@ $(document).ready(function() {
 
     $('#create-category-form').validate({
         rules: {
-            'category-name': {
-                required: true
+            'name': {
+                required: true,
+                maxlength: 20
             },
-            'category-description': {
-               
+            'description': {
+                maxlength: 50
             }
         },
         messages: {
-            'category-name': {
-                required: 'El nombre no puede estar vacío.'
+            'name': {
+                required: 'El nombre no puede estar vacío.',
+                maxlength: 'El nombre de la categoría es muy largo'
             },
-            'category-description': {
-                
+            'description': {
+                maxlength: 'La descripción de la categoría es muy largo'
             }
         },
         errorElement: 'small',
@@ -235,7 +237,7 @@ $(document).ready(function() {
         return object;
     }
 
-
+    optionsCount = 5;
     $('#create-category-form').submit(function(event) {
 
         event.preventDefault();
@@ -249,8 +251,13 @@ $(document).ready(function() {
         modalInstance = bootstrap.Modal.getInstance(modal);
         modalInstance.hide();
 
-        const requestBody = jsonEncode(new FormData(this));
-        console.log(requestBody);
+        const requestBody = new FormData(this);
+        console.log([...requestBody]);
+
+        $('#categories').append(`<option value="${optionsCount}">${requestBody.get('name')}</option>`);
+        $('#categories').multipleSelect('refresh');
+
+        return;
         $.ajax({
             method: 'POST',
             url: 'api/v1/categories',
