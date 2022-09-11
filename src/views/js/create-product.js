@@ -16,7 +16,7 @@ $(document).ready(function() {
 
     const images = [];
     var imageCounter = 0;
-    $('#images').on('change', function(e) {
+    $('#images-transfer').on('change', function(e) {
 
         const files = $(this)[0].files;
         $.each(files, function(i, file) {
@@ -34,10 +34,12 @@ $(document).ready(function() {
                     'file': file
                 });
                 imageCounter++;
-                if (images.length >= 3)
-                {
-                    $('#images-error-label').remove();
-                }
+
+                const dataTransfer = new DataTransfer();
+                images.forEach((element) => {
+                    dataTransfer.items.add(element.file);
+                });
+                document.getElementById('images').files = dataTransfer.files;
             };
             fileReader.readAsDataURL(file);
 
@@ -63,11 +65,17 @@ $(document).ready(function() {
 
         imageHTML.remove();
 
+        const dataTransfer = new DataTransfer();
+        images.forEach((element) => {
+            dataTransfer.items.add(element.file);
+        });
+        document.getElementById('images').files = dataTransfer.files;
+
     });
 
     const videos = [];
     var videoCounter = 0;
-    $('#videos').on('change', function(e) {
+    $('#videos-transfer').on('change', function(e) {
 
         const files = $(this)[0].files;
         $.each(files, function(i, file) {
@@ -87,10 +95,12 @@ $(document).ready(function() {
                     'file': file
                 });
                 videoCounter++;
-                if (videos.length >= 1)
-                {
-                    console.log('Videos correctos');
-                }
+
+                const dataTransfer = new DataTransfer();
+                videos.forEach((element) => {
+                    dataTransfer.items.add(element.file);
+                });
+                document.getElementById('videos').files = dataTransfer.files;
             };
             reader.readAsDataURL(file);
 
@@ -117,6 +127,12 @@ $(document).ready(function() {
         videoHTML.remove();
         $(this).remove();
 
+        const dataTransfer = new DataTransfer();
+        videos.forEach((element) => {
+            dataTransfer.items.add(element.file);
+        });
+        document.getElementById('videos').files = dataTransfer.files;
+
     });
 
     $('#create-category-form').validate({
@@ -142,6 +158,10 @@ $(document).ready(function() {
         }
     });
 
+    $.validator.addMethod('fileCount', function(value, element, parameter) {
+        return (element.files.length >= Number(parameter));
+    }, 'Please complete the input file');
+
     $('#create-product-form').validate({
         rules: {
             'name': {
@@ -151,11 +171,22 @@ $(document).ready(function() {
                 required: true
             },
             'price': {
-                required: true
+                required: true,
+                min: 0.01
             },
             'stock': {
                 required: true,
-                number: true
+                number: true,
+                min: 1
+            },
+            'images': {
+                fileCount: 3
+            },
+            'videos': {
+                fileCount: 1
+            },
+            'categories': {
+                required: true
             }
         },
         messages: {
@@ -166,11 +197,22 @@ $(document).ready(function() {
                 required: 'La descripción del producto no puede estar vacía.'
             },
             'price': {
-                required: 'Si el producto es para vender, el precio no puede estar vacío'
+                required: 'Si el producto es para vender, el precio no puede estar vacío',
+                min: 'El precio del producto no puede ser $0.00 M.N'
             },
             'stock': {
                 required: 'La cantidad de producto no puede estar vacía',
-                number: 'La cantidad debe ser un número'
+                number: 'La cantidad debe ser un número',
+                min: 'Debe haber al menos un producto en existencia'
+            },
+            'images': {
+                fileCount: 'La cantidad de imágenes debe ser mínimo 3'
+            },
+            'videos': {
+                fileCount: 'La cantidad de videos debe ser mínimo 1'
+            },
+            'categories': {
+                required: 'Las categorías no pueden estar vacías'
             }
         },
         errorElement: 'small',
@@ -203,6 +245,10 @@ $(document).ready(function() {
             return;
         }
 
+        modal = document.getElementById('create-category');
+        modalInstance = bootstrap.Modal.getInstance(modal);
+        modalInstance.hide();
+
         const requestBody = jsonEncode(new FormData(this));
         console.log(requestBody);
         $.ajax({
@@ -232,7 +278,7 @@ $(document).ready(function() {
         e.preventDefault();
 
         let validations = $(this).valid();
-
+/*
         let valids = true;
         if (images.length < 3)
         {
@@ -247,8 +293,8 @@ $(document).ready(function() {
             console.log('Faltan videos');
             valids = false;
         }
-
-        if (validations === false || valids === false) {
+*/
+        if (validations === false) {
             return;
         }
 

@@ -106,8 +106,8 @@
 
     <section class="container my-4">
         <div class="row d-flex justify-content-center">
-            <form class="bg-white shadow-sm rounded-1 p-5 col-8" id="create-product-form">
-                <!-- Inputs -->
+            <form class="bg-white shadow-sm rounded-1 p-5 col-lg-8 col-md-6" id="create-product-form">
+                
                 <h1 class="h2 text-center mb-4">Agregar producto</h1>
 
                 <hr class="mb-4">
@@ -153,35 +153,39 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="images" label="form-label" role="button">Imágenes (mínimo 3)</label>
+                    <label for="images-transfer" label="form-label" role="button">Imágenes (mínimo 3)</label>
                     <div class="input-group">
-                        <label for="images" role="button" class="btn btn-primary rounded-1 w-100"><i class="fa fa-upload" aria-hidden="true"></i> Añadir imágenes</label>
-                        <input type="file" class="form-control shadow-none d-none" name="images" id="images" multiple accept="image/*">
+                        <label for="images-transfer" role="button" class="btn btn-primary rounded-1 w-100"><i class="fa fa-upload" aria-hidden="true"></i> Añadir imágenes</label>
+                        <input type="file" class="form-control shadow-none position-absolute" style="scale: 0.01" name="images" id="images" multiple accept="image/*">
+                        <input type="file" id="images-transfer" class="d-none" multiple accept="image/*">
                     </div>
                     <div class="my-4" style="overflow-x: scroll; width: 100%; white-space: nowrap;" id="image-list">
                     </div>
                 </div>
 
                 <div class="mb-4">
-                    <label for="videos" class="form-label" role="button">Videos (mínimo 1)</label>
+                    <label for="videos-transfer" class="form-label" role="button">Videos (mínimo 1)</label>
                     <div class="input-group">
-                        <label for="videos" role="button" class="btn btn-success rounded-1 w-100"><i class="fa fa-upload" aria-hidden="true"></i> Añadir videos</label>
-                        <input type="file" class="form-control shadow-none d-none" name="videos" id="videos" multiple accept="video/*">
+                        <label for="videos-transfer" role="button" class="btn btn-success rounded-1 w-100"><i class="fa fa-upload" aria-hidden="true"></i> Añadir videos</label>
+                        <input type="file" class="form-control shadow-none position-absolute" style="scale: 0.01" name="videos" id="videos" multiple accept="video/*">
+                        <input type="file" id="videos-transfer" class="d-none" multiple accept="video/*">
                     </div>
                     <div class="mb-4" style="overflow-x: scroll; width: 100%; white-space: nowrap;" id="video-list">
                         
                     </div>
                 </div>
 
-                
-
                 <div class="mb-3">
                     <label class="form-label tags-label" for="categories">Categorías</label>
                     <button type="button" class="btn btn-orange badge shadow-none ms-2" data-bs-toggle="modal" data-bs-target="#create-category">Crear categoría</button>
-                    <select id="categories" name="categories" multiple>
-                        <option value="" selected hidden>Seleccionar</option>
-                        <option value="1">1</option>
-                    </select>
+                    <div>
+                        <select id="categories" name="categories" multiple="multiple" placeholder="Seleccionar">
+                            <option value="1">Frutas</option>
+                            <option value="2">Chocolate</option>
+                            <option value="3">Helado</option>
+                            <option value="4">Pan</option>
+                        </select>
+                    </div>
                 </div>
 
                 <input class="btn btn-orange text-light shadow-none rounded-1 w-100 mt-3" type="submit" value="Registrar" id="submit">

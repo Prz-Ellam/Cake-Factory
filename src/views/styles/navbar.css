@@ -43,9 +43,7 @@ body {
     border: 1px solid #c44817;
 }
 
-.text-brown {
-    color: #3B1002 !important;
-}
+
 
 .primary-nav-item:hover {
     cursor: pointer;

@@ -25,8 +25,6 @@
 
     <link rel="stylesheet" href="styles/colors.css">
     <link type="text/css" href="./styles/profile-picture.css" rel="stylesheet">
-
-
 </head>
 <body>
 
@@ -188,6 +186,127 @@
                             <label class="form-label" for="password" role="button">Contraseña</label>
                             <div class="input-group">
                                 <input type="password" class="form-control shadow-none" name="password" id="password">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-orange btn-password input-group-text shadow-none rounded-0 rounded-end shadow-none" id="btn-password"><i id="password-icon" class="fas fa-solid fa-eye"></i></button>
+                                </div>
+                            </div>
+                            <div>
+                                <small>La contraseña debe contener:</small>
+                                <ul>
+                                    <li class="pwd-length"><small>Al menos 8 caracteres</small></li>
+                                    <li class="pwd-uppercase"><small>Al menos una mayúscula</small></li>
+                                    <li class="pwd-lowercase"><small>Al menos una minuscula</small></li>
+                                    <li class="pwd-number"><small>Al menos un número</small></li>
+                                    <li class="pwd-specialchars"><small>Al menos un carácter especial</small></li>
+                                </ul>
+                            </div>
+                        </div>
+        
+                        <div class="form-group mb-4">
+                            <label class="form-label" for="confirm-password" role="button">Confirmar Contraseña</label>
+                            <div class="input-group">
+                                <input type="password" name="confirm-password" id="confirm-password" class="form-control shadow-none">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-orange btn-password input-group-text shadow-none rounded-0 rounded-end shadow-none" id="btn-confirm-password"><i id="confirm-password-icon" class="fas fa-solid fa-eye"></i></button>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="form-group mb-4 mt-5">
+                            <button type="input" class="btn btn-orange w-100 shadow-none rounded-1" id="btn-signup">Crear una cuenta</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="edit-user" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content border-0 shadow-sm">
+                <form id="admin-form">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title" id="exampleModalLabel">Agregar administrador</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group text-center mb-4">
+                            <div class="position-relative">
+                                <label for="profile-picture" role="button" class="profile-picture-label text-white position-absolute rounded-circle"></label>
+                                <img class="img img-fluid rounded-circle" id="picture-box" src="assets/img/blank-profile-picture.svg">
+                            </div>
+                            <input type="file" accept="image/*" class="form-control shadow-none rounded-1 position-absolute" name="profile-picture" id="profile-picture" >
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="form-label" for="email" role="button">Correo electrónico</label>
+                            <div class="input-group">
+                                <input type="email" class="form-control shadow-none rounded-1" name="email" id="edit-user-email" placeholder="ejemplo@correo.com">
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label" for="username" role="button">Nombre de usuario</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control shadow-none rounded-1" name="username" id="edit-user-username" autocomplete="off" placeholder="Debe contener mínimo 3 caracteres">
+                            </div>
+                        </div>
+        
+                        <div class="form-group mb-4">
+                            <label class="form-label" for="birth-date" role="button">Fecha de nacimiento</label>
+                            <div class="input-group">
+                                <input type="date" class="form-control shadow-none rounded-1" name="birth-date" id="edit-user-birth-date">
+                            </div>
+                        </div>
+        
+                        <div class="form-group mb-4">
+                            <label class="form-label" for="first-name" role="button">Nombre</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control shadow-none rounded-1" name="first-name" id="edit-user-first-name">
+                            </div>
+                        </div>
+        
+                        <div class="form-group mb-4">
+                            <label class="form-label" for="last-name" role="button">Apellido(s)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control shadow-none rounded-1" name="last-name" id="edit-user-last-name">
+                            </div>
+                        </div>
+        
+                        <div class="form-group mb-4">
+                            <label class="form-label" for="visibility" role="button">Visibilidad</label>
+                            <div class="input-group">
+                                <select class="form-select shadow-none rounded-1" name="visibility" id="visibility" role="button">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Público</option>
+                                    <option value="2">Privado</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label class="form-label" role="button">Sexo</label>
+                            <div>
+                                <div class="form-check">
+                                    <input class="custom-control-input form-check-input shadow-none" type="radio" name="edit-user-gender" id="male" value="1">
+                                    <label class="form-check-label" for="male" role="button">Masculino</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="custom-control-input form-check-input shadow-none" type="radio" name="edit-user-gender" id="female" value="2">
+                                    <label class="form-check-label" for="female" role="button">Femenino</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="custom-control-input form-check-input shadow-none" type="radio" name="edit-user-gender" id="other" value="0">
+                                    <label class="form-check-label" for="other" role="button">Otro</label>
+                                </div>  
+                            </div>  
+                        </div>
+        
+                        <div class="form-group mb-4">
+                            <label class="form-label" for="password" role="button">Contraseña</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control shadow-none" name="password" id="edit-user-password">
                                 <div class="input-group-append">
                                     <button type="button" class="btn btn-orange btn-password input-group-text shadow-none rounded-0 rounded-end shadow-none" id="btn-password"><i id="password-icon" class="fas fa-solid fa-eye"></i></button>
                                 </div>

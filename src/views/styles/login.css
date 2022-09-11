@@ -67,30 +67,3 @@
 }
 
 
-
-
-.text-orange {
-    color: #FF5E1F;
-}
-
-.text-orange:hover, .text-orange:active {
-    color: #C44817;
-}
-
-.btn-orange {
-    color: #fff;
-    background-color: #FF5E1F;
-    border-color: #FF5E1F;
-}
-
-.btn-orange:hover {
-    color: #fff;
-    background-color: #CA4C1B;
-    border-color: #CA4C1B;
-}
-
-.btn-orange:active {
-    color: #fff;
-    background-color: #bd491b;
-    border-color: #bd491b;
-}

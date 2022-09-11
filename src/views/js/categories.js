@@ -10,7 +10,7 @@ $(document).ready(function() {
 
     var category;
 
-    $('#categories').DataTable({
+    var table = $('#categories').DataTable({
         responsive: true,
         bAutoWidth: false,
         language: {
@@ -153,7 +153,10 @@ $(document).ready(function() {
             return;
         }
 
+        $($(row).children()[1]).html($('#edit-category-name').val());
+        $($(row).children()[2]).html($('#edit-category-description').val());
 
+        table.draw(false)
 
     });
 

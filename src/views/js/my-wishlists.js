@@ -9,27 +9,44 @@ class Wishlist
     }
 }
 
-function getImages(card, images) {
+function getImages() {
 
-    $.each(images, function(i, image) {
+    let imagesHTML;
+    $('#add-image-list').children('span').each(function(i, element) {
 
-        let reader = new FileReader();
-        reader.onload = function(image) {
-            const imagesHTML = /*html*/`
-            <div class="carousel-item${(i == 0 ? " active" : "")}" data-bs-interval="10000">
-                <div class="ratio ratio-4x3">
-                    <img src="${image.target.result}" class="card-img-top w-100 h-100">
-                </div>
+        const dataURL = $(element).find('.product-mul').attr('src');
+        imagesHTML += /*html*/`
+        <div class="carousel-item${(i == 0 ? " active" : "")}" data-bs-interval="10000">
+            <div class="ratio ratio-4x3">
+                <img src="${dataURL}" class="card-img-top w-100 h-100">
             </div>
-            `;
-            $(card).find('.card .carousel .carousel-inner').append(imagesHTML);
-        };
-        reader.readAsDataURL(image);
-
+        </div>
+        `;
     });
 
-    var carouselDOM = $(card).find('.card .carousel')[0];
-    new bootstrap.Carousel(carouselDOM);
+    return imagesHTML;
+
+    //$.each(images, function(i, image) {
+
+    //    let reader = new FileReader();
+    //    reader.onload = function(image) {
+    //        const imagesHTML = /*html*/`
+    //        <div class="carousel-item${(i == 0 ? " active" : "")}" data-bs-interval="10000">
+    //            <div class="ratio ratio-4x3">
+    //                <img src="${image.target.result}" class="card-img-top w-100 h-100">
+    //            </div>
+    //        </div>
+    //        `;
+    //        $(card).find('.card .carousel .carousel-inner').append(imagesHTML);
+    //    };
+    //    reader.readAsDataURL(image);
+
+    //});
+
+    
+
+    //var carouselDOM = $(card).find('.card .carousel')[0];
+    //new bootstrap.Carousel(carouselDOM);
 }
 
 function WishlistCard(wishlist) {
@@ -44,6 +61,7 @@ function WishlistCard(wishlist) {
         <div class="card mx-auto" style="width: 18rem;">
             <div class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
+                    ${getImages()}
                 </div>
             </div>
             <div class="card-body">
@@ -60,7 +78,12 @@ function WishlistCard(wishlist) {
     `));
 
     $('#wishlist-container').append(card);
-    getImages(card, wishlist.images);
+    //console.log(jqCard)
+    var carouselDOM = $(card).find('.card .carousel')[0];
+    console.log(carouselDOM);
+    var carousel = new bootstrap.Carousel(carouselDOM);
+    carousel.cycle();
+
 }
 
 
@@ -79,7 +102,7 @@ const wishlistCard = /*html*/`
         <div class="card-body">
             <h5 class="card-title text-brown wishlist-name">Nombre de la lista</h5>
             <p class="card-text text-brown wishlist-description mb-2">Descripción de la lista</p>
-            <p class="text-brown wishlist-visibility" value="1"><i class="fas fa-users" aria-hidden="true"></i> Público</p>
+            <p class="text-brown wishlist-visibility" value="1"><i class="fas fa-users" aria-hidden="true"></i> Pública</p>
             <div class="d-flex justify-content-start">
                 <a href="/edit-product" class="btn btn-blue shadow-none rounded-1 me-1 edit-wishlist" data-bs-toggle="modal" data-bs-target="#edit-wishlist">Editar</a>
                 <a href="#" class="btn btn-red shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-wishlist">Eliminar</a>
@@ -140,10 +163,61 @@ $(document).ready(function() {
 
     });
 
+    async function imageToDataURL(imageUrl) {
+        let img = await fetch(imageUrl);
+        img = await img.blob();
+        let bitmap = await createImageBitmap(img);
+        let canvas = document.createElement("canvas");
+        let ctx = canvas.getContext("2d");
+        canvas.width = bitmap.width;
+        canvas.height = bitmap.height;
+        ctx.drawImage(bitmap, 0, 0, bitmap.width, bitmap.height);
+        return canvas.toDataURL("image/png");
+        // image compression? 
+        // return canvas.toDataURL("image/png", 0.9);
+      };
+
     var editCard;
     $(document).on('click', '.edit-wishlist' ,function(){
         
         editCard = $(this).parent().parent();
+
+        let a = $(editCard).parent().find('.carousel .carousel-inner');
+
+        $('#edit-image-list').html('');
+        let i = 0;
+
+        const fileInput = document.getElementById('edit-images');
+
+        const dataTransfer = new DataTransfer();
+        $(a).children('.carousel-item').each(async function() {
+            const data = await imageToDataURL(this.children[0].children[0].src);
+            const type = data.split(';')[0].split(':')[1];
+
+            var index = this.children[0].children[0].src.lastIndexOf("/") + 1;
+            var filename = this.children[0].children[0].src.substr(index);
+            console.log(filename);
+
+            console.log(type);
+            $('#edit-image-list').append(`
+                    <span class="position-relative" id="image-${i}">
+                        <button type="button" class="btn btn-outline-info bg-dark image-close border-0 rounded-0 shadow-sm text-light position-absolute" onclick="$(this).parent().remove()">&times;</button>
+                        <img class="product-mul" src="${data}">
+                    </span>
+            `);
+            i++;
+
+            const file = new File([data], filename, {
+                type: type,
+                lastModified: new Date(),
+            });
+
+            dataTransfer.items.add(file);
+            fileInput.files = dataTransfer.files;
+        })
+
+        
+
 
         $('#edit-wishlist-name').val($(editCard).find('.wishlist-name').text());
         $('#edit-wishlist-description').val($(editCard).find('.wishlist-description').text());
@@ -166,7 +240,7 @@ $(document).ready(function() {
         return this.optional(element) || result;
     }, 'Please enter a valid file');
 
-    $('#wishlist-form').validate({
+    $('#add-wishlist-form').validate({
         rules: {
             'name': {
                 required: true
@@ -195,23 +269,133 @@ $(document).ready(function() {
         }
     });
 
-    var wishlistImages = [];
-    $('#images').on('change', function(e) {
+    $('#edit-wishlist-form').validate({
+        rules: {
+            'name': {
+                required: true
+            },
+            'description': {
+                required: true
+            },
+            'visibility': {
+                required: true
+            }
+        },
+        messages: {
+            'name': {
+                required: 'El nombre de la lista de deseos no puede estar vacío.'
+            },
+            'description': {
+                required: 'La descripción de la lista de deseos no puede estar vacía.'
+            },
+            'visibility': {
+                required: 'La visibilidad no puede estar vacía.'
+            }
+        },
+        errorElement: 'small',
+        errorPlacement: function(error, element) {
+            error.insertAfter(element.parent()).addClass('text-danger').addClass('form-text').attr('id', element[0].id + '-error-label');
+        }
+    });
 
-        const fileList = $(this)[0].files;
-        $.each(fileList, function(i, element) {
+    // Agregar Listas de deseos
+    const images = [];
+    var imageCounter = 0;
+    $('#add-images-transfer').on('change', function(e) {
 
-            let reader = new FileReader();
-            reader.onload = function(e) {
-                $('#image-list').append(`
-                    <span class="position-relative">
-                        <button type="button" class="btn btn-outline-info bg-dark close border-0 rounded-0 shadow-sm text-light position-absolute" onclick="$(this).parent().remove()">&times;</button>
+        const files = $(this)[0].files;
+
+        $.each(files, function(i, file) {
+
+            let fileReader = new FileReader();
+            fileReader.onload = function(e) {
+                $('#add-image-list').append(/*html*/`
+                    <span class="position-relative" id="image-${imageCounter}">
+                        <button type="button" class="btn btn-outline-info bg-dark image-close border-0 rounded-0 shadow-sm text-light position-absolute" onclick="$(this).parent().remove()">&times;</button>
                         <img class="product-mul" src="${e.target.result}">
                     </span>
                 `);
+                images.push({
+                    'id': imageCounter,
+                    'file': file
+                });
+                imageCounter++;
+
+                const dataTransfer = new DataTransfer();
+                images.forEach((element) => {
+                    dataTransfer.items.add(element.file);
+                });
+                document.getElementById('images').files = dataTransfer.files;
             };
-            wishlistImages.push(element);
-            reader.readAsDataURL(element);
+            fileReader.readAsDataURL(file);
+
+        });
+
+        $(this).val('');
+
+    });
+
+    // Eliminar una imagen
+    $(document).on('click', '.image-close', function(event) {
+
+        const imageHTML = $(this).parent();
+        const id = Number(imageHTML.attr('id').split('-')[1]);
+
+        const deletedImage = images.filter((image) => {
+            return image.id === id;
+        })[0];
+
+        images.forEach((element, i) => {
+            if (element.id === deletedImage.id)
+            {
+                images.splice(i, 1);
+            }
+        });
+
+        imageHTML.remove();
+
+        const dataTransfer = new DataTransfer();
+        images.forEach((element) => {
+            dataTransfer.items.add(element.file);
+        });
+        document.getElementById('images').files = dataTransfer.files;
+
+        console.log(images);
+        console.log(images.length);
+
+    });
+
+
+
+
+    const editImages = [];
+    var editImageCounter = 0;
+    $('#edit-images-transfer').on('change', function(e) {
+
+        const files = $(this)[0].files;
+        $.each(files, function(i, file) {
+
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                $('#edit-image-list').append(`
+                    <span class="position-relative" id="image-${editImageCounter}">
+                        <button type="button" class="btn btn-outline-info bg-dark image-close border-0 rounded-0 shadow-sm text-light position-absolute" onclick="$(this).parent().remove()">&times;</button>
+                        <img class="product-mul" src="${e.target.result}">
+                    </span>
+                `);
+                editImages.push({
+                    'id': editImageCounter,
+                    'file': file
+                });
+                editImageCounter++;
+
+                const dataTransfer = new DataTransfer();
+                editImages.forEach((element) => {
+                    dataTransfer.items.add(element.file);
+                });
+                document.getElementById('edit-images').files = dataTransfer.files;
+            };
+            reader.readAsDataURL(file);
 
         });
 
@@ -281,7 +465,7 @@ $(document).ready(function() {
         if (parts.length === 2) return parts.pop().split(';').shift();
     }
 
-    $('#wishlist-form').submit(function(event) {
+    $('#add-wishlist-form').submit(function(event) {
 
         event.preventDefault();
 
@@ -291,7 +475,6 @@ $(document).ready(function() {
         }
 
         const requestBody = new FormData(this);
-        wishlistImages.forEach((image) => { requestBody.append('images', image); });
         console.log([...requestBody]);
 
         modal = document.getElementById('create-wishlist');
@@ -342,6 +525,11 @@ $(document).ready(function() {
 
         event.preventDefault();
 
+        let validations = $(this).valid();
+        if (validations === false) {
+            return;
+        }
+
         const requestBody = new FormData(this);
 
         const wishlist = new Wishlist(
@@ -364,6 +552,23 @@ $(document).ready(function() {
             :
             /*html*/`<i class="fas fa-lock"></i> Privada</p>`
         );
+
+        let cardBody = $(editCard).parent().find('.carousel .carousel-inner');
+        $(cardBody).html('');
+        $('#edit-image-list').children('span').each(function(i, element) {
+
+            const dataURL = $(element).find('.product-mul').attr('src');
+            const imagesHTML = /*html*/`
+            <div class="carousel-item${(i == 0 ? " active" : "")}" data-bs-interval="10000">
+                <div class="ratio ratio-4x3">
+                    <img src="${dataURL}" class="card-img-top w-100 h-100">
+                </div>
+            </div>
+            `;
+            $(cardBody).append(imagesHTML);
+
+
+        });
 
         Toast.fire({
             icon: 'success',

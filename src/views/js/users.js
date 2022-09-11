@@ -4,8 +4,8 @@ const userRow = /*html*/`
         <td><img class="img-fluid rounded-circle" width="40" height="40" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg"> Eliam</td>
         <td>eliam@correo.com</td>
         <td>
-            <button class="btn btn-primary shadow-none rounded-1"><i class="fa fa-pencil"></i></button>
-            <button class="btn btn-danger shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-user"><i class="fa fa-trash"></i></button>
+            <button class="btn btn-blue shadow-none rounded-1 edit-user" data-bs-toggle="modal" data-bs-target="#edit-user"><i class="fa fa-pencil"></i></button>
+            <button class="btn btn-red shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-user"><i class="fa fa-trash"></i></button>
         </td>
     </tr>
     `;
@@ -17,19 +17,19 @@ $(document).ready(function() {
     var table = $('#table-users').DataTable({
         responsive: true,
         bAutoWidth: false,
-        "language": {
-            "lengthMenu": "Mostrar _MENU_ registros",
-            "zeroRecords": "No se encontró información",
-            "info": "Mostrando página _PAGE_ de _PAGES_",
-            "infoEmpty": "No hay registros disponibles",
-            "infoFiltered": "(Filtrados _MAX_ registros en total)",
-            "paginate": {
-                "first":      "Primero",
-                "last":       "Último",
-                "next":       "Siguiente",
-                "previous":   "Anterior"
+        language: {
+            lengthMenu: "Mostrar _MENU_ registros",
+            zeroRecords: "No se encontró información",
+            info: "Mostrando página _PAGE_ de _PAGES_",
+            infoEmpty: "No hay registros disponibles",
+            infoFiltered: "(Filtrados _MAX_ registros en total)",
+            paginate: {
+                first:      "Primero",
+                last:       "Último",
+                next:       "Siguiente",
+                previous:   "Anterior"
             },
-            "search":         "Buscar:"
+            search:         "Buscar:"
         }
     });
 
@@ -456,6 +456,10 @@ $(document).ready(function() {
                 console.log(status);
             }
         });
+
+    });
+
+    $('.edit-user').click(function() {
 
     });
 

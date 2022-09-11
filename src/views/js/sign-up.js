@@ -18,7 +18,7 @@ $(document).ready(function() {
 
     // Username
     $.validator.addMethod("username", function(value, element) {
-        return this.optional(element) || /^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$/.test(value);
+        return this.optional(element) || /^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){2,18}$/.test(value);
     }, 'Please enter a valid username');
 
     // Data size (no puede pesar mas de 8MB)
@@ -152,7 +152,7 @@ $(document).ready(function() {
                 dateRange: 'La fecha de nacimiento no puede ser antes de la fecha actual'
             },
             'gender': {
-                required: 'El género no puede estar vacío.'
+                required: 'El sexo no puede estar vacío.'
             },
             'password': {
                 required: 'La contraseña no puede estar vacía.',
