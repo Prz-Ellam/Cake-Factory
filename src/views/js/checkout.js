@@ -129,6 +129,8 @@ $(document).ready(function() {
 
         event.preventDefault();
 
+        console.log($(this).serialize());
+
         console.log('Enviando el msform');
 
     });

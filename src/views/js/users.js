@@ -5,12 +5,12 @@ const userRow = /*html*/`
         <td>eliam@correo.com</td>
         <td>
             <button class="btn btn-blue shadow-none rounded-1 edit-user" data-bs-toggle="modal" data-bs-target="#edit-user"><i class="fa fa-pencil"></i></button>
-            <button class="btn btn-red shadow-none rounded-1" data-bs-toggle="modal" data-bs-target="#delete-user"><i class="fa fa-trash"></i></button>
+            <button class="btn btn-red shadow-none rounded-1 btn-delete" data-bs-toggle="modal" data-bs-target="#delete-user"><i class="fa fa-trash"></i></button>
         </td>
     </tr>
     `;
 
-    for (let i = 0; i < 20; i++) $('#table-users tbody').append(userRow);
+    for (let i = 0; i < 8; i++) $('#table-users tbody').append(userRow);
 
 $(document).ready(function() {
 
@@ -98,7 +98,22 @@ $(document).ready(function() {
         $('.side-bar').toggleClass('active');
     });
 
-    
+    var row;
+    $(document).on('click', '.btn-delete', function() {
+
+        row = $(this).closest('tr');
+
+    });
+
+    $('#btn-delete-user').click(function() {
+
+        table.row(row).remove().draw();
+
+        modal = document.getElementById('delete-user');
+        modalInstance = bootstrap.Modal.getInstance(modal);
+        modalInstance.hide();
+
+    });
 
 
 
