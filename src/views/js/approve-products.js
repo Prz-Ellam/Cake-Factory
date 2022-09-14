@@ -26,12 +26,12 @@ $(document).ready(function() {
         showCloseButton: true,
         timer: 1500,
         didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer)
-          toast.addEventListener('mouseleave', Swal.resumeTimer)
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
     });
 
-    $('#btn-side-bar').click(function() {
+    $('.btn-side-bar').click(function() {
         $('.side-bar').toggleClass('active');
     });
 

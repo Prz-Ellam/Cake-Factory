@@ -2,51 +2,41 @@ $(document).ready(function() {
 
     var detailedSalesReport = $('#detailed-sales-report').DataTable({
         responsive: true,
-        "bAutoWidth": false,
-        "language": {
-            "lengthMenu": "Mostrar _MENU_ registros",
-            "zeroRecords": "No se encontró información",
-            "info": "Mostrando página _PAGE_ de _PAGES_",
-            "infoEmpty": "No hay registros disponibles",
-            "infoFiltered": "(Filtrados _MAX_ registros en total)",
-            "paginate": {
-                "first":      "Primero",
-                "last":       "Último",
-                "next":       "Siguiente",
-                "previous":   "Anterior"
+        bAutoWidth: false,
+        language: {
+            lengthMenu: "Mostrar _MENU_ registros",
+            zeroRecords: "No se encontró información",
+            info: "Mostrando página _PAGE_ de _PAGES_",
+            infoEmpty: "No hay registros disponibles",
+            infoFiltered: "(Filtrados _MAX_ registros en total)",
+            paginate: {
+                first:      "Primero",
+                last:       "Último",
+                next:       "Siguiente",
+                previous:   "Anterior"
             },
-            "search":         "Buscar:"
+            search:         "Buscar:"
         }
     });
     var groupSalesReport = $('#group-sales-report').DataTable({
         responsive: true,
-        "bAutoWidth": false,
-        "language": {
-            "lengthMenu": "Mostrar _MENU_ registros",
-            "zeroRecords": "No se encontró información",
-            "info": "Mostrando página _PAGE_ de _PAGES_",
-            "infoEmpty": "No hay registros disponibles",
-            "infoFiltered": "(Filtrados _MAX_ registros en total)",
-            "paginate": {
-                "first":      "Primero",
-                "last":       "Último",
-                "next":       "Siguiente",
-                "previous":   "Anterior"
+        bAutoWidth: false,
+        language: {
+            lengthMenu: "Mostrar _MENU_ registros",
+            zeroRecords: "No se encontró información",
+            info: "Mostrando página _PAGE_ de _PAGES_",
+            infoEmpty: "No hay registros disponibles",
+            infoFiltered: "(Filtrados _MAX_ registros en total)",
+            paginate: {
+                first:      "Primero",
+                last:       "Último",
+                next:       "Siguiente",
+                previous:   "Anterior"
             },
-            "search":         "Buscar:"
+            search:         "Buscar:"
         }
     });
-/*
-    for (let i = 0; i < 10; i++)
-    {
-        detailedSalesReport.row.add(['7', '7', '7', '7', '7', '7']).draw();
-    }
 
-    for (let i = 0; i < 10; i++)
-    {
-        groupSalesReport.row.add(['7', '7', '7', '7', '7', '7']).draw();
-    }
-*/
 });
 
 const labels = [

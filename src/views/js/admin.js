@@ -39,7 +39,7 @@ $(document).ready(function() {
         config
     );
 
-    $('#btn-side-bar').click(function() {
+    $('.btn-side-bar').click(function() {
         $('.side-bar').toggleClass('active');
     });
 

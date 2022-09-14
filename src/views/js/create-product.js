@@ -45,6 +45,8 @@ $(document).ready(function() {
 
         });
 
+        $(this).val('');
+
     });
 
     $(document).on('click', '.image-close', function(event) {
@@ -105,6 +107,8 @@ $(document).ready(function() {
             reader.readAsDataURL(file);
 
         });
+
+        $(this).val('');
 
     });
 
@@ -285,22 +289,6 @@ $(document).ready(function() {
         e.preventDefault();
 
         let validations = $(this).valid();
-/*
-        let valids = true;
-        if (images.length < 3)
-        {
-            const element = $('#images');
-            const error = $.parseHTML('<small>La cantidad de imagenes debe ser mínimo 3</small>')
-            $(error).insertAfter($('#images').parent().next()).addClass('text-danger').addClass('form-text').attr('id', element[0].id + '-error-label');
-            valids = false;
-        }
-
-        if (videos.length < 1)
-        {
-            console.log('Faltan videos');
-            valids = false;
-        }
-*/
         if (validations === false) {
             return;
         }

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cake Factory</title>
 
@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
 
     <!-- Bootstrap 5.0.0 -->
-    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" integrity="sha256-BAg/zs3Z4ZsqzR4Ac0N6oHyY0jDwGY1/H9RwqyIP72Q=" crossorigin="anonymous">
+    <link rel="stylesheet" href="vendor/node_modules/bootstrap/dist/css/bootstrap.min.css">
     
     <!-- Data Tables Bootstrap -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
@@ -19,9 +19,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     
-    <link type="text/css" href="./styles/navbar.css" rel="stylesheet">
-    <link type="text/css" href="./styles/layout.css" rel="stylesheet">
-    <link type="text/css" href="./styles/footer.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="./styles/layout.css">
+    <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/colors.css">
 </head>
 <body>
@@ -187,8 +187,8 @@
         <br>
         <br>
 
-        <button class="btn btn-primary shadow-none rounded-1"><i class="fa fa-file-csv"></i>CSV</button>
-        <button class="btn btn-primary shadow-none rounded-1"><i class="fa fa-file-pdf"></i>PDF</button>
+        <button class="btn btn-orange shadow-none rounded-1"><i class="fa fa-file-csv"></i> CSV</button>
+        <button class="btn btn-orange shadow-none rounded-1"><i class="fa fa-file-pdf"></i> PDF</button>
 
         <canvas id="myChart"></canvas>
 
@@ -267,14 +267,14 @@
     </footer>
 
     <!-- jQuery 3.6.0 -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
+    <script src="vendor/node_modules/jquery/dist/jquery.min.js"></script>
+    
     <!-- jQuery Validation 1.19.5 -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js" integrity="sha256-JwUksNJ6/R07ZiLRoXbGeNrtlFZMFDKX4hemPiHOmCA=" crossorigin="anonymous"></script>
-
+    <script src="vendor/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    
     <!-- Bootstrap 5.0.0 -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha256-OfO3ch+7fm8bGjUgiOC3e3ALf0qsb5Zk9lk33+pSqEM=" crossorigin="anonymous"></script>
-       
+    <script src="vendor/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    
     <!-- jQuery DataTable -->
     <script src="http://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
@@ -285,7 +285,7 @@
     <script src="https://kit.fontawesome.com/48ce36e499.js" crossorigin="anonymous"></script>
 
     <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="vendor/node_modules/chart.js/dist/chart.min.js"></script>
 
     <!-- JavaScript -->
     <script src="./js/sales-report.js"></script>

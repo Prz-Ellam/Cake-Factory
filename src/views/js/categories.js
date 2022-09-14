@@ -31,7 +31,7 @@ $(document).ready(function() {
     $('.form-select').addClass('shadow-none');
     $('.page-link').addClass('shadow-none');
 
-    $('#btn-side-bar').click(function() {
+    $('.btn-side-bar').click(function() {
         $('.side-bar').toggleClass('active');
     });
 

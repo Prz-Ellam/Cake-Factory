@@ -21,7 +21,7 @@
     background-repeat: no-repeat;
 }
 
-.rating__star {
+.rating-star {
     cursor: pointer;
     color: #dabd18b2;
 }

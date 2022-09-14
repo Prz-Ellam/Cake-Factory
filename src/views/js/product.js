@@ -44,13 +44,13 @@ $(document).ready(function() {
     
         //let position = $(this).position();
         let starIndex = parseInt($(this).attr('value'));
-    
-        for (let i = starIndex; i > 0; i--) {
-            stars[i - 1].className = 'rating__star fas fa-star';
+
+        for (let i = 0; i < 5; i++) {
+            stars[i].className = 'rating-star far fa-star';
         }
         
-        for (let i = starIndex; i < 6; i++) {
-            stars[i].className = 'rating__star far fa-star';
+        for (let i = starIndex; i > 0; i--) {
+            stars[i - 1].className = 'rating-star fas fa-star';
         }
         
     });
@@ -128,11 +128,11 @@ $(document).ready(function() {
             <div class="col-9">
                 <a href="/sandbox" class="mt-0 me-1">Eliam Rodríguez Pérez</a>
                 <span class="rating">
-                    <i class="rating__star far fa-star" value="1"></i>
-                    <i class="rating__star far fa-star" value="2"></i>
-                    <i class="rating__star far fa-star" value="3"></i>
-                    <i class="rating__star far fa-star" value="4"></i>
-                    <i class="rating__star far fa-star" value="5"></i>
+                    <i class="rating-star far fa-star" value="1"></i>
+                    <i class="rating-star far fa-star" value="2"></i>
+                    <i class="rating-star far fa-star" value="3"></i>
+                    <i class="rating-star far fa-star" value="4"></i>
+                    <i class="rating-star far fa-star" value="5"></i>
                 </span>
                 <p class="mb-0">${text}</p>
                 <small>${new Date().toUTCString()}</small><br>

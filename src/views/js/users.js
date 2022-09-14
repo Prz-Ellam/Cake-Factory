@@ -33,6 +33,10 @@ $(document).ready(function() {
         }
     });
 
+    $('.form-control').addClass('shadow-none');
+    $('.form-select').addClass('shadow-none');
+    $('.page-link').addClass('shadow-none');
+
     $('#user-form').validate({
         rules: {
             'email': {
@@ -179,6 +183,137 @@ $(document).ready(function() {
     }, 'Please enter a valid input');
 
     $('#admin-form').validate({
+        rules: {
+            'profile-picture': {
+                required: true,
+                filesize: 8
+            },
+            'email': {
+                required: true,
+                email: false,
+                email5322: true,
+                remote: {
+                    type: 'POST',
+                    url: 'api/v1/isEmailAvailable',
+                    data: {
+                        'email': function() { return $('#email').val() }
+                    },
+                    dataType: 'json'
+                }
+            },
+            'username': {
+                required: true,
+                username: true,
+                remote: {
+                    type: 'POST',
+                    url: 'api/v1/isUsernameAvailable',
+                    data: {
+                        'username': function() { return $('#username').val() }
+                    },
+                    dataType: 'json'
+                }
+            },
+            'first-name': {
+                required: true
+            },
+            'last-name': {
+                required: true
+            },
+            'visibility': {
+                required: true
+            },
+            'gender': {
+                required: true
+            },
+            'birth-date': {
+                required: true,
+                date: true,
+                dateRange: [ '1900-01-01', dateFormat ]
+            },
+            'password': {
+                required: true,
+                minlength: 8,
+                lower: true,
+                upper: true,
+                numbers: true,
+                specialchars: true
+            },
+            'confirm-password': {
+                required: true,
+                equalTo: '#password' // Igual que la contraseña
+            }
+        },
+        messages: {
+            'profile-picture': {
+                required: 'La foto de perfil no puede estar vacía.',
+                filesize: 'El archivo es demasiado pesado (máximo de 8MB)'
+            },
+            'email': {
+                required: 'El correo electrónico no puede estar vacío.',
+                email5322: 'El correo electrónico que ingresó no es válido.',
+                remote: 'El correo electrónico está siendo usado por alguien más.'
+            },
+            'username': {
+                required: 'El nombre de usuario no puede estar vacío.',
+                username: 'El nombre de usuario debe contener más de 3 caracteres',
+                remote: 'El nombre de usuario está siendo usado por alguien más.'
+            },
+            'first-name': {
+                required: 'El nombre no puede estar vacío.'
+            },
+            'last-name': {
+                required: 'El apellido no puede estar vacío.'
+            },
+            'visibility': {
+                required: 'La visibilidad de usuario es requerida'
+            },
+            'birth-date': {
+                required: 'La fecha de nacimiento no puede estar vacía.',
+                date: 'La fecha de nacimiento debe tener formato de fecha.',
+                dateRange: 'La fecha de nacimiento no puede ser antes de la fecha actual'
+            },
+            'gender': {
+                required: 'El género no puede estar vacío.'
+            },
+            'password': {
+                required: 'La contraseña no puede estar vacía.',
+                minlength: 'Faltan requerimentos de la contraseña',
+                lower: 'Faltan requerimentos de la contraseña',
+                upper: 'Faltan requerimentos de la contraseña',
+                numbers: 'Faltan requerimentos de la contraseña',
+                specialchars: 'Faltan requerimentos de la contraseña'
+            },
+            'confirm-password': {
+                required: 'Confirmar contraseña no puede estar vacío.',
+                equalTo: 'Confirmar contraseña no coincide con contraseña'
+            }
+        },
+        errorElement: 'small',
+        errorPlacement: function(error, element) {
+
+            if ($(element)[0].name === 'gender')
+            {
+                error.insertAfter(element.parent().parent()).addClass('text-danger').addClass('form-text').attr('id', element[0].id + '-error-label');
+                return;
+            }
+
+            if ($(element)[0].name === 'profile-picture')
+            {
+                error.insertAfter(element).addClass('text-danger').addClass('form-text').attr('id', element[0].id + '-error-label');
+                return;
+            }
+
+            error.insertAfter(element.parent()).addClass('text-danger').addClass('form-text').attr('id', element[0].id + '-error-label');
+        },
+        highlight: function(element, errorClass, validClass) {
+            //$(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        unhighlight: function(element, errorClass, validClass) {
+            //$(element).addClass('is-valid').removeClass('is-invalid');
+        }
+    });
+
+    $('#edit-user-form').validate({
         rules: {
             'profile-picture': {
                 required: true,
@@ -465,7 +600,7 @@ $(document).ready(function() {
             success: function(response) {
                 // Debe devolver un token con el inicio de sesion
                 console.log(response);
-                //window.location.href = "http://localhost:8080/Cake-Factory/home";
+                //window.location.href = "http://localhost:8080/home";
             },
             error: function(response, status, error) {
                 console.log(status);
@@ -474,10 +609,19 @@ $(document).ready(function() {
 
     });
 
-    $('.edit-user').click(function() {
+
+    $(document).on('click', '.edit-user', function() {
+
+        row = $(this).closest('tr');
+
+        const data = table.row(row).data();
 
     });
 
-    
+    $('#edit-user-form').submit(function(event) {
+
+        event.preventDefault();
+
+    });
 
 });

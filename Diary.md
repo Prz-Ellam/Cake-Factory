@@ -31,3 +31,8 @@ Mayus y minus en contraseña
 Buscar la forma de que las img con texto se vea bonito
 
 https://pqina.nl/blog/set-value-to-file-input/
+
+
+
+TODO:
+Arreglar lo de los videos de crear productos

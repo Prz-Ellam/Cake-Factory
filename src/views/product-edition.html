@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cake Factory</title>
 
@@ -10,17 +10,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
     
     <!-- Bootstrap 5.0.0 -->
-    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" integrity="sha256-BAg/zs3Z4ZsqzR4Ac0N6oHyY0jDwGY1/H9RwqyIP72Q=" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="vendor/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    
     <!-- Multiple Select -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/multiple-select@1.5.2/dist/multiple-select.min.css" integrity="sha256-YxMnAq0wFCBOIF/R4MKL4FKRmadnH3co4oeTjIuyvQw=" crossorigin="anonymous">
 
     <!-- CSS -->
     <link rel="stylesheet" href="./styles/colors.css">
-    <link href="./styles/navbar.css" rel="stylesheet">
-    <link href="./styles/layout.css" rel="stylesheet">
-    <link href="./styles/product.css" rel="stylesheet">
-    <link href="./styles/footer.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="./styles/layout.css">
+    <link rel="stylesheet" href="./styles/product.css">
+    <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/create-product.css">
 </head>
 <body>
@@ -161,7 +161,7 @@
                         <input type="file" class="form-control shadow-none position-absolute" style="scale: 0.01" name="videos" id="videos" multiple accept="video/*">
                         <input type="file" id="videos-transfer" class="d-none" multiple accept="video/*">
                     </div>
-                    <div class="mb-4" style="overflow-x: scroll; width: 100%; white-space: nowrap;" id="video-list">    
+                    <div class="my-4" style="overflow-x: scroll; width: 100%; white-space: nowrap;" id="video-list">    
                     </div>
                 </div>
 
@@ -288,23 +288,20 @@
     </footer>
 
     <!-- jQuery 3.6.0 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="vendor/node_modules/jquery/dist/jquery.min.js"></script>
     
-    <!-- Validate -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- jQuery Validation 1.19.5 -->
+    <script src="vendor/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
     
     <!-- Multiple Select -->
     <script src="https://cdn.jsdelivr.net/npm/multiple-select@1.5.2/dist/multiple-select.min.js" integrity="sha256-/ixPJEsGUy6zxPajUyYJzTku8pewWocmddp4W4El13A=" crossorigin="anonymous"></script>
 
     <!-- Bootstrap 5.0.0 -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha256-OfO3ch+7fm8bGjUgiOC3e3ALf0qsb5Zk9lk33+pSqEM=" crossorigin="anonymous"></script>
-
+    <script src="vendor/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/48ce36e499.js" crossorigin="anonymous"></script>
     
-    <!-- Owl Carousel -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     <script src="./js/product-edition.js"></script>
 </body>
 </html>

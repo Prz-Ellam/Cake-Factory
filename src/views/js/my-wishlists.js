@@ -69,11 +69,11 @@ function WishlistCard(wishlist) {
 const wishlistCard = /*html*/`
 <div class="col-12 col-md-6 col-lg-4 mb-5 d-flex align-items-stretch">
     <div class="card mx-auto" style="width: 18rem;">
-        <div class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel slide" data-bs-ride="carousel" role="button">
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="10000">
                     <div class="ratio ratio-4x3">
-                        <img src="https://images.hola.com/imagenes/cocina/recetas/20191017151958/ramen-pollo-huevo-cebollino-soja/0-734-730/ramen-adobe-m.jpg" class="card-img-top w-100 h-100">
+                        <img src="assets/img/wishlist.png" class="card-img-top w-100 h-100">
                     </div>
                 </div>
             </div>
@@ -492,9 +492,9 @@ $(document).ready(function() {
                 );
 
                 $('#wishlist-container').append(WishlistCard(wishlist));
-                $('#wishlist-name').val('');
-                $('#wishlist-description').val('');
-                $('#wishlist-visibility').val('');
+                $('#add-wishlist-name').val('');
+                $('#add-wishlist-description').val('');
+                $('#add-wishlist-visibility').val('');
                 
             }
         });

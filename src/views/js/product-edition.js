@@ -133,6 +133,8 @@ $(document).ready(function() {
 
         });
 
+        $(this).val('');
+
     });
 
     $(document).on('click', '.image-close', function(event) {
@@ -193,6 +195,8 @@ $(document).ready(function() {
             reader.readAsDataURL(file);
 
         });
+
+        $(this).val('');
 
     });
 
