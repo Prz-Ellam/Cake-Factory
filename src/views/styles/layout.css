@@ -20,7 +20,7 @@
     background-color: #FF5E1F !important;
     border: 1px solid #FF5E1F !important;
 }
-
+/*
 .orange:hover, .bg-orange:hover, .bg-orange:checked, .bg-orange:visited {
     background-color: #c44817 !important;
     border: 1px solid #c44817 !important;
@@ -30,7 +30,7 @@
     background-color: #a53d13 !important;
     border: 1px solid #a53d13 !important;
 }
-
+*/
 /* Este estilo es para el boton gris */
 .bg-gray, .bg-gray:visited {
     background-color: #ededed !important;

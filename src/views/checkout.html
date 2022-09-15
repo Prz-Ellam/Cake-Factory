@@ -169,7 +169,7 @@
                         </fieldset>
 
                         <fieldset>
-                            <div class="form-card row">
+                            <div class="form-card">
 
                                 <div class="text-center col-12 mb-4">
                                     <h2 class="form-title text-center h2 mb-4">Método de pago</h2>
@@ -177,39 +177,55 @@
 
                                 <div class="col-12 mb-4">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                        <label class="form-check-label" for="flexRadioDefault1">Tarjeta de crédito</label>
+                                        <input class="custom-control-input form-check-input shadow-none" type="radio" name="flexRadioDefault" id="radio-card">
+                                        <label class="form-check-label" for="radio-card">Tarjeta de crédito</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                                        <label class="form-check-label" for="flexRadioDefault2">Paypal</label>
+                                        <input class="custom-control-input form-check-input shadow-none" type="radio" name="flexRadioDefault" id="radio-paypal">
+                                        <label class="form-check-label" for="radio-paypal">Paypal</label>
                                     </div>
                                 </div>
 
-                                <div class="col-12 mb-4">
-                                    <label>Número de tarjeta</label>
-                                    <input class="form-control shadow-none" type="text" name="card-number">
-                                </div>
-                            
-                                <div class="col-lg-6 mb-4">
-                                    <label>Fecha de vencimiento</label>
-                                    <div class="input-group col-12 px-0">
-                                        <select class="form-select shadow-none" name="exp-year">
-                                            <option>Año</option>
-                                        </select>
-                                        <select class="form-select shadow-none" name="exp-month">
-                                            <option>Mes</option>
-                                        </select>
+                                <span id="card-section" class="d-none row">
+                                    <div class="col-12 mb-4">
+                                        <label>Número de tarjeta</label>
+                                        <input class="form-control shadow-none" type="text" name="card-number">
                                     </div>
-                                </div>
-    
-                                <div class="form-group col-lg-6 mb-4" name="cvv">
-                                    <label>Código de seguridad</label>
-                                    <input class="form-control shadow-none" type="text">
-                                </div>
+                                    
+                                    <div class="col-lg-6 mb-4">
+                                        <label>Fecha de vencimiento</label>
+                                        <div class="input-group col-12 px-0">
+                                            <select class="form-select shadow-none" name="exp-year">
+                                                <option>Año</option>
+                                                <option value="2022">2022</option>
+                                            </select>
+                                            <select class="form-select shadow-none" name="exp-month">
+                                                <option>Mes</option>
+                                                <option value="1">Enero</option>
+                                                <option value="2">Febrero</option>
+                                                <option value="3">Marzo</option>
+                                                <option value="4">Abril</option>
+                                                <option value="5">Mayo</option>
+                                                <option value="6">Junio</option>
+                                                <option value="7">Julio</option>
+                                                <option value="8">Agosto</option>
+                                                <option value="9">Septiembre</option>
+                                                <option value="10">Octubre</option>
+                                                <option value="11">Noviembre</option>
+                                                <option value="12">Diciembre</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group col-lg-6 mb-4" name="cvv">
+                                        <label>Código de seguridad</label>
+                                        <input class="form-control shadow-none" type="text">
+                                    </div>
+                                </span>
 
-
-                                <button class="btn btn-warning w-100 rounded-1 shadow-none">Paypal</button>
+                                <div id="paypal-section">
+                                    <button class="btn btn-warning w-100 rounded-1 shadow-none d-none">Paypal</button>
+                                </div>
 
                             </div> 
                             <input type="button" name="previous" class="previous btn btn-orange shadow-none rounded-1" value="Regresar">

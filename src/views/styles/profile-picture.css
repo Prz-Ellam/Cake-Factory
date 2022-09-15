@@ -18,6 +18,6 @@
     background-color: rgba(48, 133, 214, 0.5);
 }
 
-#profile-picture {
+#profile-picture, #edit-profile-picture {
     scale: 0.01;
 }

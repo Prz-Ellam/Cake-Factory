@@ -2,6 +2,7 @@
     min-width: 225px;
     max-width: 225px;
     transition: all 0.2s;
+    position: relative;
 }
 
 .content {
@@ -19,7 +20,7 @@
         margin-left: -225px;
         position: fixed;
         min-height: 100vh;
-        z-index: 1;
+        z-index: 5;
     }
 
     .side-bar.active {

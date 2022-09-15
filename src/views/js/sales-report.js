@@ -37,6 +37,10 @@ $(document).ready(function() {
         }
     });
 
+    $('.form-control').addClass('shadow-none');
+    $('.form-select').addClass('shadow-none');
+    $('.page-link').addClass('shadow-none');
+
 });
 
 const labels = [

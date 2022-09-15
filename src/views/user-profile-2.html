@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     
     <!-- Sweet Alert -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.28/sweetalert2.min.css" integrity="sha512-yq+qDDTUuLA4zvJjuvcpV809SNmM0ReTyeadKsNvW0cSvGVfj3K20SdlkburwJHHdzuGDtFElBcxndjd7J3nrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="vendor/node_modules/sweetalert2/dist/sweetalert2.min.css">
 
     <link rel="stylesheet" href="./styles/navbar.css">
     <link rel="stylesheet" href="./styles/layout.css">
@@ -101,29 +101,28 @@
         <div class="row d-flex justify-content-center">
             <div class="bg-white rounded-1 p-sm-5 p-4 shadow-sm col-lg-12" id="profile-body">
                 
-               
-                    <!-- Media object -->
-                    <section class="w-100 px-3">
-                        <div class="row d-flex justify-content-center justify-content-md-start">
-                            <!-- Image -->
-                            <img
-                                src="https://sm.ign.com/ign_latam/news/s/super-mari/super-mario-64-source-code-leak-may-confirm-luigi-was-planne_zmhy.jpg"
-                                alt="John Doe"
-                                class="me-3 rounded-circle p-0 col-md-6 col-sm-12"
-                                style="width: 128px; height: 128px;"
-                            >
-                            <!-- Body -->
-                            <div class="col-md-6 col-sm-12 p-0 text-center text-md-start">
-                                <h1 class="h1">Prz-Ellam</h1>
-                                <p class="h5">eliam@correo.com</p>
-                                <p class="h5">Eliam Rodríguez Pérez</p>
-                            </div>
+                <!-- Media object -->
+                <section class="w-100 px-3">
+                    <div class="row d-flex justify-content-center justify-content-md-start">
+                        <!-- Image -->
+                        <img
+                            src="assets/img/fragile.webp"
+                            alt="John Doe"
+                            class="me-3 rounded-circle p-0 col-md-6 col-sm-12"
+                            style="width: 128px; height: 128px;"
+                        >
+                        <!-- Body -->
+                        <div class="col-md-6 col-sm-12 p-0 text-center text-md-start">
+                            <h1 class="h1">Prz-Ellam</h1>
+                            <p class="h5">eliam@correo.com</p>
+                            <p class="h5">Eliam Rodríguez Pérez</p>
                         </div>
-                    </section>
-                    <!-- Media object -->
-                    <!-- https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-media-objects.php#:~:text=Bootstrap%20media%20object%20has%20been,flex%20and%20spacing%20utility%20classes. -->
+                    </div>
+                </section>
+                <!-- Media object -->
+                <!-- https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-media-objects.php#:~:text=Bootstrap%20media%20object%20has%20been,flex%20and%20spacing%20utility%20classes. -->
                     
-                    <hr class="mb-5">
+                <hr class="mb-5">
 
                 <div id="test-1" class="d-none">
                     <h1 class="text-brown text-center mb-4"><i class="fa fa-heart"></i> Listas de deseos</h1>
@@ -142,12 +141,10 @@
                     </nav>
                 </div>
 
-
                 <div id="test-2" class="d-none">
                     <h1 class="text-brown text-center mb-4"><i class="fa fa-heart"></i> Listas de deseos</h1>
                     <h4 class="text-brown text-center"><i class="fas fa-lock"></i> Esta cuenta es privada</h4>
                 </div>
-
 
                 <div id="test-3" class="d-none">
                     
@@ -194,9 +191,7 @@
                         </ul>
                     </nav>
                 </div>
-
             </div>
-
         </div>
     </section>
 
@@ -214,35 +209,35 @@
                                 <img src="./assets/img/E001S000031.jpg" class="img-fluid" alt="lay" style="max-width: 128px">
                                 Navideños
                             </span>
-                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                            <input class="custom-control-input form-check-input shadow-none me-1" type="checkbox" value="" aria-label="...">
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <span>
                                 <img src="./assets/img/E001S000031.jpg" class="img-fluid" alt="lay" style="max-width: 128px">
                                 Cumpleaños
                             </span>
-                            <input name="wishlists" class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                            <input class="custom-control-input form-check-input shadow-none me-1" type="checkbox" value="" aria-label="...">
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <span>
                                 <img src="./assets/img/E001S000031.jpg" class="img-fluid" alt="lay" style="max-width: 128px">
                                 Baby shower
                             </span>
-                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                            <input class="custom-control-input form-check-input shadow-none me-1" type="checkbox" value="" aria-label="...">
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <span>
                                 <img src="./assets/img/E001S000031.jpg" class="img-fluid" alt="lay" style="max-width: 128px">
                                 Para año nuevo
                             </span>
-                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                            <input class="custom-control-input form-check-input me-1" type="checkbox" value="" aria-label="...">
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <span>
                                 <img src="./assets/img/E001S000031.jpg" class="img-fluid" alt="lay" style="max-width: 128px">
                                 Para Rex
                             </span>
-                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                            <input class="custom-control-input form-check-input shadow-none me-1" type="checkbox" value="" aria-label="...">
                         </li>
 
                         <nav aria-label="Page navigation" class="mt-4 text-center d-flex justify-content-center">

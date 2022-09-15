@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="vendor/node_modules/bootstrap/dist/css/bootstrap.min.css">
     
     <!-- Sweet Alert -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.28/sweetalert2.min.css" integrity="sha512-yq+qDDTUuLA4zvJjuvcpV809SNmM0ReTyeadKsNvW0cSvGVfj3K20SdlkburwJHHdzuGDtFElBcxndjd7J3nrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="vendor/node_modules/sweetalert2/dist/sweetalert2.min.css">
 
     <!-- CSS -->
     <link rel="stylesheet" href="./styles/colors.css">
@@ -97,11 +97,8 @@
 
     <!-- Main container -->
     <div class="container my-4">
-        <!-- Flexbox -->
         <div class="row d-flex justify-content-center">
-            <!-- Grid System Form Card -->
             <form class="form bg-white rounded p-5 col-xl-6 col-lg-6 col-md-7" id="profile-form" novalidate>
-                <!-- Inputs -->
                 <h1 class="form-title text-center h2 mb-4">Perfil</h1>
 
                 <hr class="mb-4">
@@ -150,18 +147,18 @@
                 </div>
 
                 <div class="form-group mb-4">
-                    <label class="form-label" role="button">Género</label>
+                    <label class="form-label" role="button">Sexo</label>
                     <div>
                         <div class="form-check">
-                            <input class="form-check-input shadow-none" type="radio" name="gender" id="male">
+                            <input class="custom-control-input form-check-input shadow-none" type="radio" name="gender" id="male">
                             <label class="form-check-label" for="male" role="button">Masculino</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input shadow-none" type="radio" name="gender" id="female">
+                            <input class="custom-control-input form-check-input shadow-none" type="radio" name="gender" id="female">
                             <label class="form-check-label" for="female" role="button">Femenino</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input shadow-none" type="radio" name="gender" id="other">
+                            <input class="custom-control-input form-check-input shadow-none" type="radio" name="gender" id="other">
                             <label class="form-check-label" for="other" role="button">Otro</label>
                         </div>  
                     </div>  
@@ -206,13 +203,10 @@
                 </div>
             </div>
 
-    <!-- Main container -->
-    <div class="container my-5">
-        <!-- Flexbox -->
-        <div class="row d-flex justify-content-center">
-            <!-- Grid System -->
-                <!-- Form Card -->
-                <form class="form bg-white rounded p-5 col-xl-6 col-lg-6 col-md-7" id="password-form" method="get" action="#" novalidate>                        <!-- Inputs -->
+        <!-- Main container -->
+        <div class="container my-5">
+            <div class="row d-flex justify-content-center">
+                <form class="form bg-white shadow-sm rounded p-5 col-xl-6 col-lg-6 col-md-7" id="password-form" method="get" action="#" novalidate>                        <!-- Inputs -->
                     <div class="mb-4">
                         <h1 class="form-title text-center h2">Cambiar contraseña</h1>
                     </div>

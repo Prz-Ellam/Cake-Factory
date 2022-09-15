@@ -15,6 +15,10 @@ $(document).ready(function() {
         !(Date.parse(value) > Date.parse(parameter[1]) || Date.parse(value) < Date.parse(parameter[0]));
     }, 'Please enter a valid date');
 
+    $.validator.addMethod("username", function(value, element) {
+        return this.optional(element) || /^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){2,18}$/.test(value);
+    }, 'Please enter a valid username');
+
     // Data size (no puede pesar mas de 8MB)
     $.validator.addMethod('filesize', function(value, element, parameter) {
 
@@ -71,6 +75,7 @@ $(document).ready(function() {
             },
             'username': {
                 required: true,
+                username: true,
                 minlength: 3,
                 remote: {
                     type: 'POST',
@@ -108,6 +113,7 @@ $(document).ready(function() {
             },
             'username': {
                 required: 'El nombre de usuario no puede estar vacío.',
+                username: 'El nombre de usuario debe contener más de 3 caracteres',
                 minlength: 'El nombre de usuario debe contener más de 3 caracteres',
                 remote: 'El nombre de usuario está siendo usado por alguien más.'
             },

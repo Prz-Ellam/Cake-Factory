@@ -1,7 +1,9 @@
 const userRow = /*html*/`
     <tr role="button">
         <td scope="row">1</td>
-        <td><img class="img-fluid rounded-circle" width="40" height="40" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg"> Eliam</td>
+        <td>
+        <!--<img class="img-fluid rounded-circle" width="40" height="40" src="https://cdn.pixabay.com/user/2014/05/07/00-10-34-2_250x250.jpg"> -->
+        Eliam</td>
         <td>eliam@correo.com</td>
         <td>
             <button class="btn btn-blue shadow-none rounded-1 edit-user" data-bs-toggle="modal" data-bs-target="#edit-user"><i class="fa fa-pencil"></i></button>
@@ -37,68 +39,7 @@ $(document).ready(function() {
     $('.form-select').addClass('shadow-none');
     $('.page-link').addClass('shadow-none');
 
-    $('#user-form').validate({
-        rules: {
-            'email': {
-                required: true
-            },
-            'username': {
-                required: true
-            },
-            'first-name': {
-                required: true
-            },
-            'last-name': {
-                required: true
-            },
-            'birth-date': {
-                required: true
-            },
-            'password': {
-                required: true
-            },
-            'confirm-password': {
-                required: true
-            }
-        },
-        messages: {
-            'email': {
-                required: 'El correo electrónico no puede estar vacío.'
-            },
-            'username': {
-                required: 'El nombre de usuario no puede estar vacío.'
-            },
-            'first-name': {
-                required: 'El nombre no puede estar vacío.'
-            },
-            'last-name': {
-                required: 'El apellido no puede estar vacío.'
-            },
-            'birth-date': {
-                required: 'La fecha de nacimiento no puede estar vacía.'
-            },
-            'password': {
-                required: 'La contraseña no puede estar vacía.'
-            },
-            'confirm-password': {
-                required: 'Confirmar contraseña no puede estar vacío.'
-            }
-        }
-    });
-
-    $('#user-form').submit(function(e) {
-
-        e.preventDefault();
-
-        let validations = $('#user-form').valid();
-
-        if(validations === false) {
-            return;
-        }
-
-    });
-
-    $('#btn-side-bar').click(function() {
+    $('.btn-side-bar').click(function() {
         $('.side-bar').toggleClass('active');
     });
 
@@ -124,7 +65,7 @@ $(document).ready(function() {
     // Actual date
     var date = new Date();
     var dateFormat = date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0')
-    document.getElementById('birth-date').value = dateFormat;
+    document.getElementById('add-birth-date').value = dateFormat;
 
     // RFC
     $.validator.addMethod('email5322', function(value, element) {
@@ -240,7 +181,7 @@ $(document).ready(function() {
             },
             'confirm-password': {
                 required: true,
-                equalTo: '#password' // Igual que la contraseña
+                equalTo: '#add-password' // Igual que la contraseña
             }
         },
         messages: {
@@ -371,7 +312,7 @@ $(document).ready(function() {
             },
             'confirm-password': {
                 required: true,
-                equalTo: '#password' // Igual que la contraseña
+                equalTo: '#edit-password' // Igual que la contraseña
             }
         },
         messages: {
@@ -445,28 +386,54 @@ $(document).ready(function() {
     });
 
     $('#btn-password').click(function() {
-        let mode = $('#password').attr('type');
+        let mode = $('#add-password').attr('type');
 
         if (mode === 'password') {
-            $('#password').attr('type', 'text');
-            $('#password-icon').removeClass('fa-eye').addClass('fa-eye-slash');
+            $('#add-password').attr('type', 'text');
+            $('#add-password-icon').removeClass('fa-eye').addClass('fa-eye-slash');
         }
         else {
-            $('#password').attr('type', 'password');
-            $('#password-icon').removeClass('fa-eye-slash').addClass('fa-eye');
+            $('#add-password').attr('type', 'password');
+            $('#add-password-icon').removeClass('fa-eye-slash').addClass('fa-eye');
         }
     });
 
     $('#btn-confirm-password').click(function() {
-        let mode = $('#confirm-password').attr('type');
+        let mode = $('#add-confirm-password').attr('type');
 
         if (mode === 'password') {
-            $('#confirm-password').attr('type', 'text');
-            $('#confirm-password-icon').removeClass('fa-eye').addClass('fa-eye-slash');
+            $('#add-confirm-password').attr('type', 'text');
+            $('#add-confirm-password-icon').removeClass('fa-eye').addClass('fa-eye-slash');
         }
         else {
-            $('#confirm-password').attr('type', 'password');
-            $('#confirm-password-icon').removeClass('fa-eye-slash').addClass('fa-eye');
+            $('#add-confirm-password').attr('type', 'password');
+            $('#add-confirm-password-icon').removeClass('fa-eye-slash').addClass('fa-eye');
+        }
+    });
+
+    $('#btn-edit-password').click(function() {
+        let mode = $('#edit-password').attr('type');
+
+        if (mode === 'password') {
+            $('#edit-password').attr('type', 'text');
+            $('#edit-password-icon').removeClass('fa-eye').addClass('fa-eye-slash');
+        }
+        else {
+            $('#edit-password').attr('type', 'password');
+            $('#edit-password-icon').removeClass('fa-eye-slash').addClass('fa-eye');
+        }
+    });
+
+    $('#btn-edit-confirm-password').click(function() {
+        let mode = $('#edit-confirm-password').attr('type');
+
+        if (mode === 'password') {
+            $('#edit-confirm-password').attr('type', 'text');
+            $('#edit-confirm-password-icon').removeClass('fa-eye').addClass('fa-eye-slash');
+        }
+        else {
+            $('#edit-confirm-password').attr('type', 'password');
+            $('#edit-confirm-password-icon').removeClass('fa-eye-slash').addClass('fa-eye');
         }
     });
 
@@ -576,18 +543,30 @@ $(document).ready(function() {
         
     }
 
-    $('#password').password();
+    $('#add-password').password();
 
-    $('#admin-form').submit(function(e) {
+    $('#admin-form').submit(function(event) {
 
-        e.preventDefault();
+        event.preventDefault();
 
         if($(this).valid() === false) {
             return;
         }
 
+        modal = document.getElementById('add-user');
+        modalInstance = bootstrap.Modal.getInstance(modal);
+        modalInstance.hide();
+
         const requestBody = new FormData(this);
         console.log([...requestBody]);
+
+        table.row.add([
+            '1', 
+            requestBody.get('first-name'), 
+            requestBody.get('email'), 
+            `<button class="btn btn-blue shadow-none rounded-1 edit-user" data-bs-toggle="modal" data-bs-target="#edit-user"><i class="fa fa-pencil"></i></button>
+             <button class="btn btn-red shadow-none rounded-1 btn-delete" data-bs-toggle="modal" data-bs-target="#delete-user"><i class="fa fa-trash"></i></button>`
+        ]).draw();
         // Send Sign Up Request
         $.ajax({
             method: 'POST',
@@ -604,6 +583,9 @@ $(document).ready(function() {
             },
             error: function(response, status, error) {
                 console.log(status);
+            },
+            complete: function() {
+
             }
         });
 

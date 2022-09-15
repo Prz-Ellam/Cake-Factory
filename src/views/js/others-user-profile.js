@@ -2,7 +2,7 @@ const wishlistCard = /*html*/`
 <div class="col-12 col-md-6 col-lg-4 mb-5 d-flex align-items-stretch">
     <div class="card mx-auto" style="width: 18rem;">
         <div class="ratio ratio-4x3">
-            <img src="https://images.hola.com/imagenes/cocina/recetas/20191017151958/ramen-pollo-huevo-cebollino-soja/0-734-730/ramen-adobe-m.jpg" class="card-img-top w-100 h-100">
+            <img src="assets/img/wishlist.png" class="card-img-top w-100 h-100">
         </div>
         <div class="card-body">
             <h5 class="card-title">Nombre de la lista</h5>

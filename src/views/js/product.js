@@ -124,7 +124,7 @@ $(document).ready(function() {
 
         const html = /*html*/`
         <div class="d-flex">
-            <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;">
+            <img src="assets/img/fragile.webp" alt="John Doe" class="me-3 rounded-circle" style="width: 48px; height: 48px;">
             <div class="col-9">
                 <a href="/sandbox" class="mt-0 me-1">Eliam Rodríguez Pérez</a>
                 <span class="rating">

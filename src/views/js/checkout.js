@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+    $.validator.addMethod('email5322', function(value, element) {
+        return this.optional(element) || /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/.test(value);
+    }, 'Please enter a valid email');
+
     $('#msform').validate({
         rules: {
             'names': {
@@ -18,13 +22,17 @@ $(document).ready(function() {
                 required: true
             },
             'postal-code': {
-                required: true
+                required: true,
+                number: true
             },
             'email': {
-                required: true
+                required: true,
+                email: false,
+                email5322: true
             },
             'phone': {
-                required: true
+                required: true,
+                number: true
             }
         },
         messages: {
@@ -44,13 +52,16 @@ $(document).ready(function() {
                 required: 'El estado no puede estar vacío'
             },
             'postal-code': {
-                required: 'El código postal no puede estar vacío'
+                required: 'El código postal no puede estar vacío',
+                number: 'El código postal que ingresó no es válido'
             },
             'email': {
-                required: 'El correo electrónico no puede estar vacío'
+                required: 'El correo electrónico no puede estar vacío',
+                email5322: 'El correo electrónico que ingresó no es válido.'
             },
             'phone': {
-                required: 'El teléfono no puede estar vacío'
+                required: 'El teléfono no puede estar vacío',
+                number: 'El teléfono solo puede tener números'
             }
         },
         errorElement: 'small',
@@ -133,6 +144,16 @@ $(document).ready(function() {
 
         console.log('Enviando el msform');
 
+    });
+
+    $('#radio-card').click(function() {
+        $('#card-section').removeClass('d-none');
+        $('#paypal-section button').addClass('d-none');
+    });
+
+    $('#radio-paypal').click(function() {
+        $('#card-section').addClass('d-none');
+        $('#paypal-section button').removeClass('d-none');
     });
 
 });

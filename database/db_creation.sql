@@ -143,29 +143,26 @@ CREATE TABLE IF NOT EXISTS shopping_cart_items(
         PRIMARY KEY (shopping_cart_item_id)
 );
 
--- Orders
+-- Orders 
 CREATE TABLE IF NOT EXISTS orders(
     order_id                    INT NOT NULL AUTO_INCREMENT,    
     user_id                     INT NOT NULL,
+    phone                       VARCHAR(12) NOT NULL,
+    street                      VARCHAR(30) NOT NULL,
+    street_number               VARCHAR(30) NOT NULL,
+    city                        VARCHAR(30) NOT NULL,
+    state                       VARCHAR(30) NOT NULL,
+    postal_code                 VARCHAR(30) NOT NULL,
+    card_number                 VARCHAR(30) NOT NULL,
+    card_number_year            SMALLINT NOT NULL,
+    card_number_month           SMALLINT NOT NULL,
+    card_security_code          VARCHAR(200) NOT NULL,
     created_at                  TIMESTAMP NOT NULL DEFAULT NOW(),
     modified_at                 TIMESTAMP,
     active                      BOOLEAN NOT NULL DEFAULT TRUE,
     CONSTRAINT orders_pk
         PRIMARY KEY (order_id)
 );
-
-   --payment_method              VARCHAR(100),
-    --phone                       BOOLEAN,
-    --street                      BOOLEAN,
-    --number                      BOOLEAN,
-    --city                        BOOLEAN,
-    --state                       BOOLEAN,
-    --postal_code                 VARCHAR(6),
-
-    --card_number                 INT,
-    --`year`                      INT,
-    --`month`                     INT,
-    --security_code               INT,
 
 -- Shoppings
 CREATE TABLE IF NOT EXISTS shoppings(

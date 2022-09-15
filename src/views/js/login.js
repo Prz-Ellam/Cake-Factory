@@ -122,6 +122,11 @@ $(document).ready(function() {
 
         const requestBody = new FormData(this);
         console.log([...requestBody]);
+
+        const modal = document.getElementById('restore-password');
+        const modalInstance = bootstrap.Modal.getInstance(modal);
+        modalInstance.hide();
+
         return;
         $.ajax({
             method: 'POST',
